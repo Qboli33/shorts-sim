@@ -104,9 +104,8 @@ def _formant_voice(f0, F, dur, rng, K=16, breath=0.04):
     return out
 
 
-def _meow(f, rng):
+def _meow(f, rng, dur=0.55):
     """Miaou synthétique : montée puis descente de hauteur, voyelles i -> a -> ou."""
-    dur = 0.55
     n = int(SR * dur)
     t = np.linspace(0, 1, n)
     contour = 1 + 0.35 * np.sin(np.pi * np.minimum(1, t / 0.7)) - 0.25 * t
@@ -157,7 +156,7 @@ PACKS = ["meow", "meow", "meow", "boing", "boing", "quack", "squeak", "classic"]
 
 
 def render_audio(events, duration, time_of, root, seed, path, pack="classic", finale_frame=None, slow=None,
-                 max_voices=6, min_gap=0.035):
+                 max_voices=6, min_gap=0.035, pitch_by_note=False):
     """`time_of(frame)` donne l'instant de sortie (prise en compte du ralenti).
 
     Pack rigolo : rebonds et pops deviennent des miaous / boings / coin-coins / couics, de plus en plus
@@ -188,11 +187,13 @@ def render_audio(events, duration, time_of, root, seed, path, pack="classic", fi
                     continue
             else:
                 # Plus on approche de la fin, plus c'est grave (jusqu'à -1,6 octave).
-                step = int(round(prog * 16))
+                # pitch_by_note : la hauteur suit le niveau de l'objet (petit chaton aigu, gros chat grave).
+                step = min(18, int(ev.note * 1.6)) if pitch_by_note else int(round(prog * 16))
                 key = ("silly", step, ev.note % 3)
                 if key not in cache:
                     base = {"meow": 560, "boing": 520, "quack": 700, "squeak": 900}[pack]
-                    cache[key] = silly(base * 2 ** (-step / 10) * 2 ** ((ev.note % 3) / 12), rng)
+                    f = base * 2 ** (-step / 10) * 2 ** ((ev.note % 3) / 12)
+                    cache[key] = silly(f, rng, min(0.85, 0.32 + 0.03 * step)) if pack == "meow" else silly(f, rng)
                 w = cache[key] * 0.9
                 last_t["silly"] = t0
                 _add(mix, w, t0, ev.x, n)

@@ -48,6 +48,9 @@ def sample(rng):
         # Balle déjà assez grosse : chaque passage devant l'ouverture devient une vraie chance, pas une formalité.
         p["r0"] = float(RING_R * np.sin(p["gap_half"]) * rng.uniform(0.55, 0.7))
         p["growth"] = float(rng.uniform(0.6, 1.2))
+    if rng.random() < 0.35:              # parfois un chat qui grossit au lieu d'une balle
+        p["objects"] = "cats"
+        p["cat_level"] = int(rng.integers(10))
     p["title"] = TITLES[variant][rng.integers(len(TITLES[variant]))]
     p["overlay"] = OVERLAYS[variant][rng.integers(len(OVERLAYS[variant]))]
     return p
@@ -58,7 +61,7 @@ def _run(seed, p):
     R = RING_R
     b = Balls()
     ang = rng.uniform(0, 2 * np.pi)
-    b.add(CENTER + rng.uniform(-60, 60, 2), [np.cos(ang) * p["speed"], np.sin(ang) * p["speed"]], p["r0"], 0)
+    b.add(CENTER + rng.uniform(-60, 60, 2), [np.cos(ang) * p["speed"], np.sin(ang) * p["speed"]], p["r0"], p.get("cat_level", 0))
     col = bgr(NAMED[p["color"]])
     ring_col = bgr(p["theme"]["ring"])
     accent = bgr(p["theme"]["accent"])

@@ -7,7 +7,7 @@ Fin alternative « FULL! » si le cercle déborde.
 """
 import numpy as np
 
-from ..objects import PLANET_COLORS, PLANETS
+from .. import objects
 from ..palettes import bgr, pick_theme
 from ..physics import Balls, collide_balls, collide_ring
 from ..scene import RING_R, Timeline
@@ -17,32 +17,43 @@ from .common import (CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, durat
 NAME = "merge_balls"
 SUB = 10
 
-TITLES = ["Can it make {name}?", "Moon to {name}... can it get there?", "Merge planets until {name}?",
-          "Will it reach {name}?"]
+TITLES = {
+    "planets": ["Can it make {name}?", "Moon to {name}... can it get there?", "Merge planets until {name}?",
+                "Will it reach {name}?"],
+    "cats": ["Can it make {name}?", "Kitten to {name}... can it get there?", "Merge cats until {name}?",
+             "Will it reach {name}?"],
+}
 
 
-def _with_article(name):
-    return f"the {name.title()}" if name in ("MOON", "SUN") else name.title()
+def _with_article(oset, name):
+    if oset == "cats" or name in ("MOON", "SUN"):
+        return f"the {name.title()}"
+    return name.title()
 
 
-DESCRIPTIONS = ["Two identical planets merge into the next one, all the way up to the Sun?",
-                "From the Moon to the Sun, one merge at a time.", "Same planets fuse together under gravity."]
-HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#planets", "#merge"]
+DESCRIPTIONS = {
+    "planets": ["Two identical planets merge into the next one, all the way up to the Sun?",
+                "From the Moon to the Sun, one merge at a time.", "Same planets fuse together under gravity."],
+    "cats": ["Two identical cats merge into a bigger cat. Meow!", "From tiny kitten to King Cat, one merge at a time.",
+             "Same cats fuse together. Each one meows a little deeper."],
+}
+HASHTAGS = {"planets": ["#shorts", "#satisfying", "#simulation", "#planets", "#merge"],
+            "cats": ["#shorts", "#cat", "#satisfying", "#simulation", "#funny"]}
 OVERLAYS = ["", "", "{name}?", ""]
 
 
 def sample(rng):
     return dict(
         theme=pick_theme(rng),
-        objects="planets",
+        objects=str(rng.choice(objects.SETS)),
         root=int(rng.integers(55, 66)),
         r0=float(rng.uniform(22, 30)),
         ratio=float(rng.uniform(1.22, 1.3)),
-        gravity=float(rng.uniform(1600, 2600)),
+        gravity=float(rng.uniform(650, 1100)),     # chute lente (demande du 2026-10-24)
         spawn0=float(rng.uniform(0.22, 0.34)),
         spawn1=float(rng.uniform(0.10, 0.16)),
         p_levels=[0.5, 0.3, 0.2] if rng.random() < 0.5 else [0.6, 0.3, 0.1],
-        title_idx=int(rng.integers(len(TITLES))),
+        title_idx=int(rng.integers(4)),
         overlay_idx=int(rng.integers(len(OVERLAYS))),
         trails=0,
     )
@@ -51,7 +62,8 @@ def sample(rng):
 def simulate(seed, p):
     rng = np.random.default_rng(seed)
     R = RING_R
-    ramp = list(PLANET_COLORS)
+    ramp = list(objects.colors(p["objects"]))
+    names = objects.names(p["objects"])
     lmax = min(len(ramp) - 1, int(np.log(0.5 * R / p["r0"]) / np.log(p["ratio"])))
     radius = [p["r0"] * p["ratio"] ** L for L in range(lmax + 1)]
     ring_col = bgr(p["theme"]["ring"])
@@ -171,16 +183,16 @@ def simulate(seed, p):
         hud = []
         for L in range(n_icons):
             if L in first_reach and first_reach[L] <= fz:
-                hud.append(("obj", L, xs[L], 470, rs[L]))
+                hud.append(("obj", p["objects"], L, xs[L], 470, rs[L]))
             else:
                 hud.append(("qmark", xs[L], 470, rs[L]))
         fr.hud = hud
-    title = TITLES[p["title_idx"]].format(name=_with_article(PLANETS[goal]))
+    title = TITLES[p["objects"]][p["title_idx"]].format(name=_with_article(p["objects"], names[goal]))
     title = title[0].upper() + title[1:]
-    txt, col = (f"{PLANETS[goal]}!", ramp[goal]) if outcome == "max" else ("FULL!", (70, 70, 255))
+    txt, col = (f"{names[goal]}!", ramp[goal]) if outcome == "max" else ("FULL!", (70, 70, 255))
     return Timeline(
         mechanic=NAME, seed=seed, params=p, title=title, frames=frames, events=events,
-        finale_frame=fin, finale_text=txt, finale_color=col, end_sub="", overlay=OVERLAYS[p["overlay_idx"]].format(name=PLANETS[goal].title()),
+        finale_frame=fin, finale_text=txt, finale_color=col, end_sub="", overlay=OVERLAYS[p["overlay_idx"]].format(name=names[goal].title()),
         palette=p["theme"], trails=0,
         metrics=dict(outcome=outcome, goal_level=goal, lmax=lmax, finale_s=round(fin / SIM_FPS, 2),
                      score=int(score_hist[fin])),

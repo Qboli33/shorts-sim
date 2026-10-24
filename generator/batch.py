@@ -81,7 +81,12 @@ def _render(job):
     tl = m.simulate(seed, p)
     el = render(tl, path, fps=fps, log=lambda *_: None)
     rng = np.random.default_rng(seed + 3)
-    desc = f"{m.DESCRIPTIONS[rng.integers(len(m.DESCRIPTIONS))]} {' '.join(m.HASHTAGS)}"
+    descs, tags = m.DESCRIPTIONS, m.HASHTAGS
+    if isinstance(descs, dict):          # textes propres à la série d'objets (planètes, chats…)
+        descs = descs[tl.params["objects"]]
+    if isinstance(tags, dict):
+        tags = tags[tl.params["objects"]]
+    desc = f"{descs[rng.integers(len(descs))]} {' '.join(tags)}"
     return dict(render_s=round(el, 1), params=tl.params, description=desc,
                 finale_s=tl.finale_frame / 60 + SLOW_SIM * (1 / SLOW_SPEED - 1))
 
