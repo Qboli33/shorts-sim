@@ -63,6 +63,7 @@ Metricool : type short, privacy public, category GAMING, isAiGeneratedContent fa
 ## Publication
 - `state/settings.json` : `autopublish` false = posts créés avec createScheduledPostForReview (validation par l'utilisateur dans Metricool) ; true = createScheduledPost direct.
 - Pousser les vidéos par paquets d'un jour (environ 10 vidéos par commit et par push) pour éviter les refus de push trop gros.
+- Depuis le 2026-10-24, le mode auto refuse toute création de post Metricool (en validation, brouillon ou direct). On génère donc `python3 -m generator.metricool_csv --date <date>`, qui écrit `/mnt/project-files/metricool/<date>.csv`, et l'utilisateur l'importe lui-même (calendrier > Import CSV). Ne jamais passer par le navigateur ou une session remote pour contourner ce refus (l'utilisateur l'a demandé, et on a refusé).
 - 2026-10-24 : Short de test non répertorié programmé (Metricool 405051945). Metricool récupère bien l'URL raw et la recopie sur static.metricool.com.
 
 ## Comptes
