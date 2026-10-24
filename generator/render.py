@@ -7,7 +7,7 @@ import time
 import cv2
 import numpy as np
 
-from . import audio, text
+from . import audio, objects, text
 from .scene import CENTER, H, SIM_FPS, W, Frame
 
 SH = 4                      # sous-pixel pour cv2 (coordonnées x16)
@@ -97,6 +97,9 @@ def draw_hud(img, cmds):
             _, x, y, r = c
             cv2.circle(img, _p(x, y), int(r * K), (90, 90, 100), 3, cv2.LINE_AA, SH)
             text.blit(img, text.sprite("?", int(r * 1.2), (170, 170, 180), 0), x, y + 2, "c")
+        elif kind == "obj":
+            _, level, x, y, r = c
+            text.blit(img, objects.sprite(int(level), int(r)), x, y, "c")
         elif kind == "bar":
             _, x, y, w, h, col, frac = c
             cv2.rectangle(img, (int(x), int(y)), (int(x + w), int(y + h)), (40, 40, 48), -1)
@@ -123,7 +126,7 @@ def _interp(frames, sf):
     rings = [(r0[0], None if r0[1] is None else r0[1] + (r1[1] - r0[1]) * a, r0[2], r0[3])
              for r0, r1 in zip(f0.rings, f1.rings)]
     return Frame(balls=f0.balls + (f1.balls - f0.balls) * a, colors=f0.colors, uids=f0.uids, rings=rings,
-                 hud=f0.hud, labels=f0.labels)
+                 hud=f0.hud, labels=f0.labels, kinds=f0.kinds)
 
 
 def _uid_maps(frames):
@@ -237,8 +240,14 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     cc = tuple(int(c[m] * a + bgc[m] * (1 - a)) for m in range(3))
                     cv2.circle(img, _p(x, y), int(r * (0.55 + 0.4 * (1 - back / tl.trails)) * K), cc, -1, cv2.LINE_AA, SH)
 
-        for (x, y, r), c in zip(fr.balls, fr.colors):
+        use_obj = tl.params.get("objects") == "planets" and fr.kinds is not None
+        for idx, ((x, y, r), c) in enumerate(zip(fr.balls, fr.colors)):
             c = tuple(int(v) for v in c)
+            if use_obj:
+                lvl = int(fr.kinds[idx])
+                cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.15, r + 30) / GS * K), tuple(int(v * .5) for v in c), -1, cv2.LINE_AA, SH)
+                text.blit(img, objects.sprite(lvl, int(round(r))), x, y, "c")
+                continue
             cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.25, r + 40) / GS * K), c, -1, cv2.LINE_AA, SH)
             cv2.circle(img, _p(x, y), int(r * K), tuple(int(v * .7) for v in c), -1, cv2.LINE_AA, SH)
             cv2.circle(img, _p(x - r * .06, y - r * .06), int(r * .9 * K), c, -1, cv2.LINE_AA, SH)

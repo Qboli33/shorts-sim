@@ -7,7 +7,8 @@ Fin alternative « FULL! » si le cercle déborde.
 """
 import numpy as np
 
-from ..palettes import LEVEL_RAMPS, bgr, pick_theme
+from ..objects import PLANET_COLORS, PLANETS
+from ..palettes import bgr, pick_theme
 from ..physics import Balls, collide_balls, collide_ring
 from ..scene import RING_R, Timeline
 from .common import (CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, duration_score, snapshot,
@@ -16,20 +17,24 @@ from .common import (CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, durat
 NAME = "merge_balls"
 SUB = 10
 
-TITLES = ["Can it reach the biggest ball?", "Will it unlock all {L} balls?", "Merge to the max. Can it make it?",
-          "How far can it merge?"]
+TITLES = ["Can it make {name}?", "Moon to {name}... can it get there?", "Merge planets until {name}?",
+          "Will it reach {name}?"]
 
 
-DESCRIPTIONS = ["Two balls of the same size merge into a bigger one.", "Merge, merge, merge... all the way to the biggest ball?",
-                "Same level balls fuse together under gravity."]
-HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#merge", "#physics"]
-OVERLAYS = ["", "", "Max?", "Biggest?"]
+def _with_article(name):
+    return f"the {name.title()}" if name in ("MOON", "SUN") else name.title()
+
+
+DESCRIPTIONS = ["Two identical planets merge into the next one, all the way up to the Sun?",
+                "From the Moon to the Sun, one merge at a time.", "Same planets fuse together under gravity."]
+HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#planets", "#merge"]
+OVERLAYS = ["", "", "{name}?", ""]
 
 
 def sample(rng):
     return dict(
         theme=pick_theme(rng),
-        ramp=int(rng.integers(len(LEVEL_RAMPS))),
+        objects="planets",
         root=int(rng.integers(55, 66)),
         r0=float(rng.uniform(22, 30)),
         ratio=float(rng.uniform(1.22, 1.3)),
@@ -46,7 +51,7 @@ def sample(rng):
 def simulate(seed, p):
     rng = np.random.default_rng(seed)
     R = RING_R
-    ramp = [bgr(c) for c in LEVEL_RAMPS[p["ramp"]]]
+    ramp = list(PLANET_COLORS)
     lmax = min(len(ramp) - 1, int(np.log(0.5 * R / p["r0"]) / np.log(p["ratio"])))
     radius = [p["r0"] * p["ratio"] ** L for L in range(lmax + 1)]
     ring_col = bgr(p["theme"]["ring"])
@@ -166,15 +171,16 @@ def simulate(seed, p):
         hud = []
         for L in range(n_icons):
             if L in first_reach and first_reach[L] <= fz:
-                hud.append(("circle", xs[L], 470, rs[L], ramp[L], True))
+                hud.append(("obj", L, xs[L], 470, rs[L]))
             else:
                 hud.append(("qmark", xs[L], 470, rs[L]))
         fr.hud = hud
-    title = TITLES[p["title_idx"]].format(L=n_icons)
-    txt, col = ("MAX!", ramp[goal]) if outcome == "max" else ("FULL!", (70, 70, 255))
+    title = TITLES[p["title_idx"]].format(name=_with_article(PLANETS[goal]))
+    title = title[0].upper() + title[1:]
+    txt, col = (f"{PLANETS[goal]}!", ramp[goal]) if outcome == "max" else ("FULL!", (70, 70, 255))
     return Timeline(
         mechanic=NAME, seed=seed, params=p, title=title, frames=frames, events=events,
-        finale_frame=fin, finale_text=txt, finale_color=col, end_sub="", overlay=OVERLAYS[p["overlay_idx"]],
+        finale_frame=fin, finale_text=txt, finale_color=col, end_sub="", overlay=OVERLAYS[p["overlay_idx"]].format(name=PLANETS[goal].title()),
         palette=p["theme"], trails=0,
         metrics=dict(outcome=outcome, goal_level=goal, lmax=lmax, finale_s=round(fin / SIM_FPS, 2),
                      score=int(score_hist[fin])),

@@ -15,6 +15,7 @@ def snapshot(balls, colors_bgr, rings, hud=None, labels=None):
         rings=rings,
         hud=hud or [],
         labels=labels,
+        kinds=balls.kind.copy(),
     )
 
 

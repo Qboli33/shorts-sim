@@ -22,6 +22,7 @@ class Frame:
     rings: list                  # [(R, gap_phi | None, gap_half, (B,G,R))]
     hud: list = field(default_factory=list)   # commandes d'interface (voir render.draw_hud)
     labels: list | None = None   # texte dans les balles (ex. niveau)
+    kinds: np.ndarray | None = None   # niveau / type par balle (objets dessinés à la place des balles)
 
 
 @dataclass

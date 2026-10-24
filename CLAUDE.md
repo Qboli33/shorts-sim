@@ -41,7 +41,7 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 |---|---|---|---|
 | grow_ball | grossit de `growth` px à chaque rebond ; variante `escape` avec ouverture tournante | FULL! / ESCAPED! / TOO BIG! | `growth` réajusté jusqu'à 6 fois (escape : 30 sous-graines) |
 | color_escape | chaque évasion = +1 point et 2 balles de cette couleur (plafond par couleur pour éviter l'emballement) | « X WINS! » | N (premier à N) choisi après la simulation pour une fin dans la fenêtre, serrée de préférence |
-| merge_balls | deux balles de même niveau fusionnent ; rangée de niveaux « ? » | MAX! / FULL! | niveau objectif = le plus haut atteint dans la fenêtre (minimum 5) |
+| merge_balls | deux objets de même niveau fusionnent (planètes de la Lune au Soleil, dessinées par code dans `generator/objects.py`) ; rangée de niveaux « ? » | « JUPITER! » / FULL! | niveau objectif = le plus haut atteint dans la fenêtre (minimum 5) |
 | bounce_spawn | chaque rebond de la balle blanche « mère » ajoute une balle | « 128! » | objectif (50…200) choisi après la simulation |
 
 Score qualité : durée proche de 42 s, fin serrée, changements de leader, type de fin. Pour color_escape, on favorise fortement la victoire d'un point et un dernier changement de leader tardif (paramètre `cap` bas pour éviter l'emballement).
@@ -50,6 +50,7 @@ Score qualité : durée proche de 42 s, fin serrée, changements de leader, type
 - **Texte à l'écran quasi absent** : `overlay` très court ou vide (`OVERLAYS` dans chaque mécanique ; vide une fois sur deux). Interface réduite à un chiffre (%, compteur, scores) ; texte final court (FULL!, OUT!, STUCK!, MAX!, RED!, 128!) ; pas de sous-titre. Le titre YouTube (`title`) garde la question en anglais.
 - **Sons rigolos** synthétisés (aucun échantillon) : miaou, boing, coin-coin, couic, de plus en plus graves à l'approche de la fin (jusqu'à -1,6 octave). « classic » reste possible mais rare.
 - **Suspense jusqu'au bout** : ralenti final, fins serrées.
+- **Objets plutôt que balles pour la fusion** (demande du 2026-10-24) : planètes procédurales. D'autres séries d'objets dessinées par code pourront s'ajouter (gemmes, fruits stylisés…), sans aucune marque ni personnage.
 
 ## Métadonnées
 Titre anglais en question ou défi (dans `TITLES`, cohérent avec ce qui est affiché). Description : 1 ligne + hashtags (`#shorts #satisfying #simulation …`).
@@ -64,6 +65,9 @@ Metricool : type short, privacy public, category GAMING, isAiGeneratedContent fa
 - Metricool : blogId 7627641, fuseau Asia/Makassar, chaîne YouTube UCMu0izz7oXj-ZFSW08sIyOQ.
 - vidIQ : compte connecté, chaîne YouTube non liée au 2026-10-24.
 - Média publié = URL raw : `https://raw.githubusercontent.com/Qboli33/shorts-sim/main/<file>` (vérifier HTTP 200 et la taille avant de programmer).
+
+## Tâche planifiée
+« Lot hebdo Shorts simulations » : chaque dimanche à 18:47 (Asia/Makassar), elle reprend la session de mise en place et exécute le cycle complet (bilan, mix, 70 Shorts, Metricool en validation, récapitulatif).
 
 ## Ménage du dépôt
 Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'environ 1 Go, réécrire l'historique avec une branche orpheline qui ne garde que l'état courant (`git checkout --orphan fresh && git add -A && git commit && git branch -M main && git push -f origin main`), (autorisé par le brief de l'utilisateur).
