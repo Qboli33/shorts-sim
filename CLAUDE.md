@@ -80,6 +80,7 @@ Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'en
 - 2026-10-24 : OpenCV et Poppins n'étaient pas préinstallés. pip fonctionne : `setup.sh` installe OpenCV, et la police est versionnée dans le dépôt.
 - 2026-10-24 : les balles évadées disparaissent avec un pop, au lieu de tomber hors du cercle (plus lisible et moins coûteux).
 - 2026-10-24 : les 5 Shorts de test sont dans `out/2026-10-24/` (statut `test` dans le log).
+- 2026-10-24 : le mode auto de la session refuse `createScheduledPostForReview` même avec l'accord écrit de l'utilisateur. Règle ajoutée dans `.claude/settings.json` (accord de l'utilisateur), effective dans une nouvelle session. Si c'est encore refusé : écrire la liste des posts dans `/mnt/project-files/metricool/<date>.md` et la donner à l'utilisateur.
 
 ## À faire
 - bounce_spawn produit des fichiers lourds (environ 40 Mo, avec beaucoup de balles en mouvement). Réduire si le dépôt grossit trop.
