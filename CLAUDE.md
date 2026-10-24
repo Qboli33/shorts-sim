@@ -17,7 +17,8 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 - Simule les candidates en parallèle (tous les cœurs), garde les meilleures selon `score()`, rend, puis ffprobe + planche de 3 images dans `out/<date>/qc/` (non versionnée, à regarder avec Read).
 - Ajoute chaque vidéo à `state/log.json` (statut `rendered`, ou `qc_failed`).
 - Graine de base = hash de la date (reproductible) ; `--seed` pour forcer. `--index-start` pour numéroter un 2e passage le même jour.
-- Une mécanique ne dépasse jamais 30 % d'un lot de 10 : `quotas()` refuse le lot s'il n'y a pas assez de mécaniques. **Avec 3 mécaniques, un lot de 10 est impossible : il en faut au moins 4.**
+- Une mécanique ne dépasse jamais 30 % d'un lot de 10 : `quotas()` refuse le lot s'il n'y a pas assez de mécaniques (il en faut au moins 4).
+- `--sfx meow,boing,classic` impose les packs sonores en cycle ; sinon tirage aléatoire pondéré (`audio.PACKS`, miaou majoritaire).
 
 ## Mesures (2026-10-24, 4 CPU, 60 i/s)
 - Simulation : 0,3 à 8 s par candidate.
@@ -32,7 +33,8 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 - `generator/audio.py` : rebond, choc, pop, carillon, explosion, arpège de victoire, nappe ; gamme pentatonique avec une tonique aléatoire ; 6 voix max ; normalisation + tanh.
 - `generator/text.py` : Poppins Bold (`assets/fonts`, licence OFL ; DejaVu en secours), sprites en cache.
 - `generator/mechanics/<nom>.py` : `NAME`, `TITLES`, `DESCRIPTIONS`, `HASHTAGS`, `sample(rng)`, `simulate(seed, params) -> Timeline|None`, `score(tl)`. À enregistrer dans `mechanics/__init__.py`.
-- La durée cible est garantie par construction : l'événement final doit tomber entre 27,5 et 54,5 s (puis 1 s de suite + 1,5 s de carton, soit une vidéo de 30 à 57 s).
+- La durée cible est garantie par construction : l'événement final doit tomber entre 26 et 53 s de simulation. S'y ajoutent 2,2 s de ralenti, 1 s de suite et 1,5 s de carton, soit une vidéo de 30 à 58 s.
+- Suspense : les 1,2 s de simulation avant l'événement final passent au ralenti (x0,35, positions interpolées), avec un assombrissement des bords et des battements de cœur.
 
 ## Mécaniques
 | Nom | Principe | Fins | Astuce durée |
@@ -40,8 +42,14 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 | grow_ball | grossit de `growth` px à chaque rebond ; variante `escape` avec ouverture tournante | FULL! / ESCAPED! / TOO BIG! | `growth` réajusté jusqu'à 6 fois (escape : 30 sous-graines) |
 | color_escape | chaque évasion = +1 point et 2 balles de cette couleur (plafond par couleur pour éviter l'emballement) | « X WINS! » | N (premier à N) choisi après la simulation pour une fin dans la fenêtre, serrée de préférence |
 | merge_balls | deux balles de même niveau fusionnent ; rangée de niveaux « ? » | MAX! / FULL! | niveau objectif = le plus haut atteint dans la fenêtre (minimum 5) |
+| bounce_spawn | chaque rebond de la balle blanche « mère » ajoute une balle | « 128! » | objectif (50…200) choisi après la simulation |
 
-Score qualité : durée proche de 42 s, fin serrée, changements de leader, type de fin.
+Score qualité : durée proche de 42 s, fin serrée, changements de leader, type de fin. Pour color_escape, on favorise fortement la victoire d'un point et un dernier changement de leader tardif (paramètre `cap` bas pour éviter l'emballement).
+
+## Style (retour utilisateur du 2026-10-24)
+- **Texte à l'écran quasi absent** : `overlay` très court ou vide (`OVERLAYS` dans chaque mécanique ; vide une fois sur deux). Interface réduite à un chiffre (%, compteur, scores) ; texte final court (FULL!, OUT!, STUCK!, MAX!, RED!, 128!) ; pas de sous-titre. Le titre YouTube (`title`) garde la question en anglais.
+- **Sons rigolos** synthétisés (aucun échantillon) : miaou, boing, coin-coin, couic, de plus en plus graves à l'approche de la fin (jusqu'à -1,6 octave). « classic » reste possible mais rare.
+- **Suspense jusqu'au bout** : ralenti final, fins serrées.
 
 ## Métadonnées
 Titre anglais en question ou défi (dans `TITLES`, cohérent avec ce qui est affiché). Description : 1 ligne + hashtags (`#shorts #satisfying #simulation …`).
@@ -61,4 +69,5 @@ Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'en
 - 2026-10-24 : les 5 Shorts de test sont dans `out/2026-10-24/` (statut `test` dans le log).
 
 ## À faire
-- Ajouter au moins une 4e mécanique avant le premier lot de 10 (idées : chaque rebond ajoute une balle, anneaux concentriques qui se brisent, couleurs qui se convertissent, labyrinthe qui rétrécit).
+- bounce_spawn produit des fichiers lourds (environ 40 Mo, avec beaucoup de balles en mouvement). Réduire si le dépôt grossit trop.
+- Nouvelles mécaniques (au moins 1 par semaine) : anneaux concentriques qui se brisent, couleurs qui se convertissent, labyrinthe qui rétrécit, etc.

@@ -24,6 +24,7 @@ TITLES = {
 DESCRIPTIONS = ["A ball that grows bigger with every single bounce.", "One ball, one circle, and it grows on every hit.",
                 "Every bounce adds a little size. Watch till the end!"]
 HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#physics", "#oddlysatisfying"]
+OVERLAYS = {"fill": ["", "", "Fill it?", "Full?"], "escape": ["", "", "Escape?", "Out?"]}
 
 
 def sample(rng):
@@ -48,6 +49,7 @@ def sample(rng):
         p["r0"] = float(RING_R * np.sin(p["gap_half"]) * rng.uniform(0.55, 0.7))
         p["growth"] = float(rng.uniform(0.6, 1.2))
     p["title"] = TITLES[variant][rng.integers(len(TITLES[variant]))]
+    p["overlay"] = OVERLAYS[variant][rng.integers(len(OVERLAYS[variant]))]
     return p
 
 
@@ -114,13 +116,7 @@ def _run(seed, p):
         size = (b.rad[0] / R) if len(b) else None
         hud = []
         if size is not None:
-            hud.append(("text", f"SIZE {int(round(size * 100))}%", 520, 430, 64, accent, "c"))
-            hud.append(("text", f"{bounces} BOUNCE" + ("S" if bounces != 1 else ""), 520, 505, 40, (230, 230, 230), "c"))
-        else:
-            hud.append(("text", f"{bounces} BOUNCE" + ("S" if bounces != 1 else ""), 520, 470, 52, accent, "c"))
-        if esc and size is not None:
-            fit = max(0.0, 1 - (b.rad[0] - p["r0"]) / (chord_r - p["r0"]))
-            hud.append(("bar", 320, 560, 400, 16, (80, 220, 120) if fit > 0.3 else (80, 80, 255), fit))
+            hud.append(("text", f"{int(round(size * 100))}%", 520, 470, 96, accent, "c"))
         rings = [(R, phi if esc else None, p["gap_half"], ring_col)]
         frames.append(snapshot(b, [col] * len(b), rings, hud))
         f += 1
@@ -144,13 +140,13 @@ def simulate(seed, p):
             p["growth"] *= float(np.clip(t / 42.0, 0.5, 2.0))
     else:
         return None
-    texts = {"full": ("FULL!", "accent"), "escaped": ("ESCAPED!", "ball"), "trapped": ("TOO BIG!", "red")}
+    texts = {"full": ("FULL!", "accent"), "escaped": ("OUT!", "ball"), "trapped": ("STUCK!", "red")}
     txt, ck = texts[outcome]
     fcol = {"accent": bgr(p["theme"]["accent"]), "ball": bgr(NAMED[p["color"]]), "red": (70, 70, 255)}[ck]
     return Timeline(
         mechanic=NAME, seed=seed, params=p, title=p["title"], frames=frames, events=events,
         finale_frame=finale, finale_text=txt, finale_color=fcol,
-        end_sub=f"{bounces} bounces", palette=p["theme"], trails=p["trails"],
+        end_sub="", palette=p["theme"], trails=p["trails"], overlay=p["overlay"],
         metrics=dict(outcome=outcome, bounces=bounces, finale_s=round(finale / SIM_FPS, 2),
                      too_big_s=round(too_big / SIM_FPS, 2) if too_big else None,
                      escape_margin=margin),

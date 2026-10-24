@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 
 from . import audio, text
-from .scene import CENTER, H, SIM_FPS, W
+from .scene import CENTER, H, SIM_FPS, W, Frame
 
 SH = 4                      # sous-pixel pour cv2 (coordonnées x16)
 K = 1 << SH
@@ -103,6 +103,29 @@ def draw_hud(img, cmds):
             cv2.rectangle(img, (int(x), int(y)), (int(x + w * min(1, frac)), int(y + h)), col, -1)
 
 
+SLOW_SIM = 1.2      # secondes de simulation passées au ralenti avant l'événement final
+SLOW_SPEED = 0.35
+_yy, _xx = np.mgrid[0:H, 0:W]
+VIGNETTE = (1 - 0.45 * np.clip(np.hypot((_xx - W / 2) / W, (_yy - H / 2) / H) * 1.6 - 0.35, 0, 1))[..., None].astype(np.float32)
+del _yy, _xx
+
+
+def _interp(frames, sf):
+    """Interpole positions et rotation entre deux images de simulation (pour un ralenti fluide)."""
+    i = int(sf)
+    a = sf - i
+    f0 = frames[i]
+    if a < 1e-6 or i + 1 >= len(frames):
+        return f0
+    f1 = frames[i + 1]
+    if len(f0.uids) != len(f1.uids) or not np.array_equal(f0.uids, f1.uids):
+        return f0
+    rings = [(r0[0], None if r0[1] is None else r0[1] + (r1[1] - r0[1]) * a, r0[2], r0[3])
+             for r0, r1 in zip(f0.rings, f1.rings)]
+    return Frame(balls=f0.balls + (f1.balls - f0.balls) * a, colors=f0.colors, uids=f0.uids, rings=rings,
+                 hud=f0.hud, labels=f0.labels)
+
+
 def _uid_maps(frames):
     return [{int(u): i for i, u in enumerate(f.uids)} for f in frames]
 
@@ -113,16 +136,32 @@ def render(tl, out_path, fps=60, theme=None, log=print):
     theme = theme or tl.palette
     rng = np.random.default_rng(tl.seed + 7)
     bg = make_background(theme)
-    step = SIM_FPS // fps
     n_sim = len(tl.frames)
     n_end = int(END_CARD * fps)
-    n_out = (n_sim + step - 1) // step + n_end
+    # Ralenti juste avant l'événement final : position (fractionnaire) dans la simulation pour chaque image.
+    fin = tl.finale_frame
+    s0 = max(0, fin - int(SLOW_SIM * SIM_FPS))
+    sched, sf = [], 0.0
+    while sf < n_sim - 1:
+        sched.append(sf)
+        sf += SIM_FPS / fps * (SLOW_SPEED if s0 <= sf < fin else 1.0)
+    n_out = len(sched) + n_end
     duration = n_out / fps
+    slow_t = (s0 / SIM_FPS, s0 / SIM_FPS + (fin - s0) / SIM_FPS / SLOW_SPEED)
 
+    def time_of(f):
+        if f < s0:
+            return f / SIM_FPS
+        if f < fin:
+            return slow_t[0] + (f - s0) / SIM_FPS / SLOW_SPEED
+        return slow_t[1] + (f - fin) / SIM_FPS
+
+    pack = tl.params.setdefault("sfx", audio.PACKS[int(rng.integers(len(audio.PACKS)))])
     tmp = tempfile.mkdtemp(prefix="sim_")
     wav = os.path.join(tmp, "a.wav")
     events = list(tl.events)
-    audio.render_audio(events, duration, SIM_FPS, tl.params.get("root", 60), tl.seed, wav)
+    audio.render_audio(events, duration, time_of, tl.params.get("root", 60), tl.seed, wav, pack=pack,
+                       finale_frame=fin, slow=slow_t)
 
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}",
            "-r", str(fps), "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
@@ -134,18 +173,21 @@ def render(tl, out_path, fps=60, theme=None, log=print):
     for e in events:
         ev_by_frame.setdefault(e.frame, []).append(e)
     parts = Particles(rng)
-    title_lines = text.wrap(tl.title, 76, 900)
-    title_sprites = [text.sprite(l, 76, (255, 255, 255), 6, (20, 10, 10)) for l in title_lines]
+    overlay = tl.overlay
+    title_sprites = [text.sprite(l, 84, (255, 255, 255), 7, (20, 10, 10)) for l in text.wrap(overlay, 84, 900)] if overlay else []
     fs = text.fit_size(tl.finale_text, 150, 900)
     finale_spr = text.sprite(tl.finale_text, fs, tl.finale_color, max(6, fs // 12), (10, 10, 10))
-    ss = text.fit_size(tl.end_sub, 58, 900) if tl.end_sub else 0
-    sub_spr = text.sprite(tl.end_sub, ss, (255, 255, 255), 5, (10, 10, 10)) if tl.end_sub else None
+    sub_spr = None     # pas de sous-titre : écran le plus épuré possible
     flash = 0.0
     last = None
 
+    prev_sf = -1.0
     for k in range(n_out):
-        f_idx = min(k * step, n_sim - 1)
-        in_end = k * step >= n_sim
+        in_end = k >= len(sched)
+        if not in_end:
+            sf = sched[k]
+            f_idx = int(sf)
+            speed = SLOW_SPEED if s0 <= sf < fin else 1.0
         if in_end:
             # Carton de fin : dernière image figée, assombrie, texte final.
             e = (k - (n_out - n_end)) / max(1, n_end)
@@ -156,7 +198,7 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             proc.stdin.write(img.tobytes())
             continue
 
-        fr = tl.frames[f_idx]
+        fr = _interp(tl.frames, sf)
         img = bg.copy()
         glow = np.zeros((H // GS, W // GS, 3), np.uint8)
 
@@ -171,7 +213,11 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                 a1 = np.degrees(gphi - ghalf + 2 * np.pi)
                 cv2.ellipse(img, _p(*CENTER), (int(rr * K), int(rr * K)), 0, a0, a1, col, th, cv2.LINE_AA, SH)
                 cv2.ellipse(glow, _p(*(CENTER / GS)), (int(rr / GS * K), int(rr / GS * K)), 0, a0, a1, col, 5, cv2.LINE_AA, SH)
-            cv2.circle(img, _p(*CENTER), int((rr - th / 2 + 1) * K), lighten(col, .6), 2, cv2.LINE_AA, SH)
+            if gphi is None or ghalf <= 0:
+                cv2.circle(img, _p(*CENTER), int((rr - th / 2 + 1) * K), lighten(col, .6), 2, cv2.LINE_AA, SH)
+            else:
+                ri = int((rr - th / 2 + 1) * K)
+                cv2.ellipse(img, _p(*CENTER), (ri, ri), 0, a0, a1, lighten(col, .6), 2, cv2.LINE_AA, SH)
 
         # Traînées : positions passées, couleur fondue vers le fond.
         if tl.trails:
@@ -205,8 +251,8 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     text.blit(img, text.sprite(lab, int(r * 0.8), (255, 255, 255), max(2, int(r / 14))), x, y, "c")
 
         # Particules générées par les événements du pas (et des pas sautés à 30 i/s).
-        for sf in range(k * step, min(n_sim, k * step + step)):
-            for e in ev_by_frame.get(sf, ()):
+        for ef in range(int(prev_sf) + 1, f_idx + 1):
+            for e in ev_by_frame.get(ef, ()):
                 if e.kind == "bounce":
                     parts.burst(e.x, e.y, e.color, 6, 260, 0.4, 4)
                 elif e.kind == "pop":
@@ -216,7 +262,8 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                 elif e.kind in ("boom", "win"):
                     parts.burst(e.x, e.y, e.color, 260, 1500, 1.6, 9)
                     flash = 1.0
-        parts.step(1 / fps)
+        prev_sf = sf
+        parts.step(speed / fps)
         parts.draw(img, glow)
 
         glow = cv2.GaussianBlur(glow, (0, 0), 5)
@@ -225,10 +272,13 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             img = cv2.addWeighted(img, 1.0, np.full_like(img, 255), flash * 0.45, 0)
             flash *= 0.85
 
-        y = 215
+        y = 230
         for s in title_sprites:
             text.blit(img, s, 520, y, "c")
-            y += 92
+            y += 100
+        if speed < 1:
+            # Ralenti : léger assombrissement des bords pour la tension.
+            img = (img * VIGNETTE).astype(np.uint8)
         draw_hud(img, fr.hud)
 
         if f_idx >= tl.finale_frame:

@@ -22,6 +22,7 @@ TITLES = ["Which color escapes first?", "First to {N} escapes wins!", "Every esc
 DESCRIPTIONS = ["Every escape spawns two more balls of the same color.", "A rotating gap, a few colors, one winner.",
                 "Escape the ring, score a point, multiply. Which color did you pick?"]
 HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#colorrace", "#marblerace"]
+OVERLAYS = ["", "", "First to {N}", "Pick one"]
 
 
 def sample(rng):
@@ -35,11 +36,12 @@ def sample(rng):
         rad=float(rng.uniform(14, 22)),
         gravity=float(rng.choice([0.0, 0.0, 500.0, 1200.0])),
         speed=float(rng.uniform(450, 850)),
-        gap_half=float(np.radians(rng.uniform(12, 24))),
+        gap_half=float(np.radians(rng.uniform(9, 18))),
         omega=float(rng.uniform(0.5, 1.5) * rng.choice([-1, 1])),
         trails=int(rng.integers(3, 7)),
-        cap=int(rng.integers(24, 44)),
+        cap=int(rng.integers(12, 26)),
         title_idx=int(rng.integers(len(TITLES))),
+        overlay_idx=int(rng.integers(len(OVERLAYS))),
     )
 
 
@@ -112,8 +114,9 @@ def simulate(seed, p):
         if MIN_FINALE <= t <= MAX_FINALE and len(winners) == 1:
             second = np.sort(hist[fN])[-2]
             lead = np.argmax(hist[: fN + 1], 1)
-            changes = int((np.diff(lead) != 0).sum())
-            cand = dict(N=N, frame=fN, winner=int(winners[0]), margin=int(N - second), changes=changes, t=t)
+            ch = np.nonzero(np.diff(lead) != 0)[0]
+            late = float(ch[-1] / fN) if len(ch) else 0.0     # position du dernier changement de leader
+            cand = dict(N=N, frame=fN, winner=int(winners[0]), margin=int(N - second), changes=len(ch), t=t, late=late)
             q = _quality(cand, N)
             if best is None or q > best[0]:
                 best = (q, cand)
@@ -132,29 +135,31 @@ def simulate(seed, p):
     for fi, fr in enumerate(frames):
         sc = hist[min(fi, fN)]
         lead = int(np.argmax(sc))
-        hud = [] if "{N}" in TITLES[p["title_idx"]] else [("text", f"FIRST TO {N}", 520, 410, 44, accent, "c")]
+        hud = []
         for ci in range(k):
             big = ci == lead and sc[ci] > 0
             hud.append(("circle", xs[ci], 490, 26 if big else 20, cols[ci], True))
-            hud.append(("text", str(int(sc[ci])), xs[ci], 560, 60 if big else 50, cols[ci], "c"))
+            hud.append(("text", str(int(sc[ci])), xs[ci], 560, 64 if big else 52, cols[ci], "c"))
         fr.hud = hud
     title = TITLES[p["title_idx"]].format(N=N)
     name = p["colors"][w]
     return Timeline(
         mechanic=NAME, seed=seed, params=p, title=title, frames=frames, events=events,
-        finale_frame=fN, finale_text=f"{name} WINS!", finale_color=cols[w],
-        end_sub=" - ".join(f"{p['colors'][i][:1]}{p['colors'][i][1:].lower()} {hist[fN][i]}" for i in np.argsort(-hist[fN])[:3]),
+        finale_frame=fN, finale_text=f"{name}!", finale_color=cols[w], overlay=OVERLAYS[p["overlay_idx"]].format(N=N),
+        end_sub="",
         palette=p["theme"], trails=p["trails"],
-        metrics=dict(N=N, winner=name, margin=c["margin"], leader_changes=c["changes"], finale_s=round(c["t"], 2),
+        metrics=dict(N=N, winner=name, margin=c["margin"], leader_changes=c["changes"], late=round(c["late"], 2), finale_s=round(c["t"], 2),
                      max_balls=int(max(len(f.balls) for f in frames))),
     )
 
 
 def _quality(c, N):
-    close = 1 - min(1, (c["margin"] - 1) / max(1, N * 0.5))
-    return 0.4 * close + 0.3 * min(c["changes"], 6) / 6 + 0.3 * duration_score(c["t"])
+    # Suspense jusqu'au bout : victoire d'un point, et leader qui change tard.
+    close = {1: 1.0, 2: 0.6, 3: 0.25}.get(c["margin"], 0.0)
+    late = min(1.0, max(0.0, (c.get("late", 0) - 0.5) / 0.4))
+    return 0.45 * close + 0.15 * min(c["changes"], 6) / 6 + 0.25 * late + 0.15 * duration_score(c["t"])
 
 
 def score(tl):
     m = tl.metrics
-    return _quality(dict(margin=m["margin"], changes=m["leader_changes"], t=m["finale_s"]), m["N"])
+    return _quality(dict(margin=m["margin"], changes=m["leader_changes"], t=m["finale_s"], late=m["late"]), m["N"])

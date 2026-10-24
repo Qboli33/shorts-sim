@@ -23,6 +23,7 @@ TITLES = ["Can it reach the biggest ball?", "Will it unlock all {L} balls?", "Me
 DESCRIPTIONS = ["Two balls of the same size merge into a bigger one.", "Merge, merge, merge... all the way to the biggest ball?",
                 "Same level balls fuse together under gravity."]
 HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#merge", "#physics"]
+OVERLAYS = ["", "", "Max?", "Biggest?"]
 
 
 def sample(rng):
@@ -37,6 +38,7 @@ def sample(rng):
         spawn1=float(rng.uniform(0.10, 0.16)),
         p_levels=[0.5, 0.3, 0.2] if rng.random() < 0.5 else [0.6, 0.3, 0.1],
         title_idx=int(rng.integers(len(TITLES))),
+        overlay_idx=int(rng.integers(len(OVERLAYS))),
         trails=0,
     )
 
@@ -161,18 +163,18 @@ def simulate(seed, p):
     for fi, fr in enumerate(frames):
         fz = min(fi, fin)
         sc = score_hist[fz]
-        hud = [("text", f"SCORE {sc}", 520, 420, 54, accent, "c")]
+        hud = []
         for L in range(n_icons):
             if L in first_reach and first_reach[L] <= fz:
-                hud.append(("circle", xs[L], 520, rs[L], ramp[L], True))
+                hud.append(("circle", xs[L], 470, rs[L], ramp[L], True))
             else:
-                hud.append(("qmark", xs[L], 520, rs[L]))
+                hud.append(("qmark", xs[L], 470, rs[L]))
         fr.hud = hud
     title = TITLES[p["title_idx"]].format(L=n_icons)
     txt, col = ("MAX!", ramp[goal]) if outcome == "max" else ("FULL!", (70, 70, 255))
     return Timeline(
         mechanic=NAME, seed=seed, params=p, title=title, frames=frames, events=events,
-        finale_frame=fin, finale_text=txt, finale_color=col, end_sub=f"Score {score_hist[fin]}",
+        finale_frame=fin, finale_text=txt, finale_color=col, end_sub="", overlay=OVERLAYS[p["overlay_idx"]],
         palette=p["theme"], trails=0,
         metrics=dict(outcome=outcome, goal_level=goal, lmax=lmax, finale_s=round(fin / SIM_FPS, 2),
                      score=int(score_hist[fin])),

@@ -16,7 +16,7 @@ import numpy as np
 
 from . import qc
 from .mechanics import MECHANICS
-from .render import render
+from .render import SLOW_SIM, SLOW_SPEED, render
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(ROOT, "state", "log.json")
@@ -69,18 +69,21 @@ def _simulate(job):
     if tl is None:
         return dict(mechanic=name, seed=seed, ok=False)
     return dict(mechanic=name, seed=seed, ok=True, score=float(m.score(tl)), title=tl.title,
-                duration=tl.duration + 1.5, metrics=tl.metrics)
+                duration=tl.duration + 1.5 + SLOW_SIM * (1 / SLOW_SPEED - 1), metrics=tl.metrics)
 
 
 def _render(job):
-    name, seed, path, fps = job
+    name, seed, path, fps, sfx = job
     m = MECHANICS[name]
     p = m.sample(np.random.default_rng(seed))
+    if sfx:
+        p["sfx"] = sfx
     tl = m.simulate(seed, p)
     el = render(tl, path, fps=fps, log=lambda *_: None)
     rng = np.random.default_rng(seed + 3)
     desc = f"{m.DESCRIPTIONS[rng.integers(len(m.DESCRIPTIONS))]} {' '.join(m.HASHTAGS)}"
-    return dict(render_s=round(el, 1), params=tl.params, description=desc, finale_s=tl.finale_frame / 60)
+    return dict(render_s=round(el, 1), params=tl.params, description=desc,
+                finale_s=tl.finale_frame / 60 + SLOW_SIM * (1 / SLOW_SPEED - 1))
 
 
 def main():
@@ -93,6 +96,7 @@ def main():
     ap.add_argument("--weights", default="")
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--index-start", type=int, default=1)
+    ap.add_argument("--sfx", default="", help="packs sonores imposés, en cycle (ex. meow,boing,classic)")
     args = ap.parse_args()
 
     weights = {n: 1.0 for n in MECHANICS}
@@ -137,13 +141,15 @@ def main():
         pool_.remove(idx)
     chosen = [chosen[i] for i in order]
 
+    sfx_cycle = [x for x in args.sfx.split(",") if x]
     out_dir = os.path.join(ROOT, "out", args.date)
     os.makedirs(out_dir, exist_ok=True)
     rjobs = []
     for k, r in enumerate(chosen):
         r["id"] = f"{args.date}-{args.index_start + k:02d}-{r['mechanic']}"
         r["file"] = f"out/{args.date}/{r['id']}.mp4"
-        rjobs.append((r["mechanic"], r["seed"], os.path.join(ROOT, r["file"]), args.fps))
+        sfx = sfx_cycle[k % len(sfx_cycle)] if sfx_cycle else None
+        rjobs.append((r["mechanic"], r["seed"], os.path.join(ROOT, r["file"]), args.fps, sfx))
     t0 = time.time()
     with Pool(args.workers) as pool:
         rres = pool.map(_render, rjobs)

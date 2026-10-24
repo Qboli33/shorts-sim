@@ -90,39 +90,133 @@ def pad(duration, root, rng, level=0.07):
     return out / len(chord) * level * fade[:, None]
 
 
-def render_audio(events, duration, fps, root, seed, path, max_voices=6, min_gap=0.035):
+def _formant_voice(f0, F, dur, rng, K=16, breath=0.04):
+    """Synthèse additive : harmoniques de f0(t) pondérées par des formants F(t) = [(freq, largeur), ...]."""
+    n = len(f0)
+    ph = 2 * np.pi * np.cumsum(f0) / SR
+    out = np.zeros(n)
+    for k in range(1, K + 1):
+        fk = f0 * k
+        g = 0.12 + sum(a / (1 + ((fk - fc) / bw) ** 2) for fc, bw, a in F)
+        g = np.where(fk < SR / 2.2, g, 0)
+        out += np.sin(k * ph) * g / k ** 0.6
+    out += rng.standard_normal(n) * breath
+    return out
+
+
+def _meow(f, rng):
+    """Miaou synthétique : montée puis descente de hauteur, voyelles i -> a -> ou."""
+    dur = 0.55
+    n = int(SR * dur)
+    t = np.linspace(0, 1, n)
+    contour = 1 + 0.35 * np.sin(np.pi * np.minimum(1, t / 0.7)) - 0.25 * t
+    f0 = f * contour * (1 + 0.012 * np.sin(2 * np.pi * 6 * t * dur))
+    def lerp3(a, b, c):
+        return np.where(t < 0.4, a + (b - a) * t / 0.4, b + (c - b) * (t - 0.4) / 0.6)
+    F1 = lerp3(400, 900, 450)
+    F2 = lerp3(2200, 1500, 900)
+    w = _formant_voice(f0, [(F1, 250, 1.0), (F2, 300, 0.6), (3000, 400, 0.15)], dur, rng, K=10)
+    env = np.minimum(1, t / 0.08) * np.minimum(1, (1 - t) / 0.25) ** 1.5
+    return w * env * 0.5
+
+
+def _boing(f, rng):
+    n = int(SR * 0.45)
+    t = np.arange(n) / SR
+    fr = f * 0.5 * (1 + 0.6 * np.exp(-t * 6)) * (1 + 0.08 * np.sin(2 * np.pi * 18 * t) * np.exp(-t * 4))
+    ph = 2 * np.pi * np.cumsum(fr) / SR
+    return (np.sin(ph) + 0.3 * np.sin(2 * ph)) * _env(n, 0.003, 0.18) * 0.6
+
+
+def _quack(f, rng):
+    dur = 0.22
+    n = int(SR * dur)
+    t = np.linspace(0, 1, n)
+    f0 = f * 0.45 * (1.15 - 0.3 * t)
+    w = _formant_voice(f0, [(1100, 300, 1.0), (1800, 250, 0.7), (2800, 400, 0.3)], dur, rng, K=24, breath=0.08)
+    return np.tanh(w * 2.5) * np.minimum(1, t / 0.05) * np.minimum(1, (1 - t) / 0.3) * 0.45
+
+
+def _squeak(f, rng):
+    n = int(SR * 0.25)
+    t = np.arange(n) / SR
+    fr = f * 3 * (1 + 0.25 * np.sin(np.pi * t / 0.25)) * (1 + 0.03 * np.sin(2 * np.pi * 30 * t))
+    ph = 2 * np.pi * np.cumsum(fr) / SR
+    return (np.sin(ph) + 0.2 * np.sin(3 * ph)) * np.minimum(1, t / 0.02) * np.minimum(1, (0.25 - t) / 0.08).clip(0, 1) * 0.4
+
+
+def _heartbeat(f, rng):
+    n = int(SR * 0.5)
+    t = np.arange(n) / SR
+    beat = lambda t0: np.sin(2 * np.pi * 55 * (t - t0)) * np.exp(-np.maximum(0, t - t0) / 0.07) * (t >= t0)
+    return (beat(0) + 0.7 * beat(0.18)) * 0.9
+
+
+SILLY = {"meow": _meow, "boing": _boing, "quack": _quack, "squeak": _squeak}
+PACKS = ["meow", "meow", "meow", "boing", "boing", "quack", "squeak", "classic"]
+
+
+def render_audio(events, duration, time_of, root, seed, path, pack="classic", finale_frame=None, slow=None,
+                 max_voices=6, min_gap=0.035):
+    """`time_of(frame)` donne l'instant de sortie (prise en compte du ralenti).
+
+    Pack rigolo : rebonds et pops deviennent des miaous / boings / coin-coins / couics, de plus en plus
+    graves à l'approche de la fin. `slow` = (début, fin) du ralenti en secondes de sortie : battements de coeur.
+    """
     rng = np.random.default_rng(seed)
     n = int(SR * duration) + 1
     mix = np.zeros((n, 2))
     cache = {}
     active_until = []
     last_t = {}
-    for ev in sorted(events, key=lambda e: e.frame):
-        t0 = ev.frame / fps
-        # Limiter la densité : un même type de son ne se répète pas trop vite.
-        if ev.kind in ("bounce", "hit", "pop") and t0 - last_t.get(ev.kind, -1) < min_gap:
+    silly = SILLY.get(pack)
+    gap_silly = 0.14
+    evs = sorted(events, key=lambda e: e.frame)
+    if slow:
+        t = slow[0]
+        while t < slow[1] - 0.2:
+            evs.append(Event_(t, "heart"))
+            t += 0.75
+    for ev in sorted(evs, key=lambda e: time_of(e.frame) if not isinstance(e, Event_) else e.t):
+        t0 = ev.t if isinstance(ev, Event_) else time_of(ev.frame)
+        kind = ev.kind
+        if silly and kind in ("bounce", "pop", "chime"):
+            prog = min(1.0, ev.frame / max(1, finale_frame)) if finale_frame else 0.0
+            if t0 - last_t.get("silly", -1) < gap_silly:
+                kind = "hit" if kind == "bounce" else kind
+                if kind == "pop":
+                    continue
+            else:
+                # Plus on approche de la fin, plus c'est grave (jusqu'à -1,6 octave).
+                step = int(round(prog * 16))
+                key = ("silly", step, ev.note % 3)
+                if key not in cache:
+                    base = {"meow": 560, "boing": 520, "quack": 700, "squeak": 900}[pack]
+                    cache[key] = silly(base * 2 ** (-step / 10) * 2 ** ((ev.note % 3) / 12), rng)
+                w = cache[key] * 0.9
+                last_t["silly"] = t0
+                _add(mix, w, t0, ev.x, n)
+                continue
+        if kind in ("bounce", "hit", "pop") and t0 - last_t.get(kind, -1) < min_gap:
             continue
         active_until = [u for u in active_until if u > t0]
-        if ev.kind in ("bounce", "hit", "pop") and len(active_until) >= max_voices:
+        if kind in ("bounce", "hit", "pop") and len(active_until) >= max_voices:
             continue
-        key = (ev.kind, ev.note)
+        key = (kind, ev.note)
         if key not in cache:
             f = note_freq(root, ev.note)
             cache[key] = {
                 "bounce": lambda: _bounce(f), "hit": lambda: _hit(f), "pop": lambda: _pop(f, rng),
                 "chime": lambda: _chime(f), "boom": lambda: _boom(f, rng), "win": lambda: _win(root),
-                "spawn": lambda: _hit(f * 2) * 0.5,
-            }[ev.kind]()
-        w = cache[key] * min(1.0, max(0.15, ev.strength))
-        s = int(t0 * SR)
-        m = min(len(w), n - s)
-        if m <= 0:
-            continue
-        pan = np.clip((ev.x - 540) / 540, -1, 1) * 0.5
-        mix[s:s + m, 0] += w[:m] * (1 - pan) * 0.7
-        mix[s:s + m, 1] += w[:m] * (1 + pan) * 0.7
+                "spawn": lambda: _hit(f * 2) * 0.5, "heart": lambda: _heartbeat(f, rng),
+            }[kind]()
+        strength = 1.0 if kind == "heart" else min(1.0, max(0.15, ev.strength))
+        if silly and kind == "hit":
+            strength *= 0.5
+        w = cache[key] * strength
+        _add(mix, w, t0, getattr(ev, "x", 540), n)
         active_until.append(t0 + len(w) / SR * 0.5)
-        last_t[ev.kind] = t0
+        last_t[kind] = t0
     p = pad(duration, root, rng)
     mix[: len(p)] += p
     # Normalisation puis limiteur doux.
@@ -134,3 +228,19 @@ def render_audio(events, duration, fps, root, seed, path, max_voices=6, min_gap=
         wf.setsampwidth(2)
         wf.setframerate(SR)
         wf.writeframes(pcm.tobytes())
+
+
+class Event_:
+    """Événement audio placé directement en secondes de sortie (battements du ralenti)."""
+    def __init__(self, t, kind):
+        self.t, self.kind, self.frame, self.note, self.strength, self.x = t, kind, 0, 0, 1.0, 540
+
+
+def _add(mix, w, t0, x, n):
+    s = int(t0 * SR)
+    m = min(len(w), n - s)
+    if m <= 0 or s < 0:
+        return
+    pan = np.clip((x - 540) / 540, -1, 1) * 0.5
+    mix[s:s + m, 0] += w[:m] * (1 - pan) * 0.7
+    mix[s:s + m, 1] += w[:m] * (1 + pan) * 0.7

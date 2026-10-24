@@ -3,7 +3,7 @@ import numpy as np
 from ..scene import CENTER, SIM_FPS, Event, Frame
 
 TAIL = 1.0    # secondes de simulation conservées après l'événement final (avant le carton de fin)
-MIN_FINALE, MAX_FINALE = 27.5, 54.5    # => vidéo de 30 à 57 s avec le carton de fin
+MIN_FINALE, MAX_FINALE = 26.0, 53.0    # + 2,2 s de ralenti + 1 s + 1,5 s de carton => vidéo de 30 à 58 s
 TARGET = 42.0
 
 

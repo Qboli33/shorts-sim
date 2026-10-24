@@ -50,6 +50,7 @@ class Timeline:
     metrics: dict = field(default_factory=dict)
     palette: dict = field(default_factory=dict)
     trails: int = 6
+    overlay: str = ""            # texte à l'écran (très court, ou vide) ; `title` sert au titre YouTube
 
     @property
     def duration(self):
