@@ -119,7 +119,7 @@ def simulate(seed, p):
                     pos = (b.pos[a_] + b.pos[c_]) / 2
                     vel = (b.vel[a_] + b.vel[c_]) / 2
                     rm += [a_, c_]
-                    b.add(pos, vel, radius[L], L)
+                    b.add(pos, vel, radius[L], L, spin=(b.spin[a_] + b.spin[c_]) / 2, ang=b.ang[a_])
                     score += 2 ** L
                     if L not in first_reach:
                         first_reach[L] = f

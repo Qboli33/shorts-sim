@@ -20,17 +20,21 @@ class Balls:
         self.rad = np.zeros(0)
         self.kind = np.zeros(0, dtype=int)   # couleur / niveau selon la mécanique
         self.uid = np.zeros(0, dtype=int)    # identifiant stable (traînées)
+        self.ang = np.zeros(0)                # angle de rotation propre (rad, sens horaire à l'écran)
+        self.spin = np.zeros(0)               # vitesse de rotation (rad/s)
         self._next = 0
 
     def __len__(self):
         return len(self.rad)
 
-    def add(self, pos, vel, rad, kind):
+    def add(self, pos, vel, rad, kind, spin=0.0, ang=0.0):
         self.pos = np.vstack([self.pos, np.asarray(pos, float).reshape(1, 2)])
         self.vel = np.vstack([self.vel, np.asarray(vel, float).reshape(1, 2)])
         self.rad = np.append(self.rad, float(rad))
         self.kind = np.append(self.kind, int(kind))
         self.uid = np.append(self.uid, self._next)
+        self.ang = np.append(self.ang, float(ang))
+        self.spin = np.append(self.spin, float(spin))
         self._next += 1
         return len(self.rad) - 1
 
@@ -39,6 +43,10 @@ class Balls:
         keep[np.atleast_1d(idx)] = False
         self.pos, self.vel = self.pos[keep], self.vel[keep]
         self.rad, self.kind, self.uid = self.rad[keep], self.kind[keep], self.uid[keep]
+        self.ang, self.spin = self.ang[keep], self.spin[keep]
+
+    def advance_spin(self, dt):
+        self.ang += self.spin * dt
 
     @property
     def mass(self):
@@ -61,6 +69,8 @@ def collide_balls(b, e=0.95, correct=0.8, min_speed_event=60.0, touching=None):
     i, j = np.nonzero(mask)
     if len(i) == 0:
         return i, j, np.zeros(0)
+    # Frottement entre balles en contact : la rotation s'amortit dans les tas.
+    b.spin[np.unique(np.concatenate([i, j]))] *= 0.985
     dist = np.sqrt(dist2[i, j]) + 1e-9
     nrm = d[i, j] / dist[:, None]
     m = b.mass
@@ -115,6 +125,10 @@ def collide_ring(b, center, R, e=1.0, gap_phi=None, gap_half=0.0, active=None):
     nn = nrm[idx]
     vn = (b.vel[idx] * nn).sum(-1)
     out = vn > 0
+    # Roulement contre la paroi : la rotation tend vers v_tangentielle / r (comme une vraie balle).
+    tan = np.stack([-nn[:, 1], nn[:, 0]], 1)
+    vt = (b.vel[idx] * tan).sum(-1)
+    b.spin[idx] += 0.5 * (-vt / b.rad[idx] - b.spin[idx])
     b.vel[idx] -= ((1 + e) * np.where(out, vn, 0))[:, None] * nn
     b.pos[idx] = center + nn * (R - b.rad[idx])[:, None]
     return idx[out], vn[out], np.nonzero(in_gap & act)[0]

@@ -37,6 +37,25 @@ def get(set_name, level, r):
     return cat_sprite(level, r) if set_name == "cats" else sprite(level, r)
 
 
+def rotate(spr, ang):
+    """Tourne un sprite autour du centre de l'objet (le centre du sprite). `ang` en rad, sens horaire."""
+    import cv2
+    deg = -np.degrees(ang) % 360
+    if deg < 0.5 or deg > 359.5:
+        return spr
+    rgb, a = spr
+    h, w = a.shape
+    s = int(np.ceil(np.hypot(h, w))) | 1
+    py, px = (s - h) // 2, (s - w) // 2
+    rgb2 = np.zeros((s, s, 3), np.uint8)
+    a2 = np.zeros((s, s), np.float32)
+    rgb2[py:py + h, px:px + w] = rgb
+    a2[py:py + h, px:px + w] = a
+    M = cv2.getRotationMatrix2D((s / 2 - 0.5, s / 2 - 0.5), deg, 1.0)
+    return (cv2.warpAffine(rgb2, M, (s, s), flags=cv2.INTER_LINEAR),
+            cv2.warpAffine(a2, M, (s, s), flags=cv2.INTER_LINEAR))
+
+
 def names(set_name):
     return CATS if set_name == "cats" else PLANETS
 

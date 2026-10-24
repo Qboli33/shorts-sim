@@ -63,6 +63,9 @@ def _run(seed, p):
     ang = rng.uniform(0, 2 * np.pi)
     b.add(CENTER + rng.uniform(-60, 60, 2), [np.cos(ang) * p["speed"], np.sin(ang) * p["speed"]], p["r0"], p.get("cat_level", 0))
     col = bgr(NAMED[p["color"]])
+    if p.get("objects") == "cats":        # traînée et particules de la couleur du pelage
+        from ..objects import CAT_COLORS
+        col = CAT_COLORS[p["cat_level"]]
     ring_col = bgr(p["theme"]["ring"])
     accent = bgr(p["theme"]["accent"])
     esc = p["variant"] == "escape"

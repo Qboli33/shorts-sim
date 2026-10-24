@@ -8,6 +8,8 @@ TARGET = 42.0
 
 
 def snapshot(balls, colors_bgr, rings, hud=None, labels=None):
+    """État d'une image. Fait aussi avancer la rotation propre des balles d'une image (1/60 s)."""
+    balls.advance_spin(1 / SIM_FPS)
     return Frame(
         balls=np.column_stack([balls.pos, balls.rad]).astype(np.float32) if len(balls) else np.zeros((0, 3), np.float32),
         colors=np.asarray(colors_bgr, np.uint8).reshape(-1, 3),
@@ -16,6 +18,7 @@ def snapshot(balls, colors_bgr, rings, hud=None, labels=None):
         hud=hud or [],
         labels=labels,
         kinds=balls.kind.copy(),
+        angles=balls.ang.astype(np.float32),
     )
 
 

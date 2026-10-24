@@ -126,7 +126,8 @@ def _interp(frames, sf):
     rings = [(r0[0], None if r0[1] is None else r0[1] + (r1[1] - r0[1]) * a, r0[2], r0[3])
              for r0, r1 in zip(f0.rings, f1.rings)]
     return Frame(balls=f0.balls + (f1.balls - f0.balls) * a, colors=f0.colors, uids=f0.uids, rings=rings,
-                 hud=f0.hud, labels=f0.labels, kinds=f0.kinds)
+                 hud=f0.hud, labels=f0.labels, kinds=f0.kinds,
+                 angles=None if f0.angles is None else f0.angles + (f1.angles - f0.angles) * a)
 
 
 def _uid_maps(frames):
@@ -250,7 +251,10 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                 lvl = int(fr.kinds[idx])
                 if oset == "planets" and lvl == 9:      # seul le Soleil brille ; sinon le halo délave les dessins
                     cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.15, r + 30) / GS * K), tuple(int(v * .5) for v in c), -1, cv2.LINE_AA, SH)
-                text.blit(img, objects.get(oset, lvl, int(round(r))), x, y, "c")
+                spr = objects.get(oset, lvl, int(round(r)))
+                if fr.angles is not None:
+                    spr = objects.rotate(spr, float(fr.angles[idx]))
+                text.blit(img, spr, x, y, "c")
                 continue
             cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.25, r + 40) / GS * K), c, -1, cv2.LINE_AA, SH)
             cv2.circle(img, _p(x, y), int(r * K), tuple(int(v * .7) for v in c), -1, cv2.LINE_AA, SH)

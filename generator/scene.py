@@ -23,6 +23,7 @@ class Frame:
     hud: list = field(default_factory=list)   # commandes d'interface (voir render.draw_hud)
     labels: list | None = None   # texte dans les balles (ex. niveau)
     kinds: np.ndarray | None = None   # niveau / type par balle (objets dessinés à la place des balles)
+    angles: np.ndarray | None = None  # rotation propre (rad, sens horaire à l'écran)
 
 
 @dataclass
