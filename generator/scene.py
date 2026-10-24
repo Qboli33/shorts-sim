@@ -24,6 +24,7 @@ class Frame:
     labels: list | None = None   # texte dans les balles (ex. niveau)
     kinds: np.ndarray | None = None   # niveau / type par balle (objets dessinés à la place des balles)
     angles: np.ndarray | None = None  # rotation propre (rad, sens horaire à l'écran)
+    press: float | None = None   # y du bas du plateau de presse (mécanique crusher)
 
 
 @dataclass

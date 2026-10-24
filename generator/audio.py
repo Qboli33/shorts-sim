@@ -144,6 +144,28 @@ def _squeak(f, rng):
     return (np.sin(ph) + 0.2 * np.sin(3 * ph)) * np.minimum(1, t / 0.02) * np.minimum(1, (0.25 - t) / 0.08).clip(0, 1) * 0.4
 
 
+def _crunch(f, rng, size=1.0):
+    """Craquement : bruit filtré très court + petit choc grave (plus grave pour une grosse balle)."""
+    n = int(SR * 0.16)
+    t = np.arange(n) / SR
+    noise = rng.standard_normal(n)
+    k = max(2, int(6 * size))
+    noise = np.convolve(noise, np.ones(k) / k, mode="same")
+    crackle = noise * np.exp(-t / 0.035) * (1 + 0.6 * (rng.random(n) < 0.02))
+    thud = np.sin(2 * np.pi * (f * 0.5) * t * (1 - 0.4 * t / 0.16)) * np.exp(-t / 0.05)
+    return (crackle * 1.1 + thud * 0.7) * np.minimum(1, t / 0.0015) * 0.55
+
+
+def _hiss(f, rng):
+    """Vérin hydraulique : souffle grave qui monte puis retombe."""
+    n = int(SR * 0.9)
+    t = np.arange(n) / SR
+    noise = np.convolve(rng.standard_normal(n), np.ones(40) / 40, mode="same")
+    hum = np.sin(2 * np.pi * 70 * t) * 0.3
+    env = np.minimum(1, t / 0.12) * np.exp(-np.maximum(0, t - 0.3) / 0.25)
+    return (noise * 2.2 + hum) * env * 0.35
+
+
 def _heartbeat(f, rng):
     n = int(SR * 0.5)
     t = np.arange(n) / SR
@@ -198,10 +220,10 @@ def render_audio(events, duration, time_of, root, seed, path, pack="classic", fi
                 last_t["silly"] = t0
                 _add(mix, w, t0, ev.x, n)
                 continue
-        if kind in ("bounce", "hit", "pop") and t0 - last_t.get(kind, -1) < min_gap:
+        if kind in ("bounce", "hit", "pop", "crunch") and t0 - last_t.get(kind, -1) < min_gap:
             continue
         active_until = [u for u in active_until if u > t0]
-        if kind in ("bounce", "hit", "pop") and len(active_until) >= max_voices:
+        if kind in ("bounce", "hit", "pop", "crunch") and len(active_until) >= max_voices:
             continue
         key = (kind, ev.note)
         if key not in cache:
@@ -210,6 +232,7 @@ def render_audio(events, duration, time_of, root, seed, path, pack="classic", fi
                 "bounce": lambda: _bounce(f), "hit": lambda: _hit(f), "pop": lambda: _pop(f, rng),
                 "chime": lambda: _chime(f), "boom": lambda: _boom(f, rng), "win": lambda: _win(root),
                 "spawn": lambda: _hit(f * 2) * 0.5, "heart": lambda: _heartbeat(f, rng),
+                "crunch": lambda: _crunch(f, rng, 1.0 + 0.6 * (2 - min(2, ev.note))), "hiss": lambda: _hiss(f, rng),
             }[kind]()
         strength = 1.0 if kind == "heart" else min(1.0, max(0.15, ev.strength))
         if silly and kind == "hit":

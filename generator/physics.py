@@ -143,3 +143,51 @@ def escaped(b, center, R):
 def rotate(v, ang):
     c, s = np.cos(ang), np.sin(ang)
     return np.stack([c * v[..., 0] - s * v[..., 1], s * v[..., 0] + c * v[..., 1]], -1)
+
+
+def near_pairs(b, pad=1.0):
+    """Paires candidates (i < j) pour beaucoup de balles : arbre k-d (scipy), sinon méthode directe."""
+    n = len(b)
+    if n < 2:
+        z = np.zeros(0, int)
+        return z, z
+    if n < 120:
+        d2 = ((b.pos[:, None] - b.pos[None]) ** 2).sum(-1)
+        rs = b.rad[:, None] + b.rad[None] + pad
+        return np.nonzero(np.triu(d2 < rs ** 2, 1))
+    from scipy.spatial import cKDTree
+    pr = cKDTree(b.pos).query_pairs(2 * b.rad.max() + pad, output_type="ndarray")
+    if len(pr) == 0:
+        z = np.zeros(0, int)
+        return z, z
+    return pr[:, 0], pr[:, 1]
+
+
+def collide_pairs(b, i, j, e=0.2, correct=0.8):
+    """Comme collide_balls, sur des paires données. Retourne la somme des recouvrements de chaque balle (sa « pression »)."""
+    over = np.zeros(len(b))
+    if len(i) == 0:
+        return over
+    d = b.pos[i] - b.pos[j]
+    dist = np.sqrt((d ** 2).sum(-1)) + 1e-9
+    rs = b.rad[i] + b.rad[j]
+    hit = dist < rs
+    i, j, d, dist, rs = i[hit], j[hit], d[hit], dist[hit], rs[hit]
+    if len(i) == 0:
+        return over
+    nrm = d / dist[:, None]
+    m = b.mass
+    inv_i, inv_j = 1.0 / m[i], 1.0 / m[j]
+    vn = ((b.vel[i] - b.vel[j]) * nrm).sum(-1)
+    jimp = np.where(vn < 0, -(1 + e) * vn / (inv_i + inv_j), 0.0)
+    n = len(b)
+    ov = rs - dist
+    w_i = inv_i / (inv_i + inv_j)
+    dv_i, dv_j = (jimp * inv_i)[:, None] * nrm, -(jimp * inv_j)[:, None] * nrm
+    push = (ov * correct)[:, None] * nrm
+    dp_i, dp_j = push * w_i[:, None], -push * (1 - w_i)[:, None]
+    for k in (0, 1):     # np.bincount : bien plus rapide que np.add.at
+        b.vel[:, k] += np.bincount(i, dv_i[:, k], n) + np.bincount(j, dv_j[:, k], n)
+        b.pos[:, k] += np.bincount(i, dp_i[:, k], n) + np.bincount(j, dp_j[:, k], n)
+    # Recouvrement par balle : la somme des recouvrements (pression) plutôt que le max.
+    return np.bincount(i, ov, n) + np.bincount(j, ov, n)

@@ -43,6 +43,7 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 | color_escape | chaque évasion = +1 point et 2 balles de cette couleur (plafond par couleur pour éviter l'emballement) | « X WINS! » | N (premier à N) choisi après la simulation pour une fin dans la fenêtre, serrée de préférence |
 | merge_balls | deux objets de même niveau fusionnent (planètes de la Lune au Soleil, dessinées par code dans `generator/objects.py`) ; rangée de niveaux « ? » | « JUPITER! » / FULL! | niveau objectif = le plus haut atteint dans la fenêtre (minimum 5) |
 | bounce_spawn | chaque rebond de la balle blanche « mère » ajoute une balle | « 128! » | objectif (50…200) choisi après la simulation |
+| crusher | presse hydraulique (style NexusBox, fond noir `flat`) : une balle écrasée sous le plateau se brise en 4 balles deux fois plus petites (3 tailles) | « 800! » | écrasements cumulés planifiés (`t_full`, `curve`), objectif choisi après la simulation ; collisions via scipy `cKDTree` (`physics.near_pairs`) |
 
 Score qualité : durée proche de 42 s, fin serrée, changements de leader, type de fin. Pour color_escape, on favorise fortement la victoire d'un point et un dernier changement de leader tardif (paramètre `cap` bas pour éviter l'emballement).
 

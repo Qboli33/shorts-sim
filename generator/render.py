@@ -22,6 +22,8 @@ def _p(x, y):
 
 
 def make_background(theme):
+    if theme.get("flat"):
+        return np.zeros((H, W, 3), np.uint8) + np.array(theme["bg"][0][::-1], np.uint8)
     top, bot = np.array(theme["bg"][0][::-1], float), np.array(theme["bg"][1][::-1], float)
     t = np.linspace(0, 1, H)[:, None, None]
     img = np.repeat(top * (1 - t) + bot * t, W, axis=1)
@@ -107,6 +109,30 @@ def draw_hud(img, cmds):
             cv2.rectangle(img, (int(x), int(y)), (int(x + w * min(1, frac)), int(y + h)), col, -1)
 
 
+def draw_press(img, py, R):
+    """Plateau de presse hydraulique : bloc d'acier découpé par le cercle, tige et vérin au-dessus."""
+    cx, cy = CENTER
+    rod_top = cy - R - 95
+    y0, y1 = py - 46, py
+    if y1 > rod_top:
+        cv2.rectangle(img, (int(cx - 22), int(rod_top)), (int(cx + 22), int(max(rod_top, y0))), (120, 118, 112), -1, cv2.LINE_AA)
+        cv2.rectangle(img, (int(cx - 9), int(rod_top)), (int(cx - 3), int(max(rod_top, y0))), (190, 188, 182), -1, cv2.LINE_AA)
+    cv2.rectangle(img, (int(cx - 80), int(rod_top - 38)), (int(cx + 80), int(rod_top)), (70, 68, 64), -1, cv2.LINE_AA)
+    cv2.rectangle(img, (int(cx - 80), int(rod_top - 38)), (int(cx + 80), int(rod_top - 30)), (130, 128, 122), -1, cv2.LINE_AA)
+    ys = np.linspace(max(y0, cy - R + 1), min(y1, cy + R - 1), 24)
+    if len(ys) < 2 or ys[-1] <= ys[0]:
+        return
+    hw = np.sqrt(np.maximum(0, R ** 2 - (ys - cy) ** 2))
+    left = np.stack([cx - hw, ys], 1)
+    right = np.stack([cx + hw, ys], 1)[::-1]
+    poly = (np.concatenate([left, right]) * K).astype(np.int32)
+    cv2.fillPoly(img, [poly], (150, 148, 142), cv2.LINE_AA, SH)
+    # Arête basse claire et rainures (aspect métal).
+    for yy, col, th in ((ys[-1] - 3, (225, 225, 220), 4), (ys[0] + 10, (110, 108, 104), 2), (ys[0] + 22, (110, 108, 104), 2)):
+        h = np.sqrt(max(0, R ** 2 - (yy - cy) ** 2))
+        cv2.line(img, _p(cx - h, yy), _p(cx + h, yy), col, th, cv2.LINE_AA, SH)
+
+
 SLOW_SIM = 1.2      # secondes de simulation passées au ralenti avant l'événement final
 SLOW_SPEED = 0.35
 _yy, _xx = np.mgrid[0:H, 0:W]
@@ -128,7 +154,8 @@ def _interp(frames, sf):
              for r0, r1 in zip(f0.rings, f1.rings)]
     return Frame(balls=f0.balls + (f1.balls - f0.balls) * a, colors=f0.colors, uids=f0.uids, rings=rings,
                  hud=f0.hud, labels=f0.labels, kinds=f0.kinds,
-                 angles=None if f0.angles is None else f0.angles + (f1.angles - f0.angles) * a)
+                 angles=None if f0.angles is None else f0.angles + (f1.angles - f0.angles) * a,
+                 press=None if f0.press is None else f0.press + (f1.press - f0.press) * a)
 
 
 def _uid_maps(frames):
@@ -213,7 +240,11 @@ def render(tl, out_path, fps=60, theme=None, log=print):
         img = bg.copy()
         glow = np.zeros((H // GS, W // GS, 3), np.uint8)
 
+        flat = theme.get("flat", False)      # style « noir » : anneau fin, aucun halo
         for (R, gphi, ghalf, col) in fr.rings:
+            if flat:
+                cv2.circle(img, _p(*CENTER), int((R + 3) * K), col, 5, cv2.LINE_AA, SH)
+                continue
             th = 12
             rr = R + th / 2
             if gphi is None or ghalf <= 0:
@@ -261,12 +292,15 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     spr = objects.rotate(spr, float(fr.angles[idx]))
                 text.blit(img, spr, x, y, "c")
                 continue
-            cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.25, r + 40) / GS * K), c, -1, cv2.LINE_AA, SH)
+            if not flat:
+                cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.25, r + 40) / GS * K), c, -1, cv2.LINE_AA, SH)
             cv2.circle(img, _p(x, y), int(r * K), tuple(int(v * .7) for v in c), -1, cv2.LINE_AA, SH)
             cv2.circle(img, _p(x - r * .06, y - r * .06), int(r * .9 * K), c, -1, cv2.LINE_AA, SH)
             cv2.circle(img, _p(x - r * .35, y - r * .35), int(max(1, r * .28) * K), lighten(c, .6), -1, cv2.LINE_AA, SH)
             if r > 10:
                 cv2.circle(img, _p(x - r * .42, y - r * .42), int(max(1, r * .1) * K), (255, 255, 255), -1, cv2.LINE_AA, SH)
+        if fr.press is not None:
+            draw_press(img, fr.press, fr.rings[0][0] + 1)
         if fr.labels:
             for (x, y, r), lab in zip(fr.balls, fr.labels):
                 if lab and r >= 26:
@@ -281,6 +315,8 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     parts.burst(e.x, e.y, e.color, 16, 520, 0.6, 6)
                 elif e.kind == "chime":
                     parts.burst(e.x, e.y, e.color, 18, 380, 0.9, 5)
+                elif e.kind == "crunch":
+                    parts.burst(e.x, e.y, e.color, 7, 300, 0.45, 3)
                 elif e.kind in ("boom", "win"):
                     parts.burst(e.x, e.y, e.color, 260, 1500, 1.6, 9)
                     flash = 1.0
@@ -288,8 +324,9 @@ def render(tl, out_path, fps=60, theme=None, log=print):
         parts.step(speed / fps)
         parts.draw(img, glow)
 
-        glow = cv2.GaussianBlur(glow, (0, 0), 5)
-        img = cv2.add(img, cv2.resize(glow, (W, H), interpolation=cv2.INTER_LINEAR))
+        if not flat:
+            glow = cv2.GaussianBlur(glow, (0, 0), 5)
+            img = cv2.add(img, cv2.resize(glow, (W, H), interpolation=cv2.INTER_LINEAR))
         if flash > 0.02:
             img = cv2.addWeighted(img, 1.0, np.full_like(img, 255), flash * 0.45, 0)
             flash *= 0.85
