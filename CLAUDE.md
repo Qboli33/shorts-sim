@@ -55,13 +55,18 @@ Score qualité : durée proche de 42 s, fin serrée, changements de leader, type
 Titre anglais en question ou défi (dans `TITLES`, cohérent avec ce qui est affiché). Description : 1 ligne + hashtags (`#shorts #satisfying #simulation …`).
 Metricool : type short, privacy public, category GAMING, isAiGeneratedContent false, madeForKids false.
 
+## Publication
+- `state/settings.json` : `autopublish` false = posts créés avec createScheduledPostForReview (validation par l'utilisateur dans Metricool) ; true = createScheduledPost direct.
+- Pousser les vidéos par paquets d'un jour (environ 10 vidéos par commit et par push) pour éviter les refus de push trop gros.
+- 2026-10-24 : Short de test non répertorié programmé (Metricool 405051945). Metricool récupère bien l'URL raw et la recopie sur static.metricool.com.
+
 ## Comptes
 - Metricool : blogId 7627641, fuseau Asia/Makassar, chaîne YouTube UCMu0izz7oXj-ZFSW08sIyOQ.
 - vidIQ : compte connecté, chaîne YouTube non liée au 2026-10-24.
 - Média publié = URL raw : `https://raw.githubusercontent.com/Qboli33/shorts-sim/main/<file>` (vérifier HTTP 200 et la taille avant de programmer).
 
 ## Ménage du dépôt
-Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'environ 1 Go, réécrire l'historique avec une branche orpheline qui ne garde que l'état courant (`git checkout --orphan fresh && git add -A && git commit && git branch -M main && git push -f origin main`), seulement après accord de l'utilisateur la première fois.
+Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'environ 1 Go, réécrire l'historique avec une branche orpheline qui ne garde que l'état courant (`git checkout --orphan fresh && git add -A && git commit && git branch -M main && git push -f origin main`), (autorisé par le brief de l'utilisateur).
 
 ## Décisions
 - 2026-10-24 : OpenCV et Poppins n'étaient pas préinstallés. pip fonctionne : `setup.sh` installe OpenCV, et la police est versionnée dans le dépôt.
