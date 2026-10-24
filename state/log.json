@@ -268,10 +268,11 @@
   "fps": 60,
   "scheduled_at": "2026-10-24T23:20:00+08:00",
   "metricool_id": 405051945,
-  "status": "scheduled_unlisted_test",
+  "status": "published_unlisted_test",
   "qc_sheet": "out/2026-10-24/qc/2026-10-24-04-color_escape.jpg",
   "created": "2026-10-24",
-  "metricool_url": "https://app.metricool.com/planner/calendar?blogId=7627641&openWithPostUuid=-5973945217056619257"
+  "metricool_url": "https://app.metricool.com/planner/calendar?blogId=7627641&openWithPostUuid=-5973945217056619257",
+  "youtube_url": "https://www.youtube.com/shorts/OclyTzPT2PA"
  },
  {
   "id": "2026-10-24-05-grow_ball",
