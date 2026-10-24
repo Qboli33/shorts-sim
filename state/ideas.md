@@ -21,3 +21,7 @@ Sources : [Know Your Meme, « Will the Ball Escape? »](https://knowyourmeme.com
 12. Labyrinthe qui rétrécit, ou cercle qui se referme.
 13. Fusion avec d'autres séries d'objets dessinées par code : fruits stylisés, gemmes, chiens, monstres mignons.
 14. « Oui ou non » : la balle choisit la réponse en tombant dans un trou.
+
+## Vu le 2026-10-24 (envoyé par l'utilisateur)
+- **NexusBox Lab** (Instagram, 19 k abonnés, 1 à 14 M de vues par reel) : presse hydraulique ou béliers qui écrasent des centaines de balles brillantes, fond noir, une ligne de texte avec un compteur (« 31 RPM », « 84/200 »). Meilleurs : « Every ball smash makes 4 more balls » (14 M) et « Scoop Ball Crusher » (12 M). → mécanique `crusher`.
+- **BallSimule** (Instagram) : « Tiny Cat to Ultimate Chad » (2,9 M), une fusion avec des photos de mèmes ; « The Last Cat Standing » (2,5 M), où chaque balle tend des fils vers la paroi à chaque rebond, une autre balle coupe les fils en les traversant, et la dernière qui a encore des fils gagne. Leurs images sont des mèmes (droits d'auteur), on ne les reprend pas. À faire : (1) mécanique « fils » ; (2) dernier niveau des chats = chat musclé « CHAD » dessiné par code ; (3) rangée « EVOLUTION » en bas avec les niveaux, comme chez eux.
