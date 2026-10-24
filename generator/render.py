@@ -13,7 +13,7 @@ from .scene import CENTER, H, SIM_FPS, W, Frame
 SH = 4                      # sous-pixel pour cv2 (coordonnées x16)
 K = 1 << SH
 GS = 4                      # facteur de réduction de la couche de halo
-END_CARD = 1.5              # secondes
+END_CARD = 2.8              # secondes (fin plus longue : demande du 2026-10-24)
 LOOP_FADE = 0.45            # fondu final vers la première image (vidéo qui boucle)
 
 
@@ -158,6 +158,22 @@ def _interp(frames, sf):
                  press=None if f0.press is None else f0.press + (f1.press - f0.press) * a)
 
 
+def _showcase(tl):
+    """Objet final montré en grand sur le carton de fin (fusion réussie, ou chat de grow_ball)."""
+    p, m = tl.params, tl.metrics
+    oset = p.get("objects")
+    if oset not in objects.SETS:
+        return None
+    if tl.mechanic == "merge_balls" and m.get("outcome") == "max":
+        lvl = m["goal_level"]
+        lvl = objects.CHAD if lvl == p.get("chad_level", -1) else lvl
+    elif tl.mechanic == "grow_ball" and oset == "cats":
+        lvl = p.get("cat_level", 0)
+    else:
+        return None
+    return objects.get(oset, int(lvl), 190)
+
+
 def _uid_maps(frames):
     return [{int(u): i for i, u in enumerate(f.uids)} for f in frames]
 
@@ -212,6 +228,7 @@ def render(tl, out_path, fps=60, theme=None, log=print):
     fs = text.fit_size(tl.finale_text, 150, 900)
     finale_spr = text.sprite(tl.finale_text, fs, tl.finale_color, max(6, fs // 12), (10, 10, 10))
     sub_spr = None     # pas de sous-titre : écran le plus épuré possible
+    show = _showcase(tl)
     flash = 0.0
     last = None
 
@@ -223,10 +240,20 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             f_idx = int(sf)
             speed = SLOW_SPEED if s0 <= sf < fin else 1.0
         if in_end:
-            # Carton de fin : dernière image figée, assombrie, texte final.
+            # Carton de fin : dernière image figée, assombrie, objet final en grand au centre, texte final.
             e = (k - (n_out - n_end)) / max(1, n_end)
-            img = (last * (1 - 0.55 * min(1, e * 3))).astype(np.uint8)
-            text.blit(img, finale_spr, 540, 960, "c", scale=1.0 + 0.04 * np.sin(e * 6))
+            es = e * END_CARD                     # secondes écoulées dans le carton
+            img = (last * (1 - 0.65 * min(1, es / 0.4))).astype(np.uint8)
+            if show is not None:
+                pop = min(1.0, es / 0.35)
+                sc = pop * (1.12 - 0.12 * pop) * (1 + 0.03 * np.sin(es * 5))
+                cv2.circle(img, (540, 840), int(285 * pop), tuple(int(v * 0.35) for v in tl.finale_color), -1, cv2.LINE_AA)
+                cv2.circle(img, (540, 840), int(285 * pop), tl.finale_color, 6, cv2.LINE_AA)
+                if sc > 0.05:
+                    text.blit(img, show, 540, 840, "c", scale=sc)
+                text.blit(img, finale_spr, 540, 1270, "c", scale=1.0 + 0.04 * np.sin(es * 4))
+            else:
+                text.blit(img, finale_spr, 540, 960, "c", scale=1.0 + 0.04 * np.sin(es * 4))
             if sub_spr:
                 text.blit(img, sub_spr, 540, 1110, "c", alpha=min(1, e * 4))
             # Boucle : les dernières images se fondent dans la toute première, la relecture enchaîne sans coupure.
@@ -342,11 +369,13 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             img = (img * VIGNETTE).astype(np.uint8)
         draw_hud(img, fr.hud)
 
+        clean = img                      # image sans le texte final (fond du carton de fin)
         if f_idx >= tl.finale_frame:
+            clean = img.copy()
             e = (f_idx - tl.finale_frame) / SIM_FPS
             sc = 0.3 + 0.85 * min(1, e / 0.18) - 0.15 * max(0, min(1, (e - 0.18) / 0.15))
             text.blit(img, finale_spr, 540, 960, "c", scale=sc)
-        last = img
+        last = clean
         if k == 0:
             first = img.copy()
         proc.stdin.write(img.tobytes())

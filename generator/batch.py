@@ -16,7 +16,7 @@ import numpy as np
 
 from . import qc
 from .mechanics import MECHANICS
-from .render import SLOW_SIM, SLOW_SPEED, render
+from .render import END_CARD, SLOW_SIM, SLOW_SPEED, render
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(ROOT, "state", "log.json")
@@ -69,7 +69,7 @@ def _simulate(job):
     if tl is None:
         return dict(mechanic=name, seed=seed, ok=False)
     return dict(mechanic=name, seed=seed, ok=True, score=float(m.score(tl)), title=tl.title,
-                duration=tl.duration + 1.5 + SLOW_SIM * (1 / SLOW_SPEED - 1), metrics=tl.metrics)
+                duration=tl.duration + END_CARD + SLOW_SIM * (1 / SLOW_SPEED - 1), metrics=tl.metrics)
 
 
 def _render(job):
