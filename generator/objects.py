@@ -33,7 +33,12 @@ def _spots(nx, ny, base, spots):
     return img
 
 
+CHAD = 99          # niveau spécial : le chat bodybuildé, dernier niveau de certaines fusions
+
+
 def get(set_name, level, r):
+    if set_name == "cats" and level == CHAD:
+        return chad_sprite(r)
     return cat_sprite(level, r) if set_name == "cats" else sprite(level, r)
 
 
@@ -251,6 +256,80 @@ def cat_sprite(level, r):
     rgb = np.ascontiguousarray(a[..., 2::-1]).astype(np.uint8)
     alpha = a[..., 3] / 255.0
     # Recentrer : blit centre le sprite ; on ajoute du vide en bas pour que la tête soit au centre.
+    h, w = alpha.shape
+    head_cy = int(round(cy / S))
+    pad = max(0, 2 * head_cy - h)
+    if pad:
+        rgb = np.vstack([rgb, np.zeros((pad, w, 3), np.uint8)])
+        alpha = np.vstack([alpha, np.zeros((pad, w), np.float32)])
+    return rgb, alpha
+
+
+@lru_cache(maxsize=128)
+def chad_sprite(r):
+    """« CHAD CAT » : tête de chat carrée, sourcils épais, sourire en coin, et deux bras qui font les biceps.
+    Les bras débordent du cercle physique (comme les anneaux de Saturne)."""
+    r = max(8, int(r))
+    S = 3
+    R = r * S
+    W = int(R * 3.6)
+    Hh = int(R * 2.9)
+    cx, cy = W / 2, Hh - R * 1.15
+    img = Image.new("RGBA", (W, Hh), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    fur, dark, pink = (245, 228, 200), (150, 120, 90), (255, 150, 170)
+    skin_line = (120, 95, 70)
+    P = lambda x, y: (cx + x * R, cy + y * R)
+    lw = max(2, int(R * 0.06))
+    # bras : épaule -> coude (vers l'extérieur) -> poing levé, biceps gonflé ; contour = même tracé plus large et foncé
+    for sg in (-1, 1):
+        for col, extra in ((skin_line, lw * 2), (fur, 0)):
+            d.line([P(sg * 0.8, 0.38), P(sg * 1.42, 0.3)], fill=col, width=int(R * 0.36) + extra)
+            d.line([P(sg * 1.42, 0.36), P(sg * 1.5, -0.5)], fill=col, width=int(R * 0.3) + extra)
+            d.ellipse([P(sg * 1.42 - 0.18 - extra / R / 2, 0.12 - extra / R / 2), P(sg * 1.42 + 0.18 + extra / R / 2, 0.48 + extra / R / 2)], fill=col)
+            # biceps : grosse bosse au-dessus du bras
+            d.ellipse([P(sg * 1.12 - 0.3 - extra / R / 2, -0.1 - extra / R / 2), P(sg * 1.12 + 0.26 + extra / R / 2, 0.42 + extra / R / 2)], fill=col)
+            d.rounded_rectangle([P(sg * 1.5 - 0.22 - extra / R / 2, -0.92 - extra / R / 2), P(sg * 1.5 + 0.22 + extra / R / 2, -0.45 + extra / R / 2)],
+                                radius=int(R * 0.12), fill=col)
+        d.arc([P(sg * 1.12 - 0.2, -0.02), P(sg * 1.12 + 0.16, 0.3)], 200, 330, fill=(225, 200, 165), width=lw)   # reflet du muscle
+        for k in range(3):   # doigts
+            yy = -0.8 + k * 0.11
+            d.line([P(sg * 1.36, yy), P(sg * 1.64, yy)], fill=skin_line, width=max(1, lw // 2))
+    # oreilles
+    for sg in (-1, 1):
+        d.polygon([P(sg * 0.95, -0.3), P(sg * 0.82, -1.3), P(sg * 0.22, -0.9)], fill=fur, outline=dark, width=lw)
+        d.polygon([P(sg * 0.78, -0.48), P(sg * 0.74, -1.05), P(sg * 0.4, -0.84)], fill=pink)
+    # tête un peu carrée : cercle + mâchoire large
+    d.ellipse([P(-1, -1), P(1, 0.9)], fill=fur, outline=dark, width=lw)
+    d.rounded_rectangle([P(-0.86, -0.1), P(0.86, 1.0)], radius=int(R * 0.35), fill=fur, outline=dark, width=lw)
+    d.rectangle([P(-0.8, -0.1), P(0.8, 0.3)], fill=fur)
+    # barbe naissante
+    rng = np.random.default_rng(7)
+    for _ in range(40):
+        x, y = rng.uniform(-0.6, 0.6), rng.uniform(0.62, 0.92)
+        d.ellipse([P(x - 0.012, y - 0.012), P(x + 0.012, y + 0.012)], fill=(190, 165, 135))
+    black, white = (25, 20, 25), (255, 255, 255)
+    eye_y = -0.15
+    for sg in (-1, 1):
+        ex = sg * 0.38
+        d.ellipse([P(ex - 0.15, eye_y - 0.09), P(ex + 0.15, eye_y + 0.1)], fill=white, outline=black, width=lw)
+        d.ellipse([P(ex - 0.06, eye_y - 0.07), P(ex + 0.06, eye_y + 0.08)], fill=black)
+        d.chord([P(ex - 0.16, eye_y - 0.12), P(ex + 0.16, eye_y + 0.12)], 180, 360, fill=fur)    # paupières mi-closes : air sûr de lui
+        d.line([P(ex - 0.16, eye_y - 0.01), P(ex + 0.16, eye_y - 0.01)], fill=black, width=lw)
+        d.line([P(ex - sg * 0.24, eye_y - 0.22), P(ex + sg * 0.2, eye_y - 0.3)], fill=(90, 70, 50), width=int(lw * 2.4))  # sourcils
+    d.polygon([P(-0.1, 0.18), P(0.1, 0.18), P(0, 0.3)], fill=pink, outline=dark)
+    d.arc([P(-0.05, 0.3), P(0.42, 0.55)], 10, 150, fill=black, width=int(lw * 1.3))       # sourire en coin
+    d.line([P(-0.25, 0.43), P(0.02, 0.45)], fill=black, width=int(lw * 1.3))
+    for sg in (-1, 1):
+        for dy in (-0.06, 0.06):
+            d.line([P(sg * 0.32, 0.3 + dy * 0.5), P(sg * 1.0, 0.24 + dy * 1.5)], fill=(60, 55, 60), width=max(1, lw // 2))
+    hl = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(hl).ellipse([P(-0.62, -0.85), P(-0.2, -0.5)], fill=(255, 255, 255, 70))
+    img = Image.alpha_composite(img, hl)
+    img = img.resize((max(1, W // S), max(1, Hh // S)), Image.LANCZOS)
+    a = np.asarray(img).astype(np.float32)
+    rgb = np.ascontiguousarray(a[..., 2::-1]).astype(np.uint8)
+    alpha = a[..., 3] / 255.0
     h, w = alpha.shape
     head_cy = int(round(cy / S))
     pad = max(0, 2 * head_cy - h)

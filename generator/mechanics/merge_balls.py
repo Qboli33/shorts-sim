@@ -56,6 +56,7 @@ def sample(rng):
         title_idx=int(rng.integers(4)),
         overlay_idx=int(rng.integers(len(OVERLAYS))),
         trails=0,
+        chad=bool(rng.random() < 0.7),            # chats : le dernier niveau devient le chat bodybuildé
     )
 
 
@@ -63,7 +64,7 @@ def simulate(seed, p):
     rng = np.random.default_rng(seed)
     R = RING_R
     ramp = list(objects.colors(p["objects"]))
-    names = objects.names(p["objects"])
+    names = list(objects.names(p["objects"]))
     lmax = min(len(ramp) - 1, int(np.log(0.5 * R / p["r0"]) / np.log(p["ratio"])))
     radius = [p["r0"] * p["ratio"] ** L for L in range(lmax + 1)]
     ring_col = bgr(p["theme"]["ring"])
@@ -165,6 +166,10 @@ def simulate(seed, p):
     if outcome == "max":
         events.append(Event(fin, "win", fx, fy, ramp[goal], 1.0, 0))
 
+    chad = p["objects"] == "cats" and p.get("chad", False)
+    if chad:
+        p["chad_level"] = goal
+        names[goal] = "CHAD CAT"
     accent = bgr(p["theme"]["accent"])
     n_icons = goal + 1
     rs = np.linspace(20, 36, n_icons)
@@ -183,7 +188,7 @@ def simulate(seed, p):
         hud = []
         for L in range(n_icons):
             if L in first_reach and first_reach[L] <= fz:
-                hud.append(("obj", p["objects"], L, xs[L], 470, rs[L]))
+                hud.append(("obj", p["objects"], objects.CHAD if chad and L == goal else L, xs[L], 470, rs[L]))
             else:
                 hud.append(("qmark", xs[L], 470, rs[L]))
         fr.hud = hud
@@ -209,6 +214,8 @@ def comment(tl, rng):
     name = tl.finale_text.rstrip("!").title()
     if tl.params.get("objects") == "cats":
         opts = ["Which cat is your favorite? 🐱👇", f"Did you see the {name} coming? 👇", "Rate the King Cat chances from 1 to 10 👑👇"]
+        if name == "Chad Cat":
+            opts = ["Chad Cat or Kitten? Which one are you? 💪🐱👇", "Rate Chad Cat's biceps from 1 to 10 💪👇", "Did you see Chad Cat coming? 👇"]
     else:
         opts = ["Which planet is your favorite? 🪐👇", f"Did you think it would reach {name}? 👇", "Should the next one go all the way to the Sun? ☀️👇"]
     return str(rng.choice(opts))

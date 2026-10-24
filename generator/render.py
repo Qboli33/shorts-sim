@@ -285,6 +285,8 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             c = tuple(int(v) for v in c)
             if use_obj:
                 lvl = int(fr.kinds[idx])
+                if lvl == tl.params.get("chad_level", -1):
+                    lvl = objects.CHAD
                 if oset == "planets" and lvl == 9:      # seul le Soleil brille ; sinon le halo délave les dessins
                     cv2.circle(glow, _p(x / GS, y / GS), int(min(r * 1.15, r + 30) / GS * K), tuple(int(v * .5) for v in c), -1, cv2.LINE_AA, SH)
                 spr = objects.get(oset, lvl, int(round(r)))
