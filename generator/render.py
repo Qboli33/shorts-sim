@@ -14,6 +14,7 @@ SH = 4                      # sous-pixel pour cv2 (coordonnées x16)
 K = 1 << SH
 GS = 4                      # facteur de réduction de la couche de halo
 END_CARD = 1.5              # secondes
+LOOP_FADE = 0.45            # fondu final vers la première image (vidéo qui boucle)
 
 
 def _p(x, y):
@@ -201,6 +202,10 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             text.blit(img, finale_spr, 540, 960, "c", scale=1.0 + 0.04 * np.sin(e * 6))
             if sub_spr:
                 text.blit(img, sub_spr, 540, 1110, "c", alpha=min(1, e * 4))
+            # Boucle : les dernières images se fondent dans la toute première, la relecture enchaîne sans coupure.
+            loop = (e - (1 - LOOP_FADE / END_CARD)) / (LOOP_FADE / END_CARD)
+            if loop > 0:
+                img = cv2.addWeighted(img, 1 - min(1, loop), first, min(1, loop), 0)
             proc.stdin.write(img.tobytes())
             continue
 
@@ -303,6 +308,8 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             sc = 0.3 + 0.85 * min(1, e / 0.18) - 0.15 * max(0, min(1, (e - 0.18) / 0.15))
             text.blit(img, finale_spr, 540, 960, "c", scale=sc)
         last = img
+        if k == 0:
+            first = img.copy()
         proc.stdin.write(img.tobytes())
 
     proc.stdin.close()

@@ -169,3 +169,17 @@ def score(tl):
     else:
         s += 0.2
     return min(1.0, s)
+
+
+def comment(tl, rng):
+    """Premier commentaire : une question qui pousse à répondre, adaptée à la vidéo (sans tout dévoiler)."""
+    cat = tl.params.get("objects") == "cats"
+    if tl.params["variant"] == "escape":
+        opts = ["Did you think it would make it out? 👇", "Escape or stuck... what was your guess? 🤔",
+                "Be honest, did you call it before the end? 👀"]
+    else:
+        opts = ["How many bounces did you guess? 🤔", f"Guess the bounce count before it fills up! It took {tl.metrics['bounces']}. Did you get close? 👇",
+                "Comment your guess for the next one! 👇"]
+    if cat:
+        opts.append("Rate this chonky cat from 1 to 10 🐱👇")
+    return str(rng.choice(opts))

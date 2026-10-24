@@ -163,3 +163,10 @@ def _quality(c, N):
 def score(tl):
     m = tl.metrics
     return _quality(dict(margin=m["margin"], changes=m["leader_changes"], t=m["finale_s"], late=m["late"]), m["N"])
+
+
+def comment(tl, rng):
+    opts = ["Which color did you pick? 👇", f"Team {tl.metrics['winner'].title()} or not? Drop your color below 👇",
+            f"That finish was {'insane' if tl.metrics['margin'] == 1 else 'close'}! Which color were you rooting for? 🏁",
+            "Pick a color for the next race in the comments! 👇"]
+    return str(rng.choice(opts))

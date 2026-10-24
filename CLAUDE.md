@@ -32,7 +32,7 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 - `generator/render.py` : fond en dégradé avec vignette, anneau néon, halo (couche 1/4 floutée), balles avec reflet, traînées, particules, titre, interface, texte final animé, carton de fin de 1,5 s. Encodage via un tube vers ffmpeg (libx264 veryfast CRF 20, yuv420p, AAC 160k, faststart).
 - `generator/audio.py` : rebond, choc, pop, carillon, explosion, arpège de victoire, nappe ; gamme pentatonique avec une tonique aléatoire ; 6 voix max ; normalisation + tanh.
 - `generator/text.py` : Poppins Bold (`assets/fonts`, licence OFL ; DejaVu en secours), sprites en cache.
-- `generator/mechanics/<nom>.py` : `NAME`, `TITLES`, `DESCRIPTIONS`, `HASHTAGS`, `sample(rng)`, `simulate(seed, params) -> Timeline|None`, `score(tl)`. À enregistrer dans `mechanics/__init__.py`.
+- `generator/mechanics/<nom>.py` : `NAME`, `TITLES`, `DESCRIPTIONS`, `HASHTAGS`, `sample(rng)`, `simulate(seed, params) -> Timeline|None`, `score(tl)`, `comment(tl, rng)`. À enregistrer dans `mechanics/__init__.py`.
 - La durée cible est garantie par construction : l'événement final doit tomber entre 26 et 53 s de simulation. S'y ajoutent 2,2 s de ralenti, 1 s de suite et 1,5 s de carton, soit une vidéo de 30 à 58 s.
 - Suspense : les 1,2 s de simulation avant l'événement final passent au ralenti (x0,35, positions interpolées), avec un assombrissement des bords et des battements de cœur.
 
@@ -50,6 +50,9 @@ Score qualité : durée proche de 42 s, fin serrée, changements de leader, type
 - **Texte à l'écran quasi absent** : `overlay` très court ou vide (`OVERLAYS` dans chaque mécanique ; vide une fois sur deux). Interface réduite à un chiffre (%, compteur, scores) ; texte final court (FULL!, OUT!, STUCK!, MAX!, RED!, 128!) ; pas de sous-titre. Le titre YouTube (`title`) garde la question en anglais.
 - **Sons rigolos** synthétisés (aucun échantillon) : miaou, boing, coin-coin, couic, de plus en plus graves à l'approche de la fin (jusqu'à -1,6 octave). « classic » reste possible mais rare.
 - **Suspense jusqu'au bout** : ralenti final, fins serrées.
+- **Fin en boucle** : les 0,45 dernières secondes du carton se fondent dans la première image (`LOOP_FADE`), pour que la relecture enchaîne sans coupure.
+- **Premier commentaire automatique** : `comment(tl, rng)` dans chaque mécanique, une question adaptée à la vidéo (champ `first_comment` du log), envoyée comme `firstCommentText` à Metricool. Metricool ne peut pas l'épingler.
+- **Image de chaîne** : `python3 -m generator.branding` génère `assets/branding/avatar.png` et `banner.png`. Textes de chaîne dans `assets/branding/channel.md`.
 - **Objets plutôt que balles pour la fusion** (demande du 2026-10-24) : série tirée au hasard dans `objects.SETS`, soit des planètes procédurales, soit des chats de dessin animé dessinés par code (du chaton au King Cat, avec un miaou dont la hauteur suit la taille). Dans grow_ball, 35 % des vidéos utilisent un chat. Chute lente (gravité de 650 à 1100).
 - Mèmes et sons viraux d'autres créateurs : refusés (droits d'auteur et contenu réutilisé non monétisable). On recrée l'esprit par code. Idées de formats : `state/ideas.md`. D'autres séries d'objets dessinées par code pourront s'ajouter (gemmes, fruits stylisés…), sans aucune marque ni personnage.
 

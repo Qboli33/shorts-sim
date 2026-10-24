@@ -203,3 +203,12 @@ def score(tl):
     m = tl.metrics
     s = 0.45 * duration_score(m["finale_s"]) + 0.35 * m["goal_level"] / max(1, m["lmax"])
     return s + (0.2 if m["outcome"] == "max" else 0.12)
+
+
+def comment(tl, rng):
+    name = tl.finale_text.rstrip("!").title()
+    if tl.params.get("objects") == "cats":
+        opts = ["Which cat is your favorite? 🐱👇", f"Did you see the {name} coming? 👇", "Rate the King Cat chances from 1 to 10 👑👇"]
+    else:
+        opts = ["Which planet is your favorite? 🪐👇", f"Did you think it would reach {name}? 👇", "Should the next one go all the way to the Sun? ☀️👇"]
+    return str(rng.choice(opts))

@@ -87,7 +87,8 @@ def _render(job):
     if isinstance(tags, dict):
         tags = tags[tl.params["objects"]]
     desc = f"{descs[rng.integers(len(descs))]} {' '.join(tags)}"
-    return dict(render_s=round(el, 1), params=tl.params, description=desc,
+    first_comment = m.comment(tl, rng) if hasattr(m, "comment") else ""
+    return dict(render_s=round(el, 1), params=tl.params, description=desc, first_comment=first_comment,
                 finale_s=tl.finale_frame / 60 + SLOW_SIM * (1 / SLOW_SPEED - 1))
 
 
@@ -172,7 +173,7 @@ def main():
               + ("" if check["ok"] else f"  PROBLÈME: {check['problems']}"))
         log.append(dict(
             id=r["id"], mechanic=r["mechanic"], seed=r["seed"], params=rr["params"], title=r["title"],
-            description=rr["description"], duration=round(check["duration"], 2), file=r["file"],
+            description=rr["description"], first_comment=rr["first_comment"], duration=round(check["duration"], 2), file=r["file"],
             url=RAW + r["file"], size_bytes=check["size_bytes"], score=round(r["score"], 3), metrics=r["metrics"],
             render_s=rr["render_s"], fps=args.fps, scheduled_at=None, metricool_id=None, status=status,
             qc_sheet=os.path.relpath(sheet, ROOT) if sheet else None, created=args.date,

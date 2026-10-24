@@ -116,3 +116,10 @@ def simulate(seed, p):
 
 def score(tl):
     return 0.7 * duration_score(tl.metrics["finale_s"]) + 0.3
+
+
+def comment(tl, rng):
+    n = tl.metrics["N"]
+    opts = [f"How long did you think it would take to hit {n}? ⏱️👇", f"Guess the time for {n * 2} next time! 👇",
+            "Watch it again and count the bounces 👀👇"]
+    return str(rng.choice(opts))
