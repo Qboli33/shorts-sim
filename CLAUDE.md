@@ -50,7 +50,8 @@ Score qualité : durée proche de 42 s, fin serrée, changements de leader, type
 - **Texte à l'écran quasi absent** : `overlay` très court ou vide (`OVERLAYS` dans chaque mécanique ; vide une fois sur deux). Interface réduite à un chiffre (%, compteur, scores) ; texte final court (FULL!, OUT!, STUCK!, MAX!, RED!, 128!) ; pas de sous-titre. Le titre YouTube (`title`) garde la question en anglais.
 - **Sons rigolos** synthétisés (aucun échantillon) : miaou, boing, coin-coin, couic, de plus en plus graves à l'approche de la fin (jusqu'à -1,6 octave). « classic » reste possible mais rare.
 - **Suspense jusqu'au bout** : ralenti final, fins serrées.
-- **Objets plutôt que balles pour la fusion** (demande du 2026-10-24) : planètes procédurales. D'autres séries d'objets dessinées par code pourront s'ajouter (gemmes, fruits stylisés…), sans aucune marque ni personnage.
+- **Objets plutôt que balles pour la fusion** (demande du 2026-10-24) : série tirée au hasard dans `objects.SETS`, soit des planètes procédurales, soit des chats de dessin animé dessinés par code (du chaton au King Cat, avec un miaou dont la hauteur suit la taille). Dans grow_ball, 35 % des vidéos utilisent un chat. Chute lente (gravité de 650 à 1100).
+- Mèmes et sons viraux d'autres créateurs : refusés (droits d'auteur et contenu réutilisé non monétisable). On recrée l'esprit par code. Idées de formats : `state/ideas.md`. D'autres séries d'objets dessinées par code pourront s'ajouter (gemmes, fruits stylisés…), sans aucune marque ni personnage.
 
 ## Métadonnées
 Titre anglais en question ou défi (dans `TITLES`, cohérent avec ce qui est affiché). Description : 1 ligne + hashtags (`#shorts #satisfying #simulation …`).
