@@ -1674,73 +1674,75 @@
  {
   "id": "2026-10-26-10-strings",
   "mechanic": "strings",
-  "seed": 225740394,
+  "seed": 171609717,
   "params": {
    "theme": {
-    "name": "midnight",
+    "name": "deepsea",
     "bg": [
      [
-      14,
-      10,
-      40
+      4,
+      30,
+      48
      ],
      [
-      2,
-      2,
-      10
+      0,
+      6,
+      12
      ]
     ],
     "ring": [
-     120,
-     220,
-     255
+     60,
+     255,
+     210
     ],
     "accent": [
      255,
-     214,
-     64
+     170,
+     60
     ]
    },
-   "root": 53,
+   "root": 61,
    "k": 3,
    "names": [
     "RED",
-    "PURPLE",
-    "YELLOW"
+    "ORANGE",
+    "CYAN"
    ],
-   "r0": 27.02194888454977,
-   "gravity": 910.9208816473983,
-   "speed": 535.0297717339093,
-   "jitter": 0.1541571861136812,
-   "start": 2,
-   "title_idx": 3,
+   "r0": 28.23415084130701,
+   "gravity": 845.0295311838987,
+   "speed": 472.10008785746913,
+   "jitter": 0.08992876434621544,
+   "start": 3,
+   "min_fin": 12.0,
+   "max_fin": 30.0,
+   "title_idx": 1,
    "overlay_idx": 2,
-   "trails": 6,
+   "trails": 4,
    "objects": "cats",
    "cat_levels": [
-    2,
-    1,
-    8
+    5,
+    3,
+    1
    ],
-   "sub_seed": 225764151,
+   "sub_seed": 171760178,
    "sfx": "meow"
   },
   "title": "Last Cat Standing",
   "description": "Every bounce ties a string. Cross a string and it snaps. Last one with strings wins. #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
   "first_comment": "Which cat should fight next time? 🐱👇",
-  "duration": 48.07,
+  "duration": 30.55,
   "file": "out/2026-10-26/2026-10-26-10-strings.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-26/2026-10-26-10-strings.mp4",
-  "size_bytes": 9564619,
-  "score": 0.999,
+  "size_bytes": 8787684,
+  "score": 0.98,
   "metrics": {
-   "finale_s": 42.03,
-   "winner": "SNOWBALL",
-   "leader_changes": 21,
-   "peak": 7,
-   "final": 3
+   "finale_s": 24.52,
+   "winner": "SMUG CAT",
+   "leader_changes": 11,
+   "peak": 11,
+   "final": 1
   },
-  "render_s": 81.3,
+  "render_s": 57.8,
   "fps": 60,
   "scheduled_at": "2026-10-26T19:40:00+08:00",
   "metricool_id": null,
@@ -1750,7 +1752,7 @@
   "replaces": "2026-10-26-10-crusher",
   "old_drive_file": "1 Lundi 26/Can the press make 500 balls.mp4",
   "drive_file": "1 Lundi 26/Last Cat Standing.mp4",
-  "rules": "v2"
+  "rules": "v3-tethers"
  },
  {
   "id": "2026-10-27-01-color_escape",
@@ -2472,71 +2474,75 @@
  {
   "id": "2026-10-28-01-strings",
   "mechanic": "strings",
-  "seed": 237895228,
+  "seed": 173158693,
   "params": {
    "theme": {
-    "name": "deepsea",
+    "name": "synthwave",
     "bg": [
      [
-      4,
-      30,
-      48
+      40,
+      8,
+      52
      ],
      [
-      0,
       6,
-      12
+      2,
+      18
      ]
     ],
     "ring": [
-     60,
      255,
-     210
+     80,
+     200
     ],
     "accent": [
-     255,
-     170,
-     60
+     60,
+     230,
+     255
     ]
    },
-   "root": 57,
-   "k": 2,
+   "root": 56,
+   "k": 3,
    "names": [
     "CYAN",
+    "PURPLE",
     "ORANGE"
    ],
-   "r0": 29.260037368992432,
-   "gravity": 931.964324783598,
-   "speed": 479.90663033748103,
-   "jitter": 0.06381364701768462,
-   "start": 2,
-   "title_idx": 3,
-   "overlay_idx": 2,
-   "trails": 5,
+   "r0": 26.06472591104954,
+   "gravity": 968.7003158995919,
+   "speed": 460.2163754044415,
+   "jitter": 0.14907131162936,
+   "start": 4,
+   "min_fin": 12.0,
+   "max_fin": 30.0,
+   "title_idx": 2,
+   "overlay_idx": 1,
+   "trails": 6,
    "objects": "cats",
    "cat_levels": [
-    3,
-    7
+    5,
+    7,
+    1
    ],
-   "sub_seed": 238006094,
+   "sub_seed": 173158693,
    "sfx": "meow"
   },
   "title": "Cut the strings! Which cat survives?",
   "description": "Every bounce ties a string. Cross a string and it snaps. Last one with strings wins. #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
   "first_comment": "Who did you pick before it started? 👇",
-  "duration": 50.17,
+  "duration": 25.52,
   "file": "out/2026-10-28/2026-10-28-01-strings.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-28/2026-10-28-01-strings.mp4",
-  "size_bytes": 8410264,
-  "score": 0.86,
+  "size_bytes": 7630838,
+  "score": 0.822,
   "metrics": {
-   "finale_s": 44.13,
-   "winner": "SMUG CAT",
-   "leader_changes": 16,
+   "finale_s": 19.48,
+   "winner": "SNOWBALL",
+   "leader_changes": 13,
    "peak": 10,
-   "final": 8
+   "final": 3
   },
-  "render_s": 75.3,
+  "render_s": 46.2,
   "fps": 60,
   "scheduled_at": "2026-10-28T08:05:00+08:00",
   "metricool_id": null,
@@ -2546,7 +2552,7 @@
   "replaces": "2026-10-28-01-crusher",
   "old_drive_file": "3 Mercredi 28/Every crush makes 4 more balls. 600.mp4",
   "drive_file": "3 Mercredi 28/Cut the strings! Which cat survives.mp4",
-  "rules": "v2"
+  "rules": "v3-tethers"
  },
  {
   "id": "2026-10-28-02-color_escape",
@@ -3831,67 +3837,69 @@
  {
   "id": "2026-10-29-10-strings",
   "mechanic": "strings",
-  "seed": 27894875,
+  "seed": 59821449,
   "params": {
    "theme": {
-    "name": "midnight",
+    "name": "synthwave",
     "bg": [
      [
-      14,
-      10,
-      40
+      40,
+      8,
+      52
      ],
      [
+      6,
       2,
-      2,
-      10
+      18
      ]
     ],
     "ring": [
-     120,
-     220,
-     255
+     255,
+     80,
+     200
     ],
     "accent": [
-     255,
-     214,
-     64
+     60,
+     230,
+     255
     ]
    },
-   "root": 61,
+   "root": 55,
    "k": 3,
    "names": [
     "PURPLE",
-    "CYAN",
-    "GREEN"
+    "GREEN",
+    "BLUE"
    ],
-   "r0": 14.72505971853698,
-   "gravity": 941.4171957161132,
-   "speed": 473.6695792813743,
-   "jitter": 0.08858123143894715,
-   "start": 3,
-   "title_idx": 1,
-   "overlay_idx": 1,
-   "trails": 6,
-   "sub_seed": 27926551,
+   "r0": 13.59514376814855,
+   "gravity": 941.4897803789232,
+   "speed": 469.8984031114741,
+   "jitter": 0.10421737369843952,
+   "start": 4,
+   "min_fin": 12.0,
+   "max_fin": 30.0,
+   "title_idx": 3,
+   "overlay_idx": 0,
+   "trails": 7,
+   "sub_seed": 59853125,
    "sfx": "squeak"
   },
   "title": "Pick a color. Who keeps a string?",
   "description": "No strings left = out. Pick your winner before it starts! #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
   "first_comment": "That last cut was so close... who were you rooting for? 👀",
-  "duration": 47.25,
+  "duration": 22.75,
   "file": "out/2026-10-29/2026-10-29-10-strings.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-29/2026-10-29-10-strings.mp4",
-  "size_bytes": 7309042,
-  "score": 0.901,
+  "size_bytes": 5989009,
+  "score": 0.714,
   "metrics": {
-   "finale_s": 41.22,
+   "finale_s": 16.72,
    "winner": "GREEN",
-   "leader_changes": 9,
+   "leader_changes": 5,
    "peak": 15,
-   "final": 13
+   "final": 3
   },
-  "render_s": 58.5,
+  "render_s": 40.8,
   "fps": 60,
   "scheduled_at": "2026-10-29T19:40:00+08:00",
   "metricool_id": null,
@@ -3901,7 +3909,7 @@
   "replaces": "2026-10-29-10-crusher",
   "old_drive_file": "4 Jeudi 29/Every crush makes 4 more balls. 600.mp4",
   "drive_file": "4 Jeudi 29/Pick a color. Who keeps a string.mp4",
-  "rules": "v2"
+  "rules": "v3-tethers"
  },
  {
   "id": "2026-10-30-01-merge_balls",
@@ -5036,7 +5044,7 @@
  {
   "id": "2026-10-31-07-strings",
   "mechanic": "strings",
-  "seed": 226965003,
+  "seed": 16657131,
   "params": {
    "theme": {
     "name": "synthwave",
@@ -5063,46 +5071,46 @@
      255
     ]
    },
-   "root": 57,
-   "k": 3,
+   "root": 56,
+   "k": 2,
    "names": [
-    "ORANGE",
-    "PINK",
+    "BLUE",
     "PURPLE"
    ],
-   "r0": 26.086036043541263,
-   "gravity": 985.8387989138225,
-   "speed": 496.77932684156633,
-   "jitter": 0.10493199466296145,
-   "start": 2,
-   "title_idx": 0,
-   "overlay_idx": 3,
-   "trails": 7,
+   "r0": 27.391872770293283,
+   "gravity": 874.636239241807,
+   "speed": 494.65967208249606,
+   "jitter": 0.11797944954764533,
+   "start": 5,
+   "min_fin": 12.0,
+   "max_fin": 30.0,
+   "title_idx": 3,
+   "overlay_idx": 0,
+   "trails": 5,
    "objects": "cats",
    "cat_levels": [
-    8,
-    5,
-    3
+    1,
+    5
    ],
-   "sub_seed": 227107545,
+   "sub_seed": 16657131,
    "sfx": "meow"
   },
   "title": "Pick a cat. Who survives?",
   "description": "Every bounce ties a string. Cross a string and it snaps. Last one with strings wins. #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
   "first_comment": "Who did you pick before it started? 👇",
-  "duration": 48.52,
+  "duration": 29.45,
   "file": "out/2026-10-31/2026-10-31-07-strings.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-31/2026-10-31-07-strings.mp4",
-  "size_bytes": 8687487,
-  "score": 0.985,
+  "size_bytes": 7789209,
+  "score": 0.977,
   "metrics": {
-   "finale_s": 42.48,
+   "finale_s": 23.42,
    "winner": "ANGRY CAT",
-   "leader_changes": 22,
-   "peak": 15,
+   "leader_changes": 5,
+   "peak": 11,
    "final": 2
   },
-  "render_s": 72.0,
+  "render_s": 53.4,
   "fps": 60,
   "scheduled_at": "2026-10-31T16:05:00+08:00",
   "metricool_id": null,
@@ -5112,7 +5120,7 @@
   "replaces": "2026-10-31-07-crusher",
   "old_drive_file": "6 Samedi 31/Can the press make 600 balls.mp4",
   "drive_file": "6 Samedi 31/Pick a cat. Who survives.mp4",
-  "rules": "v2"
+  "rules": "v3-tethers"
  },
  {
   "id": "2026-10-31-08-merge_balls",
@@ -5977,7 +5985,7 @@
  {
   "id": "2026-11-01-10-strings",
   "mechanic": "strings",
-  "seed": 249717320,
+  "seed": 148275910,
   "params": {
    "theme": {
     "name": "forest",
@@ -6004,46 +6012,46 @@
      90
     ]
    },
-   "root": 61,
-   "k": 3,
+   "root": 50,
+   "k": 2,
    "names": [
-    "ORANGE",
-    "RED",
-    "GREEN"
+    "BLUE",
+    "RED"
    ],
-   "r0": 29.82488049228714,
-   "gravity": 948.106249855823,
-   "speed": 546.4706030595021,
-   "jitter": 0.1388942905442357,
-   "start": 3,
+   "r0": 26.749107574548372,
+   "gravity": 818.2581615002231,
+   "speed": 537.2080310680604,
+   "jitter": 0.06567611011041065,
+   "start": 4,
+   "min_fin": 12.0,
+   "max_fin": 30.0,
    "title_idx": 2,
-   "overlay_idx": 3,
-   "trails": 6,
+   "overlay_idx": 0,
+   "trails": 7,
    "objects": "cats",
    "cat_levels": [
     2,
-    3,
-    7
+    8
    ],
-   "sub_seed": 249725239,
+   "sub_seed": 148315505,
    "sfx": "meow"
   },
   "title": "Last Cat Standing",
   "description": "No strings left = out. Pick your winner before it starts! #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
   "first_comment": "That last cut was so close... who were you rooting for? 👀",
-  "duration": 48.7,
+  "duration": 23.62,
   "file": "out/2026-11-01/2026-11-01-10-strings.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-01/2026-11-01-10-strings.mp4",
-  "size_bytes": 9857888,
-  "score": 0.98,
+  "size_bytes": 5976781,
+  "score": 0.748,
   "metrics": {
-   "finale_s": 42.67,
+   "finale_s": 17.58,
    "winner": "GINGER",
-   "leader_changes": 7,
-   "peak": 11,
-   "final": 3
+   "leader_changes": 6,
+   "peak": 13,
+   "final": 1
   },
-  "render_s": 62.7,
+  "render_s": 41.2,
   "fps": 60,
   "scheduled_at": "2026-11-01T19:40:00+08:00",
   "metricool_id": null,
@@ -6053,6 +6061,6 @@
   "replaces": "2026-11-01-10-crusher",
   "old_drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500.mp4",
   "drive_file": "7 Dimanche 01/Last Cat Standing.mp4",
-  "rules": "v2"
+  "rules": "v3-tethers"
  }
 ]

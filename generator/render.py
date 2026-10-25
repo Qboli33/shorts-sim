@@ -307,14 +307,18 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     cc = tuple(int(c[m] * a + bgc[m] * (1 - a)) for m in range(3))
                     cv2.circle(img, _p(x, y), int(r * (0.55 + 0.4 * (1 - back / tl.trails)) * K), cc, -1, cv2.LINE_AA, SH)
 
-        if fr.strings is not None and len(fr.strings[0]):      # cordes tendues (A -> B)
-            for (ax, ay), (bx, by), c in zip(*fr.strings):
+        if fr.strings is not None and len(fr.strings[0]):      # fils : ancre sur la paroi -> balle (par uid)
+            umap = {int(u): i for i, u in enumerate(fr.uids)}
+            for (ax, ay), u, c in zip(*fr.strings):
+                i = umap.get(int(u))
+                if i is None:
+                    continue
+                bx, by = fr.balls[i][:2]
                 c = tuple(int(v) for v in c)
                 cv2.line(img, _p(ax, ay), _p(bx, by), c, 3, cv2.LINE_AA, SH)
                 if not flat:
                     cv2.line(glow, _p(ax / GS, ay / GS), _p(bx / GS, by / GS), c, 1, cv2.LINE_AA, SH)
-                for x_, y_ in ((ax, ay), (bx, by)):
-                    cv2.circle(img, _p(x_, y_), int(5 * K), c, -1, cv2.LINE_AA, SH)
+                cv2.circle(img, _p(ax, ay), int(5 * K), c, -1, cv2.LINE_AA, SH)
 
         oset = tl.params.get("objects")
         use_obj = oset in objects.SETS and fr.kinds is not None
