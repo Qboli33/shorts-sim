@@ -3825,5 +3825,702 @@
   "status": "rendered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-10-crusher.jpg",
   "created": "2026-10-29"
+ },
+ {
+  "id": "2026-10-30-01-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 104676941,
+  "params": {
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "objects": "cats",
+   "root": 63,
+   "r0": 29.650952456360347,
+   "ratio": 1.2850819717911877,
+   "gravity": 898.9692927188189,
+   "spawn0": 0.2608165614980371,
+   "spawn1": 0.11222682452810592,
+   "p_levels": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "title_idx": 0,
+   "overlay_idx": 3,
+   "trails": 0,
+   "chad": false,
+   "sfx": "meow"
+  },
+  "title": "Can it make the Sleepy Chonk?",
+  "description": "Same cats fuse together. Each one meows a little deeper. #shorts #cat #satisfying #simulation #funny",
+  "first_comment": "Did you see the Sleepy Chonk coming? 👇",
+  "duration": 35.27,
+  "file": "out/2026-10-30/2026-10-30-01-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-01-merge_balls.mp4",
+  "size_bytes": 8478293,
+  "score": 0.681,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 7,
+   "lmax": 7,
+   "finale_s": 29.25,
+   "score": 972
+  },
+  "render_s": 82.8,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-01-merge_balls.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-02-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 104674941,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "color": "PURPLE",
+   "root": 60,
+   "r0": 18.01312819760519,
+   "growth": 2.2877868216076678,
+   "gravity": 1969.7850520175243,
+   "speed": 1402.4637701072156,
+   "jitter": 0.06761723623070422,
+   "gap_half": 0.3792547154993656,
+   "omega": -1.2801071856816262,
+   "trails": 6,
+   "title": "Will it fill the whole circle?",
+   "overlay": "",
+   "sub_seed": 104682860,
+   "sfx": "quack"
+  },
+  "title": "Will it fill the whole circle?",
+  "description": "One ball, one circle, and it grows on every hit. #shorts #satisfying #simulation #physics #oddlysatisfying",
+  "first_comment": "How many bounces did you guess? 🤔",
+  "duration": 46.93,
+  "file": "out/2026-10-30/2026-10-30-02-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-02-grow_ball.mp4",
+  "size_bytes": 7501909,
+  "score": 0.964,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 166,
+   "finale_s": 40.92,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 58.6,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-02-grow_ball.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-03-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 104676942,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "objects": "planets",
+   "root": 63,
+   "r0": 22.856405297019663,
+   "ratio": 1.2858642306962969,
+   "gravity": 1093.677796455979,
+   "spawn0": 0.24735645514315618,
+   "spawn1": 0.14423112083371625,
+   "p_levels": [
+    0.5,
+    0.3,
+    0.2
+   ],
+   "title_idx": 1,
+   "overlay_idx": 3,
+   "trails": 0,
+   "chad": true,
+   "sfx": "quack"
+  },
+  "title": "Moon to Jupiter... can it get there?",
+  "description": "Two identical planets merge into the next one, all the way up to the Sun? #shorts #satisfying #simulation #planets #merge",
+  "first_comment": "Did you think it would reach Jupiter? 👇",
+  "duration": 49.77,
+  "file": "out/2026-10-30/2026-10-30-03-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-03-merge_balls.mp4",
+  "size_bytes": 8283046,
+  "score": 0.956,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 8,
+   "lmax": 8,
+   "finale_s": 43.75,
+   "score": 2226
+  },
+  "render_s": 100.3,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-03-merge_balls.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-04-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 104674943,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "color": "PURPLE",
+   "root": 62,
+   "r0": 16.37541906607677,
+   "growth": 3.7033321378217514,
+   "gravity": 1243.1700704238126,
+   "speed": 1341.3094550084425,
+   "jitter": 0.044528291936067076,
+   "gap_half": 0.4048007018789424,
+   "omega": 0.9361064690956608,
+   "trails": 8,
+   "objects": "cats",
+   "cat_level": 2,
+   "title": "Can it fill the circle?",
+   "overlay": "Fill it?",
+   "sub_seed": 104674943,
+   "sfx": "meow"
+  },
+  "title": "Can it fill the circle?",
+  "description": "One ball, one circle, and it grows on every hit. #shorts #satisfying #simulation #physics #oddlysatisfying",
+  "first_comment": "How many bounces did you guess? 🤔",
+  "duration": 36.88,
+  "file": "out/2026-10-30/2026-10-30-04-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-04-grow_ball.mp4",
+  "size_bytes": 7193467,
+  "score": 0.629,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 103,
+   "finale_s": 30.87,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 115.3,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-04-grow_ball.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-05-color_escape",
+  "mechanic": "color_escape",
+  "seed": 104675941,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "colors": [
+    "CYAN",
+    "BLUE",
+    "RED"
+   ],
+   "root": 61,
+   "start": 1,
+   "rad": 14.401600096749014,
+   "gravity": 0.0,
+   "speed": 688.1132820759378,
+   "gap_half": 0.2930336566378321,
+   "omega": -0.9578873693595383,
+   "trails": 4,
+   "cap": 15,
+   "title_idx": 1,
+   "overlay_idx": 3,
+   "sfx": "meow"
+  },
+  "title": "First to 30 escapes wins!",
+  "description": "Escape the ring, score a point, multiply. Which color did you pick? #shorts #satisfying #simulation #colorrace #marblerace",
+  "first_comment": "That finish was close! Which color were you rooting for? 🏁",
+  "duration": 54.5,
+  "file": "out/2026-10-30/2026-10-30-05-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-05-color_escape.mp4",
+  "size_bytes": 14280680,
+  "score": 0.308,
+  "metrics": {
+   "N": 30,
+   "winner": "CYAN",
+   "margin": 3,
+   "leader_changes": 4,
+   "late": 0.24,
+   "finale_s": 48.48,
+   "max_balls": 18
+  },
+  "render_s": 66.3,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-05-color_escape.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-06-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 104677942,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "ramp": 2,
+   "root": 57,
+   "mother_r": 27.021929057704003,
+   "rad": 13.959315021345095,
+   "gravity": 2000.0,
+   "speed": 999.8454193289751,
+   "jitter": 0.0704426921179977,
+   "trails": 1,
+   "title_idx": 1,
+   "overlay_idx": 1,
+   "sfx": "meow"
+  },
+  "title": "Will it hit 128 balls?",
+  "description": "A single spawner ball and a lot of bounces. #shorts #satisfying #simulation #physics #bouncingball",
+  "first_comment": "How long did you think it would take to hit 128? ⏱️👇",
+  "duration": 47.6,
+  "file": "out/2026-10-30/2026-10-30-06-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-06-bounce_spawn.mp4",
+  "size_bytes": 33505650,
+  "score": 0.984,
+  "metrics": {
+   "N": 128,
+   "finale_s": 41.58,
+   "gravity": 2000.0
+  },
+  "render_s": 72.6,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-06-bounce_spawn.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-07-crusher",
+  "mechanic": "crusher",
+  "seed": 104678943,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 55,
+   "colors": [
+    "PINK",
+    "CYAN",
+    "ORANGE"
+   ],
+   "fill": 0.30922418708437216,
+   "r0": 35.54079153155786,
+   "levels": 3,
+   "crush": 6.012966421292026,
+   "t_full": 44.69335983969384,
+   "curve": 1.7148313379559768,
+   "speed": 431.44115265906873,
+   "gravity": 1600.0,
+   "title_idx": 2,
+   "overlay_idx": 0,
+   "sfx": "crunch"
+  },
+  "title": "1 crush = 4 balls. How long to 500?",
+  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 42.03,
+  "file": "out/2026-10-30/2026-10-30-07-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-07-crusher.mp4",
+  "size_bytes": 6949797,
+  "score": 0.601,
+  "metrics": {
+   "N": 500,
+   "finale_s": 36.02,
+   "peak": 506,
+   "n0": 41
+  },
+  "render_s": 44.9,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-07-crusher.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-08-color_escape",
+  "mechanic": "color_escape",
+  "seed": 104675942,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "colors": [
+    "GREEN",
+    "YELLOW",
+    "RED"
+   ],
+   "root": 57,
+   "start": 1,
+   "rad": 21.764580378805537,
+   "gravity": 0.0,
+   "speed": 576.0043271249617,
+   "gap_half": 0.22029014088004867,
+   "omega": -1.3783382245717979,
+   "trails": 3,
+   "cap": 18,
+   "title_idx": 3,
+   "overlay_idx": 3,
+   "sfx": "quack"
+  },
+  "title": "Pick your color before it starts!",
+  "description": "Every escape spawns two more balls of the same color. #shorts #satisfying #simulation #colorrace #marblerace",
+  "first_comment": "That finish was insane! Which color were you rooting for? 🏁",
+  "duration": 55.1,
+  "file": "out/2026-10-30/2026-10-30-08-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-08-color_escape.mp4",
+  "size_bytes": 13713626,
+  "score": 0.641,
+  "metrics": {
+   "N": 22,
+   "winner": "GREEN",
+   "margin": 1,
+   "leader_changes": 4,
+   "late": 0.13,
+   "finale_s": 49.08,
+   "max_balls": 15
+  },
+  "render_s": 65.5,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-08-color_escape.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-09-crusher",
+  "mechanic": "crusher",
+  "seed": 104678941,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 55,
+   "colors": [
+    "ORANGE",
+    "BLUE",
+    "LIME",
+    "PURPLE"
+   ],
+   "fill": 0.34734073996457326,
+   "r0": 34.252521945746366,
+   "levels": 3,
+   "crush": 6.918912606223882,
+   "t_full": 44.24297600289336,
+   "curve": 1.7393039284075653,
+   "speed": 364.5240711353811,
+   "gravity": 1600.0,
+   "title_idx": 0,
+   "overlay_idx": 1,
+   "sfx": "crunch"
+  },
+  "title": "Every crush makes 4 more balls. 600?",
+  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 42.45,
+  "file": "out/2026-10-30/2026-10-30-09-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-09-crusher.mp4",
+  "size_bytes": 8571937,
+  "score": 0.654,
+  "metrics": {
+   "N": 600,
+   "finale_s": 36.43,
+   "peak": 613,
+   "n0": 49
+  },
+  "render_s": 49.4,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-09-crusher.jpg",
+  "created": "2026-10-30"
+ },
+ {
+  "id": "2026-10-30-10-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 104677941,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "ramp": 2,
+   "root": 59,
+   "mother_r": 35.69439382827004,
+   "rad": 16.576106928867357,
+   "gravity": 0.0,
+   "speed": 903.504788917332,
+   "jitter": 0.1599352655137833,
+   "trails": 1,
+   "title_idx": 1,
+   "overlay_idx": 0,
+   "sfx": "quack"
+  },
+  "title": "Will it hit 150 balls?",
+  "description": "One bounce, one new ball. Watch it fill up! #shorts #satisfying #simulation #physics #bouncingball",
+  "first_comment": "Guess the time for 300 next time! 👇",
+  "duration": 48.05,
+  "file": "out/2026-10-30/2026-10-30-10-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-10-bounce_spawn.mp4",
+  "size_bytes": 35342412,
+  "score": 0.999,
+  "metrics": {
+   "N": 150,
+   "finale_s": 42.03,
+   "gravity": 0.0
+  },
+  "render_s": 68.6,
+  "fps": 60,
+  "scheduled_at": null,
+  "metricool_id": null,
+  "status": "rendered",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-10-bounce_spawn.jpg",
+  "created": "2026-10-30"
  }
 ]
