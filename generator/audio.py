@@ -201,6 +201,8 @@ def render_audio(events, duration, time_of, root, seed, path, pack="classic", fi
     for ev in sorted(evs, key=lambda e: time_of(e.frame) if not isinstance(e, Event_) else e.t):
         t0 = ev.t if isinstance(ev, Event_) else time_of(ev.frame)
         kind = ev.kind
+        if kind == "shard":          # éclats visuels seulement
+            continue
         if silly and kind in ("bounce", "pop", "chime"):
             prog = min(1.0, ev.frame / max(1, finale_frame)) if finale_frame else 0.0
             if t0 - last_t.get("silly", -1) < gap_silly:

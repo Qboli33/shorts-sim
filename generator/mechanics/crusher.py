@@ -16,11 +16,11 @@ from .common import CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, durati
 
 NAME = "crusher"
 SUB = 4
-TARGETS = [200, 250, 300, 400, 500, 600, 750, 800, 1000, 1200, 1500, 2000]
+SPLIT = 0.42     # rayon d'un éclat / rayon de la balle écrasée
 NOIR = {"name": "noir", "bg": ((8, 8, 10), (0, 0, 0)), "ring": (215, 215, 225), "accent": (255, 255, 255), "flat": True}
 
-TITLES = ["Every crush makes 4 more balls. {N}?", "Can the press make {N} balls?", "1 crush = 4 balls. How long to {N}?",
-          "Hydraulic press vs balls: {N} incoming?"]
+TITLES = ["Every crush makes 4 more balls", "Can the press go all the way down?", "Hydraulic press vs {n0} balls",
+          "1 crush = 4 balls. How deep can it go?"]
 DESCRIPTIONS = ["Every ball the press crushes splits into 4 smaller ones.", "Crush one ball, get four. Watch the count explode.",
                 "A hydraulic press, a lot of balls, and very satisfying crunches."]
 HASHTAGS = ["#shorts", "#satisfying", "#hydraulicpress", "#oddlysatisfying", "#asmr"]
@@ -34,13 +34,15 @@ def sample(rng):
         theme=dict(NOIR),
         root=int(rng.integers(50, 60)),
         colors=COLORSETS[int(rng.integers(len(COLORSETS)))],
-        fill=float(rng.uniform(0.3, 0.42)),       # part du cercle occupée par les balles
+        fill=float(rng.uniform(0.32, 0.45)),       # part du cercle occupée par les balles
         r0=float(rng.uniform(32, 42)),
         levels=3,                                  # tailles : r0, r0/2, r0/4 (la plus petite ne casse plus)
         crush=float(rng.uniform(6.0, 10.0)),        # pression (somme des recouvrements, px) qui brise une balle
-        t_full=float(rng.uniform(44, 56)),        # instant prévu où tout serait broyé
-        curve=float(rng.uniform(1.4, 2.0)),       # accélération de la montée du compteur
-        speed=float(rng.uniform(300, 460)),       # descente du plateau (px/s)
+        t_full=float(rng.uniform(32, 46)),        # instant prévu du coup le plus profond
+        curve=float(rng.uniform(0.9, 1.3)),       # accélération de la montée du compteur
+        speed=float(rng.uniform(220, 360)),       # descente du plateau (px/s)
+        wait=float(rng.uniform(0.25, 0.45)),      # pause plateau levé
+        lift=float(rng.uniform(140, 260)),        # remontée entre deux coups (px)
         gravity=1600.0,
         title_idx=int(rng.integers(len(TITLES))),
         overlay_idx=int(rng.integers(len(OVERLAYS))),
@@ -53,7 +55,7 @@ def simulate(seed, p):
     R = RING_R
     cx, cy = CENTER
     cols = [bgr(NAMED[c]) for c in p["colors"]]
-    rmin = p["r0"] / 2 ** (p["levels"] - 1)
+    rmin = p["r0"] * SPLIT ** (p["levels"] - 1)
     b = Balls()
     n0 = int(p["fill"] * R ** 2 / p["r0"] ** 2)
     # Remplissage initial : balles posées au hasard dans le cercle, sans chevauchement (elles tombent ensuite).
@@ -68,34 +70,42 @@ def simulate(seed, p):
     born = np.zeros(len(b))
     dt = 1 / SIM_FPS / SUB
     top = cy - R - 10                    # plateau rangé hors du cercle
-    # Automate de la presse : descente jusqu'à `budget` balles écrasées (ou blocage), pause, remontée, attente.
-    # Le budget suit un plan : écrasements cumulés = total x (t / t_full) ^ curve (le compteur accélère).
-    c_full = n0 * (4 ** (p["levels"] - 1) - 1) / 3
-    total = 0
-    # Fond de course : la zone sous le plateau garde de quoi loger toutes les balles (surface conservée).
-    need = n0 * np.pi * p["r0"] ** 2 / 0.9
+    # Hauteur d'une pile de surface S au fond du cercle (segment circulaire).
     hs = np.linspace(0, 2 * R, 400)
     seg = R ** 2 * np.arccos(1 - hs / R) - (R - hs) * np.sqrt(np.maximum(0, 2 * R * hs - hs ** 2))
-    bottom = cy + R - hs[np.searchsorted(seg, need)]
-    state, t_state, budget, n_crushed = "wait", 0.0, 1, 0
+    area = n0 * np.pi * p["r0"] ** 2
+    pile = cy + R - hs[np.searchsorted(seg, area / 0.78)]
+    # Chaque écrasement fait perdre de la surface (4 x (0,42 r)² = 71 %) : la pile se tasse et la presse descend.
+    bottom = cy + R - 3 * rmin     # la plus petite taille part en poussière : la presse va jusqu'au fond
+    # Seul le plateau écrase : chaque coup descend un peu plus bas (profondeur prévue = courbe vers `bottom`).
+    def depth(t):
+        return pile + 10 + (bottom - pile - 10) * min(1.0, t / p["t_full"]) ** p["curve"]
+    state, t_state, goal, last = "wait", 0.0, depth(0), False
+    squeeze = np.zeros(len(b))           # enfoncement cumulé par le plateau (balle soutenue par-dessous)
     frames, events, counts = [], [], []
     py = top
+    fin = None
     max_frames = int((MAX_FINALE + TAIL + 0.5) * SIM_FPS)
     for f in range(max_frames):
         t = f / SIM_FPS
         t_state += 1 / SIM_FPS
-        if state == "wait" and t_state > 0.55:
-            state, t_state, n_crushed = "down", 0.0, 0
-            budget = max(1, int(c_full * min(1, (t + 1.8) / p["t_full"]) ** p["curve"]) - total)
-            events.append(Event(f, "hiss", cx, top, (200, 200, 200), 0.8, 0))
-        if state == "down" and (n_crushed >= budget or py >= bottom - 0.5):
+        if state == "wait" and t_state > p["wait"]:
+            state, t_state, goal = "down", 0.0, depth(t + 1.0)
+            last = t + 1.0 >= p["t_full"]
+            events.append(Event(f, "hiss", cx, py, (200, 200, 200), 0.8, 0))
+        if state == "down" and py >= goal - 0.5:
             state, t_state = "hold", 0.0
-        if state == "hold" and t_state > 0.35:
-            state, t_state = "up", 0.0
-        if state == "up" and py <= top + 1:
+            if last and fin is None and t >= MIN_FINALE:
+                fin = f
+        if state == "hold" and t_state > 0.3:
+            state, t_state, up_to = "up", 0.0, max(top, py - p["lift"])
+        if state == "up" and py <= up_to + 1:
             state, t_state = "wait", 0.0
-        target = {"down": min(bottom, py + p["speed"] / SIM_FPS), "hold": py,
-                  "up": max(top, py - 900 / SIM_FPS), "wait": top}[state]
+        if fin is not None:
+            target = py
+        else:
+            target = {"down": min(goal, py + p["speed"] / SIM_FPS), "hold": py,
+                      "up": max(up_to if state == "up" else top, py - 900 / SIM_FPS), "wait": py}[state]
         py0 = py
         for s in range(SUB):
             py_prev = py
@@ -110,66 +120,61 @@ def simulate(seed, p):
             collide_ring(b, CENTER, R, 0.2)
             # Plateau : tout ce qui dépasse au-dessus de py est repoussé vers le bas (avec la vitesse du plateau).
             pen = py - (b.pos[:, 1] - b.rad)
-            hitp = pen > 0
-            if hitp.any():
-                b.pos[hitp, 1] += pen[hitp]
-                vp = (py - py_prev) / dt
-                b.vel[hitp, 1] = np.maximum(b.vel[hitp, 1], vp)
-                over[hitp] += pen[hitp]
-            # Écrasement : recouvrement trop fort (balle coincée), hors balles qui viennent de naître.
-            # Les balles sous le plateau cassent en premier ; plus bas, il faut une pression double (le plateau doit appuyer).
+            hitp = pen > -1.5
+            if (pen > 0).any():
+                m = pen > 0
+                b.pos[m, 1] += pen[m]
+                b.vel[m, 1] = np.maximum(b.vel[m, 1], (py - py_prev) / dt)
+                sup = m & (over > 0.4)
+                squeeze[sup] += pen[sup]
+            squeeze[~hitp] *= 0.8
+            if state != "down":
+                continue
+            # Écrasement : uniquement les balles coincées contre le plateau.
             thr = np.minimum(p["crush"], 0.45 * b.rad)
-            under = (b.pos[:, 1] - b.rad) < py + 3
-            crushed = np.nonzero(((under & (over > thr)) | ((over > 2 * thr) & (py > cy - R))) & (b.rad > rmin * 1.5) & (t - born > 0.25))[0]
-            if state == "down" and n_crushed < budget and len(crushed):
-                crushed = crushed[np.argsort(-over[crushed])][: min(40, int(np.ceil(budget - n_crushed)))]
-                n_crushed += len(crushed)
-                total += len(crushed)
+            crushed = np.nonzero(hitp & (squeeze > thr) & (t - born > 0.2))[0]
+            if len(crushed):
+                crushed = crushed[np.argsort(-squeeze[crushed])][:12]
                 new = []
                 for c in crushed:
                     x, y, r, kd = b.pos[c, 0], b.pos[c, 1], b.rad[c], int(b.kind[c])
+                    if r <= rmin * 1.5:      # plus petite taille : poussière
+                        events.append(Event(f, "crunch", x, y, cols[kd], 0.35, p["levels"]))
+                        continue
                     for ang in rng.uniform(0, 2 * np.pi) + np.arange(4) * np.pi / 2:
-                        new.append(([x + np.cos(ang) * r * 0.42, y + np.sin(ang) * r * 0.42],
-                                    [np.cos(ang) * 120, np.sin(ang) * 120], r / 2, kd))
-                    events.append(Event(f, "crunch", x, y, cols[kd], min(1, r / p["r0"] + 0.3), int(np.log2(p["r0"] / r))))
+                        new.append(([x + np.cos(ang) * r * 0.42, y + max(0.0, np.sin(ang)) * r * 0.42 + r * 0.1],
+                                    [np.cos(ang) * 140, abs(np.sin(ang)) * 140], r * SPLIT, kd))
+                    events.append(Event(f, "crunch", x, y, cols[kd], min(1, r / p["r0"] + 0.3), int(round(np.log(p["r0"] / r) / np.log(1 / SPLIT)))))
                 b.remove(crushed)
                 born = np.delete(born, crushed)
+                squeeze = np.delete(squeeze, crushed)
                 for q, v, r, kd in new:
                     b.add(q, v, r, kd)
                 born = np.append(born, np.full(len(new), t))
+                squeeze = np.append(squeeze, np.zeros(len(new)))
         counts.append(len(b))
         fr = snapshot(b, [cols[c] for c in b.kind], [(R, None, 0, bgr(NOIR["ring"]))])
         fr.press = float(py)
         frames.append(fr)
+        if fin is not None and f >= fin + int(TAIL * SIM_FPS):
+            break
 
     counts = np.array(counts)
     simulate.counts = counts     # pour le réglage
-    best = None
-    for N in TARGETS:
-        hit = np.nonzero(counts >= N)[0]
-        if not len(hit):
-            continue
-        t = hit[0] / SIM_FPS
-        if MIN_FINALE <= t <= MAX_FINALE:
-            q = duration_score(t)
-            if best is None or q > best[0] or (q > best[0] - 0.1 and N > best[1]):
-                best = (q, N, int(hit[0]))
-    if best is None:
+    simulate.fin = fin
+    simulate.levels = (pile, bottom)
+    if fin is None or not (MIN_FINALE <= fin / SIM_FPS <= MAX_FINALE):
         return None
-    _, N, fin = best
-    frames = frames[: fin + int(TAIL * SIM_FPS)]
     events = strip_events_after(events, fin)
     white = (255, 255, 255)
     events.append(Event(fin, "boom", cx, cy, white, 1.0, 2))
     events.append(Event(fin, "win", cx, cy, white, 1.0, 0))
-    for fi, fr in enumerate(frames):
-        c = int(counts[min(fi, fin)])
-        fr.hud = [("text", f"{c}/{N}", 520, 420, 96, white, "c")]
+    N = int(counts[fin])
     return Timeline(
-        mechanic=NAME, seed=seed, params=p, title=TITLES[p["title_idx"]].format(N=N), frames=frames, events=events,
-        finale_frame=fin, finale_text=f"{N}!", finale_color=white, end_sub="", overlay=OVERLAYS[p["overlay_idx"]],
+        mechanic=NAME, seed=seed, params=p, title=TITLES[p["title_idx"]].format(n0=n0), frames=frames, events=events,
+        finale_frame=fin, finale_text="FLAT!", finale_color=white, end_sub="", overlay=OVERLAYS[p["overlay_idx"]],
         palette=p["theme"], trails=0,
-        metrics=dict(N=N, finale_s=round(fin / SIM_FPS, 2), peak=int(counts.max()), n0=n0),
+        metrics=dict(N=N, finale_s=round(fin / SIM_FPS, 2), n0=n0, crushed=int((N - n0) / 3)),
     )
 
 

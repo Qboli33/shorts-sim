@@ -43,7 +43,9 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 | color_escape | chaque évasion = +1 point et 2 balles de cette couleur (plafond par couleur pour éviter l'emballement) | « X WINS! » | N (premier à N) choisi après la simulation pour une fin dans la fenêtre, serrée de préférence |
 | merge_balls | deux objets de même niveau fusionnent (planètes de la Lune au Soleil, dessinées par code dans `generator/objects.py`) ; rangée de niveaux « ? » | « JUPITER! » / FULL! | niveau objectif = le plus haut atteint dans la fenêtre (minimum 5) |
 | bounce_spawn | chaque rebond de la balle blanche « mère » ajoute une balle | « 128! » | objectif (50…200) choisi après la simulation |
-| crusher | presse hydraulique (style NexusBox, fond noir `flat`) : une balle écrasée sous le plateau se brise en 4 balles deux fois plus petites (3 tailles) | « 800! » | écrasements cumulés planifiés (`t_full`, `curve`), objectif choisi après la simulation ; collisions via scipy `cKDTree` (`physics.near_pairs`) |
+| crusher | presse hydraulique (style NexusBox, fond noir `flat`) : **seul le plateau écrase** (enfoncement cumulé `squeeze` sur une balle soutenue) ; une balle écrasée donne 4 éclats de rayon x0,42 (la pile se tasse), la plus petite taille part en poussière ; chaque coup descend plus bas jusqu'au fond. Aucun compteur | FLAT! | profondeur des coups planifiée (`t_full`, `curve`), fin = coup le plus profond |
+| rings_escape | une balle (ou un chat) doit sortir de 7 à 13 anneaux concentriques tournants avec ouverture ; chaque anneau franchi éclate | FREE! | ouvertures élargies ou resserrées entre essais (`gap_scale`) |
+| strings | 2 à 4 balles ou chats ; un rebond sur la paroi accroche parfois un fil (ancre → balle) ; une autre balle qui traverse un fil le coupe (1 fil à la fois, temps de repos `cool`, 4 s de grâce au début) ; plus de fil = éliminé | « RED WINS! » | probabilité d'accrocher un fil `add_p` réajustée entre essais |
 
 Score qualité : durée proche de 42 s, fin serrée, changements de leader, type de fin. Pour color_escape, on favorise fortement la victoire d'un point et un dernier changement de leader tardif (paramètre `cap` bas pour éviter l'emballement).
 
@@ -89,6 +91,9 @@ Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'en
 - 2026-10-24 : les balles évadées disparaissent avec un pop, au lieu de tomber hors du cercle (plus lisible et moins coûteux).
 - 2026-10-24 : les 5 Shorts de test sont dans `out/2026-10-24/` (statut `test` dans le log).
 - 2026-10-24 : le mode auto de la session refuse `createScheduledPostForReview` même avec l'accord écrit de l'utilisateur. Règle ajoutée dans `.claude/settings.json` (accord de l'utilisateur), effective dans une nouvelle session. Si c'est encore refusé : écrire la liste des posts dans `/mnt/project-files/metricool/<date>.md` et la donner à l'utilisateur.
+
+## Décisions (suite)
+- 2026-10-25 : vassili a signalé que toutes les presses étaient bugguées (le plateau ne touchait presque jamais les balles, qui cassaient toutes seules au fond) et voulait moins de compteurs et des formats plus originaux, comme NexusBox, BallSimule et Atul's Animation. La presse a été réécrite, puis `rings_escape` et `strings` ont été ajoutés. Les 14 presses de la semaine du 26/10 ont été remplacées.
 
 ## À faire
 - bounce_spawn produit des fichiers lourds (environ 40 Mo, avec beaucoup de balles en mouvement). Réduire si le dépôt grossit trop.

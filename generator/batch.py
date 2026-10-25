@@ -86,7 +86,7 @@ def _render(job):
         descs = descs[tl.params["objects"]]
     if isinstance(tags, dict):
         tags = tags[tl.params["objects"]]
-    desc = f"{descs[rng.integers(len(descs))]} {' '.join(tags)}"
+    desc = f"{descs[rng.integers(len(descs))].format(**tl.params)} {' '.join(tags)}"
     first_comment = m.comment(tl, rng) if hasattr(m, "comment") else ""
     return dict(render_s=round(el, 1), params=tl.params, description=desc, first_comment=first_comment,
                 finale_s=tl.finale_frame / 60 + SLOW_SIM * (1 / SLOW_SPEED - 1))

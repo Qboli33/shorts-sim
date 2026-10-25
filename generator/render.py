@@ -150,12 +150,12 @@ def _interp(frames, sf):
     f1 = frames[i + 1]
     if len(f0.uids) != len(f1.uids) or not np.array_equal(f0.uids, f1.uids):
         return f0
-    rings = [(r0[0], None if r0[1] is None else r0[1] + (r1[1] - r0[1]) * a, r0[2], r0[3])
-             for r0, r1 in zip(f0.rings, f1.rings)]
+    rings = f0.rings if len(f0.rings) != len(f1.rings) else [
+        (r0[0], None if r0[1] is None else r0[1] + (r1[1] - r0[1]) * a, *r0[2:]) for r0, r1 in zip(f0.rings, f1.rings)]
     return Frame(balls=f0.balls + (f1.balls - f0.balls) * a, colors=f0.colors, uids=f0.uids, rings=rings,
                  hud=f0.hud, labels=f0.labels, kinds=f0.kinds,
                  angles=None if f0.angles is None else f0.angles + (f1.angles - f0.angles) * a,
-                 press=None if f0.press is None else f0.press + (f1.press - f0.press) * a)
+                 press=None if f0.press is None else f0.press + (f1.press - f0.press) * a, strings=f0.strings)
 
 
 def _showcase(tl):
@@ -268,11 +268,12 @@ def render(tl, out_path, fps=60, theme=None, log=print):
         glow = np.zeros((H // GS, W // GS, 3), np.uint8)
 
         flat = theme.get("flat", False)      # style « noir » : anneau fin, aucun halo
-        for (R, gphi, ghalf, col) in fr.rings:
+        for ring in fr.rings:
+            R, gphi, ghalf, col = ring[:4]
             if flat:
                 cv2.circle(img, _p(*CENTER), int((R + 3) * K), col, 5, cv2.LINE_AA, SH)
                 continue
-            th = 12
+            th = int(ring[4]) if len(ring) > 4 else 12     # épaisseur optionnelle (anneaux concentriques)
             rr = R + th / 2
             if gphi is None or ghalf <= 0:
                 cv2.circle(img, _p(*CENTER), int(rr * K), col, th, cv2.LINE_AA, SH)
@@ -305,6 +306,19 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     c = fr.colors[i]
                     cc = tuple(int(c[m] * a + bgc[m] * (1 - a)) for m in range(3))
                     cv2.circle(img, _p(x, y), int(r * (0.55 + 0.4 * (1 - back / tl.trails)) * K), cc, -1, cv2.LINE_AA, SH)
+
+        if fr.strings is not None and len(fr.strings[0]):
+            umap = {int(u): i for i, u in enumerate(fr.uids)}
+            for (ax, ay), u, c in zip(*fr.strings):
+                i = umap.get(int(u))
+                if i is None:
+                    continue
+                bx, by = fr.balls[i][:2]
+                c = tuple(int(v) for v in c)
+                cv2.line(img, _p(ax, ay), _p(bx, by), c, 3, cv2.LINE_AA, SH)
+                if not flat:
+                    cv2.line(glow, _p(ax / GS, ay / GS), _p(bx / GS, by / GS), c, 1, cv2.LINE_AA, SH)
+                cv2.circle(img, _p(ax, ay), int(5 * K), c, -1, cv2.LINE_AA, SH)
 
         oset = tl.params.get("objects")
         use_obj = oset in objects.SETS and fr.kinds is not None
@@ -344,6 +358,8 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     parts.burst(e.x, e.y, e.color, 16, 520, 0.6, 6)
                 elif e.kind == "chime":
                     parts.burst(e.x, e.y, e.color, 18, 380, 0.9, 5)
+                elif e.kind == "shard":
+                    parts.burst(e.x, e.y, e.color, 9, 480, 0.75, 5)
                 elif e.kind == "crunch":
                     parts.burst(e.x, e.y, e.color, 7, 300, 0.45, 3)
                 elif e.kind in ("boom", "win"):
