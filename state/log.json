@@ -1099,11 +1099,12 @@
   },
   "render_s": 58.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-01-color_escape.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Every escape spawns 2 more. Who wins.mp4"
  },
  {
   "id": "2026-10-26-02-bounce_spawn",
@@ -1162,11 +1163,12 @@
   },
   "render_s": 61.1,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-02-bounce_spawn.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/How fast can it make 75 balls.mp4"
  },
  {
   "id": "2026-10-26-03-merge_balls",
@@ -1234,11 +1236,12 @@
   },
   "render_s": 135.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-03-merge_balls.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Will it reach the Chad Cat.mp4"
  },
  {
   "id": "2026-10-26-04-color_escape",
@@ -1308,11 +1311,12 @@
   },
   "render_s": 61.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-04-color_escape.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Which color escapes first.mp4"
  },
  {
   "id": "2026-10-26-05-grow_ball",
@@ -1377,11 +1381,12 @@
   },
   "render_s": 45.1,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-05-grow_ball.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Will it fill the whole circle.mp4"
  },
  {
   "id": "2026-10-26-06-merge_balls",
@@ -1448,11 +1453,12 @@
   },
   "render_s": 83.0,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-06-merge_balls.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Can it make Saturn.mp4"
  },
  {
   "id": "2026-10-26-07-grow_ball",
@@ -1519,11 +1525,12 @@
   },
   "render_s": 57.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-07-grow_ball.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Can it escape before it's too big.mp4"
  },
  {
   "id": "2026-10-26-08-bounce_spawn",
@@ -1582,11 +1589,12 @@
   },
   "render_s": 76.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-08-bounce_spawn.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Every bounce adds a ball. Can it reach 200.mp4"
  },
  {
   "id": "2026-10-26-09-crusher",
@@ -1652,11 +1660,12 @@
   },
   "render_s": 59.2,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-09-crusher.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Hydraulic press vs balls 750 incoming.mp4"
  },
  {
   "id": "2026-10-26-10-crusher",
@@ -1723,11 +1732,12 @@
   },
   "render_s": 43.0,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-26T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-26/qc/2026-10-26-10-crusher.jpg",
-  "created": "2026-10-26"
+  "created": "2026-10-26",
+  "drive_file": "1 Lundi 26/Can the press make 500 balls.mp4"
  },
  {
   "id": "2026-10-27-01-color_escape",
@@ -1796,11 +1806,12 @@
   },
   "render_s": 73.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-01-color_escape.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Which color reaches 18 first.mp4"
  },
  {
   "id": "2026-10-27-02-crusher",
@@ -1866,11 +1877,12 @@
   },
   "render_s": 51.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-02-crusher.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Every crush makes 4 more balls. 500.mp4"
  },
  {
   "id": "2026-10-27-03-bounce_spawn",
@@ -1929,11 +1941,12 @@
   },
   "render_s": 75.1,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-03-bounce_spawn.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Every bounce adds a ball. Can it reach 75.mp4"
  },
  {
   "id": "2026-10-27-04-grow_ball",
@@ -1998,11 +2011,12 @@
   },
   "render_s": 45.1,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-04-grow_ball.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Can it escape before it's too big.mp4"
  },
  {
   "id": "2026-10-27-05-bounce_spawn",
@@ -2061,11 +2075,12 @@
   },
   "render_s": 71.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-05-bounce_spawn.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/How fast can it make 128 balls.mp4"
  },
  {
   "id": "2026-10-27-06-crusher",
@@ -2133,11 +2148,12 @@
   },
   "render_s": 50.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-06-crusher.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Every crush makes 4 more balls. 600.mp4"
  },
  {
   "id": "2026-10-27-07-color_escape",
@@ -2208,11 +2224,12 @@
   },
   "render_s": 66.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-07-color_escape.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Which color escapes first.mp4"
  },
  {
   "id": "2026-10-27-08-merge_balls",
@@ -2279,11 +2296,12 @@
   },
   "render_s": 60.0,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-08-merge_balls.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Will it reach Saturn.mp4"
  },
  {
   "id": "2026-10-27-09-grow_ball",
@@ -2350,11 +2368,12 @@
   },
   "render_s": 112.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-09-grow_ball.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Can it fill the circle.mp4"
  },
  {
   "id": "2026-10-27-10-merge_balls",
@@ -2422,11 +2441,12 @@
   },
   "render_s": 111.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-27T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-10-merge_balls.jpg",
-  "created": "2026-10-27"
+  "created": "2026-10-27",
+  "drive_file": "2 Mardi 27/Will it reach the Chad Cat.mp4"
  },
  {
   "id": "2026-10-28-01-crusher",
@@ -2494,11 +2514,12 @@
   },
   "render_s": 57.2,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-01-crusher.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Every crush makes 4 more balls. 600.mp4"
  },
  {
   "id": "2026-10-28-02-color_escape",
@@ -2568,11 +2589,12 @@
   },
   "render_s": 76.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-02-color_escape.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/First to 16 escapes wins!.mp4"
  },
  {
   "id": "2026-10-28-03-bounce_spawn",
@@ -2631,11 +2653,12 @@
   },
   "render_s": 72.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-03-bounce_spawn.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Will it hit 120 balls.mp4"
  },
  {
   "id": "2026-10-28-04-merge_balls",
@@ -2703,11 +2726,12 @@
   },
   "render_s": 144.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-04-merge_balls.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Can it make the Chad Cat.mp4"
  },
  {
   "id": "2026-10-28-05-crusher",
@@ -2775,11 +2799,12 @@
   },
   "render_s": 44.0,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-05-crusher.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Can the press make 400 balls.mp4"
  },
  {
   "id": "2026-10-28-06-color_escape",
@@ -2849,11 +2874,12 @@
   },
   "render_s": 66.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-06-color_escape.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Which color reaches 10 first.mp4"
  },
  {
   "id": "2026-10-28-07-grow_ball",
@@ -2918,11 +2944,12 @@
   },
   "render_s": 53.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-07-grow_ball.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Will it fill the whole circle.mp4"
  },
  {
   "id": "2026-10-28-08-bounce_spawn",
@@ -2981,11 +3008,12 @@
   },
   "render_s": 86.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-08-bounce_spawn.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Will it hit 150 balls.mp4"
  },
  {
   "id": "2026-10-28-09-grow_ball",
@@ -3050,11 +3078,12 @@
   },
   "render_s": 67.0,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-09-grow_ball.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Escape or get trapped.mp4"
  },
  {
   "id": "2026-10-28-10-merge_balls",
@@ -3121,11 +3150,12 @@
   },
   "render_s": 94.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-28T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-10-merge_balls.jpg",
-  "created": "2026-10-28"
+  "created": "2026-10-28",
+  "drive_file": "3 Mercredi 28/Will it reach Jupiter.mp4"
  },
  {
   "id": "2026-10-29-01-merge_balls",
@@ -3192,11 +3222,12 @@
   },
   "render_s": 113.1,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-01-merge_balls.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Moon to Jupiter... can it get there.mp4"
  },
  {
   "id": "2026-10-29-02-bounce_spawn",
@@ -3255,11 +3286,12 @@
   },
   "render_s": 73.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-02-bounce_spawn.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/How fast can it make 64 balls.mp4"
  },
  {
   "id": "2026-10-29-03-crusher",
@@ -3327,11 +3359,12 @@
   },
   "render_s": 46.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-03-crusher.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Can the press make 500 balls.mp4"
  },
  {
   "id": "2026-10-29-04-bounce_spawn",
@@ -3390,11 +3423,12 @@
   },
   "render_s": 87.0,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-04-bounce_spawn.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Every bounce adds a ball. Can it reach 120.mp4"
  },
  {
   "id": "2026-10-29-05-color_escape",
@@ -3464,11 +3498,12 @@
   },
   "render_s": 65.4,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-05-color_escape.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Every escape spawns 2 more. Who wins.mp4"
  },
  {
   "id": "2026-10-29-06-grow_ball",
@@ -3533,11 +3568,12 @@
   },
   "render_s": 53.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-06-grow_ball.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Can it fill the circle.mp4"
  },
  {
   "id": "2026-10-29-07-merge_balls",
@@ -3605,11 +3641,12 @@
   },
   "render_s": 144.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-07-merge_balls.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Kitten to the Chad Cat... can it get there.mp4"
  },
  {
   "id": "2026-10-29-08-grow_ball",
@@ -3676,11 +3713,12 @@
   },
   "render_s": 90.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-08-grow_ball.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/How many bounces to fill the ring.mp4"
  },
  {
   "id": "2026-10-29-09-color_escape",
@@ -3750,11 +3788,12 @@
   },
   "render_s": 60.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-09-color_escape.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Which color escapes first.mp4"
  },
  {
   "id": "2026-10-29-10-crusher",
@@ -3820,11 +3859,12 @@
   },
   "render_s": 49.1,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-29T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-29/qc/2026-10-29-10-crusher.jpg",
-  "created": "2026-10-29"
+  "created": "2026-10-29",
+  "drive_file": "4 Jeudi 29/Every crush makes 4 more balls. 600.mp4"
  },
  {
   "id": "2026-10-30-01-merge_balls",
@@ -3891,11 +3931,12 @@
   },
   "render_s": 82.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-01-merge_balls.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Can it make the Sleepy Chonk.mp4"
  },
  {
   "id": "2026-10-30-02-grow_ball",
@@ -3960,11 +4001,12 @@
   },
   "render_s": 58.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-02-grow_ball.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Will it fill the whole circle.mp4"
  },
  {
   "id": "2026-10-30-03-merge_balls",
@@ -4031,11 +4073,12 @@
   },
   "render_s": 100.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-03-merge_balls.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Moon to Jupiter... can it get there.mp4"
  },
  {
   "id": "2026-10-30-04-grow_ball",
@@ -4102,11 +4145,12 @@
   },
   "render_s": 115.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-04-grow_ball.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Can it fill the circle.mp4"
  },
  {
   "id": "2026-10-30-05-color_escape",
@@ -4175,11 +4219,12 @@
   },
   "render_s": 66.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-05-color_escape.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/First to 30 escapes wins!.mp4"
  },
  {
   "id": "2026-10-30-06-bounce_spawn",
@@ -4238,11 +4283,12 @@
   },
   "render_s": 72.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-06-bounce_spawn.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Will it hit 128 balls.mp4"
  },
  {
   "id": "2026-10-30-07-crusher",
@@ -4309,11 +4355,12 @@
   },
   "render_s": 44.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-07-crusher.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/1 crush = 4 balls. How long to 500.mp4"
  },
  {
   "id": "2026-10-30-08-color_escape",
@@ -4382,11 +4429,12 @@
   },
   "render_s": 65.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-08-color_escape.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Pick your color before it starts!.mp4"
  },
  {
   "id": "2026-10-30-09-crusher",
@@ -4454,11 +4502,12 @@
   },
   "render_s": 49.4,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-09-crusher.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Every crush makes 4 more balls. 600.mp4"
  },
  {
   "id": "2026-10-30-10-bounce_spawn",
@@ -4517,11 +4566,12 @@
   },
   "render_s": 68.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-30T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-10-bounce_spawn.jpg",
-  "created": "2026-10-30"
+  "created": "2026-10-30",
+  "drive_file": "5 Vendredi 30/Will it hit 150 balls.mp4"
  },
  {
   "id": "2026-10-31-01-grow_ball",
@@ -4588,11 +4638,12 @@
   },
   "render_s": 134.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-01-grow_ball.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Will it fill the whole circle.mp4"
  },
  {
   "id": "2026-10-31-02-merge_balls",
@@ -4659,11 +4710,12 @@
   },
   "render_s": 81.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-02-merge_balls.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Merge planets until Saturn.mp4"
  },
  {
   "id": "2026-10-31-03-bounce_spawn",
@@ -4722,11 +4774,12 @@
   },
   "render_s": 66.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-03-bounce_spawn.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/How fast can it make 100 balls.mp4"
  },
  {
   "id": "2026-10-31-04-color_escape",
@@ -4795,11 +4848,12 @@
   },
   "render_s": 42.4,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-04-color_escape.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Which color reaches 8 first.mp4"
  },
  {
   "id": "2026-10-31-05-grow_ball",
@@ -4864,11 +4918,12 @@
   },
   "render_s": 56.4,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-05-grow_ball.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Can it fill the circle.mp4"
  },
  {
   "id": "2026-10-31-06-bounce_spawn",
@@ -4927,11 +4982,12 @@
   },
   "render_s": 59.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-06-bounce_spawn.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Every bounce adds a ball. Can it reach 100.mp4"
  },
  {
   "id": "2026-10-31-07-crusher",
@@ -4997,11 +5053,12 @@
   },
   "render_s": 50.3,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-07-crusher.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Can the press make 600 balls.mp4"
  },
  {
   "id": "2026-10-31-08-merge_balls",
@@ -5069,11 +5126,12 @@
   },
   "render_s": 94.6,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-08-merge_balls.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Can it make the Chad Cat.mp4"
  },
  {
   "id": "2026-10-31-09-crusher",
@@ -5142,11 +5200,12 @@
   },
   "render_s": 49.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-09-crusher.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Every crush makes 4 more balls. 500.mp4"
  },
  {
   "id": "2026-10-31-10-color_escape",
@@ -5215,11 +5274,12 @@
   },
   "render_s": 58.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-10-31T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-10-color_escape.jpg",
-  "created": "2026-10-31"
+  "created": "2026-10-31",
+  "drive_file": "6 Samedi 31/Which color escapes first.mp4"
  },
  {
   "id": "2026-11-01-01-crusher",
@@ -5288,11 +5348,12 @@
   },
   "render_s": 47.4,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T08:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-01-crusher.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500 (08h05).mp4"
  },
  {
   "id": "2026-11-01-02-merge_balls",
@@ -5359,11 +5420,12 @@
   },
   "render_s": 104.9,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T09:35:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-02-merge_balls.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/Will it reach Saturn.mp4"
  },
  {
   "id": "2026-11-01-03-color_escape",
@@ -5432,11 +5494,12 @@
   },
   "render_s": 62.4,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T10:50:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-03-color_escape.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/Which color escapes first.mp4"
  },
  {
   "id": "2026-11-01-04-bounce_spawn",
@@ -5495,11 +5558,12 @@
   },
   "render_s": 70.2,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T12:20:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-04-bounce_spawn.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/How fast can it make 150 balls.mp4"
  },
  {
   "id": "2026-11-01-05-grow_ball",
@@ -5564,11 +5628,12 @@
   },
   "render_s": 48.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T13:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-05-grow_ball.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/Every bounce makes it bigger.mp4"
  },
  {
   "id": "2026-11-01-06-bounce_spawn",
@@ -5627,11 +5692,12 @@
   },
   "render_s": 80.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T14:55:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-06-bounce_spawn.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/1 bounce = 1 new ball. 120 incoming.mp4"
  },
  {
   "id": "2026-11-01-07-color_escape",
@@ -5700,11 +5766,12 @@
   },
   "render_s": 85.8,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T16:05:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-07-color_escape.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/Pick your color before it starts!.mp4"
  },
  {
   "id": "2026-11-01-08-merge_balls",
@@ -5772,11 +5839,12 @@
   },
   "render_s": 82.7,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T17:15:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-08-merge_balls.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/Merge cats until the Chad Cat.mp4"
  },
  {
   "id": "2026-11-01-09-grow_ball",
@@ -5841,11 +5909,12 @@
   },
   "render_s": 42.2,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T18:25:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-09-grow_ball.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/Escape or get trapped.mp4"
  },
  {
   "id": "2026-11-01-10-crusher",
@@ -5911,10 +5980,11 @@
   },
   "render_s": 38.5,
   "fps": 60,
-  "scheduled_at": null,
+  "scheduled_at": "2026-11-01T19:40:00+08:00",
   "metricool_id": null,
-  "status": "rendered",
+  "status": "delivered",
   "qc_sheet": "out/2026-11-01/qc/2026-11-01-10-crusher.jpg",
-  "created": "2026-11-01"
+  "created": "2026-11-01",
+  "drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500.mp4"
  }
 ]
