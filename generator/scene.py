@@ -25,7 +25,7 @@ class Frame:
     kinds: np.ndarray | None = None   # niveau / type par balle (objets dessinés à la place des balles)
     angles: np.ndarray | None = None  # rotation propre (rad, sens horaire à l'écran)
     press: float | None = None   # y du bas du plateau de presse (mécanique crusher)
-    strings: tuple | None = None  # fils tendus : (ancres (m, 2), uid de la balle tenue (m,), couleurs BGR (m, 3))
+    strings: tuple | None = None  # cordes : (extrémités A (m, 2), extrémités B (m, 2), couleurs BGR (m, 3))
 
 
 @dataclass

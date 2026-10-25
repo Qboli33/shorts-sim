@@ -1,21 +1,19 @@
-"""Mécanique 7 : « dernier debout ». Chaque balle tend des fils vers la paroi ; les autres balles les coupent.
+"""Mécanique 7 : « dernier debout » avec des cordes. Règles strictes, toutes visibles :
 
-À chaque rebond sur la paroi, une balle peut accrocher un nouveau fil (ancré au point d'impact, tiré par la balle).
-Une autre balle qui traverse un fil le coupe. Une balle qui n'a plus aucun fil est éliminée (pop).
-La dernière qui garde des fils gagne. Variante chats : « Last Cat Standing » avec les chats dessinés par code.
-Durée réglée par la probabilité d'accrocher un fil (réajustée entre deux essais).
+- chaque rebond d'une balle sur la paroi tend une corde de sa couleur, du rebond précédent au rebond actuel ;
+- une balle qui touche une corde d'une autre couleur la coupe (toutes celles qu'elle touche) ;
+- une balle qui n'a plus aucune corde est éliminée. La dernière qui en garde gagne.
+Variante chats : « Last Cat Standing ». Durée : on essaie des sous-graines jusqu'à une fin dans la fenêtre.
 """
 import numpy as np
 
 from ..palettes import NAMED, bgr, pick_theme
 from ..physics import Balls, collide_balls, collide_ring, rotate
 from ..scene import RING_R, Timeline
-from .common import CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, duration_score, snapshot, wall_point
+from .common import CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, duration_score, snapshot
 
 NAME = "strings"
 SUB = 6
-MAX_STRINGS = 30
-GRACE = 4.0          # pas de coupe au début : chacun tend d'abord ses fils
 
 TITLES = {
     None: ["Last ball standing wins", "Who keeps their strings?", "Cut the strings! Who survives?",
@@ -23,7 +21,7 @@ TITLES = {
     "cats": ["Last Cat Standing", "Which cat keeps its strings?", "Cut the strings! Which cat survives?",
              "Pick a cat. Who survives?"],
 }
-DESCRIPTIONS = ["Every bounce ties a string. Cross a string and it snaps. Last one with strings wins.",
+DESCRIPTIONS = ["Every bounce ties a string. Touch a string and it snaps. Last one with strings wins.",
                 "Strings, bounces and a lot of snapping. Who survives?",
                 "No strings left = out. Pick your winner before it starts!"]
 HASHTAGS = ["#shorts", "#satisfying", "#simulation", "#lastonestanding", "#oddlysatisfying"]
@@ -32,7 +30,7 @@ CAT_PICK = [2, 3, 1, 5, 7, 8]        # chats bien différents (roux, noir, blanc
 
 
 def sample(rng):
-    k = int(rng.choice([2, 3, 3, 4]))
+    k = int(rng.choice([2, 3, 3]))
     cats = rng.random() < 0.55
     names = [str(x) for x in rng.choice(["RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "PINK", "CYAN"], k, replace=False)]
     p = dict(
@@ -40,13 +38,11 @@ def sample(rng):
         root=int(rng.integers(50, 62)),
         k=k,
         names=names,
-        r0=float(rng.uniform(38, 48) if cats else rng.uniform(24, 34)),
-        gravity=float(rng.uniform(700, 1300)),
-        speed=float(rng.uniform(600, 900)),
+        r0=float(rng.uniform(24, 30) if cats else rng.uniform(12, 20)),
+        gravity=float(rng.uniform(800, 1000)),
+        speed=float(rng.uniform(450, 560)),
         jitter=float(np.radians(rng.uniform(3, 9))),
-        add_p=float(rng.uniform(0.3, 0.6)),       # probabilité qu'un rebond accroche un fil
-        cool=float(rng.uniform(0.3, 0.6)),        # repos d'une balle entre deux coupes (s)
-        start=int(rng.integers(3, 6)),
+        start=int(rng.integers(2, 4)),
         title_idx=int(rng.integers(4)),
         overlay_idx=int(rng.integers(len(OVERLAYS))),
         trails=int(rng.integers(4, 8)),
@@ -68,17 +64,18 @@ def _run(seed, p):
         v = rng.uniform(0, 2 * np.pi)
         b.add(CENTER + 0.45 * R * np.array([np.cos(a), np.sin(a)]), [np.cos(v) * p["speed"], np.sin(v) * p["speed"]],
               p["r0"], p["cat_levels"][i] if "cat_levels" in p else i)
-    owner_uid = {int(b.uid[i]): i for i in range(k)}
-    # Fils : ancre sur la paroi + indice du joueur qui le tient.
-    anchors, owners = [], []
+    player = {int(b.uid[i]): i for i in range(k)}
+    # Fils = cordes tendues entre deux points de la paroi (A -> B), à la couleur de leur propriétaire.
+    A, B, O = [], [], []
     for i in range(k):
         for _ in range(p["start"]):
-            a = rng.uniform(0, 2 * np.pi)
-            anchors.append(CENTER + R * np.array([np.cos(a), np.sin(a)]))
-            owners.append(i)
-    anchors, owners = np.array(anchors), np.array(owners)
+            a1, a2 = rng.uniform(0, 2 * np.pi, 2)
+            A.append(CENTER + R * np.array([np.cos(a1), np.sin(a1)]))
+            B.append(CENTER + R * np.array([np.cos(a2), np.sin(a2)]))
+            O.append(i)
+    A, B, O = np.array(A), np.array(B), np.array(O)
+    last = [B[max(np.nonzero(O == i)[0])].copy() for i in range(k)]   # la chaîne de cordes continue depuis la dernière
     alive = [True] * k
-    cooldown = [-10 ** 6] * k
     dt = 1 / SIM_FPS / SUB
     frames, events, history = [], [], []
     fin, winner = None, None
@@ -91,52 +88,41 @@ def _run(seed, p):
                 collide_balls(b, 1.0, 0.8)
                 hit, vn, _ = collide_ring(b, CENTER, R, 1.0)
                 for h in hit:
-                    i = owner_uid[int(b.uid[h])]
+                    i = player[int(b.uid[h])]
                     b.vel[h] = rotate(b.vel[h:h + 1], rng.uniform(-p["jitter"], p["jitter"]))[0]
                     s = np.linalg.norm(b.vel[h])
                     if s < p["speed"] * 0.8:
                         b.vel[h] *= p["speed"] * 0.8 / (s + 1e-9)
-                    x, y = wall_point(b.pos[h], b.rad[h])
-                    n_own = int((owners == i).sum())
-                    if n_own < MAX_STRINGS and rng.random() < p["add_p"]:
-                        anchors = np.vstack([anchors, [x, y]])
-                        owners = np.append(owners, i)
-                        events.append(Event(f, "bounce", x, y, cols[i], 0.7, i * 2 + n_own % 3))
-                    else:
-                        events.append(Event(f, "hit", x, y, cols[i], 0.4, i * 2))
-                # Coupe : une autre balle touche le segment ancre -> balle propriétaire.
-                if len(anchors):
-                    idx_of = {owner_uid[int(u)]: j for j, u in enumerate(b.uid)}
-                    ends = np.array([b.pos[idx_of[o]] for o in owners])
-                    seg = ends - anchors
+                    d = b.pos[h] - CENTER
+                    q = CENTER + d / (np.linalg.norm(d) + 1e-9) * R
+                    # Règle stricte : chaque rebond tend une corde depuis le rebond précédent de la même balle.
+                    if last[i] is not None and np.linalg.norm(q - last[i]) > 4:
+                        A, B, O = np.vstack([A, last[i]]), np.vstack([B, q]), np.append(O, i)
+                        events.append(Event(f, "bounce", *q, cols[i], 0.7, i * 2 + int((O == i).sum()) % 3))
+                    last[i] = q
+                # Règle stricte : une balle qui touche la corde d'une autre couleur la coupe.
+                if len(A):
+                    seg = B - A
                     L2 = (seg ** 2).sum(-1) + 1e-9
-                    cut = np.zeros(len(anchors), bool)
-                    for i, j in idx_of.items():
-                        q = b.pos[j]
-                        tt = np.clip(((q - anchors) * seg).sum(-1) / L2, 0, 1)
-                        d = np.linalg.norm(anchors + seg * tt[:, None] - q, axis=1)
-                        c = (owners != i) & (d < 0.6 * b.rad[j]) & (tt < 0.8) & (np.sqrt(L2) * (1 - tt) > b.rad[j] + 2.2 * p["r0"]) & ~cut
-                        # Une balle coupe au plus un fil à la fois, puis souffle `cool` secondes.
-                        if not c.any() or f - cooldown[i] < p["cool"] * SIM_FPS or f < GRACE * SIM_FPS:
-                            continue
-                        cooldown[i] = f
-                        first = np.nonzero(c)[0][np.argmin(d[c])]
-                        c = np.zeros_like(c)
-                        c[first] = True
-                        for s_ in [first]:
-                            px, py = anchors[s_] + seg[s_] * tt[s_]
-                            events.append(Event(f, "shard", px, py, cols[owners[s_]], 1, 0))
-                            events.append(Event(f, "pop", px, py, cols[owners[s_]], 0.6, owners[s_] * 2 + 1))
+                    cut = np.zeros(len(A), bool)
+                    for j in range(len(b)):
+                        i = player[int(b.uid[j])]
+                        tt = np.clip(((b.pos[j] - A) * seg).sum(-1) / L2, 0, 1)
+                        dd = np.linalg.norm(A + seg * tt[:, None] - b.pos[j], axis=1)
+                        c = (O != i) & (dd < b.rad[j] + 1.5) & ~cut
+                        for s_ in np.nonzero(c)[0]:
+                            px, py = A[s_] + seg[s_] * tt[s_]
+                            events.append(Event(f, "shard", px, py, cols[O[s_]], 1, 0))
+                            events.append(Event(f, "pop", px, py, cols[O[s_]], 0.6, O[s_] * 2 + 1))
                         cut |= c
                     if cut.any():
-                        anchors, owners = anchors[~cut], owners[~cut]
+                        A, B, O = A[~cut], B[~cut], O[~cut]
                         for i in range(k):
-                            if alive[i] and not (owners == i).any():
+                            if alive[i] and not (O == i).any():
                                 alive[i] = False
-                                j = idx_of[i]
+                                j = [player[int(u)] for u in b.uid].index(i)
                                 events.append(Event(f, "boom", *b.pos[j], cols[i], 0.8, 1))
                                 b.remove([j])
-                                idx_of = {owner_uid[int(u)]: jj for jj, u in enumerate(b.uid)}
                         if sum(alive) == 1:
                             winner = alive.index(True)
                             fin = f
@@ -144,11 +130,10 @@ def _run(seed, p):
                             break
                         if sum(alive) == 0:
                             return frames, events, None, None, history
-        history.append([int((owners == i).sum()) for i in range(k)])
-        fr = snapshot(b, [cols[owner_uid[int(u)]] for u in b.uid], [(R, None, 0, bgr(p["theme"]["ring"]))])
-        uid_of = {i: u for u, i in owner_uid.items()}
-        fr.strings = (anchors.astype(np.float32).copy(), np.array([uid_of[o] for o in owners], int),
-                      np.array([cols[o] for o in owners], np.uint8).reshape(-1, 3))
+        history.append([int((O == i).sum()) for i in range(k)])
+        fr = snapshot(b, [cols[player[int(u)]] for u in b.uid], [(R, None, 0, bgr(p["theme"]["ring"]))])
+        fr.strings = (A.astype(np.float32).copy(), B.astype(np.float32).copy(),
+                      np.array([cols[o] for o in O], np.uint8).reshape(-1, 3))
         frames.append(fr)
         if fin is not None and f >= fin + int(TAIL * SIM_FPS):
             break
@@ -156,16 +141,11 @@ def _run(seed, p):
 
 
 def simulate(seed, p):
-    for tr in range(12):
+    for tr in range(25):
         frames, events, fin, winner, hist = _run(seed + 7919 * tr, p)
         t = fin / SIM_FPS if fin is not None else None
         if t is not None and MIN_FINALE <= t <= MAX_FINALE:
             break
-        # Fin trop tôt : plus de fils ; jamais de fin : moins de fils.
-        if t is None and winner is None and len(frames) >= int((MAX_FINALE + 1) * SIM_FPS):
-            p["add_p"] = max(0.08, p["add_p"] * 0.8)
-        elif t is not None and t < MIN_FINALE:
-            p["add_p"] = min(1.0, p["add_p"] * 1.15)
     else:
         return None
     p["sub_seed"] = seed + 7919 * tr
@@ -199,7 +179,7 @@ def score(tl):
 def comment(tl, rng):
     cats = tl.params.get("objects") == "cats"
     opts = ["Who did you pick before it started? 👇", "That last cut was so close... who were you rooting for? 👀",
-            "Team " + tl.metrics["winner"].title() + " or not? 👇"]
+            "Team " + tl.finale_text.split()[0].title() + " or not? 👇"]
     if cats:
         opts.append("Which cat should fight next time? 🐱👇")
     return str(rng.choice(opts))
