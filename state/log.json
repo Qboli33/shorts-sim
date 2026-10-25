@@ -1597,147 +1597,163 @@
   "drive_file": "1 Lundi 26/Every bounce adds a ball. Can it reach 200.mp4"
  },
  {
-  "id": "2026-10-26-09-crusher",
-  "mechanic": "crusher",
-  "seed": 160578125,
+  "id": "2026-10-26-09-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 214931771,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "midnight",
     "bg": [
      [
-      8,
-      8,
-      10
+      14,
+      10,
+      40
      ],
      [
-      0,
-      0,
-      0
+      2,
+      2,
+      10
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     120,
+     220,
+     255
     ],
     "accent": [
      255,
-     255,
-     255
-    ],
-    "flat": true
+     214,
+     64
+    ]
    },
-   "root": 50,
-   "colors": [
-    "RED",
-    "YELLOW"
-   ],
-   "fill": 0.4146949671839643,
-   "r0": 34.89554223508239,
-   "levels": 3,
-   "crush": 6.030222828340916,
-   "t_full": 49.247553300846924,
-   "curve": 1.7275514395347709,
-   "speed": 432.8453906332833,
-   "gravity": 1600.0,
-   "title_idx": 3,
-   "overlay_idx": 2,
-   "sfx": "crunch"
+   "root": 52,
+   "n": 9,
+   "r_in": 77.99146881008414,
+   "color": "GREEN",
+   "gravity": 1306.29229933108,
+   "speed": 795.8528062792269,
+   "jitter": 0.11142779425348442,
+   "gap": 0.3173507072210908,
+   "omega": 1.3009965727108526,
+   "hue0": 0.04443001139235936,
+   "alt": true,
+   "title_idx": 2,
+   "overlay_idx": 3,
+   "trails": 9,
+   "r0": 15.770405231521003,
+   "gap_scale": 1.0,
+   "sub_seed": 214931771,
+   "sfx": "meow"
   },
-  "title": "Hydraulic press vs balls: 750 incoming?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "What should the press crush next? 👇",
-  "duration": 48.72,
-  "file": "out/2026-10-26/2026-10-26-09-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-26/2026-10-26-09-crusher.mp4",
-  "size_bytes": 12068105,
-  "score": 0.877,
+  "title": "9 rings. One ball. Can it get out?",
+  "description": "One ball, 9 spinning rings, one gap each. #shorts #satisfying #simulation #willtheballescape #oddlysatisfying",
+  "first_comment": "Be honest, did you think it would get out? 👀",
+  "duration": 48.52,
+  "file": "out/2026-10-26/2026-10-26-09-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-26/2026-10-26-09-rings_escape.mp4",
+  "size_bytes": 9135401,
+  "score": 0.859,
   "metrics": {
-   "N": 750,
-   "finale_s": 42.7,
-   "peak": 792,
-   "n0": 57
+   "finale_s": 42.48,
+   "n": 9,
+   "bounces": 110,
+   "last_wait": 4.72,
+   "max_wait": 16.63
   },
-  "render_s": 59.2,
+  "render_s": 72.1,
   "fps": 60,
   "scheduled_at": "2026-10-26T18:25:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-26/qc/2026-10-26-09-crusher.jpg",
+  "qc_sheet": "out/2026-10-26/qc/2026-10-26-09-rings_escape.jpg",
   "created": "2026-10-26",
-  "drive_file": "1 Lundi 26/Hydraulic press vs balls 750 incoming.mp4"
+  "replaces": "2026-10-26-09-crusher",
+  "old_drive_file": "1 Lundi 26/Hydraulic press vs balls 750 incoming.mp4",
+  "drive_file": "1 Lundi 26/9 rings. One ball. Can it get out.mp4"
  },
  {
-  "id": "2026-10-26-10-crusher",
-  "mechanic": "crusher",
-  "seed": 160578124,
+  "id": "2026-10-26-10-strings",
+  "mechanic": "strings",
+  "seed": 108691382,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "synthwave",
     "bg": [
      [
+      40,
       8,
-      8,
-      10
+      52
      ],
      [
-      0,
-      0,
-      0
+      6,
+      2,
+      18
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     255,
+     80,
+     200
     ],
     "accent": [
-     255,
-     255,
+     60,
+     230,
      255
-    ],
-    "flat": true
+    ]
    },
-   "root": 56,
-   "colors": [
-    "PINK",
+   "root": 60,
+   "k": 4,
+   "names": [
     "CYAN",
-    "ORANGE"
+    "YELLOW",
+    "ORANGE",
+    "BLUE"
    ],
-   "fill": 0.3617725160857013,
-   "r0": 35.861458313090154,
-   "levels": 3,
-   "crush": 8.884489869863176,
-   "t_full": 55.35195495856375,
-   "curve": 1.899178033107731,
-   "speed": 392.1474072144235,
-   "gravity": 1600.0,
-   "title_idx": 1,
-   "overlay_idx": 1,
-   "sfx": "crunch"
+   "r0": 38.35933915661097,
+   "gravity": 1032.1380930830503,
+   "speed": 721.3435820364801,
+   "jitter": 0.1498444068952538,
+   "add_p": 0.4495934899373225,
+   "cool": 0.5567236917447007,
+   "start": 5,
+   "title_idx": 0,
+   "overlay_idx": 2,
+   "trails": 7,
+   "objects": "cats",
+   "cat_levels": [
+    1,
+    7,
+    8,
+    3
+   ],
+   "sub_seed": 108715139,
+   "sfx": "meow"
   },
-  "title": "Can the press make 500 balls?",
-  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
-  "duration": 48.98,
-  "file": "out/2026-10-26/2026-10-26-10-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-26/2026-10-26-10-crusher.mp4",
-  "size_bytes": 8687714,
-  "score": 0.768,
+  "title": "Last Cat Standing",
+  "description": "Every bounce ties a string. Cross a string and it snaps. Last one with strings wins. #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
+  "first_comment": "Which cat should fight next time? 🐱👇",
+  "duration": 55.25,
+  "file": "out/2026-10-26/2026-10-26-10-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-26/2026-10-26-10-strings.mp4",
+  "size_bytes": 22464246,
+  "score": 0.779,
   "metrics": {
-   "N": 500,
-   "finale_s": 42.97,
-   "peak": 542,
-   "n0": 47
+   "finale_s": 49.22,
+   "winner": "SNOWBALL",
+   "leader_changes": 10,
+   "peak": 10,
+   "final": 3
   },
-  "render_s": 43.0,
+  "render_s": 88.4,
   "fps": 60,
   "scheduled_at": "2026-10-26T19:40:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-26/qc/2026-10-26-10-crusher.jpg",
+  "qc_sheet": "out/2026-10-26/qc/2026-10-26-10-strings.jpg",
   "created": "2026-10-26",
-  "drive_file": "1 Lundi 26/Can the press make 500 balls.mp4"
+  "replaces": "2026-10-26-10-crusher",
+  "old_drive_file": "1 Lundi 26/Can the press make 500 balls.mp4",
+  "drive_file": "1 Lundi 26/Last Cat Standing.mp4"
  },
  {
   "id": "2026-10-27-01-color_escape",
@@ -1816,7 +1832,7 @@
  {
   "id": "2026-10-27-02-crusher",
   "mechanic": "crusher",
-  "seed": 95608808,
+  "seed": 89147891,
   "params": {
    "theme": {
     "name": "noir",
@@ -1844,45 +1860,51 @@
     ],
     "flat": true
    },
-   "root": 55,
+   "root": 50,
    "colors": [
     "RED",
-    "YELLOW"
+    "BLUE",
+    "YELLOW",
+    "GREEN"
    ],
-   "fill": 0.39271754797259995,
-   "r0": 38.34666141985616,
+   "fill": 0.3473992525693014,
+   "r0": 32.00215973231549,
    "levels": 3,
-   "crush": 8.691178003514569,
-   "t_full": 51.33973793009511,
-   "curve": 1.5434480513551316,
-   "speed": 310.92479612195484,
+   "crush": 9.98022776915319,
+   "t_full": 41.471173096203074,
+   "curve": 1.0680013392548975,
+   "speed": 309.4397579170735,
+   "wait": 0.353785482246604,
+   "lift": 198.25139881205598,
    "gravity": 1600.0,
-   "title_idx": 0,
+   "title_idx": 2,
    "overlay_idx": 1,
    "sfx": "crunch"
   },
-  "title": "Every crush makes 4 more balls. 500?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "Guess how long to 1000 balls! ⏱️👇",
-  "duration": 45.6,
+  "title": "Hydraulic press vs 57 balls",
+  "description": "Crush one ball, get four. Watch the count explode. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 48.18,
   "file": "out/2026-10-27/2026-10-27-02-crusher.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-27/2026-10-27-02-crusher.mp4",
-  "size_bytes": 8902721,
-  "score": 0.719,
+  "size_bytes": 6802665,
+  "score": 0.601,
   "metrics": {
-   "N": 500,
-   "finale_s": 39.58,
-   "peak": 560,
-   "n0": 44
+   "N": 15,
+   "finale_s": 42.15,
+   "n0": 57,
+   "crushed": -14
   },
-  "render_s": 51.5,
+  "render_s": 47.2,
   "fps": 60,
   "scheduled_at": "2026-10-27T09:35:00+08:00",
   "metricool_id": null,
   "status": "delivered",
   "qc_sheet": "out/2026-10-27/qc/2026-10-27-02-crusher.jpg",
   "created": "2026-10-27",
-  "drive_file": "2 Mardi 27/Every crush makes 4 more balls. 500.mp4"
+  "replaces": "2026-10-27-02-crusher",
+  "old_drive_file": "2 Mardi 27/Every crush makes 4 more balls. 500.mp4",
+  "drive_file": "2 Mardi 27/Hydraulic press vs 57 balls.mp4"
  },
  {
   "id": "2026-10-27-03-bounce_spawn",
@@ -2083,77 +2105,79 @@
   "drive_file": "2 Mardi 27/How fast can it make 128 balls.mp4"
  },
  {
-  "id": "2026-10-27-06-crusher",
-  "mechanic": "crusher",
-  "seed": 95608807,
+  "id": "2026-10-27-06-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 146586698,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "forest",
     "bg": [
      [
       8,
-      8,
-      10
+      36,
+      22
      ],
      [
-      0,
-      0,
-      0
+      1,
+      8,
+      4
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     150,
+     255,
+     110
     ],
     "accent": [
      255,
-     255,
-     255
-    ],
-    "flat": true
+     230,
+     90
+    ]
    },
-   "root": 52,
-   "colors": [
-    "ORANGE",
-    "BLUE",
-    "LIME",
-    "PURPLE"
-   ],
-   "fill": 0.3722596739160161,
-   "r0": 32.92983028135656,
-   "levels": 3,
-   "crush": 8.066513405797313,
-   "t_full": 51.393609188980754,
-   "curve": 1.6493066532924263,
-   "speed": 408.03015246222014,
-   "gravity": 1600.0,
-   "title_idx": 0,
-   "overlay_idx": 3,
-   "sfx": "crunch"
+   "root": 59,
+   "n": 7,
+   "r_in": 90.00862208878704,
+   "color": "BLUE",
+   "gravity": 1489.4773521835773,
+   "speed": 661.0581723688501,
+   "jitter": 0.0746838997677989,
+   "gap": 0.3955405677724201,
+   "omega": 1.4843306919838108,
+   "hue0": 0.10879790537078382,
+   "alt": true,
+   "title_idx": 3,
+   "overlay_idx": 0,
+   "trails": 10,
+   "r0": 18.0,
+   "gap_scale": 1.0,
+   "sub_seed": 146586698,
+   "sfx": "boing"
   },
-  "title": "Every crush makes 4 more balls. 600?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
-  "duration": 43.95,
-  "file": "out/2026-10-27/2026-10-27-06-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-27/2026-10-27-06-crusher.mp4",
-  "size_bytes": 9472795,
-  "score": 0.704,
+  "title": "Escape all 7 rings?",
+  "description": "Spinning rings, tiny gaps, and a very determined ball. #shorts #satisfying #simulation #willtheballescape #oddlysatisfying",
+  "first_comment": "Which ring was the hardest? 🤔👇",
+  "duration": 49.08,
+  "file": "out/2026-10-27/2026-10-27-06-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-27/2026-10-27-06-rings_escape.mp4",
+  "size_bytes": 8619281,
+  "score": 0.842,
   "metrics": {
-   "N": 600,
-   "finale_s": 37.93,
-   "peak": 723,
-   "n0": 57
+   "finale_s": 43.05,
+   "n": 7,
+   "bounces": 97,
+   "last_wait": 3.75,
+   "max_wait": 14.37
   },
-  "render_s": 50.8,
+  "render_s": 74.7,
   "fps": 60,
   "scheduled_at": "2026-10-27T14:55:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-27/qc/2026-10-27-06-crusher.jpg",
+  "qc_sheet": "out/2026-10-27/qc/2026-10-27-06-rings_escape.jpg",
   "created": "2026-10-27",
-  "drive_file": "2 Mardi 27/Every crush makes 4 more balls. 600.mp4"
+  "replaces": "2026-10-27-06-crusher",
+  "old_drive_file": "2 Mardi 27/Every crush makes 4 more balls. 600.mp4",
+  "drive_file": "2 Mardi 27/Escape all 7 rings.mp4"
  },
  {
   "id": "2026-10-27-07-color_escape",
@@ -2449,77 +2473,84 @@
   "drive_file": "2 Mardi 27/Will it reach the Chad Cat.mp4"
  },
  {
-  "id": "2026-10-28-01-crusher",
-  "mechanic": "crusher",
-  "seed": 56582504,
+  "id": "2026-10-28-01-strings",
+  "mechanic": "strings",
+  "seed": 264606910,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "violet",
     "bg": [
      [
-      8,
-      8,
-      10
+      26,
+      12,
+      58
      ],
      [
-      0,
-      0,
-      0
+      4,
+      2,
+      14
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
-    ],
-    "accent": [
-     255,
-     255,
+     190,
+     140,
      255
     ],
-    "flat": true
+    "accent": [
+     120,
+     255,
+     200
+    ]
    },
-   "root": 52,
-   "colors": [
-    "RED",
-    "BLUE",
-    "YELLOW",
-    "GREEN"
+   "root": 61,
+   "k": 2,
+   "names": [
+    "ORANGE",
+    "PINK"
    ],
-   "fill": 0.3812450965504929,
-   "r0": 33.189828845250084,
-   "levels": 3,
-   "crush": 9.948652448704932,
-   "t_full": 52.92371131984212,
-   "curve": 1.4388442220836701,
-   "speed": 306.43012417681734,
-   "gravity": 1600.0,
-   "title_idx": 0,
-   "overlay_idx": 3,
-   "sfx": "crunch"
+   "r0": 43.586547937688664,
+   "gravity": 1109.127078957989,
+   "speed": 603.4703906132579,
+   "jitter": 0.096877409963495,
+   "add_p": 0.4905865898377194,
+   "cool": 0.44628045038818887,
+   "start": 5,
+   "title_idx": 2,
+   "overlay_idx": 1,
+   "trails": 6,
+   "objects": "cats",
+   "cat_levels": [
+    7,
+    5
+   ],
+   "sub_seed": 264614829,
+   "sfx": "meow"
   },
-  "title": "Every crush makes 4 more balls. 600?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "What should the press crush next? 👇",
-  "duration": 43.15,
-  "file": "out/2026-10-28/2026-10-28-01-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-28/2026-10-28-01-crusher.mp4",
-  "size_bytes": 9813201,
-  "score": 0.678,
+  "title": "Cut the strings! Which cat survives?",
+  "description": "Every bounce ties a string. Cross a string and it snaps. Last one with strings wins. #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
+  "first_comment": "Who did you pick before it started? 👇",
+  "duration": 49.15,
+  "file": "out/2026-10-28/2026-10-28-01-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-28/2026-10-28-01-strings.mp4",
+  "size_bytes": 13911902,
+  "score": 0.891,
   "metrics": {
-   "N": 600,
-   "finale_s": 37.13,
-   "peak": 709,
-   "n0": 58
+   "finale_s": 43.12,
+   "winner": "SLEEPY CHONK",
+   "leader_changes": 6,
+   "peak": 9,
+   "final": 4
   },
-  "render_s": 57.2,
+  "render_s": 74.4,
   "fps": 60,
   "scheduled_at": "2026-10-28T08:05:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-28/qc/2026-10-28-01-crusher.jpg",
+  "qc_sheet": "out/2026-10-28/qc/2026-10-28-01-strings.jpg",
   "created": "2026-10-28",
-  "drive_file": "3 Mercredi 28/Every crush makes 4 more balls. 600.mp4"
+  "replaces": "2026-10-28-01-crusher",
+  "old_drive_file": "3 Mercredi 28/Every crush makes 4 more balls. 600.mp4",
+  "drive_file": "3 Mercredi 28/Cut the strings! Which cat survives.mp4"
  },
  {
   "id": "2026-10-28-02-color_escape",
@@ -2736,7 +2767,7 @@
  {
   "id": "2026-10-28-05-crusher",
   "mechanic": "crusher",
-  "seed": 56582503,
+  "seed": 90249507,
   "params": {
    "theme": {
     "name": "noir",
@@ -2764,47 +2795,51 @@
     ],
     "flat": true
    },
-   "root": 52,
+   "root": 57,
    "colors": [
-    "RED",
+    "ORANGE",
     "BLUE",
-    "YELLOW",
-    "GREEN"
+    "LIME",
+    "PURPLE"
    ],
-   "fill": 0.35984602935171267,
-   "r0": 37.07852611010444,
+   "fill": 0.39453854550294937,
+   "r0": 35.82585666923292,
    "levels": 3,
-   "crush": 9.39752208955982,
-   "t_full": 55.012012726264075,
-   "curve": 1.907699538647908,
-   "speed": 311.99900490428735,
+   "crush": 9.288862733482011,
+   "t_full": 39.37448451997821,
+   "curve": 0.9511517567044677,
+   "speed": 278.7022211711333,
+   "wait": 0.2812940883005462,
+   "lift": 199.02765697604036,
    "gravity": 1600.0,
-   "title_idx": 1,
-   "overlay_idx": 2,
+   "title_idx": 0,
+   "overlay_idx": 1,
    "sfx": "crunch"
   },
-  "title": "Can the press make 400 balls?",
+  "title": "Every crush makes 4 more balls",
   "description": "Crush one ball, get four. Watch the count explode. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "Guess how long to 800 balls! ⏱️👇",
-  "duration": 45.07,
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 46.62,
   "file": "out/2026-10-28/2026-10-28-05-crusher.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-28/2026-10-28-05-crusher.mp4",
-  "size_bytes": 7112461,
-  "score": 0.662,
+  "size_bytes": 6779710,
+  "score": 0.558,
   "metrics": {
-   "N": 400,
-   "finale_s": 39.05,
-   "peak": 487,
-   "n0": 43
+   "N": 13,
+   "finale_s": 40.58,
+   "n0": 51,
+   "crushed": -12
   },
-  "render_s": 44.0,
+  "render_s": 40.1,
   "fps": 60,
   "scheduled_at": "2026-10-28T13:40:00+08:00",
   "metricool_id": null,
   "status": "delivered",
   "qc_sheet": "out/2026-10-28/qc/2026-10-28-05-crusher.jpg",
   "created": "2026-10-28",
-  "drive_file": "3 Mercredi 28/Can the press make 400 balls.mp4"
+  "replaces": "2026-10-28-05-crusher",
+  "old_drive_file": "3 Mercredi 28/Can the press make 400 balls.mp4",
+  "drive_file": "3 Mercredi 28/Every crush makes 4 more balls.mp4"
  },
  {
   "id": "2026-10-28-06-color_escape",
@@ -3294,77 +3329,79 @@
   "drive_file": "4 Jeudi 29/How fast can it make 64 balls.mp4"
  },
  {
-  "id": "2026-10-29-03-crusher",
-  "mechanic": "crusher",
-  "seed": 104284661,
+  "id": "2026-10-29-03-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 99754023,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "synthwave",
     "bg": [
      [
+      40,
       8,
-      8,
-      10
+      52
      ],
      [
-      0,
-      0,
-      0
+      6,
+      2,
+      18
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     255,
+     80,
+     200
     ],
     "accent": [
-     255,
-     255,
+     60,
+     230,
      255
-    ],
-    "flat": true
+    ]
    },
-   "root": 59,
-   "colors": [
-    "RED",
-    "BLUE",
-    "YELLOW",
-    "GREEN"
-   ],
-   "fill": 0.3327483892330722,
-   "r0": 35.08956704543592,
-   "levels": 3,
-   "crush": 7.2076480758699395,
-   "t_full": 48.542809400172686,
-   "curve": 1.894823933919106,
-   "speed": 404.9412989781605,
-   "gravity": 1600.0,
-   "title_idx": 1,
+   "root": 54,
+   "n": 11,
+   "r_in": 88.67359925664665,
+   "color": "ORANGE",
+   "gravity": 1033.1747848506636,
+   "speed": 802.1739210929363,
+   "jitter": 0.1216170149263397,
+   "gap": 0.28192834879841105,
+   "omega": 1.0695165087609266,
+   "hue0": 0.05206410574388198,
+   "alt": true,
+   "title_idx": 3,
    "overlay_idx": 1,
-   "sfx": "crunch"
+   "trails": 8,
+   "r0": 12.210403228247428,
+   "gap_scale": 1.0,
+   "sub_seed": 99754023,
+   "sfx": "quack"
   },
-  "title": "Can the press make 500 balls?",
-  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
-  "duration": 44.15,
-  "file": "out/2026-10-29/2026-10-29-03-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-29/2026-10-29-03-crusher.mp4",
-  "size_bytes": 7678166,
-  "score": 0.671,
+  "title": "Escape all 11 rings?",
+  "description": "Every ring it escapes shatters. Can it get out? #shorts #satisfying #simulation #willtheballescape #oddlysatisfying",
+  "first_comment": "Which ring was the hardest? 🤔👇",
+  "duration": 49.3,
+  "file": "out/2026-10-29/2026-10-29-03-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-29/2026-10-29-03-rings_escape.mp4",
+  "size_bytes": 10446358,
+  "score": 0.766,
   "metrics": {
-   "N": 500,
-   "finale_s": 38.13,
-   "peak": 552,
-   "n0": 45
+   "finale_s": 43.27,
+   "n": 11,
+   "bounces": 129,
+   "last_wait": 2.55,
+   "max_wait": 13.42
   },
-  "render_s": 46.9,
+  "render_s": 76.0,
   "fps": 60,
   "scheduled_at": "2026-10-29T10:50:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-29/qc/2026-10-29-03-crusher.jpg",
+  "qc_sheet": "out/2026-10-29/qc/2026-10-29-03-rings_escape.jpg",
   "created": "2026-10-29",
-  "drive_file": "4 Jeudi 29/Can the press make 500 balls.mp4"
+  "replaces": "2026-10-29-03-crusher",
+  "old_drive_file": "4 Jeudi 29/Can the press make 500 balls.mp4",
+  "drive_file": "4 Jeudi 29/Escape all 11 rings.mp4"
  },
  {
   "id": "2026-10-29-04-bounce_spawn",
@@ -3796,75 +3833,80 @@
   "drive_file": "4 Jeudi 29/Which color escapes first.mp4"
  },
  {
-  "id": "2026-10-29-10-crusher",
-  "mechanic": "crusher",
-  "seed": 104284660,
+  "id": "2026-10-29-10-strings",
+  "mechanic": "strings",
+  "seed": 22238118,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "ember",
     "bg": [
      [
-      8,
-      8,
-      10
+      48,
+      14,
+      8
      ],
      [
-      0,
-      0,
-      0
+      10,
+      2,
+      2
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     255,
+     150,
+     60
     ],
     "accent": [
      255,
-     255,
-     255
-    ],
-    "flat": true
+     240,
+     200
+    ]
    },
-   "root": 59,
-   "colors": [
-    "RED",
-    "YELLOW"
+   "root": 50,
+   "k": 3,
+   "names": [
+    "PINK",
+    "CYAN",
+    "GREEN"
    ],
-   "fill": 0.37461166353167263,
-   "r0": 33.09468654011309,
-   "levels": 3,
-   "crush": 9.461165987382373,
-   "t_full": 53.19498887687964,
-   "curve": 1.974552189516579,
-   "speed": 331.9196213587903,
-   "gravity": 1600.0,
-   "title_idx": 0,
-   "overlay_idx": 3,
-   "sfx": "crunch"
+   "r0": 24.412416913390366,
+   "gravity": 1059.9265555943425,
+   "speed": 726.5740010332463,
+   "jitter": 0.14561317798278797,
+   "add_p": 0.5401150959529754,
+   "cool": 0.4133527674456388,
+   "start": 4,
+   "title_idx": 3,
+   "overlay_idx": 2,
+   "trails": 7,
+   "sub_seed": 22269794,
+   "sfx": "squeak"
   },
-  "title": "Every crush makes 4 more balls. 600?",
-  "description": "Crush one ball, get four. Watch the count explode. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "Guess how long to 1200 balls! ⏱️👇",
-  "duration": 47.1,
-  "file": "out/2026-10-29/2026-10-29-10-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-29/2026-10-29-10-crusher.mp4",
-  "size_bytes": 9457638,
-  "score": 0.809,
+  "title": "Pick a color. Who keeps a string?",
+  "description": "No strings left = out. Pick your winner before it starts! #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
+  "first_comment": "That last cut was so close... who were you rooting for? 👀",
+  "duration": 50.17,
+  "file": "out/2026-10-29/2026-10-29-10-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-29/2026-10-29-10-strings.mp4",
+  "size_bytes": 15737249,
+  "score": 0.935,
   "metrics": {
-   "N": 600,
-   "finale_s": 41.08,
-   "peak": 693,
-   "n0": 57
+   "finale_s": 44.13,
+   "winner": "CYAN",
+   "leader_changes": 19,
+   "peak": 9,
+   "final": 2
   },
-  "render_s": 49.1,
+  "render_s": 68.3,
   "fps": 60,
   "scheduled_at": "2026-10-29T19:40:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-29/qc/2026-10-29-10-crusher.jpg",
+  "qc_sheet": "out/2026-10-29/qc/2026-10-29-10-strings.jpg",
   "created": "2026-10-29",
-  "drive_file": "4 Jeudi 29/Every crush makes 4 more balls. 600.mp4"
+  "replaces": "2026-10-29-10-crusher",
+  "old_drive_file": "4 Jeudi 29/Every crush makes 4 more balls. 600.mp4",
+  "drive_file": "4 Jeudi 29/Pick a color. Who keeps a string.mp4"
  },
  {
   "id": "2026-10-30-01-merge_balls",
@@ -4293,7 +4335,7 @@
  {
   "id": "2026-10-30-07-crusher",
   "mechanic": "crusher",
-  "seed": 104678943,
+  "seed": 112519757,
   "params": {
    "theme": {
     "name": "noir",
@@ -4321,46 +4363,51 @@
     ],
     "flat": true
    },
-   "root": 55,
+   "root": 54,
    "colors": [
-    "PINK",
-    "CYAN",
-    "ORANGE"
+    "ORANGE",
+    "BLUE",
+    "LIME",
+    "PURPLE"
    ],
-   "fill": 0.30922418708437216,
-   "r0": 35.54079153155786,
+   "fill": 0.37899812662382004,
+   "r0": 41.87267450334736,
    "levels": 3,
-   "crush": 6.012966421292026,
-   "t_full": 44.69335983969384,
-   "curve": 1.7148313379559768,
-   "speed": 431.44115265906873,
+   "crush": 9.99000482158875,
+   "t_full": 38.70875352933562,
+   "curve": 1.2953622848810256,
+   "speed": 258.47657702743277,
+   "wait": 0.3836329791561204,
+   "lift": 240.20711052336617,
    "gravity": 1600.0,
    "title_idx": 2,
-   "overlay_idx": 0,
+   "overlay_idx": 3,
    "sfx": "crunch"
   },
-  "title": "1 crush = 4 balls. How long to 500?",
-  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
+  "title": "Hydraulic press vs 36 balls",
+  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
   "first_comment": "What should the press crush next? 👇",
-  "duration": 42.03,
+  "duration": 46.0,
   "file": "out/2026-10-30/2026-10-30-07-crusher.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-07-crusher.mp4",
-  "size_bytes": 6949797,
-  "score": 0.601,
+  "size_bytes": 6216055,
+  "score": 0.537,
   "metrics": {
-   "N": 500,
-   "finale_s": 36.02,
-   "peak": 506,
-   "n0": 41
+   "N": 12,
+   "finale_s": 39.97,
+   "n0": 36,
+   "crushed": -8
   },
-  "render_s": 44.9,
+  "render_s": 47.6,
   "fps": 60,
   "scheduled_at": "2026-10-30T16:05:00+08:00",
   "metricool_id": null,
   "status": "delivered",
   "qc_sheet": "out/2026-10-30/qc/2026-10-30-07-crusher.jpg",
   "created": "2026-10-30",
-  "drive_file": "5 Vendredi 30/1 crush = 4 balls. How long to 500.mp4"
+  "replaces": "2026-10-30-07-crusher",
+  "old_drive_file": "5 Vendredi 30/1 crush = 4 balls. How long to 500.mp4",
+  "drive_file": "5 Vendredi 30/Hydraulic press vs 36 balls.mp4"
  },
  {
   "id": "2026-10-30-08-color_escape",
@@ -4437,77 +4484,79 @@
   "drive_file": "5 Vendredi 30/Pick your color before it starts!.mp4"
  },
  {
-  "id": "2026-10-30-09-crusher",
-  "mechanic": "crusher",
-  "seed": 104678941,
+  "id": "2026-10-30-09-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 28783719,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "forest",
     "bg": [
      [
       8,
-      8,
-      10
+      36,
+      22
      ],
      [
-      0,
-      0,
-      0
+      1,
+      8,
+      4
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     150,
+     255,
+     110
     ],
     "accent": [
      255,
-     255,
-     255
-    ],
-    "flat": true
+     230,
+     90
+    ]
    },
-   "root": 55,
-   "colors": [
-    "ORANGE",
-    "BLUE",
-    "LIME",
-    "PURPLE"
-   ],
-   "fill": 0.34734073996457326,
-   "r0": 34.252521945746366,
-   "levels": 3,
-   "crush": 6.918912606223882,
-   "t_full": 44.24297600289336,
-   "curve": 1.7393039284075653,
-   "speed": 364.5240711353811,
-   "gravity": 1600.0,
-   "title_idx": 0,
-   "overlay_idx": 1,
-   "sfx": "crunch"
+   "root": 52,
+   "n": 10,
+   "r_in": 91.8233631726026,
+   "color": "ORANGE",
+   "gravity": 1408.1878560564962,
+   "speed": 725.6965897197525,
+   "jitter": 0.10795807497563562,
+   "gap": 0.36928193938887466,
+   "omega": 1.2602224466608232,
+   "hue0": 0.12515478358426624,
+   "alt": false,
+   "title_idx": 1,
+   "overlay_idx": 3,
+   "trails": 9,
+   "r0": 13.434124666045667,
+   "gap_scale": 0.8,
+   "sub_seed": 28791638,
+   "sfx": "meow"
   },
-  "title": "Every crush makes 4 more balls. 600?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "What should the press crush next? 👇",
-  "duration": 42.45,
-  "file": "out/2026-10-30/2026-10-30-09-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-09-crusher.mp4",
-  "size_bytes": 8571937,
-  "score": 0.654,
+  "title": "Will the ball escape?",
+  "description": "One ball, 10 spinning rings, one gap each. #shorts #satisfying #simulation #willtheballescape #oddlysatisfying",
+  "first_comment": "Should the next one have 20 rings? 👇",
+  "duration": 40.08,
+  "file": "out/2026-10-30/2026-10-30-09-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-30/2026-10-30-09-rings_escape.mp4",
+  "size_bytes": 8016621,
+  "score": 0.549,
   "metrics": {
-   "N": 600,
-   "finale_s": 36.43,
-   "peak": 613,
-   "n0": 49
+   "finale_s": 34.05,
+   "n": 10,
+   "bounces": 82,
+   "last_wait": 2.07,
+   "max_wait": 8.78
   },
-  "render_s": 49.4,
+  "render_s": 55.4,
   "fps": 60,
   "scheduled_at": "2026-10-30T18:25:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-30/qc/2026-10-30-09-crusher.jpg",
+  "qc_sheet": "out/2026-10-30/qc/2026-10-30-09-rings_escape.jpg",
   "created": "2026-10-30",
-  "drive_file": "5 Vendredi 30/Every crush makes 4 more balls. 600.mp4"
+  "replaces": "2026-10-30-09-crusher",
+  "old_drive_file": "5 Vendredi 30/Every crush makes 4 more balls. 600.mp4",
+  "drive_file": "5 Vendredi 30/Will the ball escape.mp4"
  },
  {
   "id": "2026-10-30-10-bounce_spawn",
@@ -4990,75 +5039,88 @@
   "drive_file": "6 Samedi 31/Every bounce adds a ball. Can it reach 100.mp4"
  },
  {
-  "id": "2026-10-31-07-crusher",
-  "mechanic": "crusher",
-  "seed": 87119870,
+  "id": "2026-10-31-07-strings",
+  "mechanic": "strings",
+  "seed": 187505451,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "violet",
     "bg": [
      [
-      8,
-      8,
-      10
+      26,
+      12,
+      58
      ],
      [
-      0,
-      0,
-      0
+      4,
+      2,
+      14
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
-    ],
-    "accent": [
-     255,
-     255,
+     190,
+     140,
      255
     ],
-    "flat": true
+    "accent": [
+     120,
+     255,
+     200
+    ]
    },
-   "root": 58,
-   "colors": [
+   "root": 54,
+   "k": 4,
+   "names": [
+    "ORANGE",
+    "PURPLE",
     "RED",
-    "YELLOW"
+    "BLUE"
    ],
-   "fill": 0.41494095313567225,
-   "r0": 35.35726478566434,
-   "levels": 3,
-   "crush": 7.622337253101334,
-   "t_full": 53.76614117741052,
-   "curve": 1.6045508928775263,
-   "speed": 407.825957827255,
-   "gravity": 1600.0,
-   "title_idx": 1,
-   "overlay_idx": 1,
-   "sfx": "crunch"
+   "r0": 43.25869785009209,
+   "gravity": 1100.525861121136,
+   "speed": 882.0831312325352,
+   "jitter": 0.098510372576581,
+   "add_p": 0.4844190873187234,
+   "cool": 0.4275756741528304,
+   "start": 3,
+   "title_idx": 3,
+   "overlay_idx": 3,
+   "trails": 6,
+   "objects": "cats",
+   "cat_levels": [
+    5,
+    8,
+    3,
+    2
+   ],
+   "sub_seed": 187560884,
+   "sfx": "meow"
   },
-  "title": "Can the press make 600 balls?",
-  "description": "Crush one ball, get four. Watch the count explode. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
-  "duration": 45.92,
-  "file": "out/2026-10-31/2026-10-31-07-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-31/2026-10-31-07-crusher.mp4",
-  "size_bytes": 10140356,
-  "score": 0.77,
+  "title": "Pick a cat. Who survives?",
+  "description": "Every bounce ties a string. Cross a string and it snaps. Last one with strings wins. #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
+  "first_comment": "Team Cool Cat or not? 👇",
+  "duration": 53.38,
+  "file": "out/2026-10-31/2026-10-31-07-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-31/2026-10-31-07-strings.mp4",
+  "size_bytes": 21251358,
+  "score": 0.837,
   "metrics": {
-   "N": 600,
-   "finale_s": 39.9,
-   "peak": 706,
-   "n0": 55
+   "finale_s": 47.35,
+   "winner": "COOL CAT",
+   "leader_changes": 18,
+   "peak": 9,
+   "final": 1
   },
-  "render_s": 50.3,
+  "render_s": 88.2,
   "fps": 60,
   "scheduled_at": "2026-10-31T16:05:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-10-31/qc/2026-10-31-07-crusher.jpg",
+  "qc_sheet": "out/2026-10-31/qc/2026-10-31-07-strings.jpg",
   "created": "2026-10-31",
-  "drive_file": "6 Samedi 31/Can the press make 600 balls.mp4"
+  "replaces": "2026-10-31-07-crusher",
+  "old_drive_file": "6 Samedi 31/Can the press make 600 balls.mp4",
+  "drive_file": "6 Samedi 31/Pick a cat. Who survives.mp4"
  },
  {
   "id": "2026-10-31-08-merge_balls",
@@ -5136,7 +5198,7 @@
  {
   "id": "2026-10-31-09-crusher",
   "mechanic": "crusher",
-  "seed": 87119871,
+  "seed": 55053941,
   "params": {
    "theme": {
     "name": "noir",
@@ -5164,48 +5226,51 @@
     ],
     "flat": true
    },
-   "root": 59,
+   "root": 56,
    "colors": [
-    "PURPLE",
-    "PINK",
-    "CYAN",
+    "RED",
+    "BLUE",
     "YELLOW",
     "GREEN"
    ],
-   "fill": 0.33902893400479084,
-   "r0": 34.94772772517727,
+   "fill": 0.3360008761454242,
+   "r0": 37.36735089050428,
    "levels": 3,
-   "crush": 6.286924675038813,
-   "t_full": 54.58535089153555,
-   "curve": 1.7431341180976845,
-   "speed": 344.7663678811904,
+   "crush": 6.417975820899176,
+   "t_full": 41.480416007282514,
+   "curve": 0.9158696965678285,
+   "speed": 240.69148203842667,
+   "wait": 0.3736945976452078,
+   "lift": 172.8359945767432,
    "gravity": 1600.0,
-   "title_idx": 0,
-   "overlay_idx": 2,
+   "title_idx": 1,
+   "overlay_idx": 3,
    "sfx": "crunch"
   },
-  "title": "Every crush makes 4 more balls. 500?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "Guess how long to 1000 balls! ⏱️👇",
-  "duration": 48.02,
+  "title": "Can the press go all the way down?",
+  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 48.85,
   "file": "out/2026-10-31/2026-10-31-09-crusher.mp4",
   "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-10-31/2026-10-31-09-crusher.mp4",
-  "size_bytes": 8324405,
-  "score": 0.8,
+  "size_bytes": 5671416,
+  "score": 0.578,
   "metrics": {
-   "N": 500,
-   "finale_s": 42.0,
-   "peak": 568,
-   "n0": 46
+   "N": 13,
+   "finale_s": 42.82,
+   "n0": 40,
+   "crushed": -9
   },
-  "render_s": 49.7,
+  "render_s": 46.2,
   "fps": 60,
   "scheduled_at": "2026-10-31T18:25:00+08:00",
   "metricool_id": null,
   "status": "delivered",
   "qc_sheet": "out/2026-10-31/qc/2026-10-31-09-crusher.jpg",
   "created": "2026-10-31",
-  "drive_file": "6 Samedi 31/Every crush makes 4 more balls. 500.mp4"
+  "replaces": "2026-10-31-09-crusher",
+  "old_drive_file": "6 Samedi 31/Every crush makes 4 more balls. 500.mp4",
+  "drive_file": "6 Samedi 31/Can the press go all the way down.mp4"
  },
  {
   "id": "2026-10-31-10-color_escape",
@@ -5282,78 +5347,79 @@
   "drive_file": "6 Samedi 31/Which color escapes first.mp4"
  },
  {
-  "id": "2026-11-01-01-crusher",
-  "mechanic": "crusher",
-  "seed": 71440018,
+  "id": "2026-11-01-01-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 177026018,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "aurora",
     "bg": [
      [
-      8,
-      8,
-      10
+      6,
+      26,
+      40
      ],
      [
-      0,
-      0,
-      0
+      6,
+      4,
+      24
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     110,
+     255,
+     170
     ],
     "accent": [
      255,
-     255,
-     255
-    ],
-    "flat": true
+     120,
+     230
+    ]
    },
-   "root": 58,
-   "colors": [
-    "PURPLE",
-    "PINK",
-    "CYAN",
-    "YELLOW",
-    "GREEN"
-   ],
-   "fill": 0.3006795035599754,
-   "r0": 33.30210242397317,
-   "levels": 3,
-   "crush": 7.4623108716695565,
-   "t_full": 47.060501247062575,
-   "curve": 1.9015542314899565,
-   "speed": 440.246650082446,
-   "gravity": 1600.0,
+   "root": 63,
+   "n": 13,
+   "r_in": 93.22307220877272,
+   "color": "ORANGE",
+   "gravity": 1174.3055015602663,
+   "speed": 835.0990254711493,
+   "jitter": 0.04874303989984675,
+   "gap": 0.2803467572988523,
+   "omega": 1.4556018684842886,
+   "hue0": 0.559846729445775,
+   "alt": false,
    "title_idx": 2,
-   "overlay_idx": 3,
-   "sfx": "crunch"
+   "overlay_idx": 1,
+   "trails": 6,
+   "r0": 10.031269380055532,
+   "gap_scale": 1.0923076923076924,
+   "sub_seed": 177033937,
+   "sfx": "meow"
   },
-  "title": "1 crush = 4 balls. How long to 500?",
-  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "Guess how long to 1000 balls! ⏱️👇",
-  "duration": 43.28,
-  "file": "out/2026-11-01/2026-11-01-01-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-01/2026-11-01-01-crusher.mp4",
-  "size_bytes": 7418600,
-  "score": 0.642,
+  "title": "13 rings. One ball. Can it get out?",
+  "description": "Spinning rings, tiny gaps, and a very determined ball. #shorts #satisfying #simulation #willtheballescape #oddlysatisfying",
+  "first_comment": "Should the next one have 26 rings? 👇",
+  "duration": 51.28,
+  "file": "out/2026-11-01/2026-11-01-01-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-01/2026-11-01-01-rings_escape.mp4",
+  "size_bytes": 9246998,
+  "score": 0.769,
   "metrics": {
-   "N": 500,
-   "finale_s": 37.27,
-   "peak": 543,
-   "n0": 45
+   "finale_s": 45.25,
+   "n": 13,
+   "bounces": 101,
+   "last_wait": 16.3,
+   "max_wait": 16.3
   },
-  "render_s": 47.4,
+  "render_s": 72.9,
   "fps": 60,
   "scheduled_at": "2026-11-01T08:05:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-11-01/qc/2026-11-01-01-crusher.jpg",
+  "qc_sheet": "out/2026-11-01/qc/2026-11-01-01-rings_escape.jpg",
   "created": "2026-11-01",
-  "drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500 (08h05).mp4"
+  "replaces": "2026-11-01-01-crusher",
+  "old_drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500 (08h05).mp4",
+  "drive_file": "7 Dimanche 01/13 rings. One ball. Can it get out.mp4"
  },
  {
   "id": "2026-11-01-02-merge_balls",
@@ -5917,74 +5983,87 @@
   "drive_file": "7 Dimanche 01/Escape or get trapped.mp4"
  },
  {
-  "id": "2026-11-01-10-crusher",
-  "mechanic": "crusher",
-  "seed": 71440019,
+  "id": "2026-11-01-10-strings",
+  "mechanic": "strings",
+  "seed": 30251002,
   "params": {
    "theme": {
-    "name": "noir",
+    "name": "forest",
     "bg": [
      [
       8,
-      8,
-      10
+      36,
+      22
      ],
      [
-      0,
-      0,
-      0
+      1,
+      8,
+      4
      ]
     ],
     "ring": [
-     215,
-     215,
-     225
+     150,
+     255,
+     110
     ],
     "accent": [
      255,
-     255,
-     255
-    ],
-    "flat": true
+     230,
+     90
+    ]
    },
-   "root": 59,
-   "colors": [
-    "RED",
-    "YELLOW"
+   "root": 56,
+   "k": 4,
+   "names": [
+    "BLUE",
+    "PURPLE",
+    "ORANGE",
+    "PINK"
    ],
-   "fill": 0.37837721499896637,
-   "r0": 37.736025877108695,
-   "levels": 3,
-   "crush": 6.721061206772039,
-   "t_full": 44.75091033456637,
-   "curve": 1.5769546534995122,
-   "speed": 451.54041165310656,
-   "gravity": 1600.0,
-   "title_idx": 2,
-   "overlay_idx": 2,
-   "sfx": "crunch"
+   "r0": 45.5674932046054,
+   "gravity": 1268.9519010710565,
+   "speed": 826.1670818025287,
+   "jitter": 0.0983570688293299,
+   "add_p": 0.5143647865719823,
+   "cool": 0.3970499877670639,
+   "start": 3,
+   "title_idx": 0,
+   "overlay_idx": 0,
+   "trails": 5,
+   "objects": "cats",
+   "cat_levels": [
+    2,
+    8,
+    5,
+    1
+   ],
+   "sub_seed": 30258921,
+   "sfx": "meow"
   },
-  "title": "1 crush = 4 balls. How long to 500?",
-  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #satisfying #hydraulicpress #oddlysatisfying #asmr",
-  "first_comment": "Guess how long to 1000 balls! ⏱️👇",
-  "duration": 40.15,
-  "file": "out/2026-11-01/2026-11-01-10-crusher.mp4",
-  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-01/2026-11-01-10-crusher.mp4",
-  "size_bytes": 7760658,
-  "score": 0.538,
+  "title": "Last Cat Standing",
+  "description": "No strings left = out. Pick your winner before it starts! #shorts #satisfying #simulation #lastonestanding #oddlysatisfying",
+  "first_comment": "That last cut was so close... who were you rooting for? 👀",
+  "duration": 49.55,
+  "file": "out/2026-11-01/2026-11-01-10-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-01/2026-11-01-10-strings.mp4",
+  "size_bytes": 18714801,
+  "score": 0.954,
   "metrics": {
-   "N": 500,
-   "finale_s": 34.13,
-   "peak": 554,
-   "n0": 44
+   "finale_s": 43.52,
+   "winner": "COOL CAT",
+   "leader_changes": 18,
+   "peak": 10,
+   "final": 2
   },
-  "render_s": 38.5,
+  "render_s": 67.1,
   "fps": 60,
   "scheduled_at": "2026-11-01T19:40:00+08:00",
   "metricool_id": null,
   "status": "delivered",
-  "qc_sheet": "out/2026-11-01/qc/2026-11-01-10-crusher.jpg",
+  "qc_sheet": "out/2026-11-01/qc/2026-11-01-10-strings.jpg",
   "created": "2026-11-01",
-  "drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500.mp4"
+  "replaces": "2026-11-01-10-crusher",
+  "old_drive_file": "7 Dimanche 01/1 crush = 4 balls. How long to 500.mp4",
+  "drive_file": "7 Dimanche 01/Last Cat Standing.mp4"
  }
 ]
