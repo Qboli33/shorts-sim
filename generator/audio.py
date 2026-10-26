@@ -214,29 +214,8 @@ def _musicbox(f, rng):
     return w * _soft_attack(n, 0.002) * 0.3
 
 
-def _harp(f, rng):
-    """Corde pincée (Karplus-Strong), filtrée pour rester ronde."""
-    n = int(SR * 1.1)
-    per = max(2, int(SR / f))
-    buf = np.convolve(rng.uniform(-1, 1, per), np.ones(8) / 8, mode="same")
-    out = np.zeros(n)
-    for i in range(0, n, per):
-        m = min(per, n - i)
-        out[i:i + m] = buf[:m]
-        buf = 0.996 * 0.5 * (buf + np.roll(buf, 1))
-    return out * _soft_attack(n, 0.003) * 0.5
-
-
-def _drop(f, rng):
-    """Goutte d'eau : sinus dont la hauteur remonte brièvement."""
-    n = int(SR * 0.3)
-    t = np.arange(n) / SR
-    fr = f * (1 + 0.9 * (1 - np.exp(-t * 40)))
-    ph = 2 * np.pi * np.cumsum(fr) / SR
-    return np.sin(ph) * np.exp(-t / 0.07) * _soft_attack(n, 0.002) * 0.5
-
-
-SOFT = {"kalimba": _kalimba, "marimba": _marimba, "felt": _felt, "musicbox": _musicbox, "harp": _harp, "drop": _drop}
+# 2026-10-26 : vassili a gardé boîte à musique, piano feutré, kalimba et marimba (harpe et gouttes retirées).
+SOFT = {"kalimba": _kalimba, "marimba": _marimba, "felt": _felt, "musicbox": _musicbox}
 
 
 def _swell(root, scale, inst, rng):
@@ -408,8 +387,15 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
         while t < slow[1] - 0.2:
             evs.append((t, Event_(t, "heart")))
             t += 0.75
+    has_tune = any(e.kind == "tone" for _, e in evs)
     for t0, ev in sorted(evs, key=lambda x: x[0]):
         kind = ev.kind
+        if kind == "tone":                # note d'une mélodie (hauteur MIDI exacte) : jamais sautée
+            key = ("tone", int(ev.note))
+            if key not in cache:
+                cache[key] = inst(440.0 * 2 ** ((int(ev.note) - 69) / 12), rng)
+            _add(mix, cache[key] * 1.1, t0, getattr(ev, "x", 540), n)
+            continue
         if kind in gap and t0 - last_t.get(kind, -1) < gap[kind]:
             continue
         active = [u for u in active if u > t0]
@@ -431,8 +417,9 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
         _add(mix, w, t0, getattr(ev, "x", 540), n)
         active.append(t0 + min(0.25, len(w) / SR * 0.3))
         last_t[kind] = t0
-    p = pad(duration, root, rng, level=0.05)
-    mix[: len(p)] += p
+    if not has_tune:                      # la nappe jurerait avec une mélodie dans une autre tonalité
+        p = pad(duration, root, rng, level=0.05)
+        mix[: len(p)] += p
     mix = _lowpass(_reverb(mix, rng, style["reverb"]))
     peak = np.percentile(np.abs(mix), 99.95) + 1e-9
     mix = np.tanh(mix / peak * 0.6) * 0.85
