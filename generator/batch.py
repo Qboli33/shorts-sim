@@ -14,7 +14,7 @@ from multiprocessing import Pool
 
 import numpy as np
 
-from . import qc
+from . import audio, qc
 from .mechanics import MECHANICS
 from .render import END_CARD, SLOW_SIM, SLOW_SPEED, render
 
@@ -148,6 +148,8 @@ def main():
     chosen = [chosen[i] for i in order]
 
     sfx_cycle = [x for x in args.sfx.split(",") if x]
+    if not sfx_cycle:     # sons doux : chaque instrument revient le moins souvent possible dans le lot, ordre mélangé
+        sfx_cycle = ["soft:" + i for i in rng.permutation(sorted(audio.SOFT))]
     out_dir = os.path.join(ROOT, "out", args.date)
     os.makedirs(out_dir, exist_ok=True)
     rjobs = []

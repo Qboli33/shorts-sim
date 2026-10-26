@@ -205,13 +205,16 @@ def render(tl, out_path, fps=60, theme=None, log=print):
         return slow_t[1] + (f - fin) / SIM_FPS
 
     if tl.params.get("objects") == "cats":
-        tl.params["sfx"] = "meow"            # chats => miaous, plus graves quand le chat est plus gros
+        if rng.random() < 0.3:               # chats : miaous (plus graves quand le chat est plus gros) une fois sur trois
+            tl.params["sfx"] = "meow"
     pack = tl.params.setdefault("sfx", audio.PACKS[int(rng.integers(len(audio.PACKS)))])
     tmp = tempfile.mkdtemp(prefix="sim_")
     wav = os.path.join(tmp, "a.wav")
     events = list(tl.events)
-    audio.render_audio(events, duration, time_of, tl.params.get("root", 60), tl.seed, wav, pack=pack,
+    style = audio.render_audio(events, duration, time_of, tl.params.get("root", 60), tl.seed, wav, pack=pack,
                        finale_frame=fin, slow=slow_t, pitch_by_note=tl.params.get("objects") == "cats")
+    if style:
+        tl.params["sound"] = style            # ambiance sonore tirée (instrument, gamme…), gardée dans le log
 
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}",
            "-r", str(fps), "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",

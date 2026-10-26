@@ -18,7 +18,7 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 - Ajoute chaque vidéo à `state/log.json` (statut `rendered`, ou `qc_failed`).
 - Graine de base = hash de la date (reproductible) ; `--seed` pour forcer. `--index-start` pour numéroter un 2e passage le même jour.
 - Une mécanique ne dépasse jamais 30 % d'un lot de 10 : `quotas()` refuse le lot s'il n'y a pas assez de mécaniques (il en faut au moins 4).
-- `--sfx meow,boing,classic` impose les packs sonores en cycle ; sinon tirage aléatoire pondéré (`audio.PACKS`, miaou majoritaire).
+- Sons : par défaut, le lot répartit les 6 instruments doux (`soft:<instrument>`, en cycle mélangé). `--sfx meow,boing,classic` impose d'autres packs en cycle.
 
 ## Mesures (2026-10-24, 4 CPU, 60 i/s)
 - Simulation : 0,3 à 8 s par candidate.
@@ -52,7 +52,7 @@ Score qualité : durée proche de 42 s, fin serrée, changements de leader, type
 
 ## Style (retour utilisateur du 2026-10-24)
 - **Texte à l'écran quasi absent** : `overlay` très court ou vide (`OVERLAYS` dans chaque mécanique ; vide une fois sur deux). Interface réduite à un chiffre (%, compteur, scores) ; texte final court (FULL!, OUT!, STUCK!, MAX!, RED!, 128!) ; pas de sous-titre. Le titre YouTube (`title`) garde la question en anglais.
-- **Sons rigolos** synthétisés (aucun échantillon) : miaou, boing, coin-coin, couic, de plus en plus graves à l'approche de la fin (jusqu'à -1,6 octave). « classic » reste possible mais rare.
+- **Sons doux et variés** (retour de vassili du 2026-10-26 : les sons rigolos « agressent les oreilles ») : instruments synthétisés (`audio.SOFT` : kalimba, marimba, piano feutré, boîte à musique, harpe, gouttes), gamme, octave et réverbération tirées à chaque vidéo (`params["sound"]`), au plus 10 notes par seconde et 4 voix, filtre des aigus, fin en accord au lieu d'une explosion, environ -18/-19 LUFS. Les vidéos de chats gardent le miaou une fois sur trois. Les packs rigolos (miaou, boing, coin-coin, couic) restent disponibles via `--sfx`.
 - **Suspense jusqu'au bout** : ralenti final, fins serrées.
 - **Fin en boucle** : les 0,45 dernières secondes du carton de 2,8 s se fondent dans la première image (`LOOP_FADE`), pour que la relecture enchaîne sans coupure.
 - **Premier commentaire automatique** : `comment(tl, rng)` dans chaque mécanique, une question adaptée à la vidéo (champ `first_comment` du log), envoyée comme `firstCommentText` à Metricool. Metricool ne peut pas l'épingler.

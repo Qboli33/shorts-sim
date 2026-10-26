@@ -46,7 +46,7 @@ def sample(rng):
         gravity=1600.0,
         title_idx=int(rng.integers(len(TITLES))),
         overlay_idx=int(rng.integers(len(OVERLAYS))),
-        sfx="crunch",
+        sfx="soft",
     )
 
 

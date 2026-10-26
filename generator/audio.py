@@ -8,11 +8,13 @@ import numpy as np
 
 SR = 44100
 PENTA = [0, 2, 4, 7, 9]   # majeure pentatonique
+SCALES = {"penta": PENTA, "minor_penta": [0, 3, 5, 7, 10], "lydian": [0, 2, 4, 6, 7, 9, 11],
+          "dorian": [0, 2, 3, 5, 7, 9, 10], "japan": [0, 2, 3, 7, 8], "major": [0, 2, 4, 5, 7, 9, 11]}
 
 
-def note_freq(root_midi, degree):
-    octave, step = divmod(int(degree), len(PENTA))
-    midi = root_midi + 12 * octave + PENTA[step]
+def note_freq(root_midi, degree, scale=PENTA):
+    octave, step = divmod(int(degree), len(scale))
+    midi = root_midi + 12 * octave + scale[step]
     return 440.0 * 2 ** ((midi - 69) / 12)
 
 
@@ -173,8 +175,123 @@ def _heartbeat(f, rng):
     return (beat(0) + 0.7 * beat(0.18)) * 0.9
 
 
+# --- Instruments doux (retour de vassili du 2026-10-26 : « des trucs qui agressent moins les oreilles ») ---
+# Attaques adoucies, peu d'harmoniques aiguës, décroissance naturelle. Aucun échantillon : tout est synthétisé.
+
+def _soft_attack(n, a=0.004):
+    t = np.arange(n) / SR
+    return np.sin(0.5 * np.pi * np.minimum(1, t / a)) ** 2
+
+
+def _kalimba(f, rng):
+    n = int(SR * 0.9)
+    t = np.arange(n) / SR
+    w = np.sin(2 * np.pi * f * t) * np.exp(-t / 0.45) + 0.18 * np.sin(2 * np.pi * f * 5.93 * t) * np.exp(-t / 0.05)
+    return w * _soft_attack(n, 0.003) * 0.5
+
+
+def _marimba(f, rng):
+    n = int(SR * 0.7)
+    t = np.arange(n) / SR
+    w = np.sin(2 * np.pi * f * t) * np.exp(-t / 0.28) + 0.25 * np.sin(2 * np.pi * f * 3.98 * t) * np.exp(-t / 0.06)
+    return w * _soft_attack(n, 0.004) * 0.55
+
+
+def _felt(f, rng):
+    """Piano feutré : harmoniques qui s'éteignent vite, attaque douce."""
+    n = int(SR * 1.2)
+    t = np.arange(n) / SR
+    w = sum(a * np.sin(2 * np.pi * f * k * t * (1 + 0.0004 * k * k)) * np.exp(-t / d)
+            for k, a, d in ((1, 1.0, 0.7), (2, 0.35, 0.3), (3, 0.12, 0.15), (4, 0.05, 0.08)))
+    return w * _soft_attack(n, 0.008) * 0.45
+
+
+def _musicbox(f, rng):
+    n = int(SR * 1.0)
+    t = np.arange(n) / SR
+    f = f * 2
+    w = np.sin(2 * np.pi * f * t) * np.exp(-t / 0.5) + 0.2 * np.sin(2 * np.pi * f * 3 * t) * np.exp(-t / 0.12)
+    return w * _soft_attack(n, 0.002) * 0.3
+
+
+def _harp(f, rng):
+    """Corde pincée (Karplus-Strong), filtrée pour rester ronde."""
+    n = int(SR * 1.1)
+    per = max(2, int(SR / f))
+    buf = np.convolve(rng.uniform(-1, 1, per), np.ones(8) / 8, mode="same")
+    out = np.zeros(n)
+    for i in range(0, n, per):
+        m = min(per, n - i)
+        out[i:i + m] = buf[:m]
+        buf = 0.996 * 0.5 * (buf + np.roll(buf, 1))
+    return out * _soft_attack(n, 0.003) * 0.5
+
+
+def _drop(f, rng):
+    """Goutte d'eau : sinus dont la hauteur remonte brièvement."""
+    n = int(SR * 0.3)
+    t = np.arange(n) / SR
+    fr = f * (1 + 0.9 * (1 - np.exp(-t * 40)))
+    ph = 2 * np.pi * np.cumsum(fr) / SR
+    return np.sin(ph) * np.exp(-t / 0.07) * _soft_attack(n, 0.002) * 0.5
+
+
+SOFT = {"kalimba": _kalimba, "marimba": _marimba, "felt": _felt, "musicbox": _musicbox, "harp": _harp, "drop": _drop}
+
+
+def _swell(root, scale, inst, rng):
+    """Fin douce à la place de l'explosion : accord qui s'épanouit (grave + instrument)."""
+    n = int(SR * 2.6)
+    t = np.arange(n) / SR
+    out = np.sin(2 * np.pi * note_freq(root - 24, 0, scale) * t) * np.minimum(1, t / 0.05) * np.exp(-t / 1.0) * 0.5
+    for k, d in enumerate((0, 2, 4)):
+        w = inst(note_freq(root, d, scale), rng)
+        s0 = int(k * 0.03 * SR)
+        m = min(len(w), n - s0)
+        out[s0:s0 + m] += w[:m] * 0.7
+    return out
+
+
+def _arp(root, scale, inst, rng):
+    n = int(SR * 2.4)
+    out = np.zeros(n)
+    for k, d in enumerate((0, 2, 4, len(scale), len(scale) + 2)):
+        w = inst(note_freq(root, d, scale), rng)
+        s0 = int(k * 0.12 * SR)
+        m = min(len(w), n - s0)
+        out[s0:s0 + m] += w[:m] * 0.8
+    return out
+
+
+def _reverb(mix, rng, amount):
+    """Réverbération légère : convolution par une queue de bruit amortie et filtrée."""
+    from scipy.signal import fftconvolve
+    n = int(SR * 1.6)
+    t = np.arange(n) / SR
+    out = mix.copy()
+    for ch in (0, 1):
+        ir = np.convolve(rng.standard_normal(n), np.ones(12) / 12, mode="same") * np.exp(-t / 0.45)
+        ir[: int(0.012 * SR)] = 0
+        ir /= np.sqrt((ir ** 2).sum()) + 1e-9
+        out[:, ch] += fftconvolve(mix[:, ch], ir)[: len(mix)] * amount
+    return out
+
+
+def _lowpass(mix, fc=5000):
+    a = np.exp(-2 * np.pi * fc / SR)
+    from scipy.signal import lfilter
+    return lfilter([1 - a], [1, -a], mix, axis=0)
+
+
+def soft_style(rng):
+    """Ambiance tirée au hasard pour chaque vidéo : instrument, gamme, octave, réverbération."""
+    return dict(inst=str(rng.choice(list(SOFT))), scale=str(rng.choice(list(SCALES))),
+                shift=int(rng.choice([0, 0, 12, -12])), reverb=float(rng.uniform(0.12, 0.28)))
+
+
 SILLY = {"meow": _meow, "boing": _boing, "quack": _quack, "squeak": _squeak}
-PACKS = ["meow", "meow", "meow", "boing", "boing", "quack", "squeak", "classic"]
+SILLY_PACKS = ["meow", "boing", "quack", "squeak"]
+PACKS = ["soft"]       # depuis le 2026-10-26 : sons doux, ambiance différente à chaque vidéo (les packs rigolos restent possibles via --sfx)
 
 
 def render_audio(events, duration, time_of, root, seed, path, pack="classic", finale_frame=None, slow=None,
@@ -192,6 +309,11 @@ def render_audio(events, duration, time_of, root, seed, path, pack="classic", fi
     last_t = {}
     silly = SILLY.get(pack)
     gap_silly = 0.14
+    style = soft_style(rng) if pack.startswith("soft") else None
+    if style and ":" in pack:           # « soft:kalimba » : instrument imposé (le lot répartit les instruments)
+        style["inst"] = pack.split(":", 1)[1]
+    if style:
+        return _render_soft(events, duration, time_of, root, rng, path, style, slow)
     evs = sorted(events, key=lambda e: e.frame)
     if slow:
         t = slow[0]
@@ -270,3 +392,54 @@ def _add(mix, w, t0, x, n):
     pan = np.clip((x - 540) / 540, -1, 1) * 0.5
     mix[s:s + m, 0] += w[:m] * (1 - pan) * 0.7
     mix[s:s + m, 1] += w[:m] * (1 + pan) * 0.7
+
+
+def _render_soft(events, duration, time_of, root, rng, path, style, slow):
+    """Sons doux : chaque rebond joue une note de l'instrument, densité limitée, réverbération et filtre doux."""
+    n = int(SR * duration) + 1
+    mix = np.zeros((n, 2))
+    inst, scale = SOFT[style["inst"]], SCALES[style["scale"]]
+    root = root + style["shift"]
+    cache, last_t, active = {}, {}, []
+    gap = {"bounce": 0.1, "hit": 0.14, "pop": 0.09, "crunch": 0.07}
+    evs = [(time_of(e.frame), e) for e in events if e.kind != "shard"]
+    if slow:
+        t = slow[0]
+        while t < slow[1] - 0.2:
+            evs.append((t, Event_(t, "heart")))
+            t += 0.75
+    for t0, ev in sorted(evs, key=lambda x: x[0]):
+        kind = ev.kind
+        if kind in gap and t0 - last_t.get(kind, -1) < gap[kind]:
+            continue
+        active = [u for u in active if u > t0]
+        if kind in gap and len(active) >= 4:
+            continue
+        note = int(ev.note)
+        key = (kind, note)
+        if key not in cache:
+            f = note_freq(root, note % (2 * len(scale)), scale)
+            cache[key] = {
+                "bounce": lambda: inst(f, rng), "hit": lambda: inst(f * 2, rng) * 0.4, "spawn": lambda: inst(f * 2, rng) * 0.4,
+                "pop": lambda: inst(f * 2, rng) * 0.8, "chime": lambda: inst(f, rng) + 0.5 * inst(f * 2, rng),
+                "boom": lambda: _swell(root, scale, inst, rng), "win": lambda: _arp(root + 12, scale, inst, rng),
+                "heart": lambda: _heartbeat(f, rng) * 0.7,
+                "crunch": lambda: _crunch(f, rng, 1.0 + 0.6 * (2 - min(2, note))) * 0.6, "hiss": lambda: _hiss(f, rng) * 0.6,
+            }.get(kind, lambda: inst(f, rng))()
+        strength = 1.0 if kind in ("heart", "win", "boom") else min(1.0, max(0.25, ev.strength))
+        w = cache[key] * strength
+        _add(mix, w, t0, getattr(ev, "x", 540), n)
+        active.append(t0 + min(0.25, len(w) / SR * 0.3))
+        last_t[kind] = t0
+    p = pad(duration, root, rng, level=0.05)
+    mix[: len(p)] += p
+    mix = _lowpass(_reverb(mix, rng, style["reverb"]))
+    peak = np.percentile(np.abs(mix), 99.95) + 1e-9
+    mix = np.tanh(mix / peak * 0.6) * 0.85
+    pcm = (mix * 32767).astype(np.int16)
+    with wave.open(path, "wb") as wf:
+        wf.setnchannels(2)
+        wf.setsampwidth(2)
+        wf.setframerate(SR)
+        wf.writeframes(pcm.tobytes())
+    return style
