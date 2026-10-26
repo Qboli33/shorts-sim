@@ -155,7 +155,7 @@ def _interp(frames, sf):
     return Frame(balls=f0.balls + (f1.balls - f0.balls) * a, colors=f0.colors, uids=f0.uids, rings=rings,
                  hud=f0.hud, labels=f0.labels, kinds=f0.kinds,
                  angles=None if f0.angles is None else f0.angles + (f1.angles - f0.angles) * a,
-                 press=None if f0.press is None else f0.press + (f1.press - f0.press) * a, strings=f0.strings)
+                 press=None if f0.press is None else f0.press + (f1.press - f0.press) * a, strings=f0.strings, walls=f0.walls)
 
 
 def _showcase(tl):
@@ -306,6 +306,12 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                     c = fr.colors[i]
                     cc = tuple(int(c[m] * a + bgc[m] * (1 - a)) for m in range(3))
                     cv2.circle(img, _p(x, y), int(r * (0.55 + 0.4 * (1 - back / tl.trails)) * K), cc, -1, cv2.LINE_AA, SH)
+
+        for x0, y0, x1, y1, c, th in fr.walls or ():      # couloirs, barrières (lane_race)
+            c = tuple(int(v) for v in c)
+            cv2.line(img, _p(x0, y0), _p(x1, y1), c, int(th), cv2.LINE_AA, SH)
+            if not flat and th >= 6:
+                cv2.line(glow, _p(x0 / GS, y0 / GS), _p(x1 / GS, y1 / GS), c, 2, cv2.LINE_AA, SH)
 
         if fr.strings is not None and len(fr.strings[0]):      # fils : ancre sur la paroi -> balle (par uid)
             umap = {int(u): i for i, u in enumerate(fr.uids)}

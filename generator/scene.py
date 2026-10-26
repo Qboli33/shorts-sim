@@ -25,6 +25,7 @@ class Frame:
     kinds: np.ndarray | None = None   # niveau / type par balle (objets dessinés à la place des balles)
     angles: np.ndarray | None = None  # rotation propre (rad, sens horaire à l'écran)
     press: float | None = None   # y du bas du plateau de presse (mécanique crusher)
+    walls: list | None = None    # segments fixes (x0, y0, x1, y1, BGR, épaisseur), dessinés sous les balles
     strings: tuple | None = None  # fils : (ancres sur la paroi (m, 2), uid de la balle tenue (m,), couleurs BGR (m, 3))
 
 
