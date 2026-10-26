@@ -8,6 +8,7 @@ Airs uniquement du domaine public (compositeurs morts depuis plus de 70 ans, com
 """
 import numpy as np
 
+from .. import beats
 from ..palettes import pick_theme
 from ..scene import Frame, Timeline
 from .common import MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, duration_score
@@ -57,6 +58,10 @@ SONGS = {
 NAME = "melody_bounce"
 TITLES = ["Can you guess the song?", "Every bounce is a note", "Guess the song before the end!",
           "This ball knows a famous song"]
+# Beats originaux (trap / phonk / drill) : pas d'air à deviner, on attend que le beat tombe.
+BEAT_TITLES = ["This ball makes a beat 🔥", "Every bounce is a note... wait for the drop", "Wait for the beat drop 🔥",
+               "Bouncing ball {style} beat"]
+BEAT_OVERLAYS = ["", "", "Wait for it..."]
 DESCRIPTIONS = ["Every bounce plays the next note. Did you recognize it?", "A bouncing ball plays a famous melody, note by note.",
                 "Perfect timing: each bounce lands exactly on the beat."]
 HASHTAGS = ["#shorts", "#satisfying", "#music", "#guessthesong", "#oddlysatisfying"]
@@ -70,6 +75,14 @@ _HUES = [(80, 80, 255), (60, 140, 255), (60, 200, 255), (60, 235, 220), (90, 240
 
 
 def sample(rng):
+    if rng.random() < 0.5:                 # beat original style Gen Z
+        style = str(rng.choice(list(beats.STYLES)))
+        return dict(
+            theme=pick_theme(rng), song="beat", beat_style=style, beat_seed=int(rng.integers(1 << 30)),
+            r=float(rng.uniform(24, 32)), step=float(rng.uniform(150, 230)), h_max=float(rng.uniform(380, 470)),
+            title_idx=int(rng.integers(len(BEAT_TITLES))), overlay_idx=int(rng.integers(len(BEAT_OVERLAYS))),
+            trails=int(rng.integers(5, 9)), sfx="soft",
+        )
     song = str(rng.choice(list(SONGS)))
     lo, hi = SONGS[song][2]
     return dict(
@@ -88,6 +101,8 @@ def sample(rng):
 
 def _schedule(p):
     """Instants des notes : l'air est repris jusqu'à durer au moins 28 s (avec accélération éventuelle)."""
+    if p["song"] == "beat":
+        return list(beats.make(p["beat_seed"], p["beat_style"])["notes"])
     name, notes, _, accel = SONGS[p["song"]]
     t, out, rep, beat = 0.8, [], 0, 60.0 / p["bpm"]
     while True:
@@ -142,9 +157,18 @@ def simulate(seed, p):
     cols = [_HUES[int(m) % 12] for m in midis]
     theme = p["theme"]
     events = []
+    beat = beats.make(p["beat_seed"], p["beat_style"]) if p["song"] == "beat" else None
+    if beat:
+        for t, kind in beat["drums"]:
+            if t <= times[-1] + 1e-6:
+                events.append(Event(int(round(t * SIM_FPS)), kind, 540.0, 1500.0, (255, 255, 255), 1.0, 0))
+        for t, m in beat["bass"]:
+            if t <= times[-1] + 1e-6:
+                events.append(Event(int(round(t * SIM_FPS)), "808", 540.0, 1500.0, (255, 255, 255), 1.0, int(m)))
+    lead = "cowbell" if beat and beat["lead"] == "cowbell" else "tone"
     for k, (t, m) in enumerate(sched):
         f = int(round(t * SIM_FPS))
-        events.append(Event(f, "tone", float(xs[k]), float(ys[k] + p["r"]), cols[k], 1.0, int(m)))
+        events.append(Event(f, lead, float(xs[k]), float(ys[k] + p["r"]), cols[k], 1.0, int(m)))
         events.append(Event(f, "shard", float(xs[k]), float(ys[k] + p["r"] + 4), cols[k], 1, 0))
     frames = []
     seg = 0
@@ -178,14 +202,17 @@ def simulate(seed, p):
         frames.append(Frame(
             balls=np.array([[pos[0], pos[1], p["r"]]], np.float32),
             colors=np.array([ball_col], np.uint8), uids=np.array([0]), rings=[], walls=walls))
-    name = SONGS[p["song"]][0]
+    name = beat["name"] if beat else SONGS[p["song"]][0]
+    if beat:
+        p["bpm"] = round(beat["bpm"], 1)
     p["gravity"] = round(g)
     p["notes"] = len(times)
     return Timeline(
-        mechanic=NAME, seed=seed, params=p, title=TITLES[p["title_idx"]], frames=frames, events=events,
+        mechanic=NAME, seed=seed, params=p, title=(BEAT_TITLES[p["title_idx"]].format(style=p["beat_style"]) if beat else TITLES[p["title_idx"]]),
+        frames=frames, events=events,
         finale_frame=fin, finale_text=name, finale_color=(255, 255, 255), end_sub="",
-        overlay=OVERLAYS[p["overlay_idx"]], palette=theme, trails=p["trails"],
-        metrics=dict(finale_s=round(float(times[-1]), 2), song=p["song"], notes=len(times), gravity=round(g)),
+        overlay=(BEAT_OVERLAYS if beat else OVERLAYS)[p["overlay_idx"]], palette=theme, trails=p["trails"],
+        metrics=dict(finale_s=round(float(times[-1]), 2), song=p.get("beat_style", p["song"]), notes=len(times), gravity=round(g)),
     )
 
 
@@ -194,6 +221,9 @@ def score(tl):
 
 
 def comment(tl, rng):
+    if tl.params["song"] == "beat":
+        return str(rng.choice(["Phonk, trap or drill: what should the ball play next? 👇", "Did the drop hit? 🔥👇",
+                               "Should I make a full song with this beat? 👇"]))
     opts = ["Did you guess it before the end? 👇", "What song should the ball play next? 🎵👇",
             "How many notes did it take you to recognize it? 👇"]
     return str(rng.choice(opts))

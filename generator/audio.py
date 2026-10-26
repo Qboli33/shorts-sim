@@ -218,6 +218,50 @@ def _musicbox(f, rng):
 SOFT = {"kalimba": _kalimba, "marimba": _marimba, "felt": _felt, "musicbox": _musicbox}
 
 
+# --- Batterie et basse pour les beats (trap / phonk / drill), mixées douces ---
+
+def _kick(rng):
+    n = int(SR * 0.35)
+    t = np.arange(n) / SR
+    f = 45 + 110 * np.exp(-t * 30)
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.16) * _soft_attack(n, 0.002) * 0.9
+
+
+def _clap(rng):
+    n = int(SR * 0.22)
+    t = np.arange(n) / SR
+    noise = np.convolve(rng.standard_normal(n), np.ones(5) / 5, mode="same")
+    env = sum(np.exp(-np.maximum(0, t - d) / 0.012) * (t >= d) for d in (0, 0.011, 0.022)) * 0.5 + np.exp(-t / 0.09) * 0.6
+    return noise * env * 0.45
+
+
+def _hat(rng):
+    n = int(SR * 0.05)
+    t = np.arange(n) / SR
+    noise = rng.standard_normal(n)
+    noise = noise - np.convolve(noise, np.ones(6) / 6, mode="same")    # passe-haut grossier
+    return noise * np.exp(-t / 0.012) * 0.22
+
+
+def _808(f, rng):
+    n = int(SR * 0.9)
+    t = np.arange(n) / SR
+    w = np.sin(2 * np.pi * f * t * (1 + 0.04 * np.exp(-t * 20)))
+    return np.tanh(1.6 * w) * np.exp(-t / 0.45) * _soft_attack(n, 0.004) * 0.55
+
+
+def _cowbell(f, rng):
+    """Cloche phonk : deux ondes presque carrées (rapport 1,48), décroissance courte."""
+    n = int(SR * 0.4)
+    t = np.arange(n) / SR
+    w = np.tanh(3 * np.sin(2 * np.pi * f * t)) + 0.8 * np.tanh(3 * np.sin(2 * np.pi * f * 1.48 * t))
+    w = np.convolve(w, np.ones(3) / 3, mode="same")
+    return w * np.exp(-t / 0.11) * _soft_attack(n, 0.002) * 0.28
+
+
+BEAT_KINDS = ("kick", "clap", "hat", "808", "cowbell")
+
+
 def _swell(root, scale, inst, rng):
     """Fin douce à la place de l'explosion : accord qui s'épanouit (grave + instrument)."""
     n = int(SR * 2.6)
@@ -387,7 +431,8 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
         while t < slow[1] - 0.2:
             evs.append((t, Event_(t, "heart")))
             t += 0.75
-    has_tune = any(e.kind == "tone" for _, e in evs)
+    has_tune = any(e.kind in ("tone", "cowbell") for _, e in evs)
+    has_beat = any(e.kind == "kick" for _, e in evs)
     for t0, ev in sorted(evs, key=lambda x: x[0]):
         kind = ev.kind
         if kind == "tone":                # note d'une mélodie (hauteur MIDI exacte) : jamais sautée
@@ -395,6 +440,14 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
             if key not in cache:
                 cache[key] = inst(440.0 * 2 ** ((int(ev.note) - 69) / 12), rng)
             _add(mix, cache[key] * 1.1, t0, getattr(ev, "x", 540), n)
+            continue
+        if kind in BEAT_KINDS:            # beat : chaque coup est joué (le rythme compte)
+            key = (kind, int(ev.note))
+            if key not in cache:
+                f = 440.0 * 2 ** ((int(ev.note) - 69) / 12)
+                cache[key] = {"kick": lambda: _kick(rng), "clap": lambda: _clap(rng), "hat": lambda: _hat(rng),
+                              "808": lambda: _808(f, rng), "cowbell": lambda: _cowbell(f, rng)}[kind]()
+            _add(mix, cache[key] * ev.strength, t0, getattr(ev, "x", 540), n)
             continue
         if kind in gap and t0 - last_t.get(kind, -1) < gap[kind]:
             continue
@@ -420,7 +473,7 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
     if not has_tune:                      # la nappe jurerait avec une mélodie dans une autre tonalité
         p = pad(duration, root, rng, level=0.05)
         mix[: len(p)] += p
-    mix = _lowpass(_reverb(mix, rng, style["reverb"]))
+    mix = _lowpass(_reverb(mix, rng, style["reverb"] * (0.5 if has_beat else 1)), 9000 if has_beat else 5000)
     peak = np.percentile(np.abs(mix), 99.95) + 1e-9
     mix = np.tanh(mix / peak * 0.6) * 0.85
     pcm = (mix * 32767).astype(np.int16)
