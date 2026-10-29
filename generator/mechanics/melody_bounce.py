@@ -103,6 +103,8 @@ def _schedule(p):
     """Instants des notes : l'air est repris jusqu'à durer au moins 28 s (avec accélération éventuelle)."""
     if p["song"] == "beat":
         return list(beats.make(p["beat_seed"], p["beat_style"])["notes"])
+    if p["song"] == "groove":
+        return list(beats.make_groove(p["beat_style"])["notes"])
     name, notes, _, accel = SONGS[p["song"]]
     t, out, rep, beat = 0.8, [], 0, 60.0 / p["bpm"]
     while True:
@@ -157,7 +159,8 @@ def simulate(seed, p):
     cols = [_HUES[int(m) % 12] for m in midis]
     theme = p["theme"]
     events = []
-    beat = beats.make(p["beat_seed"], p["beat_style"]) if p["song"] == "beat" else None
+    beat = (beats.make(p["beat_seed"], p["beat_style"]) if p["song"] == "beat"
+            else beats.make_groove(p["beat_style"]) if p["song"] == "groove" else None)
     if beat:
         for t, kind in beat["drums"]:
             if t <= times[-1] + 1e-6:
@@ -221,7 +224,7 @@ def score(tl):
 
 
 def comment(tl, rng):
-    if tl.params["song"] == "beat":
+    if tl.params["song"] in ("beat", "groove"):
         return str(rng.choice(["Phonk, trap or drill: what should the ball play next? 👇", "Did the drop hit? 🔥👇",
                                "Should I make a full song with this beat? 👇"]))
     opts = ["Did you guess it before the end? 👇", "What song should the ball play next? 🎵👇",
