@@ -214,8 +214,18 @@ def _musicbox(f, rng):
     return w * _soft_attack(n, 0.002) * 0.3
 
 
+def _bloop(f, rng):
+    """Balle qui tape le cercle : la hauteur plonge à l'impact puis se stabilise (son de rebond, demande du 2026-10-29)."""
+    n = int(SR * 0.22)
+    t = np.arange(n) / SR
+    ph = 2 * np.pi * np.cumsum(f * (1 + 0.9 * np.exp(-t * 28))) / SR
+    w = np.sin(ph) + 0.2 * np.sin(2 * ph)
+    return w * _env(n, 0.002, 0.07) * 0.5
+
+
 # 2026-10-26 : vassili a gardé boîte à musique, piano feutré, kalimba et marimba (harpe et gouttes retirées).
-SOFT = {"kalimba": _kalimba, "marimba": _marimba, "felt": _felt, "musicbox": _musicbox}
+# 2026-10-29 : « bloop » ajouté, son de rebond sur le cercle demandé par vassili.
+SOFT = {"kalimba": _kalimba, "marimba": _marimba, "felt": _felt, "musicbox": _musicbox, "bloop": _bloop}
 
 
 # --- Batterie et basse pour les beats (trap / phonk / drill), mixées douces ---
