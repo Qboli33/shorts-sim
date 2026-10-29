@@ -119,10 +119,13 @@ def _run(seed, p):
                     too_big_frame = finale = f
                     outcome = "trapped"
                     events.append(Event(f, "boom", *b.pos[0], col, 1.0, 2))
-        size = (b.rad[0] / R) if len(b) else None
+        # Compteur = progression de la croissance : 0 % au départ, 100 % quand la balle est pleine (ou coincée),
+        # pas la taille brute, qui démarrait à 20 % dans la variante escape (demande du 2026-10-29).
+        goal = chord_r if esc else R * 0.965
+        prog = float(np.clip((b.rad[0] - p["r0"]) / (goal - p["r0"]), 0.0, 1.0)) if len(b) else None
         hud = []
-        if size is not None:
-            hud.append(("text", f"{int(round(size * 100))}%", 520, 470, 96, accent, "c"))
+        if prog is not None:
+            hud.append(("text", f"{int(prog * 100)}%", 520, 470, 96, accent, "c"))
         rings = [(R, phi if esc else None, p["gap_half"], ring_col)]
         frames.append(snapshot(b, [col] * len(b), rings, hud))
         f += 1
