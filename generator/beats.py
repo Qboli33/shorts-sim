@@ -87,3 +87,42 @@ def make(seed, style, t0=0.8, target=(32.0, 44.0)):
     drums.append((tend, "kick"))
     bass.append((tend, 36 + (tonic - 36) % 12))
     return dict(style=style, name=st["name"], bpm=bpm, notes=notes, drums=drums, bass=bass, lead=st["lead"])
+
+
+# 2026-10-29 : « grooves » = seulement le tempo et la grille rythmique d'un style (demande de vassili : le rythme de ses
+# morceaux, jamais leur son ni leur mélodie). La balle rebondit sur les temps forts ; batterie et basse sont synthétisées.
+# `hits` = (position en doubles croches, note MIDI) ; la hauteur sert à étager les plateformes, ce n'est pas une mélodie.
+GROOVES = {
+    "swing": dict(name="SWING!", bpm=94, kick=[0, 7, 10], snare=[4, 12], hat=list(range(0, 16, 2)),
+                  hits=[(0, 55), (4, 67), (7, 55), (10, 61), (12, 67)], root=38),
+    "edm": dict(name="DROP!", bpm=128, kick=[0, 4, 8, 12], snare=[4, 12], hat=[2, 6, 10, 14],
+                hits=[(0, 55), (4, 67), (8, 61), (12, 67)], root=36),
+    "dembow": dict(name="DEMBOW!", bpm=96, kick=[0, 4, 8, 12], snare=[3, 6, 11, 14], hat=list(range(0, 16, 2)),
+                   hits=[(0, 55), (3, 67), (6, 61), (8, 55), (11, 67), (14, 61)], root=38),
+    "reggae": dict(name="REGGAE!", bpm=106, kick=[0, 8], snare=[4, 12], hat=list(range(0, 16, 2)),
+                   hits=[(0, 55), (4, 67), (8, 55), (12, 67)], root=40),
+}
+
+
+def make_groove(style, t0=0.8, target=40.0):
+    g = GROOVES[style]
+    s16 = 60.0 / g["bpm"] / 4
+    bar = 16 * s16
+    n_bars = max(4, int(round(target / bar)))
+    notes, drums, bass = [], [], []
+    for b in range(n_bars):
+        tb = t0 + b * bar
+        for step, m in g["hits"]:
+            notes.append((tb + step * s16, m))
+        for step in g["kick"]:
+            drums.append((tb + step * s16, "kick"))
+            bass.append((tb + step * s16, g["root"]))
+        for step in g["snare"]:
+            drums.append((tb + step * s16, "clap"))
+        for step in g["hat"]:
+            drums.append((tb + step * s16, "hat"))
+    tend = t0 + n_bars * bar
+    notes.append((tend, g["hits"][0][1]))
+    drums.append((tend, "kick"))
+    bass.append((tend, g["root"]))
+    return dict(style=style, name=g["name"], bpm=float(g["bpm"]), notes=notes, drums=drums, bass=bass, lead="soft")
