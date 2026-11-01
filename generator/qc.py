@@ -22,7 +22,7 @@ def probe(path):
         problems.append("pix_fmt")
     if not a:
         problems.append("pas d'audio")
-    if not 30 <= dur <= 58:
+    if not 18 <= dur <= 40:     # 28-38 s depuis le 01/11 ; les fils (strings) peuvent descendre à 20 s
         problems.append(f"durée {dur:.1f}s")
     return dict(ok=not problems, problems=problems, duration=dur, size_bytes=size, size_mb=size / 1e6)
 

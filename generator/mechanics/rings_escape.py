@@ -25,7 +25,7 @@ OVERLAYS = ["", "", "Escape?", ""]
 
 
 def sample(rng):
-    n = int(rng.integers(7, 14))
+    n = int(rng.integers(5, 9))
     p = dict(
         theme=pick_theme(rng),
         root=int(rng.integers(52, 64)),

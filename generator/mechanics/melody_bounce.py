@@ -100,9 +100,9 @@ def sample(rng):
 
 
 def _schedule(p):
-    """Instants des notes : l'air est repris jusqu'à durer au moins 28 s (avec accélération éventuelle)."""
+    """Instants des notes : l'air est repris jusqu'à durer au moins 23 s (avec accélération éventuelle)."""
     if p["song"] == "beat":
-        return list(beats.make(p["beat_seed"], p["beat_style"])["notes"])
+        return _cut(list(beats.make(p["beat_seed"], p["beat_style"])["notes"]))
     name, notes, _, accel = SONGS[p["song"]]
     t, out, rep, beat = 0.8, [], 0, 60.0 / p["bpm"]
     while True:
@@ -111,8 +111,15 @@ def _schedule(p):
             t += d * beat
         rep += 1
         beat /= accel
-        if out[-1][0] >= 28 or rep >= 6:
-            return out
+        if out[-1][0] >= 23 or rep >= 6:
+            return _cut(out)
+
+
+def _cut(out):
+    """Vidéos courtes (stats du 29/10) : l'air s'arrête avant MAX_FINALE, même au milieu d'une reprise."""
+    if out and out[-1][0] > MAX_FINALE - 0.5:
+        out = [x for x in out if x[0] <= MAX_FINALE - 0.5]
+    return out
 
 
 def simulate(seed, p):

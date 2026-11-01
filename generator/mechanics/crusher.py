@@ -38,7 +38,7 @@ def sample(rng):
         r0=float(rng.uniform(32, 42)),
         levels=3,                                  # tailles : r0, r0/2, r0/4 (la plus petite ne casse plus)
         crush=float(rng.uniform(6.0, 10.0)),        # pression (somme des recouvrements, px) qui brise une balle
-        t_full=float(rng.uniform(32, 46)),        # instant prévu du coup le plus profond
+        t_full=float(rng.uniform(23, 31)),        # instant prévu du coup le plus profond
         curve=float(rng.uniform(0.9, 1.3)),       # accélération de la montée du compteur
         speed=float(rng.uniform(220, 360)),       # descente du plateau (px/s)
         wait=float(rng.uniform(0.25, 0.45)),      # pause plateau levé

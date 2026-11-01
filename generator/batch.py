@@ -149,7 +149,7 @@ def main():
 
     sfx_cycle = [x for x in args.sfx.split(",") if x]
     if not sfx_cycle:     # sons doux : chaque instrument revient le moins souvent possible dans le lot, ordre mélangé
-        sfx_cycle = ["soft:" + i for i in rng.permutation(sorted(audio.SOFT))]
+        sfx_cycle = ["soft:" + i for i in rng.permutation(sorted(audio.SOFT) + ["bloop"])]   # bloop validé par vassili le 29/10 : 2 fois dans le cycle
     out_dir = os.path.join(ROOT, "out", args.date)
     os.makedirs(out_dir, exist_ok=True)
     rjobs = []

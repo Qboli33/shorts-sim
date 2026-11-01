@@ -17,7 +17,7 @@ NAME = "strings"
 SUB = 6
 # Avec des fils attachés aux balles et des règles strictes, une partie dure rarement plus de 30 s :
 # fenêtre plus courte que les autres mécaniques (vidéo de 18 à 36 s environ).
-MIN_FIN, MAX_FIN = 12.0, 30.0
+MIN_FIN, MAX_FIN = 14.0, 30.0
 
 TITLES = {
     None: ["Last ball standing wins", "Who keeps their strings?", "Cut the strings! Who survives?",

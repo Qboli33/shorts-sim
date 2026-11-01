@@ -8,7 +8,7 @@ from ..palettes import NAMED, bgr, pick_theme
 from ..physics import Balls, collide_ring, escaped, rotate
 from ..scene import RING_R, Timeline
 from .common import (CENTER, MAX_FINALE, MIN_FINALE, SIM_FPS, TAIL, Event, duration_score, snapshot,
-                     wall_point)
+                     wall_point, TARGET)
 
 NAME = "grow_ball"
 SUB = 8
@@ -146,7 +146,7 @@ def simulate(seed, p):
             p["sub_seed"] = sub
             break
         if outcome != "escaped":
-            p["growth"] *= float(np.clip(t / 42.0, 0.5, 2.0))
+            p["growth"] *= float(np.clip(t / TARGET, 0.5, 2.0))
     else:
         return None
     texts = {"full": ("FULL!", "accent"), "escaped": ("OUT!", "ball"), "trapped": ("STUCK!", "red")}

@@ -3,8 +3,8 @@ import numpy as np
 from ..scene import CENTER, SIM_FPS, Event, Frame
 
 TAIL = 1.0    # secondes de simulation conservées après l'événement final (avant le carton de fin)
-MIN_FINALE, MAX_FINALE = 26.0, 53.0    # + 2,2 s de ralenti + 1 s + 1,5 s de carton => vidéo de 30 à 58 s
-TARGET = 42.0
+MIN_FINALE, MAX_FINALE = 22.0, 32.0    # + 2,2 s de ralenti + 1 s + 2,8 s de carton => vidéo de 28 à 38 s (stats du 29/10 : les Shorts courts retiennent mieux)
+TARGET = 28.0
 
 
 def snapshot(balls, colors_bgr, rings, hud=None, labels=None):
@@ -29,7 +29,7 @@ def wall_point(pos, r):
 
 
 def duration_score(t):
-    return max(0.0, 1 - abs(t - TARGET) / 18)
+    return max(0.0, 1 - abs(t - TARGET) / 10)
 
 
 def frame_of(t):
