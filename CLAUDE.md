@@ -33,7 +33,7 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 - `generator/audio.py` : rebond, choc, pop, carillon, explosion, arpège de victoire, nappe ; gamme pentatonique avec une tonique aléatoire ; 6 voix max ; normalisation + tanh.
 - `generator/text.py` : Poppins Bold (`assets/fonts`, licence OFL ; DejaVu en secours), sprites en cache.
 - `generator/mechanics/<nom>.py` : `NAME`, `TITLES`, `DESCRIPTIONS`, `HASHTAGS`, `sample(rng)`, `simulate(seed, params) -> Timeline|None`, `score(tl)`, `comment(tl, rng)`. À enregistrer dans `mechanics/__init__.py`.
-- La durée cible est garantie par construction : l'événement final doit tomber entre 26 et 53 s de simulation. S'y ajoutent 2,2 s de ralenti, 1 s de suite et 2,8 s de carton, soit une vidéo de 32 à 59 s.
+- La durée cible est garantie par construction : l'événement final doit tomber entre 22 et 32 s de simulation (26 à 53 s avant le 01/11). S'y ajoutent 2,2 s de ralenti, 1 s de suite et 2,8 s de carton, soit une vidéo de 28 à 38 s.
 - Suspense : les 1,2 s de simulation avant l'événement final passent au ralenti (x0,35, positions interpolées), avec un assombrissement des bords et des battements de cœur.
 
 ## Mécaniques
@@ -97,6 +97,9 @@ Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'en
 
 ## Décisions (suite)
 - 2026-10-25 : vassili a signalé que toutes les presses étaient bugguées (le plateau ne touchait presque jamais les balles, qui cassaient toutes seules au fond) et voulait moins de compteurs et des formats plus originaux, comme NexusBox, BallSimule et Atul's Animation. La presse a été réécrite, puis `rings_escape` et `strings` ont été ajoutés. Les 14 presses de la semaine du 26/10 ont été remplacées.
+
+- 2026-11-01 : le lot de la semaine du 02/11 au 08/11 a été fait le 01/11 à la demande de vassili (fil « Créer les vidéos de la semaine »). **Le déclenchement de la tâche hebdo du 01/11 au soir s'arrête au bilan (étape 1) et n'enchaîne ni production ni livraison** ; la tâche reprend le cycle complet le 08/11 (lot du 09/11 au 15/11). Règle générale : si `state/log.json` contient déjà des vidéos `delivered` pour le lundi qui suit, ne pas refaire le lot.
+- 2026-11-01 : stats du 29/10 appliquées : vidéos de 28 à 38 s (`MIN_FINALE, MAX_FINALE = 22, 32`, cible 28 s), 3 grow_ball + 3 color_escape par jour, anneaux moins nombreux (5 à 8) et plus rares. Son « bloop » (validé le 29/10) ajouté aux instruments doux, 2 fois dans le cycle. Compteur de grow_ball à partir de 0 %. Le mode « groove » (rythme de morceaux existants) n'est pas repris : vassili ne l'a pas aimé.
 
 ## À faire
 - bounce_spawn produit des fichiers lourds (environ 40 Mo, avec beaucoup de balles en mouvement). Réduire si le dépôt grossit trop.
