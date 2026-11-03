@@ -24,3 +24,8 @@ Top 5 / Flop 5 (id, titre, vues). Progression Programme Partenaire : abonnés X 
 - Chiffres à recouper dans YouTube Studio : le relevé vidIQ du 26/10 au matin donnait 0 vue ; l'écart avec Metricool est à vérifier.
 - Programme Partenaire : 42 / 1 000 abonnés ; 32 164 / 10 000 000 vues Shorts sur 90 jours (environ 0,3 %).
 - Production : aucune cette semaine. La tâche du soir s'arrête au bilan (règle du 01/11 dans CLAUDE.md) : le lot du 02 au 08/11 est déjà rendu et livré.
+
+## Point du 2026-11-03 (fil « Vérifier les métriques et la monétisation »)
+- Source : Metricool (vidIQ expiré, à reconnecter). Abonnés : 54 (01/11), 62 (02/11). Gagnés 43, perdus 8 du 24 au 30/10.
+- Vues par jour : 4 984 (29/10), 14 785 (30/10). Total 24/10 → 30/10 : 51 933 (environ 10 500 par jour sur les 4 derniers jours relevés). Pas de relevé de vues après le 30/10.
+- Projection au rythme actuel (environ 8 abonnés et 10 000 vues par jour) : 500 abonnés vers fin décembre ; 3 M de vues Shorts sur 90 j demandent environ 33 000 vues par jour (x3) ; 10 M demandent environ 110 000 par jour (x10).
