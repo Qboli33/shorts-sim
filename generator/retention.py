@@ -16,7 +16,6 @@ from multiprocessing import Pool
 import numpy as np
 
 from . import qc
-from .batch import ROOT, load_log, save_log
 from .mechanics import MECHANICS, common
 from .palettes import THEMES, bgr
 from .render import render
@@ -38,6 +37,79 @@ SPECS = [
          want=lambda p: True, force=dict(objects="planets"), shape="planètes",
          hook=lambda tl: "Wait for the last merge..."),
 ]
+
+
+# Fenêtre du lot hebdo : fin de simulation entre 10,3 et 13,8 s => vidéo de 12,5 à 16 s (au-delà de ~16 s, le
+# fichier dépasse 25 Mo à 12,4 Mb/s et l'envoi vers le Drive est refusé).
+BATCH_WINDOW = (10.3, 13.5)
+HOOK_TYPES = ["question", "défi", "compte", "pari"]
+# Accroches (3 à 7 mots), une par type ; {..} rempli avec les paramètres et les métriques de la vidéo.
+HOOKS = {
+    "grow_ball:fill": ["Will it fill the circle?", "It must fill the circle", "1 bounce = bigger ball", "Watch it reach 100%"],
+    "grow_ball:escape": ["Will it escape in time?", "Escape before it's too big", "1 gap. 1 growing ball.", "Watch till the very end"],
+    "color_escape": ["Which color wins?", "Pick a color. Right now.", "{k} colors. 1 exit.", "Your color wins? Watch."],
+    "merge_balls": ["Will it reach {goal}?", "Merge all the way to {goal}", "2 same = 1 bigger", "Wait for the last merge..."],
+    "bounce_spawn": ["Can it reach {N} balls?", "It needs {N} balls to win", "1 bounce = 1 new ball", "Watch it hit {N}"],
+    "crusher": ["How deep can it go?", "Crush every single ball", "1 crush = 4 balls", "Wait for the last crush"],
+    "rings_escape": ["Can it escape {n} rings?", "Escape all {n} rings", "{n} rings. 1 ball.", "Watch the last ring break"],
+    "strings": ["Who keeps a string?", "Pick one. Don't lose it.", "Cut a string, lose a life", "Pick one before it starts"],
+    "lane_race": ["Multiply or add: who wins?", "Can 1 ball beat {s}?", "1 ball vs {s} balls", "Pick a lane. Watch."],
+    "melody_bounce": ["Can you guess the song?", "Name it before the end", "1 bounce = 1 note", "Guess it before the end"],
+    "melody_bounce:beat": ["Every bounce is a note", "Wait for the beat drop", "1 bounce = 1 note", "Wait for the drop..."],
+}
+TITLE_KEYWORDS = ("simulation", "satisf", "physics")
+TITLE_SUFFIX = [" | Simulation", " | Physics sim", " | Satisfying"]
+
+
+def hook_for(tl, kind):
+    key = tl.mechanic + (":" + tl.params.get("variant", "") if tl.mechanic == "grow_ball" else "")
+    if tl.mechanic == "melody_bounce" and tl.params.get("beat_style"):
+        key += ":beat"                    # « drop » seulement pour les beats, pas pour les airs à deviner
+    opts = HOOKS.get(key) or HOOKS.get(tl.mechanic) or ["Watch till the end"] * 4
+    i = HOOK_TYPES.index(kind) if kind in HOOK_TYPES else 3
+    vals = dict(tl.params)
+    vals.update(tl.metrics)
+    vals.setdefault("k", len(tl.params.get("colors", [])) or 3)
+    vals["goal"] = tl.finale_text.rstrip("!").title()
+    for txt in (opts[i], opts[3], "Watch till the end"):
+        try:
+            return txt.format(**vals)
+        except (KeyError, IndexError, ValueError):
+            continue
+
+
+def short_title(title, k):
+    """Titre < 50 caractères avec un mot-clé (simulation, satisfying, physics)."""
+    if any(w in title.lower() for w in TITLE_KEYWORDS):
+        return title[:49]
+    for j in range(len(TITLE_SUFFIX)):
+        t = title + TITLE_SUFFIX[(k + j) % len(TITLE_SUFFIX)]
+        if len(t) < 50:
+            return t
+    return title[:49]
+
+
+def short_description(desc, tags):
+    """1 phrase + 4 hashtags (#shorts #simulation #satisfying + celui de la mécanique)."""
+    base = ["#shorts", "#simulation", "#satisfying"]
+    extra = next((t for t in tags if t not in base and t not in ("#oddlysatisfying",)), "#physics")
+    return f"{desc} {' '.join(base + [extra])}"
+
+
+def apply_window(lo, hi, target):
+    common.TARGET = target
+    for m in MECHANICS.values():
+        for k, v in (("MIN_FINALE", lo), ("MAX_FINALE", hi), ("TARGET", target)):
+            if hasattr(m, k):
+                setattr(m, k, v)
+
+
+def patch_params(p, lo, hi):
+    if "min_fin" in p:                    # fils : fenêtre propre à la mécanique
+        p["min_fin"], p["max_fin"] = lo, hi
+    if "t_full" in p:                     # presse : coup le plus profond prévu dans la fenêtre
+        p["t_full"] = float(np.interp(p["t_full"], (23, 31), (lo + 0.3, hi - 0.3)))
+    return p
 
 
 def _window(D):
@@ -148,6 +220,7 @@ def main():
     ap.add_argument("--seed", type=int, default=20261103)
     ap.add_argument("--only", default="")
     args = ap.parse_args()
+    from .batch import ROOT, load_log, save_log
     out_dir = os.path.join(ROOT, args.out_dir)
     os.makedirs(out_dir, exist_ok=True)
     idx = [i for i, s in enumerate(SPECS) if not args.only or s["key"] in args.only.split(",")]

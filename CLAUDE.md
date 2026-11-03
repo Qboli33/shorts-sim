@@ -20,6 +20,19 @@ python3 -m generator.batch --date 2026-10-27 --count 10 --weights grow_ball=2,me
 - Une mécanique ne dépasse jamais 30 % d'un lot de 10 : `quotas()` refuse le lot s'il n'y a pas assez de mécaniques (il en faut au moins 4).
 - Sons : par défaut, le lot répartit les 4 instruments doux (`soft:<instrument>`, en cycle mélangé). `--sfx meow,boing,classic` impose d'autres packs en cycle.
 
+## Format « rétention » (par défaut depuis le 2026-11-03, validé par vassili après l'essai 2)
+`generator.batch` applique les consignes de rendu de vassili à chaque vidéo (`--classic` pour revenir à l'ancien format 28-38 s) :
+- **Durée 12,5 à 15,7 s** : fin de simulation entre 10,3 et 13,5 s (`retention.BATCH_WINDOW`), ralenti de 0,8 s à x0,4, 1 s de suite. Pas de carton de fin. Au-delà de 16 s, le fichier dépasse 25 Mo (limite d'envoi vers le Drive).
+- **Accroche dès la 1re image** (3 à 7 mots, Poppins 100 px, y = 345, hors des 15 % du haut) : `retention.HOOKS`, 4 types (question, défi, compte, pari) en cycle mélangé dans le lot. Elle disparaît quand le résultat s'affiche. Compteur ou score de la mécanique toujours visible.
+- **Moment fort à 1 s de la fin**, puis les 0,35 dernières secondes se fondent dans la 1re image (boucle). Aucune intro ni fondu au début.
+- **Caméra** : zoom lent (7 %) qui se resserre vers la fin, tremblement sur les pops et l'impact final, flash.
+- **Audio** : une note douce par impact, hauteur qui monte avec la tension (+4 degrés), beat discret (`audio._bed` : kick, clap, charleston à 96-124 BPM, environ un tiers du niveau des effets) qui s'arrête au ralenti, accord final, fondu de 60 ms pour la boucle.
+- **Encodage** : 1080x1920, 60 i/s, H.264 en débit constant à 12,3 Mb/s (`nal-hrd=cbr`), AAC 192k.
+- **Variété** : palette (8 thèmes en cycle mélangé, sauf la presse au fond noir), type d'accroche, instrument et durée changent d'une vidéo à l'autre ; `retention.combo()` signale une combinaison déjà vue dans les 30 dernières vidéos du log.
+- **Titre < 50 caractères** avec « simulation », « satisfying » ou « physics » (`short_title` ajoute « | Simulation », « | Physics sim » ou « | Satisfying ») ; description = 1 phrase + 4 hashtags (#shorts #simulation #satisfying + celui de la mécanique).
+- **Checklist automatique** (`retention.check`, résultat dans `log[...]["retention"]["checks"]`) : format, débit, audio présent, durée 12-22 s, aucun plan figé > 1 s, moment fort dans les 2 dernières secondes, boucle (dernière image ≈ première), 1re image non noire. Une vidéo qui échoue passe en `qc_failed` : la refaire avec `--count 1 --seed <autre>`.
+- Boucle d'apprentissage hebdo (étape bilan) : classer les Shorts par vues et « vu jusqu'au bout », repérer ce que partagent les 3 meilleurs et les 3 pires, pondérer le lot (`--weights`) : 60 % de variantes de ce qui marche, 30 % de concepts proches, 10 % de tests ; écarter ce qui plafonne sous 70 % de « vu jusqu'au bout ».
+
 ## Mesures (2026-10-24, 4 CPU, 60 i/s)
 - Simulation : 0,3 à 8 s par candidate.
 - Rendu : environ 88 s par vidéo de 45 s sur un worker ; 2 workers en parallèle donnent environ 44 s par vidéo. Un lot de 70 prend environ 55 min. Si ça ne tient pas, passer `--fps 30` (rendu environ 2 fois plus rapide).
@@ -103,7 +116,7 @@ Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'en
 
 - 2026-11-01 : lot du 02/11 au 08/11 : 70 Shorts, rendu environ 6 min par jour de 10 (vidéos de 28 à 38 s, 2 workers), 553 Mo au total. Il ne simule que 18 candidates par jour : 4 courses de couleurs jouées d'avance (score < 0,2) ont été refaites avec `--count 1 --candidates 30 --seed <autre>` (attention, des graines de base proches se recouvrent : écarter d'au moins 1000). Volume : les presses et quelques fusions sortaient à -22/-25 LUFS, remontées à -18 avec `loudnorm` (vidéo copiée). Drive : dossier « Semaine du 2026-11-02 » (id 19dHF3lQfjg-qNSC90veUvQiw_nDo7WpS), fiche id 1QT96VO7-VVu8wW27cuiqExzowXyKM-n_C2NQQ5nQr8k. Corbeille : vidéos du 25/10 et du 26 au 31/10 (celles du 01/11 gardées, à publier le jour même).
 
-- 2026-11-03 : vassili a envoyé des consignes « rétention » (12-22 s, accroche texte dès la 1re image, pas de carton de fin, boucle, compteur visible, beat discret sous les sons, ≥ 12 Mb/s, AAC 192k, checklist). Mode `render(..., retention=...)` et `python3 -m generator.retention` (4 vidéos de `SPECS`, checklist automatique `check()`). Essai 2 : 4 Shorts de 13 à 16 s dans `/mnt/project-files/essai 2/` et `G:\Mon Drive\Vidéos\essai 2`, statut `essai` dans le log, en attente de son avis avant d'appliquer au lot hebdo.
+- 2026-11-03 : vassili a envoyé des consignes « rétention » (12-22 s, accroche texte dès la 1re image, pas de carton de fin, boucle, compteur visible, beat discret sous les sons, ≥ 12 Mb/s, AAC 192k, checklist). Mode `render(..., retention=...)` et `python3 -m generator.retention` (4 vidéos de `SPECS`, checklist automatique `check()`). Essai 2 : 4 Shorts de 13 à 16 s dans `/mnt/project-files/essai 2/` et `G:\Mon Drive\Vidéos\essai 2`, statut `essai` dans le log, validé par vassili le 03/11 (« c'est bien, intègre-le au script de la semaine ») : format par défaut du lot hebdo.
 
 ## À faire
 - bounce_spawn produit des fichiers lourds (environ 40 Mo, avec beaucoup de balles en mouvement). Réduire si le dépôt grossit trop.

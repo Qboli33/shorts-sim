@@ -227,7 +227,7 @@ def render(tl, out_path, fps=60, theme=None, log=print, retention=None):
 
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}",
            "-r", str(fps), "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "veryfast",
-           *(["-b:v", "12.4M", "-minrate", "12M", "-maxrate", "13M", "-bufsize", "13M"] if R else ["-crf", "20"]),
+           *(["-b:v", "12.3M", "-minrate", "12.3M", "-maxrate", "12.3M", "-bufsize", "12.3M", "-x264-params", "nal-hrd=cbr"] if R else ["-crf", "20"]),
            "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k" if R else "160k", "-movflags", "+faststart", "-shortest", out_path]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 
