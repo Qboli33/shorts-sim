@@ -11500,5 +11500,376 @@
   "created": "2026-11-02",
   "replaces": "2026-11-02-09-color_escape",
   "drive_file": "1 Lundi 02/Pick your color before it starts! 6:25 PM.mp4"
+ },
+ {
+  "id": "essai2-01-cat-fill",
+  "mechanic": "grow_ball",
+  "seed": 20261112,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "color": "PURPLE",
+   "root": 65,
+   "r0": 28.396276886931616,
+   "growth": 10.967016026434772,
+   "gravity": 1594.3213928808957,
+   "speed": 1092.3537654933857,
+   "jitter": 0.10302115425787435,
+   "gap_half": 0.3168261138027569,
+   "omega": -0.7807552327440279,
+   "trails": 8,
+   "title": "Can it fill the circle?",
+   "overlay": "",
+   "objects": "cats",
+   "cat_level": 3,
+   "sfx": "soft:kalimba",
+   "sub_seed": 20284869,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "major",
+    "shift": 0,
+    "reverb": 0.17501908548148012,
+    "bed_bpm": 101,
+    "bed": "four"
+   }
+  },
+  "metrics": {
+   "outcome": "full",
+   "bounces": 34,
+   "finale_s": 10.7,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "duration": 12.9,
+  "file": "out/essai-2/01-cat-fill.mp4",
+  "status": "essai",
+  "created": "2026-11-03",
+  "first_comment": "Rate this chonky cat from 1 to 10 🐱👇",
+  "retention": {
+   "hook": "Will the cat fill the circle?",
+   "hook_type": "question",
+   "shape": "chat",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.9,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.2,
+    "duration_ok": true,
+    "duration": 12.9,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.17,
+    "first_frame_not_black": true,
+    "size_mb": 21.2,
+    "new_combo": true
+   },
+   "ok": true
+  }
+ },
+ {
+  "id": "essai2-02-color-race",
+  "mechanic": "color_escape",
+  "seed": 20262123,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "colors": [
+    "PINK",
+    "YELLOW",
+    "ORANGE",
+    "RED"
+   ],
+   "root": 56,
+   "start": 2,
+   "rad": 15.29933195584917,
+   "gravity": 500.0,
+   "speed": 793.8712475406339,
+   "gap_half": 0.29195793422457467,
+   "omega": -0.8156429559879688,
+   "trails": 4,
+   "cap": 12,
+   "title_idx": 4,
+   "overlay_idx": 1,
+   "sfx": "soft:marimba",
+   "sound": {
+    "inst": "marimba",
+    "scale": "penta",
+    "shift": -12,
+    "reverb": 0.12413961374871638,
+    "bed_bpm": 99,
+    "bed": "boom"
+   }
+  },
+  "metrics": {
+   "N": 8,
+   "winner": "ORANGE",
+   "margin": 1,
+   "leader_changes": 7,
+   "late": 0.92,
+   "finale_s": 13.35,
+   "max_balls": 20
+  },
+  "duration": 15.55,
+  "file": "out/essai-2/02-color-race.mp4",
+  "status": "essai",
+  "created": "2026-11-03",
+  "first_comment": "That finish was insane! Which color were you rooting for? 🏁",
+  "retention": {
+   "hook": "4 colors. 1 exit.",
+   "hook_type": "compte",
+   "shape": "balles",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 13.0,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -18.5,
+    "duration_ok": true,
+    "duration": 15.55,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.11,
+    "first_frame_not_black": true,
+    "size_mb": 25.6,
+    "new_combo": true
+   },
+   "ok": true
+  }
+ },
+ {
+  "id": "essai2-03-bounce-spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 20263118,
+  "params": {
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "ramp": 1,
+   "root": 60,
+   "mother_r": 37.830819122465286,
+   "rad": 16.360381468903864,
+   "gravity": 700.0,
+   "speed": 729.9794419306829,
+   "jitter": 0.13730621053183165,
+   "trails": 0,
+   "title_idx": 3,
+   "overlay_idx": 0,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.2777442549662038,
+    "bed_bpm": 117,
+    "bed": "four"
+   }
+  },
+  "metrics": {
+   "N": 64,
+   "finale_s": 11.57,
+   "gravity": 700.0
+  },
+  "duration": 13.77,
+  "file": "out/essai-2/03-bounce-spawn.mp4",
+  "status": "essai",
+  "created": "2026-11-03",
+  "first_comment": "Watch it again and count the bounces 👀👇",
+  "retention": {
+   "hook": "It needs 64 balls to win",
+   "hook_type": "défi",
+   "shape": "balles (dégradé)",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.9,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.1,
+    "duration_ok": true,
+    "duration": 13.77,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.68,
+    "first_frame_not_black": true,
+    "size_mb": 22.6,
+    "new_combo": true
+   },
+   "ok": true
+  }
+ },
+ {
+  "id": "essai2-04-planet-merge",
+  "mechanic": "merge_balls",
+  "seed": 20264104,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "objects": "planets",
+   "root": 56,
+   "r0": 27.65155164166555,
+   "ratio": 1.2895803107421,
+   "gravity": 1066.026064627773,
+   "spawn0": 0.23292971328043252,
+   "spawn1": 0.14708841497541314,
+   "p_levels": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "title_idx": 0,
+   "overlay_idx": 2,
+   "trails": 0,
+   "chad": true,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "japan",
+    "shift": 0,
+    "reverb": 0.23303103283331095,
+    "bed_bpm": 118,
+    "bed": "four"
+   }
+  },
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 6,
+   "lmax": 7,
+   "finale_s": 12.43,
+   "score": 364
+  },
+  "duration": 14.63,
+  "file": "out/essai-2/04-planet-merge.mp4",
+  "status": "essai",
+  "created": "2026-11-03",
+  "first_comment": "Should the next one go all the way to the Sun? ☀️👇",
+  "retention": {
+   "hook": "Wait for the last merge...",
+   "hook_type": "pari",
+   "shape": "planètes",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.9,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -22.0,
+    "duration_ok": true,
+    "duration": 14.63,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.48,
+    "first_frame_not_black": true,
+    "size_mb": 24.0,
+    "new_combo": true
+   },
+   "ok": true
+  }
  }
 ]

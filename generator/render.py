@@ -178,33 +178,41 @@ def _uid_maps(frames):
     return [{int(u): i for i, u in enumerate(f.uids)} for f in frames]
 
 
-def render(tl, out_path, fps=60, theme=None, log=print):
-    """Rend la timeline ; retourne le temps de rendu en secondes."""
+def render(tl, out_path, fps=60, theme=None, log=print, retention=None):
+    """Rend la timeline ; retourne le temps de rendu en secondes.
+
+    `retention` (consignes de vassili du 2026-11-03, vidéos de 12 à 22 s) : dict avec `hook` (accroche affichée
+    dès la 1re image), `zoom` (zoom lent de caméra), `bed` (beat discret sous les sons). Pas de carton de fin :
+    la vidéo s'arrête juste après le résultat et se fond dans la 1re image ; ralenti plus court ; tremblement
+    sur les impacts ; H.264 à 12,5 Mb/s et AAC 192k.
+    """
+    R = retention or {}
+    slow_sim, slow_speed = (R.get("slow_sim", 0.8), R.get("slow_speed", 0.4)) if R else (SLOW_SIM, SLOW_SPEED)
     t_start = time.time()
     theme = theme or tl.palette
     rng = np.random.default_rng(tl.seed + 7)
     bg = make_background(theme)
     n_sim = len(tl.frames)
-    n_end = int(END_CARD * fps)
+    n_end = 0 if R else int(END_CARD * fps)
     # Ralenti juste avant l'événement final : position (fractionnaire) dans la simulation pour chaque image.
     fin = tl.finale_frame
-    s0 = max(0, fin - int(SLOW_SIM * SIM_FPS))
+    s0 = max(0, fin - int(slow_sim * SIM_FPS))
     sched, sf = [], 0.0
     while sf < n_sim - 1:
         sched.append(sf)
-        sf += SIM_FPS / fps * (SLOW_SPEED if s0 <= sf < fin else 1.0)
+        sf += SIM_FPS / fps * (slow_speed if s0 <= sf < fin else 1.0)
     n_out = len(sched) + n_end
     duration = n_out / fps
-    slow_t = (s0 / SIM_FPS, s0 / SIM_FPS + (fin - s0) / SIM_FPS / SLOW_SPEED)
+    slow_t = (s0 / SIM_FPS, s0 / SIM_FPS + (fin - s0) / SIM_FPS / slow_speed)
 
     def time_of(f):
         if f < s0:
             return f / SIM_FPS
         if f < fin:
-            return slow_t[0] + (f - s0) / SIM_FPS / SLOW_SPEED
+            return slow_t[0] + (f - s0) / SIM_FPS / slow_speed
         return slow_t[1] + (f - fin) / SIM_FPS
 
-    if tl.params.get("objects") == "cats":
+    if tl.params.get("objects") == "cats" and not R:
         if rng.random() < 0.3:               # chats : miaous (plus graves quand le chat est plus gros) une fois sur trois
             tl.params["sfx"] = "meow"
     pack = tl.params.setdefault("sfx", audio.PACKS[int(rng.integers(len(audio.PACKS)))])
@@ -212,13 +220,15 @@ def render(tl, out_path, fps=60, theme=None, log=print):
     wav = os.path.join(tmp, "a.wav")
     events = list(tl.events)
     style = audio.render_audio(events, duration, time_of, tl.params.get("root", 60), tl.seed, wav, pack=pack,
-                       finale_frame=fin, slow=slow_t, pitch_by_note=tl.params.get("objects") == "cats")
+                       finale_frame=fin, slow=slow_t, pitch_by_note=tl.params.get("objects") == "cats",
+                       bed=bool(R.get("bed")), rise=bool(R))
     if style:
         tl.params["sound"] = style            # ambiance sonore tirée (instrument, gamme…), gardée dans le log
 
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}",
-           "-r", str(fps), "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-           "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", "-shortest", out_path]
+           "-r", str(fps), "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "veryfast",
+           *(["-b:v", "12.4M", "-minrate", "12M", "-maxrate", "13M", "-bufsize", "13M"] if R else ["-crf", "20"]),
+           "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k" if R else "160k", "-movflags", "+faststart", "-shortest", out_path]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 
     uid_maps = _uid_maps(tl.frames)
@@ -226,7 +236,15 @@ def render(tl, out_path, fps=60, theme=None, log=print):
     for e in events:
         ev_by_frame.setdefault(e.frame, []).append(e)
     parts = Particles(rng)
-    overlay = tl.overlay
+    overlay = "" if R else tl.overlay
+    hook_spr = None
+    if R.get("hook"):
+        hs = text.fit_size(R["hook"], 100, 960)
+        hook_spr = text.sprite(R["hook"], hs, R.get("hook_color", (255, 255, 255)), max(6, hs // 11), (8, 8, 12))
+    n_fade = int(R.get("loop_fade", 0.35) * fps) if R else 0
+    zoom_amt = R.get("zoom", 0.0)
+    shake = 0.0
+    shake_rng = np.random.default_rng(tl.seed + 11)
     title_sprites = [text.sprite(l, 84, (255, 255, 255), 7, (20, 10, 10)) for l in text.wrap(overlay, 84, 900)] if overlay else []
     fs = text.fit_size(tl.finale_text, 150, 900)
     finale_spr = text.sprite(tl.finale_text, fs, tl.finale_color, max(6, fs // 12), (10, 10, 10))
@@ -376,6 +394,9 @@ def render(tl, out_path, fps=60, theme=None, log=print):
                 elif e.kind in ("boom", "win"):
                     parts.burst(e.x, e.y, e.color, 260, 1500, 1.6, 9)
                     flash = 1.0
+                    shake = 1.0
+                if R and e.kind in ("pop", "chime", "shard"):
+                    shake = max(shake, 0.22)
         prev_sf = sf
         parts.step(speed / fps)
         parts.draw(img, glow)
@@ -387,6 +408,23 @@ def render(tl, out_path, fps=60, theme=None, log=print):
             img = cv2.addWeighted(img, 1.0, np.full_like(img, 255), flash * 0.45, 0)
             flash *= 0.85
 
+        if R:
+            # Caméra : zoom lent qui se resserre vers la fin (plus vite pendant le ralenti) + tremblement sur les impacts.
+            prog = min(1.0, sf / max(1, fin))
+            z = 1 + zoom_amt * (prog * prog * (3 - 2 * prog)) + (0.03 if speed < 1 else 0.0) * min(1, (sf - s0) / max(1, fin - s0))
+            dx = dy = 0.0
+            if shake > 0.02:
+                dx, dy = shake_rng.uniform(-1, 1, 2) * 14 * shake
+                shake *= 0.82
+            if z > 1.0005 or dx or dy:
+                cx, cy = CENTER
+                M = np.float32([[z, 0, cx * (1 - z) + dx], [0, z, cy * (1 - z) + dy]])
+                img = cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+            if hook_spr is not None:
+                e_h = (sf - fin) / SIM_FPS
+                a_h = 1.0 if e_h < 0 else max(0.0, 1 - e_h / 0.2)
+                if a_h > 0:
+                    text.blit(img, hook_spr, 520, 345, "c", alpha=a_h)
         y = 230
         for s in title_sprites:
             text.blit(img, s, 520, y, "c")
@@ -405,6 +443,10 @@ def render(tl, out_path, fps=60, theme=None, log=print):
         last = clean
         if k == 0:
             first = img.copy()
+        if n_fade and k >= n_out - n_fade:
+            # Boucle sans carton : la fin du résultat se fond dans la 1re image.
+            a = (k - (n_out - n_fade) + 1) / n_fade
+            img = cv2.addWeighted(img, 1 - a, first, a, 0)
         proc.stdin.write(img.tobytes())
 
     proc.stdin.close()

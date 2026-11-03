@@ -103,6 +103,8 @@ Supprimer de `out/` les vidéos publiées depuis plus de 14 jours. Au-delà d'en
 
 - 2026-11-01 : lot du 02/11 au 08/11 : 70 Shorts, rendu environ 6 min par jour de 10 (vidéos de 28 à 38 s, 2 workers), 553 Mo au total. Il ne simule que 18 candidates par jour : 4 courses de couleurs jouées d'avance (score < 0,2) ont été refaites avec `--count 1 --candidates 30 --seed <autre>` (attention, des graines de base proches se recouvrent : écarter d'au moins 1000). Volume : les presses et quelques fusions sortaient à -22/-25 LUFS, remontées à -18 avec `loudnorm` (vidéo copiée). Drive : dossier « Semaine du 2026-11-02 » (id 19dHF3lQfjg-qNSC90veUvQiw_nDo7WpS), fiche id 1QT96VO7-VVu8wW27cuiqExzowXyKM-n_C2NQQ5nQr8k. Corbeille : vidéos du 25/10 et du 26 au 31/10 (celles du 01/11 gardées, à publier le jour même).
 
+- 2026-11-03 : vassili a envoyé des consignes « rétention » (12-22 s, accroche texte dès la 1re image, pas de carton de fin, boucle, compteur visible, beat discret sous les sons, ≥ 12 Mb/s, AAC 192k, checklist). Mode `render(..., retention=...)` et `python3 -m generator.retention` (4 vidéos de `SPECS`, checklist automatique `check()`). Essai 2 : 4 Shorts de 13 à 16 s dans `/mnt/project-files/essai 2/` et `G:\Mon Drive\Vidéos\essai 2`, statut `essai` dans le log, en attente de son avis avant d'appliquer au lot hebdo.
+
 ## À faire
 - bounce_spawn produit des fichiers lourds (environ 40 Mo, avec beaucoup de balles en mouvement). Réduire si le dépôt grossit trop.
 - Nouvelles mécaniques (au moins 1 par semaine) : anneaux concentriques qui se brisent, couleurs qui se convertissent, labyrinthe qui rétrécit, etc.

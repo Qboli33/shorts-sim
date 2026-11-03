@@ -328,7 +328,7 @@ PACKS = ["soft"]       # depuis le 2026-10-26 : sons doux, ambiance différente 
 
 
 def render_audio(events, duration, time_of, root, seed, path, pack="classic", finale_frame=None, slow=None,
-                 max_voices=6, min_gap=0.035, pitch_by_note=False):
+                 max_voices=6, min_gap=0.035, pitch_by_note=False, bed=False, rise=False):
     """`time_of(frame)` donne l'instant de sortie (prise en compte du ralenti).
 
     Pack rigolo : rebonds et pops deviennent des miaous / boings / coin-coins / couics, de plus en plus
@@ -346,7 +346,7 @@ def render_audio(events, duration, time_of, root, seed, path, pack="classic", fi
     if style and ":" in pack:           # « soft:kalimba » : instrument imposé (le lot répartit les instruments)
         style["inst"] = pack.split(":", 1)[1]
     if style:
-        return _render_soft(events, duration, time_of, root, rng, path, style, slow)
+        return _render_soft(events, duration, time_of, root, rng, path, style, slow, bed=bed, rise=rise)
     evs = sorted(events, key=lambda e: e.frame)
     if slow:
         t = slow[0]
@@ -427,7 +427,34 @@ def _add(mix, w, t0, x, n):
     mix[s:s + m, 1] += w[:m] * (1 + pan) * 0.7
 
 
-def _render_soft(events, duration, time_of, root, rng, path, style, slow):
+def _bed(duration, stop, rng, style):
+    """Beat discret sous les effets (mode rétention) : kick, clap léger, charleston ; il s'arrête au ralenti final."""
+    n = int(SR * duration) + 1
+    out = np.zeros(n)
+    bpm = float(rng.uniform(96, 124))
+    s8 = 60.0 / bpm / 2
+    kick, clap, hat = _kick(rng), _clap(rng), _hat(rng)
+    pattern = rng.choice(["four", "half", "boom"])
+    style["bed_bpm"], style["bed"] = round(bpm), str(pattern)
+    t, i = 0.0, 0
+    while t < stop:
+        beat8 = i % 8
+        hits = [(hat, 0.45 if beat8 % 2 else 0.7)]
+        if pattern == "four" and beat8 % 2 == 0 or pattern == "half" and beat8 in (0, 5) or pattern == "boom" and beat8 in (0, 3, 6):
+            hits.append((kick, 1.0))
+        if beat8 in (2, 6) and pattern != "half" or pattern == "half" and beat8 == 4:
+            hits.append((clap, 0.55))
+        s = int(t * SR)
+        for w, g in hits:
+            m = min(len(w), n - s)
+            if m > 0:
+                out[s:s + m] += w[:m] * g
+        t += s8
+        i += 1
+    return out
+
+
+def _render_soft(events, duration, time_of, root, rng, path, style, slow, bed=False, rise=False):
     """Sons doux : chaque rebond joue une note de l'instrument, densité limitée, réverbération et filtre doux."""
     n = int(SR * duration) + 1
     mix = np.zeros((n, 2))
@@ -465,6 +492,8 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
         if kind in gap and len(active) >= 4:
             continue
         note = int(ev.note)
+        if rise and kind in ("bounce", "hit", "pop", "spawn", "chime"):     # la hauteur monte avec la tension
+            note += int(4 * min(1.0, t0 / max(0.1, slow[0] if slow else duration)))
         key = (kind, note)
         if key not in cache:
             f = note_freq(root, note % (2 * len(scale)), scale)
@@ -484,6 +513,13 @@ def _render_soft(events, duration, time_of, root, rng, path, style, slow):
         p = pad(duration, root, rng, level=0.05)
         mix[: len(p)] += p
     mix = _lowpass(_reverb(mix, rng, style["reverb"] * (0.5 if has_beat else 1)), 9000 if has_beat else 5000)
+    if bed:
+        # Volume du beat calé sous les effets : environ un tiers de leur niveau efficace.
+        b = _lowpass(_bed(duration, slow[0] if slow else duration, rng, style)[:, None].repeat(2, 1), 7000)
+        fx = np.sqrt(np.mean(mix ** 2)) + 1e-9
+        mix[: len(b)] += b * (0.33 * fx / (np.sqrt(np.mean(b ** 2)) + 1e-9))
+        k = int(0.06 * SR)                    # fondu de 60 ms : pas de clic quand la vidéo reboucle
+        mix[-k:] *= np.linspace(1, 0, k)[:, None]
     peak = np.percentile(np.abs(mix), 99.95) + 1e-9
     mix = np.tanh(mix / peak * 0.6) * 0.85
     pcm = (mix * 32767).astype(np.int16)
