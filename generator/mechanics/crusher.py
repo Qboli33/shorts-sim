@@ -185,6 +185,7 @@ def score(tl):
 
 def comment(tl, rng):
     n = tl.metrics["N"]
-    opts = ["What should the press crush next? 👇", f"Guess how long to {n * 2} balls! ⏱️👇",
-            "That crunch sound though... 🔊 Rate it 1 to 10 👇"]
+    # Pas de « Guess how long to N balls » : la presse n'affiche aucun compteur, et N baisse quand la poussière part.
+    opts = ["What should the press crush next? 👇", "That crunch sound though... 🔊 Rate it 1 to 10 👇",
+            "Did you think it would reach the bottom? 👀👇"]
     return str(rng.choice(opts))

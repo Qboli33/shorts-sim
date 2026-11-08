@@ -29,3 +29,10 @@ Top 5 / Flop 5 (id, titre, vues). Progression Programme Partenaire : abonnés X 
 - Source : Metricool (vidIQ expiré, à reconnecter). Abonnés : 54 (01/11), 62 (02/11). Gagnés 43, perdus 8 du 24 au 30/10.
 - Vues par jour : 4 984 (29/10), 14 785 (30/10). Total 24/10 → 30/10 : 51 933 (environ 10 500 par jour sur les 4 derniers jours relevés). Pas de relevé de vues après le 30/10.
 - Projection au rythme actuel (environ 8 abonnés et 10 000 vues par jour) : 500 abonnés vers fin décembre ; 3 M de vues Shorts sur 90 j demandent environ 33 000 vues par jour (x3) ; 10 M demandent environ 110 000 par jour (x10).
+
+## Bilan du 2026-11-08 (fil « Créer les Shorts de la semaine prochaine »)
+- Source : Metricool (vidIQ toujours expiré). Les métriques par vidéo (`videos published in range`, `all videos`) reviennent vides : pas de classement par vidéo ni de « vu jusqu'au bout » possible cette semaine.
+- Abonnés : 54 (01/11), 62 (02/11), 66 (03/11), 72 (04/11), 82 (05/11), 89 (06/11), 100 (07/11). Environ +7 par jour, en hausse.
+- Vues par jour : 11 167 (31/10), 12 504 (01/11), 9 565 (02/11), 11 924 (03/11), 13 198 (04/11). Pas de relevé après le 04/11. Total 24/10 → 04/11 : environ 99 000.
+- Programme Partenaire : 100 / 1 000 abonnés ; environ 99 000 / 10 M de vues Shorts sur 90 j.
+- Mix du lot du 09 au 15/11 : faute de chiffres par vidéo, on garde la tendance du 29/10 (grow_ball et color_escape en tête, 2 de chaque par jour) et on alterne trois mix pour que chaque jour ait 8 mécaniques différentes (anneaux, fils, couloirs, presse, fusion, mélodie, multiplication). Premier lot complet au format rétention (12,5 à 15,7 s).

@@ -11871,5 +11871,7214 @@
    },
    "ok": true
   }
+ },
+ {
+  "id": "2026-11-09-01-color_escape",
+  "mechanic": "color_escape",
+  "seed": 77265281,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "colors": [
+    "PURPLE",
+    "GREEN",
+    "BLUE",
+    "CYAN",
+    "RED"
+   ],
+   "root": 65,
+   "start": 2,
+   "rad": 15.318276516845023,
+   "gravity": 0.0,
+   "speed": 677.3364548782538,
+   "gap_half": 0.2385840624285828,
+   "omega": 1.2201735768123276,
+   "trails": 4,
+   "cap": 13,
+   "title_idx": 3,
+   "overlay_idx": 3,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.20018970151994497,
+    "bed_bpm": 112,
+    "bed": "four"
+   }
+  },
+  "title": "Pick your color before it starts! | Simulation",
+  "description": "A rotating gap, a few colors, one winner. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Which color did you pick? 👇",
+  "duration": 13.78,
+  "file": "out/2026-11-09/2026-11-09-01-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-01-color_escape.mp4",
+  "size_bytes": 22119861,
+  "score": 0.995,
+  "metrics": {
+   "N": 7,
+   "winner": "CYAN",
+   "margin": 1,
+   "leader_changes": 7,
+   "late": 1.0,
+   "finale_s": 11.58,
+   "max_balls": 22
+  },
+  "render_s": 36.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-01-color_escape.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Which color wins?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 204,
+    "mean_db": -20.4,
+    "duration_ok": true,
+    "duration": 13.78,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.18,
+    "first_frame_not_black": true,
+    "size_mb": 22.1
+   }
+  },
+  "drive_file": "1 Lundi 09/Pick your color before it starts! Simulation 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-09-02-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 77269279,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "root": 62,
+   "n": 5,
+   "r_in": 74.45798612478411,
+   "color": "BLUE",
+   "gravity": 992.7555952828161,
+   "speed": 858.5379911746306,
+   "jitter": 0.050047108578227265,
+   "gap": 0.3906122467683907,
+   "omega": 0.8586872464721471,
+   "hue0": 0.514771775521128,
+   "alt": false,
+   "title_idx": 0,
+   "overlay_idx": 0,
+   "trails": 7,
+   "r0": 18.0,
+   "sfx": "soft:felt",
+   "gap_scale": 1.3599999999999999,
+   "sub_seed": 77277198,
+   "sound": {
+    "inst": "felt",
+    "scale": "major",
+    "shift": -12,
+    "reverb": 0.14853111119861834,
+    "bed_bpm": 103,
+    "bed": "four"
+   }
+  },
+  "title": "Can it escape 5 rings? | Physics sim",
+  "description": "One ball, 5 spinning rings, one gap each. #shorts #simulation #satisfying #willtheballescape",
+  "first_comment": "Which ring was the hardest? 🤔👇",
+  "duration": 14.3,
+  "file": "out/2026-11-09/2026-11-09-02-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-02-rings_escape.mp4",
+  "size_bytes": 22907630,
+  "score": 0.955,
+  "metrics": {
+   "finale_s": 12.08,
+   "n": 5,
+   "bounces": 21,
+   "last_wait": 4.18,
+   "max_wait": 4.53
+  },
+  "render_s": 33.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-02-rings_escape.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Escape all 5 rings",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -21.6,
+    "duration_ok": true,
+    "duration": 14.3,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.59,
+    "first_frame_not_black": true,
+    "size_mb": 22.9
+   }
+  },
+  "drive_file": "1 Lundi 09/Can it escape 5 rings Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-09-03-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 77266277,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "objects": "planets",
+   "root": 60,
+   "r0": 26.576753465290047,
+   "ratio": 1.2679064305394,
+   "gravity": 991.5532812259676,
+   "spawn0": 0.3351447176624084,
+   "spawn1": 0.15673679786175365,
+   "p_levels": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "title_idx": 1,
+   "overlay_idx": 0,
+   "trails": 0,
+   "chad": true,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "minor_penta",
+    "shift": 12,
+    "reverb": 0.2115350693058009,
+    "bed_bpm": 114,
+    "bed": "half"
+   }
+  },
+  "title": "Moon to Neptune... can it get there? | Satisfying",
+  "description": "From the Moon to the Sun, one merge at a time. #shorts #simulation #satisfying #planets",
+  "first_comment": "Should the next one go all the way to the Sun? ☀️👇",
+  "duration": 13.83,
+  "file": "out/2026-11-09/2026-11-09-03-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-03-merge_balls.mp4",
+  "size_bytes": 22155818,
+  "score": 0.857,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 5,
+   "lmax": 8,
+   "finale_s": 11.63,
+   "score": 200
+  },
+  "render_s": 33.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-03-merge_balls.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Wait for the last merge...",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -22.3,
+    "duration_ok": true,
+    "duration": 13.83,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.34,
+    "first_frame_not_black": true,
+    "size_mb": 22.2
+   }
+  },
+  "drive_file": "1 Lundi 09/Moon to Neptune... can it get there Satisfying 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-09-04-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 77264282,
+  "params": {
+   "variant": "escape",
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "color": "PINK",
+   "root": 64,
+   "r0": 77.0191092651882,
+   "growth": 2.0967109844578675,
+   "gravity": 2519.0063128804422,
+   "speed": 1005.5104057269557,
+   "jitter": 0.08248381356432583,
+   "gap_half": 0.34809832688634035,
+   "omega": -1.1314769281984574,
+   "trails": 6,
+   "title": "Escape or get trapped?",
+   "overlay": "Escape?",
+   "sfx": "soft:musicbox",
+   "sub_seed": 77319715,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "minor_penta",
+    "shift": 12,
+    "reverb": 0.12179029568537951,
+    "bed_bpm": 109,
+    "bed": "boom"
+   }
+  },
+  "title": "Escape or get trapped? | Simulation",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "Escape or stuck... what was your guess? 🤔",
+  "duration": 13.73,
+  "file": "out/2026-11-09/2026-11-09-04-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-04-grow_ball.mp4",
+  "size_bytes": 22024264,
+  "score": 1.0,
+  "metrics": {
+   "outcome": "escaped",
+   "bounces": 22,
+   "finale_s": 11.53,
+   "too_big_s": null,
+   "escape_margin": 0.11947108846000776
+  },
+  "render_s": 31.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-04-grow_ball.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "1 gap. 1 growing ball.",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 197,
+    "mean_db": -21.7,
+    "duration_ok": true,
+    "duration": 13.73,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.29,
+    "first_frame_not_black": true,
+    "size_mb": 22.0
+   }
+  },
+  "drive_file": "1 Lundi 09/Escape or get trapped Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-09-05-melody_bounce",
+  "mechanic": "melody_bounce",
+  "seed": 77272278,
+  "params": {
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "song": "mountain",
+   "bpm": 102.81730359749126,
+   "r": 29.88444003542046,
+   "step": 192.18554846002257,
+   "h_max": 415.92028022671377,
+   "title_idx": 2,
+   "overlay_idx": 0,
+   "trails": 6,
+   "sfx": "soft:marimba",
+   "gravity": 12000,
+   "notes": 36,
+   "sound": {
+    "inst": "marimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.18817303597491258,
+    "bed_bpm": 111,
+    "bed": "half"
+   }
+  },
+  "title": "Guess the song before the end! | Physics sim",
+  "description": "Perfect timing: each bounce lands exactly on the beat. #shorts #simulation #satisfying #music",
+  "first_comment": "How many notes did it take you to recognize it? 👇",
+  "duration": 14.75,
+  "file": "out/2026-11-09/2026-11-09-05-melody_bounce.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-05-melody_bounce.mp4",
+  "size_bytes": 23194781,
+  "score": 0.802,
+  "metrics": {
+   "finale_s": 12.53,
+   "song": "mountain",
+   "notes": 36,
+   "gravity": 12000
+  },
+  "render_s": 33.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-05-melody_bounce.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Can you guess the song?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.4,
+    "audio": true,
+    "audio_kbps": 196,
+    "mean_db": -17.8,
+    "duration_ok": true,
+    "duration": 14.75,
+    "no_dead_time": true,
+    "longest_still_s": 0.4,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.01,
+    "first_frame_not_black": true,
+    "size_mb": 23.2
+   }
+  },
+  "drive_file": "1 Lundi 09/Guess the song before the end! Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-09-06-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 77264281,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "color": "RED",
+   "root": 56,
+   "r0": 21.065923732034676,
+   "growth": 9.09047770353025,
+   "gravity": 1750.3092893138592,
+   "speed": 1352.3268990910635,
+   "jitter": 0.08478853433534725,
+   "gap_half": 0.3577589534631669,
+   "omega": 1.2429117960654437,
+   "trails": 9,
+   "objects": "cats",
+   "cat_level": 2,
+   "title": "Can it fill the circle?",
+   "overlay": "Fill it?",
+   "sfx": "soft:kalimba",
+   "sub_seed": 77272200,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.2601899323274425,
+    "bed_bpm": 106,
+    "bed": "four"
+   }
+  },
+  "title": "Can it fill the circle? | Satisfying",
+  "description": "Every bounce adds a little size. Watch till the end! #shorts #simulation #satisfying #physics",
+  "first_comment": "How many bounces did you guess? 🤔",
+  "duration": 14.05,
+  "file": "out/2026-11-09/2026-11-09-06-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-06-grow_ball.mp4",
+  "size_bytes": 22522512,
+  "score": 0.997,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 42,
+   "finale_s": 11.85,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 61.2,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-06-grow_ball.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "It must fill the circle",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -19.0,
+    "duration_ok": true,
+    "duration": 14.05,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.26,
+    "first_frame_not_black": true,
+    "size_mb": 22.5
+   }
+  },
+  "drive_file": "1 Lundi 09/Can it fill the circle Satisfying 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-09-07-strings",
+  "mechanic": "strings",
+  "seed": 77270280,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "root": 60,
+   "k": 3,
+   "names": [
+    "GREEN",
+    "RED",
+    "BLUE"
+   ],
+   "r0": 17.06864859589067,
+   "gravity": 996.9220366148852,
+   "speed": 483.39897905905497,
+   "jitter": 0.14456007669408508,
+   "start": 3,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "trails": 6,
+   "sfx": "soft:bloop",
+   "sub_seed": 77294037,
+   "sound": {
+    "inst": "bloop",
+    "scale": "minor_penta",
+    "shift": -12,
+    "reverb": 0.18740397051076396,
+    "bed_bpm": 108,
+    "bed": "boom"
+   }
+  },
+  "title": "Who keeps their strings? | Simulation",
+  "description": "Strings, bounces and a lot of snapping. Who survives? #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "That last cut was so close... who were you rooting for? 👀",
+  "duration": 15.1,
+  "file": "out/2026-11-09/2026-11-09-07-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-07-strings.mp4",
+  "size_bytes": 24137397,
+  "score": 0.563,
+  "metrics": {
+   "finale_s": 12.88,
+   "winner": "BLUE",
+   "leader_changes": 5,
+   "peak": 8,
+   "final": 2
+  },
+  "render_s": 39.8,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-07-strings.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Pick one before it starts",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -20.9,
+    "duration_ok": true,
+    "duration": 15.1,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.92,
+    "first_frame_not_black": true,
+    "size_mb": 24.1
+   }
+  },
+  "drive_file": "1 Lundi 09/Who keeps their strings Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-09-08-color_escape",
+  "mechanic": "color_escape",
+  "seed": 77265280,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "colors": [
+    "PINK",
+    "PURPLE",
+    "YELLOW",
+    "RED"
+   ],
+   "root": 55,
+   "start": 2,
+   "rad": 14.866269772014885,
+   "gravity": 1200.0,
+   "speed": 614.9337847188012,
+   "gap_half": 0.22874657097442683,
+   "omega": 1.1895984622465936,
+   "trails": 3,
+   "cap": 14,
+   "title_idx": 4,
+   "overlay_idx": 2,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "penta",
+    "shift": 12,
+    "reverb": 0.14088978982862138,
+    "bed_bpm": 108,
+    "bed": "half"
+   }
+  },
+  "title": "Which color reaches 6 first? | Physics sim",
+  "description": "Every escape spawns two more balls of the same color. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Team Pink or not? Drop your color below 👇",
+  "duration": 14.08,
+  "file": "out/2026-11-09/2026-11-09-08-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-08-color_escape.mp4",
+  "size_bytes": 22578765,
+  "score": 0.738,
+  "metrics": {
+   "N": 6,
+   "winner": "PINK",
+   "margin": 2,
+   "leader_changes": 4,
+   "late": 0.85,
+   "finale_s": 11.88,
+   "max_balls": 18
+  },
+  "render_s": 31.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-08-color_escape.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "4 colors. 1 exit.",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -18.6,
+    "duration_ok": true,
+    "duration": 14.08,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.05,
+    "first_frame_not_black": true,
+    "size_mb": 22.6
+   }
+  },
+  "drive_file": "1 Lundi 09/Which color reaches 6 first Physics sim 5h15 PM.mp4"
+ },
+ {
+  "id": "2026-11-09-09-lane_race",
+  "mechanic": "lane_race",
+  "seed": 77271278,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "root": 55,
+   "mult": 3,
+   "add": 2,
+   "s": 12,
+   "nb": 5,
+   "growth": 2.2,
+   "r": 8.272077984485188,
+   "rm": "×3",
+   "ra": "+2",
+   "left_mult": false,
+   "color_mult": "CYAN",
+   "color_add": "ORANGE",
+   "gravity": 1373.145511493949,
+   "bounce_h": 147.47583037807706,
+   "hp_scale": 11.312525515473775,
+   "title_idx": 0,
+   "overlay_idx": 1,
+   "trails": 3,
+   "sfx": "soft:bloop",
+   "growth_used": 2.524,
+   "hp_scale_used": 3.4999283518726156,
+   "sub_seed": 77318792,
+   "sound": {
+    "inst": "bloop",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.20235498501175334,
+    "bed_bpm": 100,
+    "bed": "boom"
+   }
+  },
+  "title": "×3 or +2: which lane wins? | Satisfying",
+  "description": "One lane multiplies, the other adds. Every hit chips a barrier. #shorts #simulation #satisfying #exponential",
+  "first_comment": "Did you pick ×3 or +2? 👇",
+  "duration": 14.57,
+  "file": "out/2026-11-09/2026-11-09-09-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-09-lane_race.mp4",
+  "size_bytes": 23282933,
+  "score": 0.718,
+  "metrics": {
+   "finale_s": 12.35,
+   "winner": "×3",
+   "underdog_won": true,
+   "margin": 0.06,
+   "leader_changes": 0,
+   "balls": 101
+  },
+  "render_s": 34.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-09-lane_race.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Multiply or add: who wins?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -21.8,
+    "duration_ok": true,
+    "duration": 14.57,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.31,
+    "first_frame_not_black": true,
+    "size_mb": 23.3
+   }
+  },
+  "drive_file": "1 Lundi 09/×3 or +2 which lane wins Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-09-10-crusher",
+  "mechanic": "crusher",
+  "seed": 77268280,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 59,
+   "colors": [
+    "PINK",
+    "CYAN",
+    "ORANGE"
+   ],
+   "fill": 0.3314631926065226,
+   "r0": 40.81932917829208,
+   "levels": 3,
+   "crush": 9.705439770421346,
+   "t_full": 11.547990799121303,
+   "curve": 0.9317191476954857,
+   "speed": 264.6341379816801,
+   "wait": 0.2691533756568058,
+   "lift": 170.24107487600799,
+   "gravity": 1600.0,
+   "title_idx": 0,
+   "overlay_idx": 2,
+   "sfx": "soft:musicbox",
+   "sound": {
+    "inst": "musicbox",
+    "scale": "lydian",
+    "shift": 0,
+    "reverb": 0.2611092668526732,
+    "bed_bpm": 116,
+    "bed": "four"
+   }
+  },
+  "title": "Every crush makes 4 more balls | Simulation",
+  "description": "Crush one ball, get four. Watch the count explode. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
+  "duration": 14.25,
+  "file": "out/2026-11-09/2026-11-09-10-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-09/2026-11-09-10-crusher.mp4",
+  "size_bytes": 22784838,
+  "score": 0.611,
+  "metrics": {
+   "N": 48,
+   "finale_s": 12.03,
+   "n0": 33,
+   "crushed": 5
+  },
+  "render_s": 21.8,
+  "fps": 60,
+  "scheduled_at": "2026-11-09T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-09/qc/2026-11-09-10-crusher.jpg",
+  "created": "2026-11-09",
+  "retention": {
+   "hook": "Crush every single ball",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -22.8,
+    "duration_ok": true,
+    "duration": 14.25,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.28,
+    "first_frame_not_black": true,
+    "size_mb": 22.8
+   }
+  },
+  "drive_file": "1 Lundi 09/Every crush makes 4 more balls Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-01-melody_bounce",
+  "mechanic": "melody_bounce",
+  "seed": 57211904,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "song": "beat",
+   "beat_style": "drill",
+   "beat_seed": 628896608,
+   "r": 24.841497122405563,
+   "step": 157.26754077963585,
+   "h_max": 398.5822330869178,
+   "title_idx": 0,
+   "overlay_idx": 2,
+   "trails": 8,
+   "sfx": "soft:musicbox",
+   "bpm": 145.0,
+   "gravity": 12000,
+   "notes": 44,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "lydian",
+    "shift": -12,
+    "reverb": 0.12022603424585257,
+    "bed_bpm": 104,
+    "bed": "boom"
+   }
+  },
+  "title": "This ball makes a beat 🔥 | Simulation",
+  "description": "Every bounce plays the next note. Did you recognize it? #shorts #simulation #satisfying #music",
+  "first_comment": "Did the drop hit? 🔥👇",
+  "duration": 14.92,
+  "file": "out/2026-11-10/2026-11-10-01-melody_bounce.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-01-melody_bounce.mp4",
+  "size_bytes": 23173870,
+  "score": 0.953,
+  "metrics": {
+   "finale_s": 12.69,
+   "song": "drill",
+   "notes": 44,
+   "gravity": 12000
+  },
+  "render_s": 34.2,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-01-melody_bounce.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "Wait for the drop...",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.2,
+    "audio": true,
+    "audio_kbps": 195,
+    "mean_db": -19.6,
+    "duration_ok": true,
+    "duration": 14.92,
+    "no_dead_time": true,
+    "longest_still_s": 0.5,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.01,
+    "first_frame_not_black": true,
+    "size_mb": 23.2
+   }
+  },
+  "drive_file": "2 Mardi 10/This ball makes a beat 🔥 Simulation 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-10-02-crusher",
+  "mechanic": "crusher",
+  "seed": 57207902,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 52,
+   "colors": [
+    "ORANGE",
+    "BLUE",
+    "LIME",
+    "PURPLE"
+   ],
+   "fill": 0.3955420998863679,
+   "r0": 33.68559065810875,
+   "levels": 3,
+   "crush": 8.035105427108737,
+   "t_full": 12.109027149472553,
+   "curve": 0.9005448134426929,
+   "speed": 358.39614092292106,
+   "wait": 0.27989758445736157,
+   "lift": 194.32555142248168,
+   "gravity": 1600.0,
+   "title_idx": 2,
+   "overlay_idx": 1,
+   "sfx": "soft:kalimba",
+   "sound": {
+    "inst": "kalimba",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.14696945052974006,
+    "bed_bpm": 106,
+    "bed": "half"
+   }
+  },
+  "title": "Hydraulic press vs 58 balls | Physics sim",
+  "description": "Crush one ball, get four. Watch the count explode. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
+  "duration": 14.3,
+  "file": "out/2026-11-10/2026-11-10-02-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-02-crusher.mp4",
+  "size_bytes": 22889666,
+  "score": 0.623,
+  "metrics": {
+   "N": 84,
+   "finale_s": 12.08,
+   "n0": 58,
+   "crushed": 8
+  },
+  "render_s": 29.2,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-02-crusher.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "1 crush = 4 balls",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 197,
+    "mean_db": -25.2,
+    "duration_ok": true,
+    "duration": 14.3,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.79,
+    "first_frame_not_black": true,
+    "size_mb": 22.9
+   }
+  },
+  "drive_file": "2 Mardi 10/Hydraulic press vs 58 balls Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-10-03-color_escape",
+  "mechanic": "color_escape",
+  "seed": 57204901,
+  "params": {
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "colors": [
+    "YELLOW",
+    "CYAN",
+    "PINK",
+    "RED",
+    "GREEN"
+   ],
+   "root": 65,
+   "start": 1,
+   "rad": 16.449654208236304,
+   "gravity": 1200.0,
+   "speed": 775.1493225450517,
+   "gap_half": 0.29543740999758394,
+   "omega": 1.4037671798148221,
+   "trails": 5,
+   "cap": 15,
+   "title_idx": 3,
+   "overlay_idx": 2,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.1806260248825173,
+    "bed_bpm": 116,
+    "bed": "half"
+   }
+  },
+  "title": "Pick your color before it starts! | Satisfying",
+  "description": "A rotating gap, a few colors, one winner. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "That finish was close! Which color were you rooting for? 🏁",
+  "duration": 13.07,
+  "file": "out/2026-11-10/2026-11-10-03-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-03-color_escape.mp4",
+  "size_bytes": 20952565,
+  "score": 0.316,
+  "metrics": {
+   "N": 10,
+   "winner": "PINK",
+   "margin": 5,
+   "leader_changes": 3,
+   "late": 0.67,
+   "finale_s": 10.87,
+   "max_balls": 17
+  },
+  "render_s": 34.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-03-color_escape.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "Which color wins?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.5,
+    "duration_ok": true,
+    "duration": 13.07,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.0,
+    "first_frame_not_black": true,
+    "size_mb": 21.0
+   }
+  },
+  "drive_file": "2 Mardi 10/Pick your color before it starts! Satisfying 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-10-04-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 57203910,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "color": "GREEN",
+   "root": 61,
+   "r0": 22.98622357856908,
+   "growth": 9.522396768818068,
+   "gravity": 1337.430723550824,
+   "speed": 1054.3486017786772,
+   "jitter": 0.1291586998102323,
+   "gap_half": 0.31910720405298443,
+   "omega": 1.3562087818699724,
+   "trails": 8,
+   "objects": "cats",
+   "cat_level": 4,
+   "title": "Can it fill the circle?",
+   "overlay": "Full?",
+   "sfx": "soft:felt",
+   "sub_seed": 57227667,
+   "sound": {
+    "inst": "felt",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.2147572329873425,
+    "bed_bpm": 97,
+    "bed": "four"
+   }
+  },
+  "title": "Can it fill the circle? | Simulation",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "Guess the bounce count before it fills up! It took 40. Did you get close? 👇",
+  "duration": 14.28,
+  "file": "out/2026-11-10/2026-11-10-04-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-04-grow_ball.mp4",
+  "size_bytes": 22878545,
+  "score": 0.989,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 40,
+   "finale_s": 12.08,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 60.8,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-04-grow_ball.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "It must fill the circle",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -18.4,
+    "duration_ok": true,
+    "duration": 14.28,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.25,
+    "first_frame_not_black": true,
+    "size_mb": 22.9
+   }
+  },
+  "drive_file": "2 Mardi 10/Can it fill the circle Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-05-lane_race",
+  "mechanic": "lane_race",
+  "seed": 57210904,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "root": 56,
+   "mult": 2,
+   "add": 2,
+   "s": 7,
+   "nb": 7,
+   "growth": 1.9000000000000001,
+   "r": 11.121395307012953,
+   "rm": "×2",
+   "ra": "+2",
+   "left_mult": true,
+   "color_mult": "ORANGE",
+   "color_add": "CYAN",
+   "gravity": 1457.811833357749,
+   "bounce_h": 146.4598337914015,
+   "hp_scale": 8.495570077096506,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "trails": 3,
+   "sfx": "soft:marimba",
+   "growth_used": 1.92,
+   "hp_scale_used": 2.1443875606712464,
+   "sub_seed": 57242580,
+   "sound": {
+    "inst": "marimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.255769299648829,
+    "bed_bpm": 120,
+    "bed": "half"
+   }
+  },
+  "title": "1 ball ×2 vs 7 balls +2 | Physics sim",
+  "description": "Break every barrier first to win. Which rule is stronger? #shorts #simulation #satisfying #exponential",
+  "first_comment": "Multiply or add: which one would you bet on next time? 👇",
+  "duration": 14.43,
+  "file": "out/2026-11-10/2026-11-10-05-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-05-lane_race.mp4",
+  "size_bytes": 23117870,
+  "score": 0.68,
+  "metrics": {
+   "finale_s": 12.22,
+   "winner": "+2",
+   "underdog_won": false,
+   "margin": 0.22,
+   "leader_changes": 0,
+   "balls": 83
+  },
+  "render_s": 37.8,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-05-lane_race.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "Pick a lane. Watch.",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -19.5,
+    "duration_ok": true,
+    "duration": 14.43,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.25,
+    "first_frame_not_black": true,
+    "size_mb": 23.1
+   }
+  },
+  "drive_file": "2 Mardi 10/1 ball ×2 vs 7 balls +2 Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-06-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 57206899,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "ramp": 0,
+   "root": 63,
+   "mother_r": 37.80179112743332,
+   "rad": 14.705115529133979,
+   "gravity": 0.0,
+   "speed": 1185.724853207167,
+   "jitter": 0.08086598112208326,
+   "trails": 2,
+   "title_idx": 0,
+   "overlay_idx": 1,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "minor_penta",
+    "shift": -12,
+    "reverb": 0.27735721503244426,
+    "bed_bpm": 108,
+    "bed": "four"
+   }
+  },
+  "title": "Every bounce adds a ball. Can it reach 120?",
+  "description": "Every time the white ball bounces, a new ball appears. #shorts #simulation #satisfying #physics",
+  "first_comment": "Guess the time for 240 next time! 👇",
+  "duration": 14.23,
+  "file": "out/2026-11-10/2026-11-10-06-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-06-bounce_spawn.mp4",
+  "size_bytes": 22760090,
+  "score": 0.991,
+  "metrics": {
+   "N": 120,
+   "finale_s": 12.03,
+   "gravity": 0.0
+  },
+  "render_s": 39.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-06-bounce_spawn.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "1 bounce = 1 new ball",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -20.1,
+    "duration_ok": true,
+    "duration": 14.23,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.96,
+    "first_frame_not_black": true,
+    "size_mb": 22.8
+   }
+  },
+  "drive_file": "2 Mardi 10/Every bounce adds a ball. Can it reach 120 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-08-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 57203909,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "color": "PURPLE",
+   "root": 59,
+   "r0": 29.751830904368248,
+   "growth": 8.533446704151055,
+   "gravity": 1782.6024044126216,
+   "speed": 1220.7987621140378,
+   "jitter": 0.08690455659579689,
+   "gap_half": 0.4342205481906964,
+   "omega": -0.9229501368971627,
+   "trails": 9,
+   "title": "Will it fill the whole circle?",
+   "overlay": "",
+   "sfx": "soft:kalimba",
+   "sub_seed": 57219747,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.18410927125999474,
+    "bed_bpm": 108,
+    "bed": "half"
+   }
+  },
+  "title": "Will it fill the whole circle? | Physics sim",
+  "description": "Every bounce adds a little size. Watch till the end! #shorts #simulation #satisfying #physics",
+  "first_comment": "Guess the bounce count before it fills up! It took 43. Did you get close? 👇",
+  "duration": 14.0,
+  "file": "out/2026-11-10/2026-11-10-08-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-08-grow_ball.mp4",
+  "size_bytes": 22483383,
+  "score": 0.994,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 43,
+   "finale_s": 11.8,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 31.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-08-grow_ball.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "It must fill the circle",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -19.4,
+    "duration_ok": true,
+    "duration": 14.0,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.55,
+    "first_frame_not_black": true,
+    "size_mb": 22.5
+   }
+  },
+  "drive_file": "2 Mardi 10/Will it fill the whole circle Physics sim 5h15 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-09-strings",
+  "mechanic": "strings",
+  "seed": 57209899,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "root": 59,
+   "k": 3,
+   "names": [
+    "CYAN",
+    "RED",
+    "PURPLE"
+   ],
+   "r0": 29.439051009452722,
+   "gravity": 874.1410807590513,
+   "speed": 540.7617053355128,
+   "jitter": 0.07014889674703183,
+   "start": 4,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 1,
+   "overlay_idx": 0,
+   "trails": 4,
+   "objects": "cats",
+   "cat_levels": [
+    5,
+    8,
+    1
+   ],
+   "sfx": "soft:bloop",
+   "sub_seed": 57376198,
+   "sound": {
+    "inst": "bloop",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.13218051689286356,
+    "bed_bpm": 97,
+    "bed": "four"
+   }
+  },
+  "title": "Which cat keeps its strings? | Satisfying",
+  "description": "No strings left = out. Pick your winner before it starts! #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "Which cat should fight next time? 🐱👇",
+  "duration": 13.93,
+  "file": "out/2026-11-10/2026-11-10-09-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-09-strings.mp4",
+  "size_bytes": 22268329,
+  "score": 0.518,
+  "metrics": {
+   "finale_s": 11.72,
+   "winner": "SNOWBALL",
+   "leader_changes": 7,
+   "peak": 6,
+   "final": 3
+  },
+  "render_s": 33.0,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-09-strings.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "Pick one before it starts",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -21.1,
+    "duration_ok": true,
+    "duration": 13.93,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.62,
+    "first_frame_not_black": true,
+    "size_mb": 22.3
+   }
+  },
+  "drive_file": "2 Mardi 10/Which cat keeps its strings Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-10-color_escape",
+  "mechanic": "color_escape",
+  "seed": 57204904,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "colors": [
+    "YELLOW",
+    "ORANGE",
+    "RED",
+    "PURPLE"
+   ],
+   "root": 60,
+   "start": 2,
+   "rad": 15.06177714604578,
+   "gravity": 0.0,
+   "speed": 815.6224384723924,
+   "gap_half": 0.28958570929497407,
+   "omega": -1.1515631811597142,
+   "trails": 6,
+   "cap": 16,
+   "title_idx": 4,
+   "overlay_idx": 1,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "japan",
+    "shift": 0,
+    "reverb": 0.20009502133893795,
+    "bed_bpm": 101,
+    "bed": "half"
+   }
+  },
+  "title": "Which color reaches 7 first? | Simulation",
+  "description": "Every escape spawns two more balls of the same color. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Pick a color for the next race in the comments! 👇",
+  "duration": 14.95,
+  "file": "out/2026-11-10/2026-11-10-10-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-10-color_escape.mp4",
+  "size_bytes": 23939339,
+  "score": 0.687,
+  "metrics": {
+   "N": 7,
+   "winner": "ORANGE",
+   "margin": 1,
+   "leader_changes": 4,
+   "late": 0.42,
+   "finale_s": 12.75,
+   "max_balls": 16
+  },
+  "render_s": 27.9,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-10-color_escape.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "4 colors. 1 exit.",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 202,
+    "mean_db": -19.2,
+    "duration_ok": true,
+    "duration": 14.95,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.12,
+    "first_frame_not_black": true,
+    "size_mb": 23.9
+   }
+  },
+  "drive_file": "2 Mardi 10/Which color reaches 7 first Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-01-color_escape",
+  "mechanic": "color_escape",
+  "seed": 265336652,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "colors": [
+    "GREEN",
+    "BLUE",
+    "RED"
+   ],
+   "root": 63,
+   "start": 1,
+   "rad": 17.458975057532207,
+   "gravity": 0.0,
+   "speed": 783.2077239478122,
+   "gap_half": 0.294838061535187,
+   "omega": -1.0464339668445501,
+   "trails": 3,
+   "cap": 17,
+   "title_idx": 3,
+   "overlay_idx": 0,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.13737287741478824,
+    "bed_bpm": 106,
+    "bed": "four"
+   }
+  },
+  "title": "Pick your color before it starts! | Simulation",
+  "description": "Escape the ring, score a point, multiply. Which color did you pick? #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Which color did you pick? 👇",
+  "duration": 13.2,
+  "file": "out/2026-11-11/2026-11-11-01-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-01-color_escape.mp4",
+  "size_bytes": 21176184,
+  "score": 0.274,
+  "metrics": {
+   "N": 7,
+   "winner": "RED",
+   "margin": 4,
+   "leader_changes": 1,
+   "late": 0.68,
+   "finale_s": 11.0,
+   "max_balls": 11
+  },
+  "render_s": 35.2,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-01-color_escape.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "3 colors. 1 exit.",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -20.3,
+    "duration_ok": true,
+    "duration": 13.2,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.7,
+    "first_frame_not_black": true,
+    "size_mb": 21.2
+   }
+  },
+  "drive_file": "3 Mercredi 11/Pick your color before it starts! Simulation 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-11-02-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 265340647,
+  "params": {
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "root": 61,
+   "n": 8,
+   "r_in": 73.21551904982321,
+   "color": "BLUE",
+   "gravity": 1037.1772727658258,
+   "speed": 884.0909840348708,
+   "jitter": 0.11337388549848053,
+   "gap": 0.2812327111082144,
+   "omega": 1.4141606960931536,
+   "hue0": 0.9145542848637613,
+   "alt": false,
+   "title_idx": 2,
+   "overlay_idx": 1,
+   "trails": 7,
+   "r0": 19.244827482867247,
+   "objects": "cats",
+   "cat_level": 2,
+   "sfx": "soft:bloop",
+   "gap_scale": 1.63415,
+   "sub_seed": 265372323,
+   "sound": {
+    "inst": "bloop",
+    "scale": "penta",
+    "shift": -12,
+    "reverb": 0.14057932191886857,
+    "bed_bpm": 118,
+    "bed": "four"
+   }
+  },
+  "title": "8 rings. One ball. Can it get out? | Physics sim",
+  "description": "Every ring it escapes shatters. Can it get out? #shorts #simulation #satisfying #willtheballescape",
+  "first_comment": "Should the next one have 16 rings? 👇",
+  "duration": 15.05,
+  "file": "out/2026-11-11/2026-11-11-02-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-02-rings_escape.mp4",
+  "size_bytes": 24074510,
+  "score": 0.906,
+  "metrics": {
+   "finale_s": 12.83,
+   "n": 8,
+   "bounces": 38,
+   "last_wait": 5.05,
+   "max_wait": 5.05
+  },
+  "render_s": 44.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-02-rings_escape.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Can it escape 8 rings?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 204,
+    "mean_db": -22.3,
+    "duration_ok": true,
+    "duration": 15.05,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.84,
+    "first_frame_not_black": true,
+    "size_mb": 24.1
+   }
+  },
+  "drive_file": "3 Mercredi 11/8 rings. One ball. Can it get out Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-11-03-lane_race",
+  "mechanic": "lane_race",
+  "seed": 265342646,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "root": 52,
+   "mult": 3,
+   "add": 3,
+   "s": 11,
+   "nb": 5,
+   "growth": 2.2,
+   "r": 8.84372042088661,
+   "rm": "×3",
+   "ra": "+3",
+   "left_mult": true,
+   "color_mult": "PINK",
+   "color_add": "CYAN",
+   "gravity": 1454.5911501152416,
+   "bounce_h": 124.03708068332438,
+   "hp_scale": 10.035277569654058,
+   "title_idx": 0,
+   "overlay_idx": 3,
+   "trails": 2,
+   "sfx": "soft:musicbox",
+   "growth_used": 2.698,
+   "hp_scale_used": 3.418338199925958,
+   "sub_seed": 265405998,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "penta",
+    "shift": -12,
+    "reverb": 0.26333017822790517,
+    "bed_bpm": 100,
+    "bed": "boom"
+   }
+  },
+  "title": "×3 or +3: which lane wins? | Satisfying",
+  "description": "Break every barrier first to win. Which rule is stronger? #shorts #simulation #satisfying #exponential",
+  "first_comment": "Would 1 ball ×3 still win against 16 balls? 🤔👇",
+  "duration": 14.12,
+  "file": "out/2026-11-11/2026-11-11-03-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-03-lane_race.mp4",
+  "size_bytes": 22588485,
+  "score": 0.723,
+  "metrics": {
+   "finale_s": 11.9,
+   "winner": "×3",
+   "underdog_won": true,
+   "margin": 0.1,
+   "leader_changes": 0,
+   "balls": 104
+  },
+  "render_s": 42.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-03-lane_race.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Can 1 ball beat 11?",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -17.7,
+    "duration_ok": true,
+    "duration": 14.12,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.28,
+    "first_frame_not_black": true,
+    "size_mb": 22.6
+   }
+  },
+  "drive_file": "3 Mercredi 11/×3 or +3 which lane wins Satisfying 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-11-04-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 265335651,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "color": "PURPLE",
+   "root": 55,
+   "r0": 29.859786931491204,
+   "growth": 8.16310393821219,
+   "gravity": 1594.293121186725,
+   "speed": 1471.4432580891894,
+   "jitter": 0.036663931347007,
+   "gap_half": 0.3978441480233789,
+   "omega": -0.6664301667081276,
+   "trails": 6,
+   "title": "How many bounces to fill the ring?",
+   "overlay": "",
+   "sfx": "soft:marimba",
+   "sub_seed": 265351489,
+   "sound": {
+    "inst": "marimba",
+    "scale": "japan",
+    "shift": 0,
+    "reverb": 0.12527218099789914,
+    "bed_bpm": 110,
+    "bed": "boom"
+   }
+  },
+  "title": "How many bounces to fill the ring? | Simulation",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "Comment your guess for the next one! 👇",
+  "duration": 14.1,
+  "file": "out/2026-11-11/2026-11-11-04-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-04-grow_ball.mp4",
+  "size_bytes": 22638986,
+  "score": 1.0,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 45,
+   "finale_s": 11.9,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 40.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-04-grow_ball.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Watch it reach 100%",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -18.9,
+    "duration_ok": true,
+    "duration": 14.1,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.63,
+    "first_frame_not_black": true,
+    "size_mb": 22.6
+   }
+  },
+  "drive_file": "3 Mercredi 11/How many bounces to fill the ring Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-05-strings",
+  "mechanic": "strings",
+  "seed": 265341645,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "root": 59,
+   "k": 3,
+   "names": [
+    "YELLOW",
+    "GREEN",
+    "ORANGE"
+   ],
+   "r0": 28.700600839330036,
+   "gravity": 904.2418090010269,
+   "speed": 504.3702340153154,
+   "jitter": 0.1348926299569572,
+   "start": 3,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 0,
+   "overlay_idx": 0,
+   "trails": 6,
+   "objects": "cats",
+   "cat_levels": [
+    5,
+    3,
+    2
+   ],
+   "sfx": "soft:kalimba",
+   "sub_seed": 265397078,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "dorian",
+    "shift": -12,
+    "reverb": 0.16352481259886087,
+    "bed_bpm": 120,
+    "bed": "four"
+   }
+  },
+  "title": "Last Cat Standing | Physics sim",
+  "description": "No strings left = out. Pick your winner before it starts! #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "Who did you pick before it started? 👇",
+  "duration": 15.33,
+  "file": "out/2026-11-11/2026-11-11-05-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-05-strings.mp4",
+  "size_bytes": 24480953,
+  "score": 0.573,
+  "metrics": {
+   "finale_s": 13.12,
+   "winner": "ANGRY CAT",
+   "leader_changes": 4,
+   "peak": 7,
+   "final": 1
+  },
+  "render_s": 43.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-05-strings.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Cut a string, lose a life",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 203,
+    "mean_db": -19.8,
+    "duration_ok": true,
+    "duration": 15.33,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.4,
+    "first_frame_not_black": true,
+    "size_mb": 24.5
+   }
+  },
+  "drive_file": "3 Mercredi 11/Last Cat Standing Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-06-color_escape",
+  "mechanic": "color_escape",
+  "seed": 265336648,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "colors": [
+    "CYAN",
+    "ORANGE",
+    "PINK",
+    "PURPLE"
+   ],
+   "root": 65,
+   "start": 2,
+   "rad": 15.392313999162472,
+   "gravity": 0.0,
+   "speed": 848.1696170493412,
+   "gap_half": 0.30056400053284904,
+   "omega": 0.7046746804868826,
+   "trails": 3,
+   "cap": 15,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "major",
+    "shift": -12,
+    "reverb": 0.15220731387024816,
+    "bed_bpm": 107,
+    "bed": "boom"
+   }
+  },
+  "title": "First to 7 escapes wins! | Satisfying",
+  "description": "Every escape spawns two more balls of the same color. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Pick a color for the next race in the comments! 👇",
+  "duration": 13.1,
+  "file": "out/2026-11-11/2026-11-11-06-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-06-color_escape.mp4",
+  "size_bytes": 21018425,
+  "score": 0.885,
+  "metrics": {
+   "N": 7,
+   "winner": "ORANGE",
+   "margin": 1,
+   "leader_changes": 2,
+   "late": 0.95,
+   "finale_s": 10.9,
+   "max_balls": 18
+  },
+  "render_s": 37.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-06-color_escape.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Which color wins?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -20.4,
+    "duration_ok": true,
+    "duration": 13.1,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.1,
+    "first_frame_not_black": true,
+    "size_mb": 21.0
+   }
+  },
+  "drive_file": "3 Mercredi 11/First to 7 escapes wins! Satisfying 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-07-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 265337645,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "objects": "cats",
+   "root": 59,
+   "r0": 25.054930054139522,
+   "ratio": 1.2404414408288735,
+   "gravity": 692.6395818377489,
+   "spawn0": 0.28069005461432517,
+   "spawn1": 0.1387100653186933,
+   "p_levels": [
+    0.5,
+    0.3,
+    0.2
+   ],
+   "title_idx": 3,
+   "overlay_idx": 2,
+   "trails": 0,
+   "chad": false,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.18109860108279044,
+    "bed_bpm": 121,
+    "bed": "boom"
+   }
+  },
+  "title": "Will it reach the Love Cat? | Simulation",
+  "description": "Two identical cats merge into a bigger cat. Meow! #shorts #simulation #satisfying #cat",
+  "first_comment": "Which cat is your favorite? 🐱👇",
+  "duration": 14.57,
+  "file": "out/2026-11-11/2026-11-11-07-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-07-merge_balls.mp4",
+  "size_bytes": 23288349,
+  "score": 0.862,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 6,
+   "lmax": 9,
+   "finale_s": 12.37,
+   "score": 326
+  },
+  "render_s": 49.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-07-merge_balls.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Merge all the way to Love Cat",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -20.7,
+    "duration_ok": true,
+    "duration": 14.57,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.73,
+    "first_frame_not_black": true,
+    "size_mb": 23.3
+   }
+  },
+  "drive_file": "3 Mercredi 11/Will it reach the Love Cat Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-09-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 265338643,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "ramp": 1,
+   "root": 65,
+   "mother_r": 28.71921884025188,
+   "rad": 15.173807754419744,
+   "gravity": 2000.0,
+   "speed": 1091.1234210821904,
+   "jitter": 0.149660028654128,
+   "trails": 2,
+   "title_idx": 2,
+   "overlay_idx": 3,
+   "sfx": "soft:musicbox",
+   "sound": {
+    "inst": "musicbox",
+    "scale": "dorian",
+    "shift": -12,
+    "reverb": 0.1562562512033584,
+    "bed_bpm": 98,
+    "bed": "boom"
+   }
+  },
+  "title": "1 bounce = 1 new ball. 50 incoming? | Satisfying",
+  "description": "A single spawner ball and a lot of bounces. #shorts #simulation #satisfying #physics",
+  "first_comment": "How long did you think it would take to hit 50? ⏱️👇",
+  "duration": 14.42,
+  "file": "out/2026-11-11/2026-11-11-09-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-09-bounce_spawn.mp4",
+  "size_bytes": 23064862,
+  "score": 0.978,
+  "metrics": {
+   "N": 50,
+   "finale_s": 12.22,
+   "gravity": 2000.0
+  },
+  "render_s": 34.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-09-bounce_spawn.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "1 bounce = 1 new ball",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -19.0,
+    "duration_ok": true,
+    "duration": 14.42,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.71,
+    "first_frame_not_black": true,
+    "size_mb": 23.1
+   }
+  },
+  "drive_file": "3 Mercredi 11/1 bounce = 1 new ball. 50 incoming Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-01-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 106212277,
+  "params": {
+   "variant": "escape",
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "color": "PURPLE",
+   "root": 64,
+   "r0": 74.75225837218436,
+   "growth": 1.7447296916153656,
+   "gravity": 1382.149949075003,
+   "speed": 1353.739131515588,
+   "jitter": 0.07235093137872475,
+   "gap_half": 0.3067258535274542,
+   "omega": 0.6890685508658254,
+   "trails": 6,
+   "title": "It grows on every bounce. Can it get out?",
+   "overlay": "Out?",
+   "sfx": "soft:marimba",
+   "sub_seed": 106259791,
+   "sound": {
+    "inst": "marimba",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.23847215365017924,
+    "bed_bpm": 113,
+    "bed": "boom"
+   }
+  },
+  "title": "It grows on every bounce. Can it get out?",
+  "description": "One ball, one circle, and it grows on every hit. #shorts #simulation #satisfying #physics",
+  "first_comment": "Escape or stuck... what was your guess? 🤔",
+  "duration": 14.4,
+  "file": "out/2026-11-12/2026-11-12-01-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-01-grow_ball.mp4",
+  "size_bytes": 23063644,
+  "score": 1.0,
+  "metrics": {
+   "outcome": "escaped",
+   "bounces": 24,
+   "finale_s": 12.2,
+   "too_big_s": null,
+   "escape_margin": 0.057911801982778566
+  },
+  "render_s": 41.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-01-grow_ball.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Watch till the very end",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -19.6,
+    "duration_ok": true,
+    "duration": 14.4,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.56,
+    "first_frame_not_black": true,
+    "size_mb": 23.1
+   }
+  },
+  "drive_file": "4 Jeudi 12/It grows on every bounce. Can it get out 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-12-02-melody_bounce",
+  "mechanic": "melody_bounce",
+  "seed": 106220278,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "song": "beat",
+   "beat_style": "trap",
+   "beat_seed": 808581003,
+   "r": 25.44259355656933,
+   "step": 186.84346704406414,
+   "h_max": 400.312107238155,
+   "title_idx": 3,
+   "overlay_idx": 0,
+   "trails": 7,
+   "sfx": "soft:bloop",
+   "bpm": 149.9,
+   "gravity": 12000,
+   "notes": 43,
+   "sound": {
+    "inst": "bloop",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.2543547046465073,
+    "bed_bpm": 114,
+    "bed": "half"
+   }
+  },
+  "title": "Bouncing ball trap beat | Physics sim",
+  "description": "Perfect timing: each bounce lands exactly on the beat. #shorts #simulation #satisfying #music",
+  "first_comment": "Phonk, trap or drill: what should the ball play next? 👇",
+  "duration": 15.02,
+  "file": "out/2026-11-12/2026-11-12-02-melody_bounce.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-02-melody_bounce.mp4",
+  "size_bytes": 23362620,
+  "score": 0.945,
+  "metrics": {
+   "finale_s": 12.81,
+   "song": "trap",
+   "notes": 43,
+   "gravity": 12000
+  },
+  "render_s": 37.8,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-02-melody_bounce.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "1 bounce = 1 note",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.2,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -20.5,
+    "duration_ok": true,
+    "duration": 15.02,
+    "no_dead_time": true,
+    "longest_still_s": 0.4,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.01,
+    "first_frame_not_black": true,
+    "size_mb": 23.4
+   }
+  },
+  "drive_file": "4 Jeudi 12/Bouncing ball trap beat Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-12-03-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 106214279,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "objects": "cats",
+   "root": 62,
+   "r0": 24.847780155668673,
+   "ratio": 1.280547056929951,
+   "gravity": 718.2839757246189,
+   "spawn0": 0.27364915200240253,
+   "spawn1": 0.12621387065105982,
+   "p_levels": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "title_idx": 1,
+   "overlay_idx": 1,
+   "trails": 0,
+   "chad": true,
+   "sfx": "soft:kalimba",
+   "chad_level": 5,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "dorian",
+    "shift": 12,
+    "reverb": 0.17695560311337347,
+    "bed_bpm": 105,
+    "bed": "half"
+   }
+  },
+  "title": "Kitten to the Chad Cat... can it get there?",
+  "description": "From tiny kitten to King Cat, one merge at a time. #shorts #simulation #satisfying #cat",
+  "first_comment": "Rate Chad Cat's biceps from 1 to 10 💪👇",
+  "duration": 15.48,
+  "file": "out/2026-11-12/2026-11-12-03-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-03-merge_balls.mp4",
+  "size_bytes": 24770825,
+  "score": 0.807,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 5,
+   "lmax": 8,
+   "finale_s": 13.28,
+   "score": 222
+  },
+  "render_s": 58.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-03-merge_balls.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Will it reach Chad Cat?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -21.8,
+    "duration_ok": true,
+    "duration": 15.48,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.56,
+    "first_frame_not_black": true,
+    "size_mb": 24.8
+   }
+  },
+  "drive_file": "4 Jeudi 12/Kitten to the Chad Cat... can it get there 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-12-04-strings",
+  "mechanic": "strings",
+  "seed": 106218276,
+  "params": {
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "root": 59,
+   "k": 3,
+   "names": [
+    "ORANGE",
+    "CYAN",
+    "YELLOW"
+   ],
+   "r0": 28.52231047771723,
+   "gravity": 960.1453702156161,
+   "speed": 463.7828514229771,
+   "jitter": 0.07933771362297816,
+   "start": 5,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 0,
+   "overlay_idx": 1,
+   "trails": 5,
+   "objects": "cats",
+   "cat_levels": [
+    8,
+    7,
+    2
+   ],
+   "sfx": "soft:musicbox",
+   "sub_seed": 106408332,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "major",
+    "shift": 0,
+    "reverb": 0.2312305882317906,
+    "bed_bpm": 120,
+    "bed": "four"
+   }
+  },
+  "title": "Last Cat Standing | Simulation",
+  "description": "Strings, bounces and a lot of snapping. Who survives? #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "That last cut was so close... who were you rooting for? 👀",
+  "duration": 15.6,
+  "file": "out/2026-11-12/2026-11-12-04-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-04-strings.mp4",
+  "size_bytes": 24900294,
+  "score": 0.583,
+  "metrics": {
+   "finale_s": 13.38,
+   "winner": "GINGER",
+   "leader_changes": 5,
+   "peak": 7,
+   "final": 1
+  },
+  "render_s": 45.8,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-04-strings.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Pick one. Don't lose it.",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -20.8,
+    "duration_ok": true,
+    "duration": 15.6,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.53,
+    "first_frame_not_black": true,
+    "size_mb": 24.9
+   }
+  },
+  "drive_file": "4 Jeudi 12/Last Cat Standing Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-05-lane_race",
+  "mechanic": "lane_race",
+  "seed": 106219278,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "root": 54,
+   "mult": 3,
+   "add": 3,
+   "s": 10,
+   "nb": 5,
+   "growth": 2.2,
+   "r": 7.943782738255834,
+   "rm": "×3",
+   "ra": "+3",
+   "left_mult": false,
+   "color_mult": "RED",
+   "color_add": "GREEN",
+   "gravity": 1399.4188421461258,
+   "bounce_h": 112.22568558866936,
+   "hp_scale": 11.819365651208413,
+   "title_idx": 0,
+   "overlay_idx": 1,
+   "trails": 3,
+   "sfx": "soft:felt",
+   "growth_used": 2.643,
+   "hp_scale_used": 3.497529970448893,
+   "sub_seed": 106274711,
+   "sound": {
+    "inst": "felt",
+    "scale": "penta",
+    "shift": 12,
+    "reverb": 0.16733682541395567,
+    "bed_bpm": 100,
+    "bed": "boom"
+   }
+  },
+  "title": "×3 or +3: which lane wins? | Physics sim",
+  "description": "Break every barrier first to win. Which rule is stronger? #shorts #simulation #satisfying #exponential",
+  "first_comment": "Multiply or add: which one would you bet on next time? 👇",
+  "duration": 14.72,
+  "file": "out/2026-11-12/2026-11-12-05-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-05-lane_race.mp4",
+  "size_bytes": 23487219,
+  "score": 0.838,
+  "metrics": {
+   "finale_s": 12.5,
+   "winner": "×3",
+   "underdog_won": true,
+   "margin": 0.06,
+   "leader_changes": 1,
+   "balls": 103
+  },
+  "render_s": 53.0,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-05-lane_race.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Pick a lane. Watch.",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -18.1,
+    "duration_ok": true,
+    "duration": 14.72,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.23,
+    "first_frame_not_black": true,
+    "size_mb": 23.5
+   }
+  },
+  "drive_file": "4 Jeudi 12/×3 or +3 which lane wins Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-07-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 106217276,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "root": 63,
+   "n": 6,
+   "r_in": 80.8790832333896,
+   "color": "GREEN",
+   "gravity": 922.9407612174883,
+   "speed": 926.4173375962177,
+   "jitter": 0.05018770706432375,
+   "gap": 0.3059549226003495,
+   "omega": 1.4384010426174632,
+   "hue0": 0.8870008822664859,
+   "alt": true,
+   "title_idx": 1,
+   "overlay_idx": 3,
+   "trails": 9,
+   "r0": 18.0,
+   "sfx": "soft:marimba",
+   "gap_scale": 1.7160000000000002,
+   "sub_seed": 106241033,
+   "sound": {
+    "inst": "marimba",
+    "scale": "lydian",
+    "shift": -12,
+    "reverb": 0.1896261326936934,
+    "bed_bpm": 115,
+    "bed": "four"
+   }
+  },
+  "title": "Will the ball escape? | Simulation",
+  "description": "One ball, 6 spinning rings, one gap each. #shorts #simulation #satisfying #willtheballescape",
+  "first_comment": "Which ring was the hardest? 🤔👇",
+  "duration": 14.58,
+  "file": "out/2026-11-12/2026-11-12-07-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-07-rings_escape.mp4",
+  "size_bytes": 23324026,
+  "score": 0.938,
+  "metrics": {
+   "finale_s": 12.37,
+   "n": 6,
+   "bounces": 25,
+   "last_wait": 4.57,
+   "max_wait": 4.57
+  },
+  "render_s": 39.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-07-rings_escape.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Can it escape 6 rings?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -21.1,
+    "duration_ok": true,
+    "duration": 14.58,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.73,
+    "first_frame_not_black": true,
+    "size_mb": 23.3
+   }
+  },
+  "drive_file": "4 Jeudi 12/Will the ball escape Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-08-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 106212274,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "color": "PINK",
+   "root": 64,
+   "r0": 27.687638267562328,
+   "growth": 10.303829741714662,
+   "gravity": 1156.1090100792576,
+   "speed": 1062.372728622181,
+   "jitter": 0.1331681233526351,
+   "gap_half": 0.43484250364296606,
+   "omega": -0.7811008079105006,
+   "trails": 8,
+   "objects": "cats",
+   "cat_level": 9,
+   "title": "Can it fill the circle?",
+   "overlay": "Fill it?",
+   "sfx": "soft:bloop",
+   "sub_seed": 106236031,
+   "sound": {
+    "inst": "bloop",
+    "scale": "japan",
+    "shift": 12,
+    "reverb": 0.19527799285288988,
+    "bed_bpm": 121,
+    "bed": "boom"
+   }
+  },
+  "title": "Can it fill the circle? | Physics sim",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "How many bounces did you guess? 🤔",
+  "duration": 14.63,
+  "file": "out/2026-11-12/2026-11-12-08-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-08-grow_ball.mp4",
+  "size_bytes": 23438263,
+  "score": 0.968,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 36,
+   "finale_s": 12.43,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 67.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-08-grow_ball.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "It must fill the circle",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -22.1,
+    "duration_ok": true,
+    "duration": 14.63,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.39,
+    "first_frame_not_black": true,
+    "size_mb": 23.4
+   }
+  },
+  "drive_file": "4 Jeudi 12/Can it fill the circle Physics sim 5h15 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-09-color_escape",
+  "mechanic": "color_escape",
+  "seed": 106213284,
+  "params": {
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "colors": [
+    "PURPLE",
+    "PINK",
+    "YELLOW"
+   ],
+   "root": 62,
+   "start": 2,
+   "rad": 14.665019921994986,
+   "gravity": 1200.0,
+   "speed": 770.4540915445322,
+   "gap_half": 0.28263323025269343,
+   "omega": -1.0632385112373446,
+   "trails": 6,
+   "cap": 13,
+   "title_idx": 4,
+   "overlay_idx": 2,
+   "sfx": "soft:kalimba",
+   "sound": {
+    "inst": "kalimba",
+    "scale": "japan",
+    "shift": -12,
+    "reverb": 0.21785732603558855,
+    "bed_bpm": 110,
+    "bed": "half"
+   }
+  },
+  "title": "Which color reaches 6 first? | Satisfying",
+  "description": "Escape the ring, score a point, multiply. Which color did you pick? #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Pick a color for the next race in the comments! 👇",
+  "duration": 13.5,
+  "file": "out/2026-11-12/2026-11-12-09-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-09-color_escape.mp4",
+  "size_bytes": 21654240,
+  "score": 0.303,
+  "metrics": {
+   "N": 6,
+   "winner": "PURPLE",
+   "margin": 3,
+   "leader_changes": 2,
+   "late": 0.46,
+   "finale_s": 11.3,
+   "max_balls": 12
+  },
+  "render_s": 35.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-09-color_escape.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Your color wins? Watch.",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -19.5,
+    "duration_ok": true,
+    "duration": 13.5,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.8,
+    "first_frame_not_black": true,
+    "size_mb": 21.7
+   }
+  },
+  "drive_file": "4 Jeudi 12/Which color reaches 6 first Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-01-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 18057733,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "color": "BLUE",
+   "root": 64,
+   "r0": 27.98258261118583,
+   "growth": 9.463719109552375,
+   "gravity": 1616.4215969133893,
+   "speed": 1345.4679889949434,
+   "jitter": 0.13018509825052518,
+   "gap_half": 0.38036666438406574,
+   "omega": 1.0140073496302693,
+   "trails": 8,
+   "title": "Can it fill the circle?",
+   "overlay": "",
+   "sfx": "soft:marimba",
+   "sub_seed": 18065652,
+   "sound": {
+    "inst": "marimba",
+    "scale": "lydian",
+    "shift": 0,
+    "reverb": 0.24970984663270954,
+    "bed_bpm": 120,
+    "bed": "four"
+   }
+  },
+  "title": "Can it fill the circle? | Simulation",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "Comment your guess for the next one! 👇",
+  "duration": 13.63,
+  "file": "out/2026-11-13/2026-11-13-01-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-01-grow_ball.mp4",
+  "size_bytes": 21892468,
+  "score": 0.972,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 39,
+   "finale_s": 11.43,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 44.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-01-grow_ball.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "Will it fill the circle?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.0,
+    "duration_ok": true,
+    "duration": 13.63,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.52,
+    "first_frame_not_black": true,
+    "size_mb": 21.9
+   }
+  },
+  "drive_file": "5 Vendredi 13/Can it fill the circle Simulation 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-13-02-lane_race",
+  "mechanic": "lane_race",
+  "seed": 18064733,
+  "params": {
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "root": 58,
+   "mult": 3,
+   "add": 2,
+   "s": 6,
+   "nb": 6,
+   "growth": 1.6,
+   "r": 8.781097837028055,
+   "rm": "×3",
+   "ra": "+2",
+   "left_mult": true,
+   "color_mult": "CYAN",
+   "color_add": "PINK",
+   "gravity": 1437.5574006962229,
+   "bounce_h": 110.10148655174821,
+   "hp_scale": 10.35033559978086,
+   "title_idx": 0,
+   "overlay_idx": 3,
+   "trails": 2,
+   "sfx": "soft:musicbox",
+   "growth_used": 1.578,
+   "hp_scale_used": 6.482578612494327,
+   "sub_seed": 18080571,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "japan",
+    "shift": 0,
+    "reverb": 0.2566504359496592,
+    "bed_bpm": 107,
+    "bed": "four"
+   }
+  },
+  "title": "×3 or +2: which lane wins? | Physics sim",
+  "description": "Break every barrier first to win. Which rule is stronger? #shorts #simulation #satisfying #exponential",
+  "first_comment": "Did you pick ×3 or +2? 👇",
+  "duration": 13.73,
+  "file": "out/2026-11-13/2026-11-13-02-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-02-lane_race.mp4",
+  "size_bytes": 21954336,
+  "score": 0.798,
+  "metrics": {
+   "finale_s": 11.52,
+   "winner": "×3",
+   "underdog_won": true,
+   "margin": 0.24,
+   "leader_changes": 1,
+   "balls": 259
+  },
+  "render_s": 42.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-02-lane_race.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "1 ball vs 6 balls",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -18.5,
+    "duration_ok": true,
+    "duration": 13.73,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.22,
+    "first_frame_not_black": true,
+    "size_mb": 22.0
+   }
+  },
+  "drive_file": "5 Vendredi 13/×3 or +2 which lane wins Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-13-03-color_escape",
+  "mechanic": "color_escape",
+  "seed": 18058741,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "colors": [
+    "RED",
+    "BLUE",
+    "GREEN",
+    "PURPLE"
+   ],
+   "root": 59,
+   "start": 1,
+   "rad": 15.564306840523102,
+   "gravity": 1200.0,
+   "speed": 594.0160948456507,
+   "gap_half": 0.27907869265214275,
+   "omega": 1.147770828975272,
+   "trails": 3,
+   "cap": 22,
+   "title_idx": 1,
+   "overlay_idx": 1,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.23740162556486794,
+    "bed_bpm": 103,
+    "bed": "half"
+   }
+  },
+  "title": "First to 6 escapes wins! | Satisfying",
+  "description": "Every escape spawns two more balls of the same color. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Which color did you pick? 👇",
+  "duration": 15.17,
+  "file": "out/2026-11-13/2026-11-13-03-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-03-color_escape.mp4",
+  "size_bytes": 24285224,
+  "score": 0.659,
+  "metrics": {
+   "N": 6,
+   "winner": "BLUE",
+   "margin": 1,
+   "leader_changes": 3,
+   "late": 0.24,
+   "finale_s": 12.97,
+   "max_balls": 22
+  },
+  "render_s": 50.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-03-color_escape.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "Your color wins? Watch.",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -22.0,
+    "duration_ok": true,
+    "duration": 15.17,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.66,
+    "first_frame_not_black": true,
+    "size_mb": 24.3
+   }
+  },
+  "drive_file": "5 Vendredi 13/First to 6 escapes wins! Satisfying 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-13-04-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 18059736,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "objects": "planets",
+   "root": 57,
+   "r0": 27.97261950182012,
+   "ratio": 1.2967674057704366,
+   "gravity": 693.6632315414129,
+   "spawn0": 0.335250038530969,
+   "spawn1": 0.15162705837848162,
+   "p_levels": [
+    0.5,
+    0.3,
+    0.2
+   ],
+   "title_idx": 1,
+   "overlay_idx": 0,
+   "trails": 0,
+   "chad": true,
+   "sfx": "soft:kalimba",
+   "sound": {
+    "inst": "kalimba",
+    "scale": "lydian",
+    "shift": 0,
+    "reverb": 0.23945239003640245,
+    "bed_bpm": 117,
+    "bed": "half"
+   }
+  },
+  "title": "Moon to Neptune... can it get there? | Simulation",
+  "description": "From the Moon to the Sun, one merge at a time. #shorts #simulation #satisfying #planets",
+  "first_comment": "Should the next one go all the way to the Sun? ☀️👇",
+  "duration": 14.17,
+  "file": "out/2026-11-13/2026-11-13-04-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-04-merge_balls.mp4",
+  "size_bytes": 22713314,
+  "score": 0.897,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 5,
+   "lmax": 7,
+   "finale_s": 11.97,
+   "score": 192
+  },
+  "render_s": 45.0,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-04-merge_balls.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "Merge all the way to Neptune",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -22.0,
+    "duration_ok": true,
+    "duration": 14.17,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.49,
+    "first_frame_not_black": true,
+    "size_mb": 22.7
+   }
+  },
+  "drive_file": "5 Vendredi 13/Moon to Neptune... can it get there Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-05-crusher",
+  "mechanic": "crusher",
+  "seed": 18061737,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 54,
+   "colors": [
+    "PURPLE",
+    "PINK",
+    "CYAN",
+    "YELLOW",
+    "GREEN"
+   ],
+   "fill": 0.4350610448124635,
+   "r0": 32.294337334971814,
+   "levels": 3,
+   "crush": 6.195936354361502,
+   "t_full": 11.049926119316055,
+   "curve": 0.9409115327128775,
+   "speed": 248.73611551529004,
+   "wait": 0.39606996132040273,
+   "lift": 182.95855199426097,
+   "gravity": 1600.0,
+   "title_idx": 0,
+   "overlay_idx": 3,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "major",
+    "shift": -12,
+    "reverb": 0.12470939735954897,
+    "bed_bpm": 104,
+    "bed": "boom"
+   }
+  },
+  "title": "Every crush makes 4 more balls | Physics sim",
+  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
+  "duration": 14.25,
+  "file": "out/2026-11-13/2026-11-13-05-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-05-crusher.mp4",
+  "size_bytes": 22848807,
+  "score": 0.625,
+  "metrics": {
+   "N": 82,
+   "finale_s": 12.03,
+   "n0": 70,
+   "crushed": 4
+  },
+  "render_s": 44.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-05-crusher.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "How deep can it go?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 197,
+    "mean_db": -25.6,
+    "duration_ok": true,
+    "duration": 14.25,
+    "no_dead_time": true,
+    "longest_still_s": 0.3,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.99,
+    "first_frame_not_black": true,
+    "size_mb": 22.8
+   }
+  },
+  "drive_file": "5 Vendredi 13/Every crush makes 4 more balls Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-06-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 18060733,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "ramp": 0,
+   "root": 60,
+   "mother_r": 37.801928267108664,
+   "rad": 13.915307573167734,
+   "gravity": 2000.0,
+   "speed": 1153.2681295477448,
+   "jitter": 0.16055004596029393,
+   "trails": 1,
+   "title_idx": 1,
+   "overlay_idx": 3,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "minor_penta",
+    "shift": 12,
+    "reverb": 0.2773590435614488,
+    "bed_bpm": 121,
+    "bed": "boom"
+   }
+  },
+  "title": "Will it hit 50 balls? | Satisfying",
+  "description": "A single spawner ball and a lot of bounces. #shorts #simulation #satisfying #physics",
+  "first_comment": "Guess the time for 100 next time! 👇",
+  "duration": 13.98,
+  "file": "out/2026-11-13/2026-11-13-06-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-06-bounce_spawn.mp4",
+  "size_bytes": 22373652,
+  "score": 0.992,
+  "metrics": {
+   "N": 50,
+   "finale_s": 11.78,
+   "gravity": 2000.0
+  },
+  "render_s": 44.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-06-bounce_spawn.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "1 bounce = 1 new ball",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 203,
+    "mean_db": -20.6,
+    "duration_ok": true,
+    "duration": 13.98,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.01,
+    "first_frame_not_black": true,
+    "size_mb": 22.4
+   }
+  },
+  "drive_file": "5 Vendredi 13/Will it hit 50 balls Satisfying 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-07-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 18057736,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "color": "WHITE",
+   "root": 56,
+   "r0": 25.7081225375949,
+   "growth": 8.897679833862972,
+   "gravity": 1216.800052977046,
+   "speed": 1410.3252835814,
+   "jitter": 0.12069769688710377,
+   "gap_half": 0.3964586247741564,
+   "omega": 0.7882870143713797,
+   "trails": 9,
+   "title": "Will it fill the whole circle?",
+   "overlay": "Full?",
+   "sfx": "soft:marimba",
+   "sub_seed": 18073574,
+   "sound": {
+    "inst": "marimba",
+    "scale": "major",
+    "shift": -12,
+    "reverb": 0.27132640816696507,
+    "bed_bpm": 117,
+    "bed": "half"
+   }
+  },
+  "title": "Will it fill the whole circle? | Simulation",
+  "description": "Every bounce adds a little size. Watch till the end! #shorts #simulation #satisfying #physics",
+  "first_comment": "Guess the bounce count before it fills up! It took 42. Did you get close? 👇",
+  "duration": 13.58,
+  "file": "out/2026-11-13/2026-11-13-07-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-07-grow_ball.mp4",
+  "size_bytes": 21820198,
+  "score": 0.969,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 42,
+   "finale_s": 11.38,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 37.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-07-grow_ball.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "Watch it reach 100%",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -20.1,
+    "duration_ok": true,
+    "duration": 13.58,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.71,
+    "first_frame_not_black": true,
+    "size_mb": 21.8
+   }
+  },
+  "drive_file": "5 Vendredi 13/Will it fill the whole circle Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-08-color_escape",
+  "mechanic": "color_escape",
+  "seed": 18058733,
+  "params": {
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "colors": [
+    "YELLOW",
+    "ORANGE",
+    "RED",
+    "BLUE"
+   ],
+   "root": 58,
+   "start": 2,
+   "rad": 18.42276685392993,
+   "gravity": 1200.0,
+   "speed": 798.1626507385731,
+   "gap_half": 0.2579226388614004,
+   "omega": 1.3787149739131381,
+   "trails": 5,
+   "cap": 24,
+   "title_idx": 2,
+   "overlay_idx": 2,
+   "sfx": "soft:musicbox",
+   "sound": {
+    "inst": "musicbox",
+    "scale": "penta",
+    "shift": -12,
+    "reverb": 0.24349892367268194,
+    "bed_bpm": 122,
+    "bed": "half"
+   }
+  },
+  "title": "Every escape spawns 2 more. Who wins?",
+  "description": "Escape the ring, score a point, multiply. Which color did you pick? #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Pick a color for the next race in the comments! 👇",
+  "duration": 14.62,
+  "file": "out/2026-11-13/2026-11-13-08-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-08-color_escape.mp4",
+  "size_bytes": 23371818,
+  "score": 0.917,
+  "metrics": {
+   "N": 7,
+   "winner": "ORANGE",
+   "margin": 1,
+   "leader_changes": 3,
+   "late": 0.99,
+   "finale_s": 12.42,
+   "max_balls": 23
+  },
+  "render_s": 44.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-08-color_escape.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "Pick a color. Right now.",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -18.7,
+    "duration_ok": true,
+    "duration": 14.62,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.51,
+    "first_frame_not_black": true,
+    "size_mb": 23.4
+   }
+  },
+  "drive_file": "5 Vendredi 13/Every escape spawns 2 more. Who wins 5h15 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-09-strings",
+  "mechanic": "strings",
+  "seed": 18063734,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "root": 61,
+   "k": 3,
+   "names": [
+    "ORANGE",
+    "PINK",
+    "YELLOW"
+   ],
+   "r0": 24.5739213770038,
+   "gravity": 865.7356675047904,
+   "speed": 464.00470922652266,
+   "jitter": 0.10271435885070072,
+   "start": 5,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 1,
+   "overlay_idx": 1,
+   "trails": 6,
+   "objects": "cats",
+   "cat_levels": [
+    2,
+    5,
+    7
+   ],
+   "sfx": "soft:bloop",
+   "sub_seed": 18190438,
+   "sound": {
+    "inst": "bloop",
+    "scale": "lydian",
+    "shift": -12,
+    "reverb": 0.24591434563437342,
+    "bed_bpm": 121,
+    "bed": "four"
+   }
+  },
+  "title": "Which cat keeps its strings? | Satisfying",
+  "description": "No strings left = out. Pick your winner before it starts! #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "That last cut was so close... who were you rooting for? 👀",
+  "duration": 14.67,
+  "file": "out/2026-11-13/2026-11-13-09-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-09-strings.mp4",
+  "size_bytes": 23468205,
+  "score": 0.546,
+  "metrics": {
+   "finale_s": 12.45,
+   "winner": "SLEEPY CHONK",
+   "leader_changes": 9,
+   "peak": 8,
+   "final": 2
+  },
+  "render_s": 33.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-09-strings.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "Who keeps a string?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -20.7,
+    "duration_ok": true,
+    "duration": 14.67,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.51,
+    "first_frame_not_black": true,
+    "size_mb": 23.5
+   }
+  },
+  "drive_file": "5 Vendredi 13/Which cat keeps its strings Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-13-10-melody_bounce",
+  "mechanic": "melody_bounce",
+  "seed": 18065734,
+  "params": {
+   "theme": {
+    "name": "synthwave",
+    "bg": [
+     [
+      40,
+      8,
+      52
+     ],
+     [
+      6,
+      2,
+      18
+     ]
+    ],
+    "ring": [
+     255,
+     80,
+     200
+    ],
+    "accent": [
+     60,
+     230,
+     255
+    ]
+   },
+   "song": "twinkle",
+   "bpm": 107.66578283618468,
+   "r": 26.758368910092727,
+   "step": 157.35735942354262,
+   "h_max": 440.12298595445856,
+   "title_idx": 2,
+   "overlay_idx": 0,
+   "trails": 7,
+   "sfx": "soft:kalimba",
+   "gravity": 4429,
+   "notes": 20,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.21421750845965162,
+    "bed_bpm": 109,
+    "bed": "half"
+   }
+  },
+  "title": "Guess the song before the end! | Simulation",
+  "description": "Every bounce plays the next note. Did you recognize it? #shorts #simulation #satisfying #music",
+  "first_comment": "What song should the ball play next? 🎵👇",
+  "duration": 14.72,
+  "file": "out/2026-11-13/2026-11-13-10-melody_bounce.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-13/2026-11-13-10-melody_bounce.mp4",
+  "size_bytes": 23018425,
+  "score": 0.804,
+  "metrics": {
+   "finale_s": 12.5,
+   "song": "twinkle",
+   "notes": 20,
+   "gravity": 4429
+  },
+  "render_s": 24.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-13T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-13/qc/2026-11-13-10-melody_bounce.jpg",
+  "created": "2026-11-13",
+  "retention": {
+   "hook": "1 bounce = 1 note",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.3,
+    "audio": true,
+    "audio_kbps": 195,
+    "mean_db": -18.3,
+    "duration_ok": true,
+    "duration": 14.72,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.01,
+    "first_frame_not_black": true,
+    "size_mb": 23.0
+   }
+  },
+  "drive_file": "5 Vendredi 13/Guess the song before the end! Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-01-color_escape",
+  "mechanic": "color_escape",
+  "seed": 89062174,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "colors": [
+    "GREEN",
+    "RED",
+    "BLUE",
+    "PURPLE",
+    "PINK"
+   ],
+   "root": 62,
+   "start": 2,
+   "rad": 21.49271866986305,
+   "gravity": 1200.0,
+   "speed": 796.5678759346073,
+   "gap_half": 0.3136493322767879,
+   "omega": -0.8178837938088902,
+   "trails": 4,
+   "cap": 20,
+   "title_idx": 4,
+   "overlay_idx": 3,
+   "sfx": "soft:kalimba",
+   "sound": {
+    "inst": "kalimba",
+    "scale": "lydian",
+    "shift": 0,
+    "reverb": 0.13772227272000306,
+    "bed_bpm": 97,
+    "bed": "half"
+   }
+  },
+  "title": "Which color reaches 12 first? | Simulation",
+  "description": "Escape the ring, score a point, multiply. Which color did you pick? #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Team Green or not? Drop your color below 👇",
+  "duration": 15.07,
+  "file": "out/2026-11-14/2026-11-14-01-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-01-color_escape.mp4",
+  "size_bytes": 24090762,
+  "score": 0.935,
+  "metrics": {
+   "N": 12,
+   "winner": "GREEN",
+   "margin": 1,
+   "leader_changes": 4,
+   "late": 0.98,
+   "finale_s": 12.87,
+   "max_balls": 25
+  },
+  "render_s": 42.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-01-color_escape.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Pick a color. Right now.",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -17.7,
+    "duration_ok": true,
+    "duration": 15.07,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.79,
+    "first_frame_not_black": true,
+    "size_mb": 24.1
+   }
+  },
+  "drive_file": "6 Samedi 14/Which color reaches 12 first Simulation 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-14-02-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 89061175,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "color": "ORANGE",
+   "root": 58,
+   "r0": 16.73490166369014,
+   "growth": 8.823585057161896,
+   "gravity": 1697.0602979482935,
+   "speed": 1414.7813817524548,
+   "jitter": 0.10882573266882427,
+   "gap_half": 0.3900787296519597,
+   "omega": 0.7663055796918445,
+   "trails": 9,
+   "title": "Can it fill the circle?",
+   "overlay": "",
+   "sfx": "soft:felt",
+   "sub_seed": 89084932,
+   "sound": {
+    "inst": "felt",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.23606821363059438,
+    "bed_bpm": 118,
+    "bed": "boom"
+   }
+  },
+  "title": "Can it fill the circle? | Physics sim",
+  "description": "One ball, one circle, and it grows on every hit. #shorts #simulation #satisfying #physics",
+  "first_comment": "Comment your guess for the next one! 👇",
+  "duration": 14.02,
+  "file": "out/2026-11-14/2026-11-14-02-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-02-grow_ball.mp4",
+  "size_bytes": 22469745,
+  "score": 0.995,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 43,
+   "finale_s": 11.82,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 33.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-02-grow_ball.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Will it fill the circle?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -18.4,
+    "duration_ok": true,
+    "duration": 14.02,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.32,
+    "first_frame_not_black": true,
+    "size_mb": 22.5
+   }
+  },
+  "drive_file": "6 Samedi 14/Can it fill the circle Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-14-05-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 89066173,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "root": 52,
+   "n": 8,
+   "r_in": 80.72584439456986,
+   "color": "CYAN",
+   "gravity": 1002.9946441599889,
+   "speed": 768.9708657115716,
+   "jitter": 0.043333823902839276,
+   "gap": 0.4094906915429651,
+   "omega": 0.7430272894569921,
+   "hue0": 0.2361473728376987,
+   "alt": false,
+   "title_idx": 2,
+   "overlay_idx": 1,
+   "trails": 8,
+   "r0": 17.874882732866205,
+   "sfx": "soft:bloop",
+   "gap_scale": 1.9153100947421882,
+   "sub_seed": 89137444,
+   "sound": {
+    "inst": "bloop",
+    "scale": "japan",
+    "shift": 0,
+    "reverb": 0.18864540412524708,
+    "bed_bpm": 114,
+    "bed": "boom"
+   }
+  },
+  "title": "8 rings. One ball. Can it get out? | Physics sim",
+  "description": "One ball, 8 spinning rings, one gap each. #shorts #simulation #satisfying #willtheballescape",
+  "first_comment": "Should the next one have 16 rings? 👇",
+  "duration": 14.92,
+  "file": "out/2026-11-14/2026-11-14-05-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-05-rings_escape.mp4",
+  "size_bytes": 23911006,
+  "score": 0.898,
+  "metrics": {
+   "finale_s": 12.7,
+   "n": 8,
+   "bounces": 22,
+   "last_wait": 7.25,
+   "max_wait": 7.25
+  },
+  "render_s": 39.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-05-rings_escape.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Escape all 8 rings",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -23.3,
+    "duration_ok": true,
+    "duration": 14.92,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.59,
+    "first_frame_not_black": true,
+    "size_mb": 23.9
+   }
+  },
+  "drive_file": "6 Samedi 14/8 rings. One ball. Can it get out Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-07-lane_race",
+  "mechanic": "lane_race",
+  "seed": 89068173,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "root": 52,
+   "mult": 2,
+   "add": 2,
+   "s": 4,
+   "nb": 6,
+   "growth": 2.1500000000000004,
+   "r": 9.077253461507034,
+   "rm": "×2",
+   "ra": "+2",
+   "left_mult": false,
+   "color_mult": "BLUE",
+   "color_add": "ORANGE",
+   "gravity": 1427.9594011255376,
+   "bounce_h": 113.53612615447206,
+   "hp_scale": 12.372797351906332,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "trails": 2,
+   "sfx": "soft:kalimba",
+   "growth_used": 2.15,
+   "hp_scale_used": 1.6035145368070605,
+   "sub_seed": 89099849,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "penta",
+    "shift": 12,
+    "reverb": 0.12494422153645024,
+    "bed_bpm": 122,
+    "bed": "four"
+   }
+  },
+  "title": "1 ball ×2 vs 4 balls +2 | Simulation",
+  "description": "One lane multiplies, the other adds. Every hit chips a barrier. #shorts #simulation #satisfying #exponential",
+  "first_comment": "Would 1 ball ×2 still win against 9 balls? 🤔👇",
+  "duration": 14.45,
+  "file": "out/2026-11-14/2026-11-14-07-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-07-lane_race.mp4",
+  "size_bytes": 23129322,
+  "score": 0.709,
+  "metrics": {
+   "finale_s": 12.23,
+   "winner": "+2",
+   "underdog_won": false,
+   "margin": 0.11,
+   "leader_changes": 0,
+   "balls": 46
+  },
+  "render_s": 39.9,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-07-lane_race.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "1 ball vs 4 balls",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -19.0,
+    "duration_ok": true,
+    "duration": 14.45,
+    "no_dead_time": true,
+    "longest_still_s": 0.1,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.19,
+    "first_frame_not_black": true,
+    "size_mb": 23.1
+   }
+  },
+  "drive_file": "6 Samedi 14/1 ball ×2 vs 4 balls +2 Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-08-color_escape",
+  "mechanic": "color_escape",
+  "seed": 89062173,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "colors": [
+    "ORANGE",
+    "RED",
+    "YELLOW",
+    "BLUE"
+   ],
+   "root": 63,
+   "start": 2,
+   "rad": 16.29685943898361,
+   "gravity": 500.0,
+   "speed": 736.2629399847633,
+   "gap_half": 0.27336630391598865,
+   "omega": 1.2159976985578482,
+   "trails": 5,
+   "cap": 18,
+   "title_idx": 4,
+   "overlay_idx": 2,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "japan",
+    "shift": -12,
+    "reverb": 0.2596635839059909,
+    "bed_bpm": 101,
+    "bed": "four"
+   }
+  },
+  "title": "Which color reaches 8 first? | Physics sim",
+  "description": "Every escape spawns two more balls of the same color. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Which color did you pick? 👇",
+  "duration": 15.25,
+  "file": "out/2026-11-14/2026-11-14-08-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-08-color_escape.mp4",
+  "size_bytes": 24373942,
+  "score": 0.453,
+  "metrics": {
+   "N": 8,
+   "winner": "BLUE",
+   "margin": 2,
+   "leader_changes": 2,
+   "late": 0.47,
+   "finale_s": 13.05,
+   "max_balls": 16
+  },
+  "render_s": 42.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-08-color_escape.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Your color wins? Watch.",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -18.6,
+    "duration_ok": true,
+    "duration": 15.25,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.31,
+    "first_frame_not_black": true,
+    "size_mb": 24.4
+   }
+  },
+  "drive_file": "6 Samedi 14/Which color reaches 8 first Physics sim 5h15 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-09-strings",
+  "mechanic": "strings",
+  "seed": 89067178,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "root": 59,
+   "k": 2,
+   "names": [
+    "BLUE",
+    "ORANGE"
+   ],
+   "r0": 16.67777819962468,
+   "gravity": 997.5089595706206,
+   "speed": 453.18385237503134,
+   "jitter": 0.1480240963763093,
+   "start": 3,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 0,
+   "overlay_idx": 3,
+   "trails": 4,
+   "sfx": "soft:musicbox",
+   "sub_seed": 89185963,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "minor_penta",
+    "shift": 12,
+    "reverb": 0.25664942788789313,
+    "bed_bpm": 122,
+    "bed": "half"
+   }
+  },
+  "title": "Last ball standing wins | Satisfying",
+  "description": "Strings, bounces and a lot of snapping. Who survives? #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "Who did you pick before it started? 👇",
+  "duration": 15.0,
+  "file": "out/2026-11-14/2026-11-14-09-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-09-strings.mp4",
+  "size_bytes": 23985613,
+  "score": 0.559,
+  "metrics": {
+   "finale_s": 12.78,
+   "winner": "BLUE",
+   "leader_changes": 8,
+   "peak": 7,
+   "final": 3
+  },
+  "render_s": 28.0,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-09-strings.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Pick one. Don't lose it.",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -20.6,
+    "duration_ok": true,
+    "duration": 15.0,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.74,
+    "first_frame_not_black": true,
+    "size_mb": 24.0
+   }
+  },
+  "drive_file": "6 Samedi 14/Last ball standing wins Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-10-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 89064176,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "ramp": 1,
+   "root": 57,
+   "mother_r": 32.22590493873328,
+   "rad": 14.441720952069208,
+   "gravity": 1400.0,
+   "speed": 900.0417546045752,
+   "jitter": 0.12933845404176528,
+   "trails": 2,
+   "title_idx": 2,
+   "overlay_idx": 3,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.20301206584977713,
+    "bed_bpm": 101,
+    "bed": "half"
+   }
+  },
+  "title": "1 bounce = 1 new ball. 50 incoming? | Simulation",
+  "description": "Every time the white ball bounces, a new ball appears. #shorts #simulation #satisfying #physics",
+  "first_comment": "How long did you think it would take to hit 50? ⏱️👇",
+  "duration": 14.95,
+  "file": "out/2026-11-14/2026-11-14-10-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-10-bounce_spawn.mp4",
+  "size_bytes": 23883447,
+  "score": 0.94,
+  "metrics": {
+   "N": 50,
+   "finale_s": 12.75,
+   "gravity": 1400.0
+  },
+  "render_s": 25.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-10-bounce_spawn.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Can it reach 50 balls?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -21.2,
+    "duration_ok": true,
+    "duration": 14.95,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.65,
+    "first_frame_not_black": true,
+    "size_mb": 23.9
+   }
+  },
+  "drive_file": "6 Samedi 14/1 bounce = 1 new ball. 50 incoming Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-01-melody_bounce",
+  "mechanic": "melody_bounce",
+  "seed": 215878248,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "song": "beat",
+   "beat_style": "phonk",
+   "beat_seed": 696012570,
+   "r": 27.570761225662885,
+   "step": 182.34120728480696,
+   "h_max": 401.51765394612147,
+   "title_idx": 2,
+   "overlay_idx": 0,
+   "trails": 8,
+   "sfx": "soft:kalimba",
+   "bpm": 142.3,
+   "gravity": 12000,
+   "notes": 46,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "minor_penta",
+    "shift": 0,
+    "reverb": 0.21711566744924382,
+    "bed_bpm": 107,
+    "bed": "boom"
+   }
+  },
+  "title": "Wait for the beat drop 🔥 | Simulation",
+  "description": "Every bounce plays the next note. Did you recognize it? #shorts #simulation #satisfying #music",
+  "first_comment": "Phonk, trap or drill: what should the ball play next? 👇",
+  "duration": 15.15,
+  "file": "out/2026-11-15/2026-11-15-01-melody_bounce.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-01-melody_bounce.mp4",
+  "size_bytes": 23719152,
+  "score": 0.938,
+  "metrics": {
+   "finale_s": 12.93,
+   "song": "phonk",
+   "notes": 46,
+   "gravity": 12000
+  },
+  "render_s": 32.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T08:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-01-melody_bounce.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Every bounce is a note",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.3,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -19.5,
+    "duration_ok": true,
+    "duration": 15.15,
+    "no_dead_time": true,
+    "longest_still_s": 0.4,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.01,
+    "first_frame_not_black": true,
+    "size_mb": 23.7
+   }
+  },
+  "drive_file": "7 Dimanche 15/Wait for the beat drop 🔥 Simulation 8h05 AM.mp4"
+ },
+ {
+  "id": "2026-11-15-02-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 215872249,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "objects": "planets",
+   "root": 61,
+   "r0": 28.09627849106977,
+   "ratio": 1.2492128930490414,
+   "gravity": 966.2015141294737,
+   "spawn0": 0.25728907657397815,
+   "spawn1": 0.11272240931940788,
+   "p_levels": [
+    0.6,
+    0.3,
+    0.1
+   ],
+   "title_idx": 3,
+   "overlay_idx": 2,
+   "trails": 0,
+   "chad": true,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.24192556982139546,
+    "bed_bpm": 117,
+    "bed": "boom"
+   }
+  },
+  "title": "Will it reach Uranus? | Physics sim",
+  "description": "Same planets fuse together under gravity. #shorts #simulation #satisfying #planets",
+  "first_comment": "Did you think it would reach Uranus? 👇",
+  "duration": 14.23,
+  "file": "out/2026-11-15/2026-11-15-02-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-02-merge_balls.mp4",
+  "size_bytes": 22785823,
+  "score": 0.907,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 6,
+   "lmax": 8,
+   "finale_s": 12.03,
+   "score": 340
+  },
+  "render_s": 31.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T09:35:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-02-merge_balls.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "2 same = 1 bigger",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 204,
+    "mean_db": -22.4,
+    "duration_ok": true,
+    "duration": 14.23,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.33,
+    "first_frame_not_black": true,
+    "size_mb": 22.8
+   }
+  },
+  "drive_file": "7 Dimanche 15/Will it reach Uranus Physics sim 9h35 AM.mp4"
+ },
+ {
+  "id": "2026-11-15-03-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 215870247,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "color": "CYAN",
+   "root": 65,
+   "r0": 18.130278801261362,
+   "growth": 8.218617135312398,
+   "gravity": 1284.267182082236,
+   "speed": 1372.2886095672752,
+   "jitter": 0.1341269407740832,
+   "gap_half": 0.3195837449528869,
+   "omega": -1.3704030143651806,
+   "trails": 9,
+   "objects": "cats",
+   "cat_level": 7,
+   "title": "Will it fill the whole circle?",
+   "overlay": "",
+   "sfx": "soft:musicbox",
+   "sub_seed": 215886085,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "major",
+    "shift": -12,
+    "reverb": 0.18210586488197944,
+    "bed_bpm": 117,
+    "bed": "boom"
+   }
+  },
+  "title": "Will it fill the whole circle? | Satisfying",
+  "description": "Every bounce adds a little size. Watch till the end! #shorts #simulation #satisfying #physics",
+  "first_comment": "Guess the bounce count before it fills up! It took 46. Did you get close? 👇",
+  "duration": 14.18,
+  "file": "out/2026-11-15/2026-11-15-03-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-03-grow_ball.mp4",
+  "size_bytes": 22718536,
+  "score": 0.995,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 46,
+   "finale_s": 11.98,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 58.5,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-03-grow_ball.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Watch it reach 100%",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -19.8,
+    "duration_ok": true,
+    "duration": 14.18,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.18,
+    "first_frame_not_black": true,
+    "size_mb": 22.7
+   }
+  },
+  "drive_file": "7 Dimanche 15/Will it fill the whole circle Satisfying 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-15-04-strings",
+  "mechanic": "strings",
+  "seed": 215876248,
+  "params": {
+   "theme": {
+    "name": "violet",
+    "bg": [
+     [
+      26,
+      12,
+      58
+     ],
+     [
+      4,
+      2,
+      14
+     ]
+    ],
+    "ring": [
+     190,
+     140,
+     255
+    ],
+    "accent": [
+     120,
+     255,
+     200
+    ]
+   },
+   "root": 60,
+   "k": 3,
+   "names": [
+    "ORANGE",
+    "PURPLE",
+    "BLUE"
+   ],
+   "r0": 24.515965072039393,
+   "gravity": 941.2607255965057,
+   "speed": 526.6130693109269,
+   "jitter": 0.12965833002226626,
+   "start": 4,
+   "min_fin": 10.3,
+   "max_fin": 13.5,
+   "title_idx": 3,
+   "overlay_idx": 2,
+   "trails": 4,
+   "objects": "cats",
+   "cat_levels": [
+    3,
+    1,
+    8
+   ],
+   "sfx": "soft:felt",
+   "sub_seed": 216018790,
+   "sound": {
+    "inst": "felt",
+    "scale": "major",
+    "shift": 0,
+    "reverb": 0.21400303916029537,
+    "bed_bpm": 98,
+    "bed": "half"
+   }
+  },
+  "title": "Pick a cat. Who survives? | Simulation",
+  "description": "No strings left = out. Pick your winner before it starts! #shorts #simulation #satisfying #lastonestanding",
+  "first_comment": "Who did you pick before it started? 👇",
+  "duration": 15.53,
+  "file": "out/2026-11-15/2026-11-15-04-strings.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-04-strings.mp4",
+  "size_bytes": 24829563,
+  "score": 0.58,
+  "metrics": {
+   "finale_s": 13.32,
+   "winner": "COOL CAT",
+   "leader_changes": 4,
+   "peak": 8,
+   "final": 1
+  },
+  "render_s": 38.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-04-strings.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Pick one. Don't lose it.",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.4,
+    "duration_ok": true,
+    "duration": 15.53,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.48,
+    "first_frame_not_black": true,
+    "size_mb": 24.8
+   }
+  },
+  "drive_file": "7 Dimanche 15/Pick a cat. Who survives Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-05-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 215870257,
+  "params": {
+   "variant": "fill",
+   "theme": {
+    "name": "deepsea",
+    "bg": [
+     [
+      4,
+      30,
+      48
+     ],
+     [
+      0,
+      6,
+      12
+     ]
+    ],
+    "ring": [
+     60,
+     255,
+     210
+    ],
+    "accent": [
+     255,
+     170,
+     60
+    ]
+   },
+   "color": "YELLOW",
+   "root": 65,
+   "r0": 27.226651000025278,
+   "growth": 7.942532885234832,
+   "gravity": 2164.091309313135,
+   "speed": 1341.7338492220008,
+   "jitter": 0.048106013709276266,
+   "gap_half": 0.43462706455044436,
+   "omega": 1.055960704457248,
+   "trails": 7,
+   "objects": "cats",
+   "cat_level": 3,
+   "title": "How many bounces to fill the ring?",
+   "overlay": "",
+   "sfx": "soft:bloop",
+   "sub_seed": 215886095,
+   "sound": {
+    "inst": "bloop",
+    "scale": "japan",
+    "shift": 0,
+    "reverb": 0.20108517933359676,
+    "bed_bpm": 119,
+    "bed": "boom"
+   }
+  },
+  "title": "How many bounces to fill the ring? | Physics sim",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "Rate this chonky cat from 1 to 10 🐱👇",
+  "duration": 13.93,
+  "file": "out/2026-11-15/2026-11-15-05-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-05-grow_ball.mp4",
+  "size_bytes": 22314918,
+  "score": 0.99,
+  "metrics": {
+   "outcome": "full",
+   "bounces": 47,
+   "finale_s": 11.73,
+   "too_big_s": null,
+   "escape_margin": null
+  },
+  "render_s": 59.1,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T13:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-05-grow_ball.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Will it fill the circle?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.1,
+    "duration_ok": true,
+    "duration": 13.93,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.17,
+    "first_frame_not_black": true,
+    "size_mb": 22.3
+   }
+  },
+  "drive_file": "7 Dimanche 15/How many bounces to fill the ring Physics sim 1h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-06-crusher",
+  "mechanic": "crusher",
+  "seed": 215874250,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 55,
+   "colors": [
+    "RED",
+    "YELLOW"
+   ],
+   "fill": 0.32524577634449814,
+   "r0": 39.6174261606294,
+   "levels": 3,
+   "crush": 6.283738740085192,
+   "t_full": 10.692308134795018,
+   "curve": 0.9493883996081431,
+   "speed": 358.8483658003087,
+   "wait": 0.3898420151256918,
+   "lift": 202.85561094990823,
+   "gravity": 1600.0,
+   "title_idx": 2,
+   "overlay_idx": 2,
+   "sfx": "soft:marimba",
+   "sound": {
+    "inst": "marimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.24187881857007038,
+    "bed_bpm": 101,
+    "bed": "four"
+   }
+  },
+  "title": "Hydraulic press vs 34 balls | Satisfying",
+  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 13.98,
+  "file": "out/2026-11-15/2026-11-15-06-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-06-crusher.mp4",
+  "size_bytes": 22407628,
+  "score": 0.598,
+  "metrics": {
+   "N": 14,
+   "finale_s": 11.77,
+   "n0": 34,
+   "crushed": -6
+  },
+  "render_s": 28.0,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-06-crusher.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "1 crush = 4 balls",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -24.3,
+    "duration_ok": true,
+    "duration": 13.98,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.86,
+    "first_frame_not_black": true,
+    "size_mb": 22.4
+   }
+  },
+  "drive_file": "7 Dimanche 15/Hydraulic press vs 34 balls Satisfying 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-07-rings_escape",
+  "mechanic": "rings_escape",
+  "seed": 215875248,
+  "params": {
+   "theme": {
+    "name": "ember",
+    "bg": [
+     [
+      48,
+      14,
+      8
+     ],
+     [
+      10,
+      2,
+      2
+     ]
+    ],
+    "ring": [
+     255,
+     150,
+     60
+    ],
+    "accent": [
+     255,
+     240,
+     200
+    ]
+   },
+   "root": 54,
+   "n": 8,
+   "r_in": 74.97809624597467,
+   "color": "ORANGE",
+   "gravity": 1497.5871031351403,
+   "speed": 677.2688507456323,
+   "jitter": 0.04093738759501127,
+   "gap": 0.3469804158220757,
+   "omega": 1.0960112402994493,
+   "hue0": 0.7207931749082553,
+   "alt": true,
+   "title_idx": 2,
+   "overlay_idx": 1,
+   "trails": 9,
+   "r0": 18.0,
+   "sfx": "soft:kalimba",
+   "gap_scale": 2.13197425532,
+   "sub_seed": 215962357,
+   "sound": {
+    "inst": "kalimba",
+    "scale": "lydian",
+    "shift": 0,
+    "reverb": 0.1518598159742379,
+    "bed_bpm": 111,
+    "bed": "half"
+   }
+  },
+  "title": "8 rings. One ball. Can it get out? | Simulation",
+  "description": "One ball, 8 spinning rings, one gap each. #shorts #simulation #satisfying #willtheballescape",
+  "first_comment": "Be honest, did you think it would get out? 👀",
+  "duration": 12.9,
+  "file": "out/2026-11-15/2026-11-15-07-rings_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-07-rings_escape.mp4",
+  "size_bytes": 20725726,
+  "score": 0.793,
+  "metrics": {
+   "finale_s": 10.68,
+   "n": 8,
+   "bounces": 15,
+   "last_wait": 2.32,
+   "max_wait": 3.83
+  },
+  "render_s": 25.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-07-rings_escape.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Watch the last ring break",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -22.1,
+    "duration_ok": true,
+    "duration": 12.9,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.72,
+    "first_frame_not_black": true,
+    "size_mb": 20.7
+   }
+  },
+  "drive_file": "7 Dimanche 15/8 rings. One ball. Can it get out Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-08-color_escape",
+  "mechanic": "color_escape",
+  "seed": 215871254,
+  "params": {
+   "theme": {
+    "name": "forest",
+    "bg": [
+     [
+      8,
+      36,
+      22
+     ],
+     [
+      1,
+      8,
+      4
+     ]
+    ],
+    "ring": [
+     150,
+     255,
+     110
+    ],
+    "accent": [
+     255,
+     230,
+     90
+    ]
+   },
+   "colors": [
+    "YELLOW",
+    "PURPLE",
+    "CYAN"
+   ],
+   "root": 56,
+   "start": 2,
+   "rad": 20.70984023070165,
+   "gravity": 500.0,
+   "speed": 724.0472931454392,
+   "gap_half": 0.2277770355331742,
+   "omega": -1.4666004785733668,
+   "trails": 4,
+   "cap": 25,
+   "title_idx": 2,
+   "overlay_idx": 0,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "dorian",
+    "shift": 12,
+    "reverb": 0.20519413485253696,
+    "bed_bpm": 107,
+    "bed": "half"
+   }
+  },
+  "title": "Every escape spawns 2 more. Who wins?",
+  "description": "A rotating gap, a few colors, one winner. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Which color did you pick? 👇",
+  "duration": 13.43,
+  "file": "out/2026-11-15/2026-11-15-08-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-08-color_escape.mp4",
+  "size_bytes": 21560830,
+  "score": 0.246,
+  "metrics": {
+   "N": 6,
+   "winner": "PURPLE",
+   "margin": 5,
+   "leader_changes": 1,
+   "late": 0.63,
+   "finale_s": 11.23,
+   "max_balls": 15
+  },
+  "render_s": 32.7,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-08-color_escape.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Pick a color. Right now.",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -21.8,
+    "duration_ok": true,
+    "duration": 13.43,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.35,
+    "first_frame_not_black": true,
+    "size_mb": 21.6
+   }
+  },
+  "drive_file": "7 Dimanche 15/Every escape spawns 2 more. Who wins 5h15 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-09-lane_race",
+  "mechanic": "lane_race",
+  "seed": 215877251,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "root": 50,
+   "mult": 3,
+   "add": 2,
+   "s": 5,
+   "nb": 6,
+   "growth": 1.54,
+   "r": 7.539574412404756,
+   "rm": "×3",
+   "ra": "+2",
+   "left_mult": false,
+   "color_mult": "ORANGE",
+   "color_add": "CYAN",
+   "gravity": 1478.9186810631245,
+   "bounce_h": 121.09527565405118,
+   "hp_scale": 12.965162245493055,
+   "title_idx": 3,
+   "overlay_idx": 2,
+   "trails": 2,
+   "sfx": "soft:musicbox",
+   "growth_used": 1.466,
+   "hp_scale_used": 6.81910583390701,
+   "sub_seed": 215908927,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "major",
+    "shift": 0,
+    "reverb": 0.12422127065650727,
+    "bed_bpm": 113,
+    "bed": "four"
+   }
+  },
+  "title": "Can 1 ball beat 5? | Satisfying",
+  "description": "Break every barrier first to win. Which rule is stronger? #shorts #simulation #satisfying #exponential",
+  "first_comment": "Did you pick ×3 or +2? 👇",
+  "duration": 14.32,
+  "file": "out/2026-11-15/2026-11-15-09-lane_race.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-09-lane_race.mp4",
+  "size_bytes": 22858701,
+  "score": 0.732,
+  "metrics": {
+   "finale_s": 12.1,
+   "winner": "×3",
+   "underdog_won": true,
+   "margin": 0.04,
+   "leader_changes": 0,
+   "balls": 258
+  },
+  "render_s": 30.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T18:25:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-09-lane_race.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "Multiply or add: who wins?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 201,
+    "mean_db": -18.4,
+    "duration_ok": true,
+    "duration": 14.32,
+    "no_dead_time": true,
+    "longest_still_s": 0.1,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 0.18,
+    "first_frame_not_black": true,
+    "size_mb": 22.9
+   }
+  },
+  "drive_file": "7 Dimanche 15/Can 1 ball beat 5 Satisfying 6h25 PM.mp4"
+ },
+ {
+  "id": "2026-11-15-10-color_escape",
+  "mechanic": "color_escape",
+  "seed": 215871248,
+  "params": {
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "colors": [
+    "GREEN",
+    "RED",
+    "CYAN"
+   ],
+   "root": 64,
+   "start": 2,
+   "rad": 16.041431217118713,
+   "gravity": 500.0,
+   "speed": 808.0990368978339,
+   "gap_half": 0.2262781636504344,
+   "omega": -1.4267056808370198,
+   "trails": 6,
+   "cap": 16,
+   "title_idx": 1,
+   "overlay_idx": 0,
+   "sfx": "soft:felt",
+   "sound": {
+    "inst": "felt",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.1297894778733456,
+    "bed_bpm": 123,
+    "bed": "four"
+   }
+  },
+  "title": "First to 6 escapes wins! | Simulation",
+  "description": "Every escape spawns two more balls of the same color. #shorts #simulation #satisfying #colorrace",
+  "first_comment": "Which color did you pick? 👇",
+  "duration": 14.15,
+  "file": "out/2026-11-15/2026-11-15-10-color_escape.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-15/2026-11-15-10-color_escape.mp4",
+  "size_bytes": 22696958,
+  "score": 0.924,
+  "metrics": {
+   "N": 6,
+   "winner": "CYAN",
+   "margin": 1,
+   "leader_changes": 3,
+   "late": 1.0,
+   "finale_s": 11.95,
+   "max_balls": 14
+  },
+  "render_s": 25.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-15T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-15/qc/2026-11-15-10-color_escape.jpg",
+  "created": "2026-11-15",
+  "retention": {
+   "hook": "3 colors. 1 exit.",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 199,
+    "mean_db": -19.8,
+    "duration_ok": true,
+    "duration": 14.15,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.93,
+    "first_frame_not_black": true,
+    "size_mb": 22.7
+   }
+  },
+  "drive_file": "7 Dimanche 15/First to 6 escapes wins! Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-10-07-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 57272939,
+  "params": {
+   "theme": {
+    "name": "graphite",
+    "bg": [
+     [
+      28,
+      30,
+      38
+     ],
+     [
+      4,
+      4,
+      6
+     ]
+    ],
+    "ring": [
+     240,
+     240,
+     255
+    ],
+    "accent": [
+     255,
+     90,
+     110
+    ]
+   },
+   "objects": "planets",
+   "root": 62,
+   "r0": 29.650223239098175,
+   "ratio": 1.2836922842984422,
+   "gravity": 1041.3203051880714,
+   "spawn0": 0.2638915137533886,
+   "spawn1": 0.13712315290803573,
+   "p_levels": [
+    0.5,
+    0.3,
+    0.2
+   ],
+   "title_idx": 3,
+   "overlay_idx": 3,
+   "trails": 0,
+   "chad": true,
+   "sfx": "soft:kalimba",
+   "sound": {
+    "inst": "kalimba",
+    "scale": "lydian",
+    "shift": 12,
+    "reverb": 0.2730044647819635,
+    "bed_bpm": 97,
+    "bed": "boom"
+   }
+  },
+  "title": "Will it reach Uranus? | Simulation",
+  "description": "Two identical planets merge into the next one, all the way up to the Sun? #shorts #simulation #satisfying #planets",
+  "first_comment": "Did you think it would reach Uranus? 👇",
+  "duration": 15.37,
+  "file": "out/2026-11-10/2026-11-10-07-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-10/2026-11-10-07-merge_balls.mp4",
+  "size_bytes": 24555401,
+  "score": 0.893,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 6,
+   "lmax": 7,
+   "finale_s": 13.17,
+   "score": 342
+  },
+  "render_s": 33.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-10T16:05:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-10/qc/2026-11-10-07-merge_balls.jpg",
+  "created": "2026-11-10",
+  "retention": {
+   "hook": "Will it reach Uranus?",
+   "hook_type": "question",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -20.8,
+    "duration_ok": true,
+    "duration": 15.37,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.36,
+    "first_frame_not_black": true,
+    "size_mb": 24.6
+   }
+  },
+  "drive_file": "2 Mardi 10/Will it reach Uranus Simulation 4h05 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-10-crusher",
+  "mechanic": "crusher",
+  "seed": 265410572,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 59,
+   "colors": [
+    "ORANGE",
+    "BLUE",
+    "LIME",
+    "PURPLE"
+   ],
+   "fill": 0.3370596517104051,
+   "r0": 32.43518028809201,
+   "levels": 3,
+   "crush": 7.91994899955764,
+   "t_full": 11.791014851938485,
+   "curve": 0.9359756079392848,
+   "speed": 312.7669026498885,
+   "wait": 0.3070433669862296,
+   "lift": 199.09085203521485,
+   "gravity": 1600.0,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "sfx": "soft:kalimba",
+   "sound": {
+    "inst": "kalimba",
+    "scale": "dorian",
+    "shift": 0,
+    "reverb": 0.12696288460947222,
+    "bed_bpm": 108,
+    "bed": "four"
+   }
+  },
+  "title": "Can the press go all the way down? | Simulation",
+  "description": "A hydraulic press, a lot of balls, and very satisfying crunches. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
+  "duration": 14.17,
+  "file": "out/2026-11-11/2026-11-11-10-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-10-crusher.mp4",
+  "size_bytes": 22681279,
+  "score": 0.633,
+  "metrics": {
+   "N": 89,
+   "finale_s": 11.95,
+   "n0": 53,
+   "crushed": 12
+  },
+  "render_s": 23.2,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-10-crusher.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "Wait for the last crush",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -25.6,
+    "duration_ok": true,
+    "duration": 14.17,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.53,
+    "first_frame_not_black": true,
+    "size_mb": 22.7
+   }
+  },
+  "drive_file": "3 Mercredi 11/Can the press go all the way down Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-06-crusher",
+  "mechanic": "crusher",
+  "seed": 106281999,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 55,
+   "colors": [
+    "PURPLE",
+    "PINK",
+    "CYAN",
+    "YELLOW",
+    "GREEN"
+   ],
+   "fill": 0.3704401090340908,
+   "r0": 33.21455243150792,
+   "levels": 3,
+   "crush": 9.212193644328321,
+   "t_full": 11.881982843475363,
+   "curve": 1.0220407612768478,
+   "speed": 359.4619742122875,
+   "wait": 0.29748246350105856,
+   "lift": 233.49001404483315,
+   "gravity": 1600.0,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "sfx": "soft:bloop",
+   "sound": {
+    "inst": "bloop",
+    "scale": "major",
+    "shift": 0,
+    "reverb": 0.1394328389041267,
+    "bed_bpm": 97,
+    "bed": "half"
+   }
+  },
+  "title": "Can the press go all the way down? | Simulation",
+  "description": "Crush one ball, get four. Watch the count explode. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "What should the press crush next? 👇",
+  "duration": 14.0,
+  "file": "out/2026-11-12/2026-11-12-06-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-06-crusher.mp4",
+  "size_bytes": 22405116,
+  "score": 0.625,
+  "metrics": {
+   "N": 80,
+   "finale_s": 11.78,
+   "n0": 56,
+   "crushed": 8
+  },
+  "render_s": 24.3,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-06-crusher.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Crush every single ball",
+   "hook_type": "défi",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 197,
+    "mean_db": -23.0,
+    "duration_ok": true,
+    "duration": 14.0,
+    "no_dead_time": true,
+    "longest_still_s": 0.2,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.92,
+    "first_frame_not_black": true,
+    "size_mb": 22.4
+   }
+  },
+  "drive_file": "4 Jeudi 12/Can the press go all the way down Simulation 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-12-10-bounce_spawn",
+  "mechanic": "bounce_spawn",
+  "seed": 1270920,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "ramp": 0,
+   "root": 55,
+   "mother_r": 29.05729288840713,
+   "rad": 12.463861090475667,
+   "gravity": 700.0,
+   "speed": 995.8756029535938,
+   "jitter": 0.09796747166660771,
+   "trails": 2,
+   "title_idx": 1,
+   "overlay_idx": 2,
+   "sfx": "soft:marimba",
+   "sound": {
+    "inst": "marimba",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.16076390517876174,
+    "bed_bpm": 111,
+    "bed": "half"
+   }
+  },
+  "title": "Will it hit 50 balls? | Simulation",
+  "description": "One bounce, one new ball. Watch it fill up! #shorts #simulation #satisfying #physics",
+  "first_comment": "Watch it again and count the bounces 👀👇",
+  "duration": 13.68,
+  "file": "out/2026-11-12/2026-11-12-10-bounce_spawn.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-12/2026-11-12-10-bounce_spawn.mp4",
+  "size_bytes": 21933136,
+  "score": 0.971,
+  "metrics": {
+   "N": 50,
+   "finale_s": 11.48,
+   "gravity": 700.0
+  },
+  "render_s": 24.4,
+  "fps": 60,
+  "scheduled_at": "2026-11-12T19:40:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-12/qc/2026-11-12-10-bounce_spawn.jpg",
+  "created": "2026-11-12",
+  "retention": {
+   "hook": "Watch it hit 50",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 202,
+    "mean_db": -19.4,
+    "duration_ok": true,
+    "duration": 13.68,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 0.66,
+    "first_frame_not_black": true,
+    "size_mb": 21.9
+   }
+  },
+  "drive_file": "4 Jeudi 12/Will it hit 50 balls Simulation 7h40 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-03-merge_balls",
+  "mechanic": "merge_balls",
+  "seed": 89125006,
+  "params": {
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "objects": "cats",
+   "root": 56,
+   "r0": 28.495175267277094,
+   "ratio": 1.2881341623912084,
+   "gravity": 810.9608728995039,
+   "spawn0": 0.23001318684413014,
+   "spawn1": 0.11869371014239843,
+   "p_levels": [
+    0.5,
+    0.3,
+    0.2
+   ],
+   "title_idx": 0,
+   "overlay_idx": 2,
+   "trails": 0,
+   "chad": false,
+   "sfx": "soft:marimba",
+   "sound": {
+    "inst": "marimba",
+    "scale": "major",
+    "shift": 0,
+    "reverb": 0.2499035053455419,
+    "bed_bpm": 118,
+    "bed": "four"
+   }
+  },
+  "title": "Can it make the Love Cat? | Simulation",
+  "description": "From tiny kitten to King Cat, one merge at a time. #shorts #simulation #satisfying #cat",
+  "first_comment": "Which cat is your favorite? 🐱👇",
+  "duration": 13.28,
+  "file": "out/2026-11-14/2026-11-14-03-merge_balls.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-03-merge_balls.mp4",
+  "size_bytes": 21314734,
+  "score": 0.913,
+  "metrics": {
+   "outcome": "max",
+   "goal_level": 6,
+   "lmax": 7,
+   "finale_s": 11.08,
+   "score": 336
+  },
+  "render_s": 28.9,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T10:50:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-03-merge_balls.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "2 same = 1 bigger",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 197,
+    "mean_db": -21.5,
+    "duration_ok": true,
+    "duration": 13.28,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.69,
+    "first_frame_not_black": true,
+    "size_mb": 21.3
+   }
+  },
+  "drive_file": "6 Samedi 14/Can it make the Love Cat Simulation 10h50 AM.mp4"
+ },
+ {
+  "id": "2026-11-14-04-crusher",
+  "mechanic": "crusher",
+  "seed": 89128304,
+  "params": {
+   "theme": {
+    "name": "noir",
+    "bg": [
+     [
+      8,
+      8,
+      10
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "ring": [
+     215,
+     215,
+     225
+    ],
+    "accent": [
+     255,
+     255,
+     255
+    ],
+    "flat": true
+   },
+   "root": 55,
+   "colors": [
+    "PURPLE",
+    "PINK",
+    "CYAN",
+    "YELLOW",
+    "GREEN"
+   ],
+   "fill": 0.351497076919719,
+   "r0": 36.72568931784156,
+   "levels": 3,
+   "crush": 8.592117151266802,
+   "t_full": 11.116724750822772,
+   "curve": 1.0101938357733558,
+   "speed": 298.5693739497393,
+   "wait": 0.41033999049519776,
+   "lift": 160.1868171587571,
+   "gravity": 1600.0,
+   "title_idx": 2,
+   "overlay_idx": 0,
+   "sfx": "soft:musicbox",
+   "sound": {
+    "inst": "musicbox",
+    "scale": "japan",
+    "shift": 12,
+    "reverb": 0.19561102908546485,
+    "bed_bpm": 117,
+    "bed": "four"
+   }
+  },
+  "title": "Hydraulic press vs 43 balls | Simulation",
+  "description": "Every ball the press crushes splits into 4 smaller ones. #shorts #simulation #satisfying #hydraulicpress",
+  "first_comment": "That crunch sound though... 🔊 Rate it 1 to 10 👇",
+  "duration": 14.1,
+  "file": "out/2026-11-14/2026-11-14-04-crusher.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-04-crusher.mp4",
+  "size_bytes": 22581228,
+  "score": 0.618,
+  "metrics": {
+   "N": 48,
+   "finale_s": 11.88,
+   "n0": 43,
+   "crushed": 1
+  },
+  "render_s": 20.6,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T12:20:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-04-crusher.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "1 crush = 4 balls",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 197,
+    "mean_db": -23.6,
+    "duration_ok": true,
+    "duration": 14.1,
+    "no_dead_time": true,
+    "longest_still_s": 0.3,
+    "climax_last_2s": true,
+    "climax_from_end": 1.02,
+    "loop_ok": true,
+    "loop_err": 1.72,
+    "first_frame_not_black": true,
+    "size_mb": 22.6
+   }
+  },
+  "drive_file": "6 Samedi 14/Hydraulic press vs 43 balls Simulation 12h20 PM.mp4"
+ },
+ {
+  "id": "2026-11-14-06-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 89126902,
+  "params": {
+   "variant": "escape",
+   "theme": {
+    "name": "midnight",
+    "bg": [
+     [
+      14,
+      10,
+      40
+     ],
+     [
+      2,
+      2,
+      10
+     ]
+    ],
+    "ring": [
+     120,
+     220,
+     255
+    ],
+    "accent": [
+     255,
+     214,
+     64
+    ]
+   },
+   "color": "GREEN",
+   "root": 57,
+   "r0": 85.42021094571327,
+   "growth": 2.146324071018977,
+   "gravity": 1425.6643017408462,
+   "speed": 1024.6017141727016,
+   "jitter": 0.04957301423711184,
+   "gap_half": 0.3763131366215263,
+   "omega": 1.0737331584701062,
+   "trails": 7,
+   "objects": "cats",
+   "cat_level": 2,
+   "title": "Escape or get trapped?",
+   "overlay": "Out?",
+   "sfx": "soft:musicbox",
+   "sub_seed": 89174416,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "penta",
+    "shift": 0,
+    "reverb": 0.24271648094919618,
+    "bed_bpm": 97,
+    "bed": "half"
+   }
+  },
+  "title": "Escape or get trapped? | Simulation",
+  "description": "A ball that grows bigger with every single bounce. #shorts #simulation #satisfying #physics",
+  "first_comment": "Be honest, did you call it before the end? 👀",
+  "duration": 13.65,
+  "file": "out/2026-11-14/2026-11-14-06-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-14/2026-11-14-06-grow_ball.mp4",
+  "size_bytes": 21890199,
+  "score": 1.0,
+  "metrics": {
+   "outcome": "escaped",
+   "bounces": 25,
+   "finale_s": 11.45,
+   "too_big_s": null,
+   "escape_margin": 0.0769500788310048
+  },
+  "render_s": 26.9,
+  "fps": 60,
+  "scheduled_at": "2026-11-14T14:55:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-14/qc/2026-11-14-06-grow_ball.jpg",
+  "created": "2026-11-14",
+  "retention": {
+   "hook": "Watch till the very end",
+   "hook_type": "pari",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 200,
+    "mean_db": -22.6,
+    "duration_ok": true,
+    "duration": 13.65,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.27,
+    "first_frame_not_black": true,
+    "size_mb": 21.9
+   }
+  },
+  "drive_file": "6 Samedi 14/Escape or get trapped Simulation 2h55 PM.mp4"
+ },
+ {
+  "id": "2026-11-11-08-grow_ball",
+  "mechanic": "grow_ball",
+  "seed": 265480243,
+  "params": {
+   "variant": "escape",
+   "theme": {
+    "name": "aurora",
+    "bg": [
+     [
+      6,
+      26,
+      40
+     ],
+     [
+      6,
+      4,
+      24
+     ]
+    ],
+    "ring": [
+     110,
+     255,
+     170
+    ],
+    "accent": [
+     255,
+     120,
+     230
+    ]
+   },
+   "color": "BLUE",
+   "root": 61,
+   "r0": 83.01484463207947,
+   "growth": 0.9559306203882407,
+   "gravity": 2193.8430610621563,
+   "speed": 939.1058417722351,
+   "jitter": 0.10265456194208142,
+   "gap_half": 0.3037671781292591,
+   "omega": -1.1831183984810751,
+   "trails": 9,
+   "objects": "cats",
+   "cat_level": 2,
+   "title": "Escape or get trapped?",
+   "overlay": "",
+   "sfx": "soft:musicbox",
+   "sub_seed": 265496081,
+   "sound": {
+    "inst": "musicbox",
+    "scale": "minor_penta",
+    "shift": 0,
+    "reverb": 0.16184177654251872,
+    "bed_bpm": 110,
+    "bed": "half"
+   }
+  },
+  "title": "Escape or get trapped? | Simulation",
+  "description": "One ball, one circle, and it grows on every hit. #shorts #simulation #satisfying #physics",
+  "first_comment": "Escape or stuck... what was your guess? 🤔",
+  "duration": 14.02,
+  "file": "out/2026-11-11/2026-11-11-08-grow_ball.mp4",
+  "url": "https://raw.githubusercontent.com/Qboli33/shorts-sim/main/out/2026-11-11/2026-11-11-08-grow_ball.mp4",
+  "size_bytes": 22483280,
+  "score": 1.0,
+  "metrics": {
+   "outcome": "escaped",
+   "bounces": 15,
+   "finale_s": 11.82,
+   "too_big_s": null,
+   "escape_margin": 0.20616921372841135
+  },
+  "render_s": 29.0,
+  "fps": 60,
+  "scheduled_at": "2026-11-11T17:15:00+08:00",
+  "metricool_id": null,
+  "status": "delivered",
+  "qc_sheet": "out/2026-11-11/qc/2026-11-11-08-grow_ball.jpg",
+  "created": "2026-11-11",
+  "retention": {
+   "hook": "1 gap. 1 growing ball.",
+   "hook_type": "compte",
+   "checks": {
+    "format": true,
+    "bitrate_ok": true,
+    "video_mbps": 12.6,
+    "audio": true,
+    "audio_kbps": 198,
+    "mean_db": -24.4,
+    "duration_ok": true,
+    "duration": 14.02,
+    "no_dead_time": true,
+    "longest_still_s": 0.0,
+    "climax_last_2s": true,
+    "climax_from_end": 1.0,
+    "loop_ok": true,
+    "loop_err": 1.12,
+    "first_frame_not_black": true,
+    "size_mb": 22.5
+   }
+  },
+  "drive_file": "3 Mercredi 11/Escape or get trapped Simulation 5h15 PM.mp4"
  }
 ]
